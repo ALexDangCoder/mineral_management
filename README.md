@@ -1,8 +1,6 @@
 # bnv_opendata Flutter Project
 
-# Flutter 3.0.5 • channel stable • https://github.com/flutter/flutter.git
-
-# Tools • Dart 2.17.6 • DevTools 2.12.2
+# Flutter 3.35.7 • channel stable • https://github.com/flutter/flutter.git
 
 ## Getting started
 
