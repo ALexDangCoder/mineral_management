@@ -19,7 +19,7 @@ class XelaLineChartDataset {
       this.pointColor = XelaColor.Gray11,
       this.fillColor = Colors.transparent,
       this.tension = 0.1,
-      this.pointColorBackground = Colors.white});
+      this.pointColorBackground = Colors.white,});
 }
 
 class XelaBarChartDataset {
@@ -30,7 +30,7 @@ class XelaBarChartDataset {
   XelaBarChartDataset(
       {required this.label,
       required this.data,
-      this.fillColor = XelaColor.Blue3});
+      this.fillColor = XelaColor.Blue3,});
 }
 
 class XelaPieChartDataset {
@@ -39,7 +39,7 @@ class XelaPieChartDataset {
   final List<Color> fillColors;
 
   XelaPieChartDataset(
-      {required this.label, required this.data, required this.fillColors});
+      {required this.label, required this.data, required this.fillColors,});
 }
 
 class XelaDoughnutDataset {
@@ -48,5 +48,5 @@ class XelaDoughnutDataset {
   final List<Color> fillColors;
 
   XelaDoughnutDataset(
-      {required this.label, required this.data, required this.fillColors});
+      {required this.label, required this.data, required this.fillColors,});
 }

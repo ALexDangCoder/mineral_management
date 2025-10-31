@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
 abstract class BaseCubit<BaseState> extends BlocBase<BaseState> {
-  BaseCubit(BaseState initialState) : super(initialState);
+  BaseCubit(super.initialState);
 
   final List<dynamic> loadMoreList = [];
   int loadMorePage = 1;

@@ -138,6 +138,7 @@ class XelaSliderTrackShape extends RoundedRectSliderTrackShape {
     PaintingContext context,
     Offset offset, {
     required RenderBox parentBox,
+    Offset? secondaryOffset,
     required SliderThemeData sliderTheme,
     required Animation<double> enableAnimation,
     required TextDirection textDirection,

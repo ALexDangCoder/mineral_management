@@ -68,58 +68,58 @@ class AppRouter {
 
     switch (settings.name) {
       case main:
-        return MaterialPageRoute(builder: (ctx) => MainScreen());
+        return MaterialPageRoute(builder: (ctx) => const MainScreen());
       //Router screen ui xela kit
       case typography:
-        return MaterialPageRoute(builder: (ctx) => TypographyComponent());
+        return MaterialPageRoute(builder: (ctx) => const TypographyComponent());
       case colors:
-        return MaterialPageRoute(builder: (ctx) => ColorsComponent());
+        return MaterialPageRoute(builder: (ctx) => const ColorsComponent());
       case accordion:
-        return MaterialPageRoute(builder: (ctx) => AccordionComponent());
+        return MaterialPageRoute(builder: (ctx) => const AccordionComponent());
       case alert:
-        return MaterialPageRoute(builder: (ctx) => AlertComponent());
+        return MaterialPageRoute(builder: (ctx) => const AlertComponent());
       case avatar:
-        return MaterialPageRoute(builder: (ctx) => UserAvatarComponent());
+        return MaterialPageRoute(builder: (ctx) => const UserAvatarComponent());
       case badge:
-        return MaterialPageRoute(builder: (ctx) => BadgeComponent());
+        return MaterialPageRoute(builder: (ctx) => const BadgeComponent());
       case button:
-        return MaterialPageRoute(builder: (ctx) => ButtonsComponent());
+        return MaterialPageRoute(builder: (ctx) => const ButtonsComponent());
       case chart:
-        return MaterialPageRoute(builder: (ctx) => ChartsComponent());
+        return MaterialPageRoute(builder: (ctx) => const ChartsComponent());
       case chcheckboxart:
-        return MaterialPageRoute(builder: (ctx) => CheckboxComponent());
+        return MaterialPageRoute(builder: (ctx) => const CheckboxComponent());
       case chips:
-        return MaterialPageRoute(builder: (ctx) => ChipsComponent());
+        return MaterialPageRoute(builder: (ctx) => const ChipsComponent());
       case datepicker:
-        return MaterialPageRoute(builder: (ctx) => DatePickerComponent());
+        return MaterialPageRoute(builder: (ctx) => const DatePickerComponent());
       case dialog:
-        return MaterialPageRoute(builder: (ctx) => DialogsComponent());
+        return MaterialPageRoute(builder: (ctx) => const DialogsComponent());
       case divider:
-        return MaterialPageRoute(builder: (ctx) => DividerComponent());
+        return MaterialPageRoute(builder: (ctx) => const DividerComponent());
       case numberInput:
-        return MaterialPageRoute(builder: (ctx) => NumberInputComponent());
+        return MaterialPageRoute(builder: (ctx) => const NumberInputComponent());
       case rangeSliderInput:
-        return MaterialPageRoute(builder: (ctx) => RangeSliderInputComponent());
+        return MaterialPageRoute(builder: (ctx) => const RangeSliderInputComponent());
       case radioButton:
-        return MaterialPageRoute(builder: (ctx) => RadioButtonComponent());
+        return MaterialPageRoute(builder: (ctx) => const RadioButtonComponent());
       case segmentedControl:
-        return MaterialPageRoute(builder: (ctx) => SegmentedControlComponent());
+        return MaterialPageRoute(builder: (ctx) => const SegmentedControlComponent());
       case sliderInput:
-        return MaterialPageRoute(builder: (ctx) => SliderInputComponent());
+        return MaterialPageRoute(builder: (ctx) => const SliderInputComponent());
       case steps:
-        return MaterialPageRoute(builder: (ctx) => StepsComponent());
+        return MaterialPageRoute(builder: (ctx) => const StepsComponent());
       case tab:
-        return MaterialPageRoute(builder: (ctx) => TabsComponent());
+        return MaterialPageRoute(builder: (ctx) => const TabsComponent());
       case textarea:
-        return MaterialPageRoute(builder: (ctx) => TextareaComponent());
+        return MaterialPageRoute(builder: (ctx) => const TextareaComponent());
       case textInput:
-        return MaterialPageRoute(builder: (ctx) => TextInputComponent());
+        return MaterialPageRoute(builder: (ctx) => const TextInputComponent());
       case toast:
-        return MaterialPageRoute(builder: (ctx) => ToastComponent());
+        return MaterialPageRoute(builder: (ctx) => const ToastComponent());
       case toggle:
-        return MaterialPageRoute(builder: (ctx) => ToggleComponent());
+        return MaterialPageRoute(builder: (ctx) => const ToggleComponent());
       case tooltip:
-        return MaterialPageRoute(builder: (ctx) => TooltipsComponent());
+        return MaterialPageRoute(builder: (ctx) => const TooltipsComponent());
     }
   }
 }

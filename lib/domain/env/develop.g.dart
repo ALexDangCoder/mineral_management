@@ -9,5 +9,5 @@ part of 'develop.dart';
 const _$configDevEnvJsonLiteral = {
   'type': 'develop',
   'base_url': 'https://www.google.com/',
-  'base_image_url': 'https://www.google.com/'
+  'base_image_url': 'https://www.google.com/',
 };

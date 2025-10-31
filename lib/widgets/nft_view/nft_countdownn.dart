@@ -129,7 +129,7 @@ class _NFTCountdownState extends State<NFTCountdown> {
                 ),
                 child: ElevatedButton(
                   onPressed: () {},
-                  style: ElevatedButton.styleFrom(primary: Colors.transparent),
+                  style: ElevatedButton.styleFrom(),
                   child: Text(
                     'Place a bid',
                     style: textNormal(Colors.black, 16),

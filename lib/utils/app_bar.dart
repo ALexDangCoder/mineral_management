@@ -4,7 +4,7 @@ import 'package:bnv_opendata/utils/screen_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AppBarNormal extends AppBar with PreferredSizeWidget {
+class AppBarNormal extends AppBar {
   AppBarNormal(
       {Key? key,
       required BuildContext context,
@@ -58,7 +58,6 @@ Widget _buildLeading(Widget? child, BuildContext context) {
 Widget buildAppBarButton(Widget child,
     {Function? onPressed, EdgeInsets? margin}) {
   final ButtonStyle outlineButtonStyle = OutlinedButton.styleFrom(
-    primary: Colors.black87,
     padding: const EdgeInsets.all(4),
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(8)),
