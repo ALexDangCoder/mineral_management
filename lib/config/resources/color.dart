@@ -35,6 +35,8 @@ abstract class AppColor {
   Color sideBtnColor();
 
   Color disableColor();
+
+  Color errorColor();
 }
 
 class LightApp extends AppColor {
@@ -97,6 +99,12 @@ class LightApp extends AppColor {
   Color disableColor() {
     return const Color(0xFFA9B8BD);
   }
+
+  @override
+  Color errorColor() {
+    return Colors.red;
+  }
+
 }
 
 class DarkApp extends AppColor {
@@ -158,6 +166,11 @@ class DarkApp extends AppColor {
   @override
   Color disableColor() {
     return Colors.grey;
+  }
+
+  @override
+  Color errorColor() {
+    return Colors.red;
   }
 }
 

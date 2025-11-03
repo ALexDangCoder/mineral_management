@@ -1,5 +1,6 @@
 import 'package:bnv_opendata/data/exception/app_exception.dart';
-import 'package:bnv_opendata/generated/l10n.dart';
+// import 'package:bnv_opendata/resources/generated/l10n.dart';
+import 'package:bnv_opendata/resources/generated/l10n.dart';
 import 'package:dio/dio.dart';
 
 class NetworkHandler {
