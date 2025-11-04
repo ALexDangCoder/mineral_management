@@ -3,5 +3,5 @@ template-arb-file: intl_vi.arb
 output-dir: lib/resources/generated/l10n
 output-class: AppS
 output-localization-file: App_localizations.dart
-synthetic-package: false # set this as false to import the delegate in the main project
+#synthetic-package: false # set this as false to import the delegate in the main project
 nullable-getter: false

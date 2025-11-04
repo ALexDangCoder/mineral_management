@@ -1,7 +1,7 @@
 part of 'account_info_cubit.dart';
 
 class AccountInfoState extends BaseState {
-  final Map<String, dynamic>? userInfo;
+  final UserModel? userInfo;
   final BaseState? eventState;
 
   const AccountInfoState({
@@ -11,7 +11,7 @@ class AccountInfoState extends BaseState {
 
   AccountInfoState copyWith({
     BaseState? eventState,
-    Map<String, dynamic>? userInfo,
+    UserModel? userInfo,
   }) {
     return AccountInfoState(
       eventState: eventState ?? this.eventState,

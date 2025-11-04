@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:bnv_opendata/data/models/model_exports.dart';
 import 'package:bnv_opendata/domain/repositories/app_local_storate_repository.dart';
 import 'package:bnv_opendata/domain/repositories/auth_repository.dart';
 
@@ -16,15 +17,19 @@ class AuthRepositoryImpl implements AuthRepository {
     const token = 'abc123_token_fake';
 
     await localStorage.saveToken(token);
+    await localStorage.saveUserInfo(UserModel(
+      username: username,
+      fullName: 'Nguyen Van A',
+      phone: '0961125389',
+      position: 'Kỹ thuật hiện trường',
+    ).toJson(),);
 
     // 🔹 Trả về User entity
     // return User(username: username, token: token);
   }
 
   @override
-  Future<void> changePassword(String currentPass, String newPass) async {
-
-  }
+  Future<void> changePassword(String currentPass, String newPass) async {}
 
   @override
   Future<void> logout() async {
@@ -35,5 +40,10 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<String?> getSavedAccessToken() async {
     return localStorage.getToken();
+  }
+
+  @override
+  Future<Map<String, dynamic>?> getSavedUserInfo() async {
+    return localStorage.getUserInfo();
   }
 }

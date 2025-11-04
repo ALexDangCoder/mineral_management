@@ -6,4 +6,6 @@ abstract class AuthRepository {
   Future<void> changePassword(String currentPass, String newPass);
 
   Future<String?> getSavedAccessToken();
+
+  Future<Map<String, dynamic>?> getSavedUserInfo();
 }

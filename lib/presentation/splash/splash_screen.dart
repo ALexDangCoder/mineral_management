@@ -26,8 +26,8 @@ class _SplashScreenState extends State<SplashScreen> {
           body: Center(
             child: Image.asset(
               'assets/icons/team.png',
-              width: 32,
-              height: 32,
+              width: 52,
+              height: 52,
             ),
           ),
         );
@@ -40,14 +40,14 @@ class _SplashScreenState extends State<SplashScreen> {
       if (mounted) {
         final authenticated = context.read<AuthCubit>().state is Authenticated;
         if (authenticated) {
-          Navigator.push(
+          Navigator.pushReplacement(
             context,
             MaterialPageRoute(
               builder: (context) => const MainScreen(),
             ),
           );
         } else {
-          Navigator.push(
+          Navigator.pushReplacement(
             context,
             MaterialPageRoute(
               builder: (context) => const LoginPage(),

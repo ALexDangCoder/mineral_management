@@ -1,7 +1,12 @@
+import 'dart:developer';
+
 import 'package:bnv_opendata/config/themes/app_theme.dart';
+import 'package:bnv_opendata/dependencies/app_dependenies.dart';
 import 'package:bnv_opendata/domain/models/xela_textfield_models.dart';
 import 'package:bnv_opendata/domain/models/xela_user_avatar_models.dart';
+import 'package:bnv_opendata/presentation/account_info/cubit/account_info_cubit.dart';
 import 'package:bnv_opendata/presentation/main_cubit/auth_cubit.dart';
+import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart';
 import 'package:bnv_opendata/presentation/screen_exports.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
 import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
@@ -19,7 +24,10 @@ class AccountInfoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const _AccountInfoListener();
+    return BlocProvider(
+      create: (context) => AccountInfoCubit(injector.get())..getUserInfo(),
+      child: const _AccountInfoListener(),
+    );
   }
 }
 
@@ -28,113 +36,130 @@ class _AccountInfoListener extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AuthCubit, AuthState>(
-      listener: (context, state) {
-        if (state is Unauthenticated) {
-          Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const LoginPage(),
-            ),
-            (route) => false,
-          );
-        }
-      },
-      child: const _AccountInfoBody(),
-    );
+    return const _AccountInfoBody();
   }
 }
 
-class _AccountInfoBody extends StatelessWidget {
+class _AccountInfoBody extends StatefulWidget {
   const _AccountInfoBody({super.key});
+
+  @override
+  State<_AccountInfoBody> createState() => _AccountInfoBodyState();
+}
+
+class _AccountInfoBodyState extends State<_AccountInfoBody> {
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _positionController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+
+  @override
+  void dispose() {
+    _fullNameController.dispose();
+    _phoneController.dispose();
+    _positionController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      body: Container(
-        alignment: Alignment.topLeft,
-        child: Column(
-          children: [
-            ColoredBox(
-              color: Colors.transparent,
-              child: XelaUserAvatar(
-                initials: "AB",
-                background: XelaColor.Orange9,
-                foreground: XelaColor.Orange3,
-                size: XelaUserAvatarSize.LARGE,
-                style: XelaUserAvatarStyle.CIRCLE,
-              ),
-            ),
-            const SizedBox(height: 28),
-            Text(
-              'Cán bộ kỹ thuật',
-              style: XelaTextStyle.XelaHeadline.apply(
-                color: XelaColor.Gray2,
-              ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              'Canbokythuat@gmail.com',
-              style: XelaTextStyle.XelaBody.apply(
-                color: XelaColor.Gray2,
-              ),
-            ),
-            const SizedBox(height: 32),
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(32),
-                color: Colors.white,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  XelaTextField(
-                    placeholder: AppS.of(context).name,
-                    background: Colors.transparent,
-                    state: XelaTextFieldState.DISABLED,
-                    value: 'Nguyen Van A',
+      body: BlocConsumer<AccountInfoCubit, AccountInfoState>(
+        listener: (context, state) {
+          _fullNameController.text = state.userInfo?.fullName ?? '';
+          _positionController.text = state.userInfo?.position ?? '';
+          _phoneController.text =
+              (state.userInfo?.phone ?? '').formatPhoneNumber;
+        },
+        builder: (context, state) {
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                ColoredBox(
+                  color: Colors.transparent,
+                  child: XelaUserAvatar(
+                    initials: "AB",
+                    background: XelaColor.Orange9,
+                    foreground: XelaColor.Orange3,
+                    size: XelaUserAvatarSize.LARGE,
+                    style: XelaUserAvatarStyle.CIRCLE,
                   ),
-                  const SizedBox(height: 16),
-                  XelaTextField(
-                    placeholder: AppS.of(context).position,
-                    background: Colors.transparent,
-                    state: XelaTextFieldState.DISABLED,
-                    value: 'Cán bộ ký thuật hiện trường',
+                ),
+                const SizedBox(height: 28),
+                Text(
+                  'Cán bộ kỹ thuật',
+                  style: XelaTextStyle.XelaHeadline.apply(
+                    color: XelaColor.Gray2,
                   ),
-                  const SizedBox(height: 16),
-                  XelaTextField(
-                    placeholder: AppS.of(context).phone_number,
-                    background: Colors.transparent,
-                    state: XelaTextFieldState.DISABLED,
-                    value: '0961190498'.formatPhoneNumber,
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  'Canbokythuat@gmail.com',
+                  style: XelaTextStyle.XelaBody.apply(
+                    color: XelaColor.Gray2,
                   ),
-                  const SizedBox(height: 16),
-                  XelaButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ChangePasswordScreen(),
-                        ),
-                      );
-                    },
-                    text: AppS.of(context).change_password,
-                    background: AppTheme.getInstance().dfBtnColor(),
+                ),
+                const SizedBox(height: 32),
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(32),
+                    color: Colors.white,
                   ),
-                  const SizedBox(height: 16),
-                  XelaButton(
-                    onPressed: () {
-                      context.read<AuthCubit>().logout();
-                    },
-                    text: AppS.of(context).logout,
-                    background: AppTheme.getInstance().errorColor(),
-                  )
-                ],
-              ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      XelaTextField(
+                        placeholder: AppS.of(context).name,
+                        background: Colors.transparent,
+                        // state: XelaTextFieldState.DISABLED,
+                        // value: state.userInfo?.fullName ?? '',
+                        textEditingController: _fullNameController,
+                      ),
+                      const SizedBox(height: 16),
+                      XelaTextField(
+                        placeholder: AppS.of(context).position,
+                        background: Colors.transparent,
+                        // value: state.userInfo?.position ?? '',
+                        textEditingController: _positionController,
+                        onChange: (string) {},
+                      ),
+                      const SizedBox(height: 16),
+                      XelaTextField(
+                        placeholder: AppS.of(context).phone_number,
+                        background: Colors.transparent,
+                        // state: XelaTextFieldState.DISABLED,
+                        // value: (state.userInfo?.phone ?? '').formatPhoneNumber,
+                        textEditingController: _phoneController,
+                      ),
+                      const SizedBox(height: 16),
+                      XelaButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  const ChangePasswordScreen(),
+                            ),
+                          );
+                        },
+                        text: AppS.of(context).change_password,
+                        background: AppTheme.getInstance().dfBtnColor(),
+                      ),
+                      const SizedBox(height: 16),
+                      XelaButton(
+                        onPressed: () {
+                          context.read<AuthCubit>().logout();
+                        },
+                        text: AppS.of(context).logout,
+                        background: AppTheme.getInstance().errorColor(),
+                      )
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }
