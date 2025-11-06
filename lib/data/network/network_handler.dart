@@ -1,16 +1,17 @@
 import 'package:bnv_opendata/data/exception/app_exception.dart';
-import 'package:bnv_opendata/generated/l10n.dart';
+// import 'package:bnv_opendata/resources/generated/l10n.dart';
+import 'package:bnv_opendata/resources/generated/l10n.dart';
 import 'package:dio/dio.dart';
 
 class NetworkHandler {
-  static AppException handleError(DioError error) {
+  static AppException handleError(DioExceptionType error) {
     return _handleError(error);
   }
 
   static AppException _handleError(error) {
-    if (error is! DioError) {
-      return AppException(S.current.error, S.current.something_went_wrong);
-    }
+    // if (error is! DioError) {
+    //   return AppException(S.current.error, S.current.something_went_wrong);
+    // }
     if (_isNetWorkError(error)) {
       return AppException(S.current.error, S.current.something_went_wrong);
     }
@@ -22,21 +23,21 @@ class NetworkHandler {
     return parsedException;
   }
 
-  static bool _isNetWorkError(DioError error) {
-    final errorType = error.type;
+  static bool _isNetWorkError(DioExceptionType error) {
+    final errorType = error;
     switch (errorType) {
-      case DioErrorType.cancel:
+      case DioExceptionType.cancel:
         return true;
-      case DioErrorType.connectTimeout:
+      case DioExceptionType.connectionTimeout:
         return true;
-      case DioErrorType.receiveTimeout:
+      case DioExceptionType.receiveTimeout:
         return true;
-      case DioErrorType.sendTimeout:
+      case DioExceptionType.sendTimeout:
         return true;
-      case DioErrorType.other:
+      case DioExceptionType.unknown:
         return true;
-      case DioErrorType.response:
-        return false;
+      case DioExceptionType.connectionError:
+        return true;
       default:
         return true;
     }

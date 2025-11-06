@@ -2,7 +2,7 @@ import 'package:bnv_opendata/data/exception/app_exception.dart';
 import 'package:bnv_opendata/data/network/network_checker.dart';
 import 'package:bnv_opendata/data/network/network_handler.dart';
 import 'package:bnv_opendata/domain/locals/logger.dart';
-import 'package:bnv_opendata/generated/l10n.dart';
+import 'package:bnv_opendata/resources/generated/l10n.dart';
 import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -41,7 +41,7 @@ Future<Result<E>> runCatchingAsync<T, E>(
     return Result.success(map(response));
   } catch (e) {
     logger.e(e);
-    if (e is DioError) {
+    if (e is DioExceptionType) {
       return Result.error(NetworkHandler.handleError(e));
     } else {
       return Result.error(

@@ -47,7 +47,7 @@ app.*.map.json
 pubspec.lock
 
 # Ignore on project
-/lib/generated/
+/lib/resources/generated/
 *.g.dart
 /lib/gen/
 coverage/lcov.info

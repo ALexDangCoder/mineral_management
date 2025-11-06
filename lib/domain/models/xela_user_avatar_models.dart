@@ -1,4 +1,4 @@
-enum XelaUserAvatarSize { SMALL, MEDIUM, LARGE }
+enum XelaUserAvatarSize { SMALL, MEDIUM, LARGE, XLARGE }
 
 enum XelaUserAvatarDecoration { COUNTER, INDICATOR, PLUS }
 
