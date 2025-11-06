@@ -44,6 +44,8 @@ class AppRouter {
   ///Main App
   static const splash = '/splash';
   static const main = '/main';
+  static const mineList = '/mine_list';
+  static const drillHoleList = '/drill_hole_list';
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     // final args = settings.arguments;
@@ -59,9 +61,14 @@ class AppRouter {
         return MaterialPageRoute(builder: (ctx) => const ColorsComponent());
       case changePassword:
         return MaterialPageRoute(
-            builder: (ctx) => const ChangePasswordScreen(),);
+          builder: (ctx) => const ChangePasswordScreen(),
+        );
       case accountInfo:
         return MaterialPageRoute(builder: (ctx) => const AccountInfoScreen());
+      case mineList:
+        return MaterialPageRoute(builder: (ctx) => const MineListScreen());
+      case drillHoleList:
+        return MaterialPageRoute(builder: (ctx) => const DrillHoleListScreen());
     }
     return null;
   }

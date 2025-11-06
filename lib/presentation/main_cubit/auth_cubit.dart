@@ -27,8 +27,8 @@ class AuthCubit extends BaseCubit<AuthState> {
     required String password,
   }) async {
     emit(AuthLoading());
-    Future.delayed(const Duration(milliseconds: 800), () {
-      authRepository.login(username, password);
+    Future.delayed(const Duration(milliseconds: 800), () async {
+      await authRepository.login(username, password);
       emit(Authenticated());
     });
   }

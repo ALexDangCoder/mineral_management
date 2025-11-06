@@ -42,7 +42,7 @@ class _LoginPageListener extends StatelessWidget {
               PopupLoadingUtils.of(context).show();
             } else if (state is Authenticated) {
               PopupLoadingUtils.of(context).close();
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const MainScreen(),
@@ -137,16 +137,10 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
                 builder: (context, state) {
                   return XelaButton(
                     onPressed: () async {
-                      final validation =
-                          await context.read<LoginCubit>().validateInput();
-                      // if (validation && context.mounted) {
-                        await context.read<AuthCubit>().login(
+                      await context.read<AuthCubit>().login(
                             username: state.username!,
-                            password: state.password!,);
-                        // await context
-                        //     .read<AuthCubit>()
-                        //     .checkAuthenticationStatus();
-                      // }
+                            password: state.password!,
+                          );
                     },
                     autoResize: false,
                     text: AppS.of(context).login,

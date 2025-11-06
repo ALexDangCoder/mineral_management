@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart';
 
@@ -10,24 +12,25 @@ class LoginCubit extends Cubit<LoginState> {
     emit(
       state.copyWith(
         username: input.trim(),
-        loginBtnIsEnable: (state.username?.length ?? 0) > 6 &&
-            (state.password?.length ?? 0) >= 6,
       ),
     );
+    validateInput();
   }
 
   void changePassword(String input) {
     emit(
       state.copyWith(
         password: input.trim(),
-        loginBtnIsEnable: (state.username?.length ?? 0) > 6 &&
-            (state.password?.length ?? 0) >= 6,
       ),
     );
+    validateInput();
   }
 
-  Future<bool> validateInput() async {
-    ///
-    return state.loginBtnIsEnable;
+  Future<void> validateInput() async {
+    emit(
+      state.copyWith(
+          loginBtnIsEnable: (state.username?.length ?? 0) >= 6 &&
+              (state.password?.length ?? 0) >= 8),
+    );
   }
 }

@@ -161,8 +161,6 @@ extension UserModelPatterns on UserModel {
     switch (_that) {
       case _UserModel():
         return $default(_that);
-      case _:
-        throw StateError('Unexpected subclass');
     }
   }
 
@@ -244,8 +242,6 @@ extension UserModelPatterns on UserModel {
       case _UserModel():
         return $default(_that.username, _that.fullName, _that.position,
             _that.phone, _that.email);
-      case _:
-        throw StateError('Unexpected subclass');
     }
   }
 
@@ -516,8 +512,6 @@ extension DocInfoPatterns on DocInfo {
     switch (_that) {
       case _DocInfo():
         return $default(_that);
-      case _:
-        throw StateError('Unexpected subclass');
     }
   }
 
@@ -593,8 +587,6 @@ extension DocInfoPatterns on DocInfo {
     switch (_that) {
       case _DocInfo():
         return $default(_that.label, _that.value);
-      case _:
-        throw StateError('Unexpected subclass');
     }
   }
 

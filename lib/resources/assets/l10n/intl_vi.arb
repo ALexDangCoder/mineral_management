@@ -26,6 +26,13 @@
   "home_page": "Trang chủ",
   "map": "Bản đồ",
   "report": "Báo cáo",
-  "caution": "Cảnh báo",
-  "account": "Tài khoản"
+  "warning": "Cảnh báo",
+  "account": "Tài khoản",
+  "mine_list": "Danh sách vùng mỏ",
+  "mine_page": "Vùng mỏ",
+  "drill_hole_page": "Lỗ khoan",
+  "query_drill_hole": "Truy vấn Lỗ khoan",
+  "warning_list": "Danh sách cảnh báo",
+  "status": "Trạng thái",
+  "mineral_type": "Loại khoáng sản"
 }

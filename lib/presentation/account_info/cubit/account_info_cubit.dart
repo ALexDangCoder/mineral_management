@@ -16,7 +16,7 @@ class AccountInfoCubit extends BaseCubit<AccountInfoState> {
 
   Future<void> getUserInfo() async {
     final userData = await _authRepository.getSavedUserInfo() ?? {};
-
+log('USER DATA ${userData}');
     final userInfo = UserModel.fromJson(userData);
     emit(
       state.copyWith(

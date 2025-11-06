@@ -1,4 +1,6 @@
 import 'package:bnv_opendata/config/themes/app_theme.dart';
+import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
+import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
 import 'package:flutter/material.dart';
 
 class AppScaffold extends StatelessWidget {
@@ -28,7 +30,11 @@ class AppScaffold extends StatelessWidget {
       backgroundColor: bgColor ?? AppTheme.getInstance().primaryColor(),
       appBar: title != null
           ? AppBar(
-              title: Text(title!),
+              title: Text(
+                title!,
+                style:
+                    XelaTextStyle.XelaSubheadline.apply(color: XelaColor.Gray2),
+              ),
               automaticallyImplyLeading: showBackButton,
               actions: actions,
               backgroundColor: appBarColor ?? Colors.white,
