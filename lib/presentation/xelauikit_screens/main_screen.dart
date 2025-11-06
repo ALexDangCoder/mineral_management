@@ -1,3 +1,4 @@
+import 'package:bnv_opendata/presentation/mine_detail/mine_detail.dart';
 import 'package:bnv_opendata/presentation/xelauikit_screens/about_screen.dart';
 import 'package:bnv_opendata/presentation/xelauikit_screens/blocks_screen.dart';
 import 'package:bnv_opendata/presentation/xelauikit_screens/components_screen.dart';
@@ -16,12 +17,12 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _pages = <Widget>[
+  static  List<Widget> _pages = <Widget>[
     HomeScreen(),
     ComponentsScreen(),
     BlocksScreen(),
     TemplatesScreen(),
-    AboutScreen(),
+    MineDetail(),
   ];
 
   void _onItemTapped(int index) {
