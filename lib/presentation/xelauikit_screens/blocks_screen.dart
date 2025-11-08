@@ -57,7 +57,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
         ),
         primaryColor: XelaColor.Blue7,
         secondaryColor: XelaColor.Gray6,
-        background: XelaColor.Gray12,
+        background: XelaColor.Gray12, id: '',
       ),
     ));
 

@@ -112,7 +112,7 @@ class _AlertComponentState extends State<AlertComponent> {
                       secondaryColor:
                           _isDark ? XelaColor.Gray11 : XelaColor.Gray7,
                       background:
-                          _isDark ? XelaColor.Green1 : XelaColor.Green12,
+                          _isDark ? XelaColor.Green1 : XelaColor.Green12, id: '',
                     ),
                   ),
                   Padding(
@@ -125,7 +125,7 @@ class _AlertComponentState extends State<AlertComponent> {
                           _isDark ? XelaColor.Orange6 : XelaColor.Orange3,
                       secondaryColor:
                           _isDark ? XelaColor.Gray7 : XelaColor.Gray7,
-                      background: _isDark ? XelaColor.Gray3 : XelaColor.Gray12,
+                      background: _isDark ? XelaColor.Gray3 : XelaColor.Gray12, id: '',
                     ),
                   ),
                   Padding(
@@ -162,7 +162,7 @@ class _AlertComponentState extends State<AlertComponent> {
                         child: Icon(Icons.grid_view,
                             size: 20,
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray6),
-                      ),
+                      ), id: '',
                     ),
                   ),
                   Padding(
@@ -178,7 +178,7 @@ class _AlertComponentState extends State<AlertComponent> {
                           _isDark ? XelaColor.Orange6 : XelaColor.Orange3,
                       secondaryColor:
                           _isDark ? XelaColor.Gray11 : XelaColor.Gray7,
-                      background: _isDark ? XelaColor.Gray3 : XelaColor.Gray12,
+                      background: _isDark ? XelaColor.Gray3 : XelaColor.Gray12, id: '',
                     ),
                   ),
                   Padding(
@@ -190,12 +190,13 @@ class _AlertComponentState extends State<AlertComponent> {
                           _isDark ? XelaColor.Green2 : XelaColor.Green2,
                       secondaryColor:
                           _isDark ? XelaColor.Gray11 : XelaColor.Gray7,
-                      background: _isDark ? XelaColor.Gray3 : XelaColor.Gray12,
+                      background: _isDark ? XelaColor.Gray3 : XelaColor.Gray12, id: '',
                     ),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 12, horizontal: 24),
                     child: XelaAlert(
+                      id: '',
                       title: "Alert title",
                       text: "Alert text",
                       primaryColor: _isDark ? XelaColor.Red6 : XelaColor.Red3,
