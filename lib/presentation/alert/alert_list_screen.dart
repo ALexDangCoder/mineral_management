@@ -2,8 +2,8 @@
 
 import 'package:bnv_opendata/data/model/alert_group.dart';
 import 'package:bnv_opendata/data/repositories/alert_repository_impl.dart';
-import 'package:bnv_opendata/presentation/license_warning/cubit/alert_list_cubit.dart';
-import 'package:bnv_opendata/presentation/license_warning/cubit/alert_list_state.dart';
+import 'package:bnv_opendata/presentation/alert/cubit/alert_list_cubit.dart';
+import 'package:bnv_opendata/presentation/alert/cubit/alert_list_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -30,7 +30,7 @@ class ClosurePlanDetailScreen extends StatelessWidget {
           children: [
             Text(
               title,
-              style: XelaTextStyle.XelaTitle3,
+              style: XelaTextStyle.XelaHeadline,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),

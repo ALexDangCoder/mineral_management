@@ -188,7 +188,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                                   _isDark ? XelaColor.Pink6 : XelaColor.Pink3,
                               background:
                                   _isDark ? XelaColor.Gray2 : XelaColor.Pink12,
-                              secondaryColor: XelaColor.Gray7,
+                              secondaryColor: XelaColor.Gray7, id: '',
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(vertical: 8),
@@ -212,7 +212,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                                   _isDark ? XelaColor.Blue6 : XelaColor.Blue3,
                               background:
                                   _isDark ? XelaColor.Gray2 : XelaColor.Blue12,
-                              secondaryColor: XelaColor.Gray7,
+                              secondaryColor: XelaColor.Gray7, id: '',
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(vertical: 8),
@@ -236,7 +236,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                                   _isDark ? XelaColor.Green1 : XelaColor.Green1,
                               background:
                                   _isDark ? XelaColor.Gray2 : XelaColor.Green12,
-                              secondaryColor: XelaColor.Gray7,
+                              secondaryColor: XelaColor.Gray7, id: '',
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(vertical: 8),
@@ -263,7 +263,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                               background: _isDark
                                   ? XelaColor.Gray2
                                   : XelaColor.Yellow12,
-                              secondaryColor: XelaColor.Gray7,
+                              secondaryColor: XelaColor.Gray7, id: '',
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(vertical: 8),
@@ -305,7 +305,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                               background: _isDark
                                   ? XelaColor.Gray2
                                   : XelaColor.Orange12,
-                              secondaryColor: XelaColor.Gray7,
+                              secondaryColor: XelaColor.Gray7, id: '',
                             ),
                             const SizedBox(height: 8),
                             XelaAlert(
@@ -317,7 +317,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                               background: _isDark
                                   ? XelaColor.Gray2
                                   : XelaColor.Orange12,
-                              secondaryColor: XelaColor.Gray7,
+                              secondaryColor: XelaColor.Gray7, id: '',
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(vertical: 8),
@@ -341,7 +341,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                                   _isDark ? XelaColor.Red6 : XelaColor.Red3,
                               background:
                                   _isDark ? XelaColor.Gray2 : XelaColor.Red12,
-                              secondaryColor: XelaColor.Gray7,
+                              secondaryColor: XelaColor.Gray7, id: '',
                             ),
                             const SizedBox(height: 8),
                             XelaAlert(
@@ -353,7 +353,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                               background: _isDark
                                   ? XelaColor.Gray2
                                   : XelaColor.Purple12,
-                              secondaryColor: XelaColor.Gray7,
+                              secondaryColor: XelaColor.Gray7, id: '',
                             ),
                           ],
                         ),
