@@ -4,6 +4,7 @@ import 'package:bnv_opendata/presentation/notification_management/notification_m
 import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
 import 'package:bnv_opendata/presentation/project_detail/project_detail_screen.dart';
 import 'package:bnv_opendata/presentation/show_construction_map/show_construction_Map_screen.dart';
+import 'package:bnv_opendata/presentation/total_screen.dart';
 import 'package:bnv_opendata/presentation/xelauikit_screens/about_screen.dart';
 import 'package:bnv_opendata/presentation/xelauikit_screens/blocks_screen.dart';
 import 'package:bnv_opendata/presentation/xelauikit_screens/components_screen.dart';
@@ -27,7 +28,7 @@ class _MainScreenState extends State<MainScreen> {
     ComponentsScreen(),
     BlocksScreen(),
     TemplatesScreen(),
-    NotificationManagementScreen(),
+    TotalScreen(),
   ];
 
   void _onItemTapped(int index) {
