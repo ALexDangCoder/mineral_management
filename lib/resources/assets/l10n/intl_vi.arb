@@ -34,5 +34,9 @@
   "query_drill_hole": "Truy vấn Lỗ khoan",
   "warning_list": "Danh sách cảnh báo",
   "status": "Trạng thái",
-  "mineral_type": "Loại khoáng sản"
+  "mineral_type": "Loại khoáng sản",
+  "reserves_report": "Báo cáo Trữ lượng",
+  "reserves_total": "Tổng trữ lượng: ",
+  "reporting_period": "Kỳ báo cáo",
+  "select_reporting_period": "Chọn kỳ báo cáo"
 }
