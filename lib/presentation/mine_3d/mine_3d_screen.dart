@@ -1,5 +1,6 @@
 import 'package:bnv_opendata/data/repositories/mine_repositories.dart';
 import 'package:bnv_opendata/presentation/mine_3d/cubit/mine_3d_state.dart';
+import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model_viewer_plus/model_viewer_plus.dart';
@@ -13,7 +14,14 @@ class Mine3DScreen extends StatelessWidget {
     return BlocProvider(
       create: (_) => Mine3DCubit(MineRepository())..loadMine3DModel(),
       child: Scaffold(
-        appBar: AppBar(title: const Text('Mô hình 3D')),
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_ios_new),
+            onPressed: () => Navigator.pop(context),
+          ),
+          centerTitle: true,
+          title: const Text('Mô hình 3D', style: XelaTextStyle.XelaHeadline),
+        ),
         body: BlocBuilder<Mine3DCubit, Mine3DState>(
           builder: (context, state) {
             if (state is Mine3DLoading) {

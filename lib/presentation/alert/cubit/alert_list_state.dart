@@ -1,4 +1,4 @@
-import 'package:bnv_opendata/data/model/alert_group.dart';
+import 'package:bnv_opendata/data/model/alert_medel.dart';
 import 'package:equatable/equatable.dart';
 
 enum AlertListStatus { initial, loading, success, failure }

@@ -1,3 +1,10 @@
+import 'package:bnv_opendata/presentation/alert/alert_list_screen.dart';
+import 'package:bnv_opendata/presentation/closure_plan_detail/closure_plan_detail_screen.dart';
+import 'package:bnv_opendata/presentation/mine_3d/mine_3d_screen.dart';
+import 'package:bnv_opendata/presentation/notification_management/notification_management_screen.dart';
+import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
+import 'package:bnv_opendata/presentation/project_detail/project_detail_screen.dart';
+import 'package:bnv_opendata/presentation/show_construction_map/show_construction_Map_screen.dart';
 import 'package:bnv_opendata/presentation/xelauikit_screens/main_screen.dart';
 import 'package:bnv_opendata/utils/constants/app_constants.dart';
 import 'package:bnv_opendata/widgets/xela_components/accordion_component.dart';
@@ -62,6 +69,15 @@ class AppRouter {
   static const toast = '/toast';
   static const toggle = '/toggle';
   static const tooltip = '/tooltip';
+  //App Screens
+  static const mine3d = '/mine_3d';
+  static const alertList = '/alert_list';
+  static const progress = '/progress';
+  static const showConstructionMap = '/show_construction_map';
+  static const projectDetail = '/project_detail';
+  static const notificationManagement = '/notification_management';
+  static const closurePlanDetail = '/closure_plan_detail';
+
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     // final args = settings.arguments;
@@ -120,6 +136,20 @@ class AppRouter {
         return MaterialPageRoute(builder: (ctx) => const ToggleComponent());
       case tooltip:
         return MaterialPageRoute(builder: (ctx) => const TooltipsComponent());
+      case mine3d:
+        return MaterialPageRoute(builder: (ctx) => const Mine3DScreen());
+      case alertList:
+        return MaterialPageRoute(builder: (ctx) => const AlertListScreen());
+      case progress:
+        return MaterialPageRoute(builder: (ctx) => const ProgressScreen());
+      case showConstructionMap:
+        return MaterialPageRoute(builder: (ctx) => const ShowConstructionMapScreen());
+      case projectDetail:
+        return MaterialPageRoute(builder: (ctx) =>  ProjectDetailScreen());
+      case notificationManagement:
+        return MaterialPageRoute(builder: (ctx) =>  NotificationManagementScreen());
+      case closurePlanDetail:
+        return MaterialPageRoute(builder: (ctx) =>  ClosurePlanDetailScreen());
     }
   }
 }

@@ -1,3 +1,4 @@
+import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/presentation/alert/alert_list_screen.dart';
 import 'package:bnv_opendata/presentation/closure_plan_detail/closure_plan_detail_screen.dart';
 import 'package:bnv_opendata/presentation/mine_3d/mine_3d_screen.dart';
@@ -19,11 +20,7 @@ class TotalScreen extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => const Mine3DScreen(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, AppRouter.mine3d);
                 },
                 child: Container(
                   width: 100,

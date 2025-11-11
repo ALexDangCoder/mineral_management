@@ -29,11 +29,17 @@ class ProjectDetailScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: ListView(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
           children: [
-            Text(
-              title,
-              style: XelaTextStyle.XelaHeadline,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                IconButton(onPressed: () => Navigator.pop(context), icon: Icon(Icons.arrow_back_ios_new),),
+                Text(
+                  title,
+                  style: XelaTextStyle.XelaHeadline,
+                ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
@@ -63,7 +69,7 @@ class _InfoCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       decoration: BoxDecoration(
-        color: XelaColor.Gray10,
+        color: XelaColor.Gray11,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -71,18 +77,12 @@ class _InfoCard extends StatelessWidget {
         children: [
           Text(
             label,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: Theme.of(context).textTheme.bodySmall?.color,
-              fontWeight: FontWeight.w600,
-            ),
+            style: XelaTextStyle.XelaSubheadline,
           ),
           const SizedBox(height: 8),
           Text(
             value,
-            style: Theme.of(context)
-                .textTheme
-                .titleMedium
-                ?.copyWith(fontWeight: FontWeight.w700),
+              style: XelaTextStyle.XelaBodyBold,
           ),
         ],
       ),

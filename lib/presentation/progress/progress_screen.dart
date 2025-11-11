@@ -11,6 +11,10 @@ class ProgressScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Tiến độ', style: XelaTextStyle.XelaHeadline,),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_ios_new),
+            onPressed: () => Navigator.pop(context),
+          ),
         centerTitle: true,
       ),
       body: ListView(
@@ -58,7 +62,6 @@ class _ProgressCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bg = Theme.of(context).cardColor;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
@@ -125,7 +128,7 @@ class _LinearPercentBar extends StatelessWidget {
               Center(
                 child: Text(
                   percentText,
-                  style: XelaTextStyle.XelaBodyBold,
+                  style: XelaTextStyle.XelaBodyBold.apply(color: XelaColor.Gray12),
                 ),
               ),
             ],

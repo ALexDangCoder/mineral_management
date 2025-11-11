@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 
-enum AlertType { licenseExpired, mineClosurePlan }
+enum AlertModel { licenseExpired, mineClosurePlan }
 
 class AlertGroup extends Equatable {
-  final AlertType type;
+  final AlertModel type;
   final String title;
   final String subtitle;
   final int count;
@@ -19,7 +19,7 @@ class AlertGroup extends Equatable {
   List<Object?> get props => [type, title, subtitle, count];
 
   AlertGroup copyWith({
-    AlertType? type,
+    AlertModel? type,
     String? title,
     String? subtitle,
     int? count,

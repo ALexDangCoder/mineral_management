@@ -5,6 +5,7 @@ import 'package:bnv_opendata/widgets/xela_widgets/xela_button.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_checkbox.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_tabs.dart';
+import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -45,6 +46,14 @@ class _NotificationManagementScreenState
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_ios_new),
+            onPressed: () => Navigator.pop(context),
+          ),
+          title: Text('Thông báo',style: XelaTextStyle.XelaHeadline,),
+          centerTitle: true,
+        ),
         body: Column(
           children: [
             XelaTabs(
