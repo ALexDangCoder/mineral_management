@@ -25,22 +25,44 @@ class ProjectDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    return SafeArea(
-      child: Scaffold(
-        body: ListView(
+    return Scaffold(
+      body: SafeArea(
+        child: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
           children: [
+            // ✅ AppBar custom đồng bộ Xela UI
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                IconButton(onPressed: () => Navigator.pop(context), icon: Icon(Icons.arrow_back_ios_new),),
-                Text(
-                  title,
-                  style: XelaTextStyle.XelaHeadline,
+                RawMaterialButton(
+                  elevation: 0,
+                  focusElevation: 2,
+                  highlightElevation: 0,
+                  fillColor: Colors.transparent,
+                  hoverElevation: 0,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  constraints: const BoxConstraints(),
+                  child: const Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Icon(
+                      Icons.arrow_back_ios_new,
+                      size: 20,
+                      color: XelaColor.Gray2,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    "Chi tiết Dự án Khai thác",
+                    style: XelaTextStyle.XelaHeadline.apply(
+                      color: XelaColor.Gray2,
+                    ),
+                  ),
                 ),
               ],
             ),
+
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: XelaDivider(),
@@ -62,6 +84,7 @@ class ProjectDetailScreen extends StatelessWidget {
 class _InfoCard extends StatelessWidget {
   final String label;
   final String value;
+
   const _InfoCard({required this.label, required this.value});
 
   @override
@@ -82,7 +105,7 @@ class _InfoCard extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             value,
-              style: XelaTextStyle.XelaBodyBold,
+            style: XelaTextStyle.XelaBodyBold,
           ),
         ],
       ),

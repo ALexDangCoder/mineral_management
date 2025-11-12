@@ -4,30 +4,57 @@ import 'package:bnv_opendata/presentation/alert/cubit/alert_list_cubit.dart';
 import 'package:bnv_opendata/presentation/alert/cubit/alert_list_state.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AlertListScreen extends StatelessWidget {
+class AlertListScreen extends StatefulWidget {
   const AlertListScreen({super.key});
 
+  @override
+  State<AlertListScreen> createState() => _AlertListScreenState();
+}
+
+class _AlertListScreenState extends State<AlertListScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => AlertListCubit(AlertRepositoryImpl())..load(),
       child: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back_ios_new),
-            onPressed: () => Navigator.pop(context),
-          ),
-          centerTitle: true,
-          title: const Text(
-            'Danh sách Cảnh báo',
-            style: XelaTextStyle.XelaHeadline,
+        body: SafeArea(
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  RawMaterialButton(
+                    elevation: 0,
+                    focusElevation: 2,
+                    highlightElevation: 0,
+                    fillColor: Colors.transparent,
+                    hoverElevation: 0,
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    constraints: const BoxConstraints(),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Icon(Icons.arrow_back_ios_new,
+                          size: 20, color: XelaColor.Gray2),
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      "Danh sách Cảnh báo",
+                      style: XelaTextStyle.XelaHeadline.apply(
+                        color: XelaColor.Gray2,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const Expanded(child: _Body()),
+            ],
           ),
         ),
-        body: const _Body(),
       ),
     );
   }
@@ -45,10 +72,9 @@ class _Body extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           case AlertListStatus.failure:
             return _Error(
-                message: state.error,
-                onRetry: () {
-                  context.read<AlertListCubit>().load();
-                });
+              message: state.error,
+              onRetry: () => context.read<AlertListCubit>().load(),
+            );
           case AlertListStatus.success:
             if (state.items.isEmpty) {
               return const Center(
@@ -70,7 +96,6 @@ class _Body extends StatelessWidget {
                   type: item.type,
                   onTap: () {
                     // TODO: điều hướng tới màn chi tiết theo type:
-                    // Navigator.pushNamed(context, '/alerts/license-expired');
                   },
                 );
               },
@@ -138,11 +163,9 @@ class _AlertCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(title,
-                        style: XelaTextStyle.XelaSubheadline),
+                    Text(title, style: XelaTextStyle.XelaSubheadline),
                     const SizedBox(height: 4),
-                    Text(subtitle,
-                        style: XelaTextStyle.XelaBody),
+                    Text(subtitle, style: XelaTextStyle.XelaBody),
                   ],
                 ),
               ),
@@ -166,9 +189,13 @@ class _Error extends StatelessWidget {
       child: Column(mainAxisSize: MainAxisSize.min, children: [
         const Icon(Icons.error_outline),
         const SizedBox(height: 8),
-        Text(message ?? 'Đã có lỗi xảy ra', style: XelaTextStyle.XelaSubheadline,),
+        Text(message ?? 'Đã có lỗi xảy ra',
+            style: XelaTextStyle.XelaSubheadline),
         const SizedBox(height: 8),
-        ElevatedButton(onPressed: onRetry, child: const Text('Thử lại', style: XelaTextStyle.XelaSubheadline,),),
+        ElevatedButton(
+          onPressed: onRetry,
+          child: const Text('Thử lại', style: XelaTextStyle.XelaSubheadline),
+        ),
       ]),
     );
   }

@@ -9,40 +9,67 @@ class ProgressScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Tiến độ', style: XelaTextStyle.XelaHeadline,),
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back_ios_new),
-            onPressed: () => Navigator.pop(context),
-          ),
-        centerTitle: true,
-      ),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        children: [
-          const SizedBox(height: 8),
-          XelaDivider(),
-          const SizedBox(height: 16),
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+          children: [
+            // ✅ AppBar custom theo form Xela UI
+            Row(
+              children: [
+                RawMaterialButton(
+                  elevation: 0,
+                  focusElevation: 2,
+                  highlightElevation: 0,
+                  fillColor: Colors.transparent,
+                  hoverElevation: 0,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  constraints: const BoxConstraints(),
+                  child: const Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Icon(
+                      Icons.arrow_back_ios_new,
+                      size: 20,
+                      color: XelaColor.Gray2,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    "Tiến độ",
+                    style: XelaTextStyle.XelaHeadline.apply(
+                      color: XelaColor.Gray2,
+                    ),
+                  ),
+                ),
+              ],
+            ),
 
-          const Text(
-            'Dự án Mở rộng mỏ Thạch Khê',
-            style: XelaTextStyle.XelaHeadline
-          ),
-          const SizedBox(height: 16),
+            const SizedBox(height: 8),
+            XelaDivider(),
+            const SizedBox(height: 16),
 
-          const _ProgressCard(
-            title: 'Tiến độ thi công',
-            percent: 0.65,
-            barColor: Colors.green,
-          ),
-          const SizedBox(height: 16),
-          const _ProgressCard(
-            title: 'Tiến độ thanh toán',
-            percent: 0.50,
-            barColor: Colors.blue,
-          ),
-          const SizedBox(height: 24),
-        ],
+            const Text(
+              'Dự án Mở rộng mỏ Thạch Khê',
+              style: XelaTextStyle.XelaHeadline,
+            ),
+            const SizedBox(height: 16),
+
+            const _ProgressCard(
+              title: 'Tiến độ thi công',
+              percent: 0.65,
+              barColor: Colors.green,
+            ),
+            const SizedBox(height: 16),
+            const _ProgressCard(
+              title: 'Tiến độ thanh toán',
+              percent: 0.50,
+              barColor: Colors.blue,
+            ),
+            const SizedBox(height: 24),
+          ],
+        ),
       ),
     );
   }
@@ -62,7 +89,6 @@ class _ProgressCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       decoration: BoxDecoration(
@@ -75,9 +101,6 @@ class _ProgressCard extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-            ),
             child: Text(
               title,
               style: XelaTextStyle.XelaBodyBold,
@@ -106,7 +129,8 @@ class _LinearPercentBar extends StatelessWidget {
       builder: (context, constraints) {
         final double v = value.clamp(0.0, 1.0).toDouble();
         final fullWidth = constraints.maxWidth;
-        final double barWidth = (fullWidth * v).clamp(0.0, fullWidth).toDouble();
+        final double barWidth =
+        (fullWidth * v).clamp(0.0, fullWidth).toDouble();
         return Container(
           height: 22,
           decoration: BoxDecoration(
@@ -128,7 +152,9 @@ class _LinearPercentBar extends StatelessWidget {
               Center(
                 child: Text(
                   percentText,
-                  style: XelaTextStyle.XelaBodyBold.apply(color: XelaColor.Gray12),
+                  style: XelaTextStyle.XelaBodyBold.apply(
+                    color: XelaColor.Gray12,
+                  ),
                 ),
               ),
             ],
