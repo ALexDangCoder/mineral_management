@@ -1,4 +1,5 @@
 import 'package:bnv_opendata/data/model/notification_model.dart';
+import 'package:bnv_opendata/utils/constants/enums.dart';
 
 Map<String, dynamic> notificationToMap(AppNotification n) => {
   'id': n.id,
@@ -20,13 +21,13 @@ AppNotification notificationFromMap(Map<String, dynamic> m) {
   );
 }
 
-NotificationCategory _catFromName(String? n) {
+NotificationCategoryEnum _catFromName(String? n) {
   switch ((n ?? '').toLowerCase()) {
-    case 'activity': return NotificationCategory.activity;
-    case 'legal':    return NotificationCategory.legal;
-    case 'finance':  return NotificationCategory.finance;
-    case 'system':   return NotificationCategory.system;
+    case 'activity': return NotificationCategoryEnum.activity;
+    case 'legal':    return NotificationCategoryEnum.legal;
+    case 'finance':  return NotificationCategoryEnum.finance;
+    case 'system':   return NotificationCategoryEnum.system;
     case 'all':
-    default:         return NotificationCategory.all;
+    default:         return NotificationCategoryEnum.all;
   }
 }

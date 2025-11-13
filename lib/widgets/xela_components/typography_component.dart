@@ -72,7 +72,7 @@ class _TypographyComponentState extends State<TypographyComponent> {
                         ),
                       ),
                     ],
-                  )),
+                  ),),
               Expanded(
                   child: ListView(
                 padding: EdgeInsets.zero,
