@@ -20,7 +20,7 @@ abstract class BaseState<T extends StatefulWidget> extends BaseSetState<T> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!
+    WidgetsBinding.instance
         .addPostFrameCallback((_) => afterFirstLayout(context));
     _handleEventBus();
   }

@@ -13,14 +13,14 @@ import 'package:bnv_opendata/presentation/xelauikit_screens/templates_screen.dar
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:flutter/material.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+class MainScreenXela extends StatefulWidget {
+  const MainScreenXela({super.key});
 
   @override
-  _MainScreenState createState() => _MainScreenState();
+  _MainScreenXelaState createState() => _MainScreenXelaState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _MainScreenXelaState extends State<MainScreenXela> {
   int _selectedIndex = 0;
 
   static  List<Widget> _pages = <Widget>[

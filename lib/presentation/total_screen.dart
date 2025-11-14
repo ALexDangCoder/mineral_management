@@ -1,7 +1,6 @@
 import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/presentation/alert/alert_list_screen.dart';
 import 'package:bnv_opendata/presentation/closure_plan_detail/closure_plan_detail_screen.dart';
-import 'package:bnv_opendata/presentation/mine_3d/mine_3d_screen.dart';
 import 'package:bnv_opendata/presentation/notification_management/notification_management_screen.dart';
 import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
 import 'package:bnv_opendata/presentation/project_detail/project_detail_screen.dart';
@@ -20,36 +19,40 @@ class TotalScreen extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, AppRouter.mine3d);
+                  Navigator.pushNamed(context, TemplateAppRouter.mine3d);
                 },
                 child: Container(
                   width: 100,
                   height: 50,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.red,
                   ),
-                  child: Text('3D Visualization Module'),
+                  child: const Text('3D Visualization Module'),
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (_) =>  AlertListScreen(),
+                      builder: (_) => const AlertListScreen(),
                     ),
                   );
                 },
                 child: Container(
                   width: 100,
                   height: 60,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.red,
                   ),
-                  child: Text('License Module'),
+                  child: const Text('License Module'),
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
@@ -61,13 +64,15 @@ class TotalScreen extends StatelessWidget {
                 child: Container(
                   width: 100,
                   height: 60,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.red,
                   ),
-                  child: Text('Construction Module'),
+                  child: const Text('Construction Module'),
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
@@ -79,67 +84,76 @@ class TotalScreen extends StatelessWidget {
                 child: Container(
                   width: 100,
                   height: 60,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.red,
                   ),
-                  child: Text('Map Module'),
+                  child: const Text('Map Module'),
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (_) =>  ProjectDetailScreen(),
+                      builder: (_) => ProjectDetailScreen(),
                     ),
                   );
                 },
                 child: Container(
                   width: 100,
                   height: 60,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.red,
                   ),
-                  child: Text('Project Module'),
+                  child: const Text('Project Module'),
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (_) =>  NotificationManagementScreen(),
+                      builder: (_) => NotificationManagementScreen(),
                     ),
                   );
                 },
                 child: Container(
                   width: 100,
                   height: 60,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.red,
                   ),
-                  child: Text('Xem cảnh báo hết hiệu lực thực hiện Đề án đóng cửa mỏ'),
+                  child: const Text(
+                      'Xem cảnh báo hết hiệu lực thực hiện Đề án đóng cửa mỏ'),
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (_) =>  ClosurePlanDetailScreen(),
+                      builder: (_) => ClosurePlanDetailScreen(),
                     ),
                   );
                 },
                 child: Container(
                   width: 100,
                   height: 60,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.red,
                   ),
-                  child: Text('Closure Module'),
+                  child: const Text('Closure Module'),
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
             ],
           ),
         ),

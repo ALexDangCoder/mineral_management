@@ -27,7 +27,7 @@ class MineListScreen extends StatelessWidget {
 }
 
 class _MineListBody extends StatelessWidget {
-  const _MineListBody({super.key});
+  const _MineListBody();
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class _MineListBody extends StatelessWidget {
 }
 
 class _MineItemWidget extends StatelessWidget {
-  const _MineItemWidget({super.key, this.mineModel});
+  const _MineItemWidget({this.mineModel});
 
   final MineModel? mineModel;
 

@@ -44,8 +44,7 @@ class NotificationState {
       case NotificationStatusFilterEnum.unread:
         return _byCategory.where((e) => !e.isRead).toList();
       case NotificationStatusFilterEnum.all:
-      default:
-        return _byCategory;
+      return _byCategory;
     }
   }
 
@@ -53,13 +52,14 @@ class NotificationState {
     final list = [..._byStatus];
     switch (sort) {
       case NotificationSortEnum.titleAZ:
-        list.sort((a, b) => a.title.toLowerCase().compareTo(b.title.toLowerCase()));
+        list.sort(
+            (a, b) => a.title.toLowerCase().compareTo(b.title.toLowerCase()));
         break;
       case NotificationSortEnum.titleZA:
-        list.sort((a, b) => b.title.toLowerCase().compareTo(a.title.toLowerCase()));
+        list.sort(
+            (a, b) => b.title.toLowerCase().compareTo(a.title.toLowerCase()));
         break;
       case NotificationSortEnum.none:
-      default:
         break;
     }
     return list;

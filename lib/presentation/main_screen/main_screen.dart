@@ -1,10 +1,7 @@
 import 'package:bnv_opendata/config/themes/app_theme.dart';
 import 'package:bnv_opendata/presentation/main_screen/cubit/main_screen_cubit.dart';
 import 'package:bnv_opendata/presentation/screen_exports.dart';
-import 'package:bnv_opendata/presentation/xelauikit_screens/about_screen.dart';
-import 'package:bnv_opendata/presentation/xelauikit_screens/blocks_screen.dart';
 import 'package:bnv_opendata/presentation/xelauikit_screens/components_screen.dart';
-import 'package:bnv_opendata/presentation/xelauikit_screens/templates_screen.dart';
 import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:flutter/material.dart';

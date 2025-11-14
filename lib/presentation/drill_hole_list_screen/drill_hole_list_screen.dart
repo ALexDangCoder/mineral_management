@@ -27,7 +27,7 @@ class DrillHoleListScreen extends StatelessWidget {
 }
 
 class _HoleListBody extends StatelessWidget {
-  const _HoleListBody({super.key});
+  const _HoleListBody();
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +71,7 @@ class _HoleListBody extends StatelessWidget {
 }
 
 class _DrillHoleItemWidget extends StatelessWidget {
-  const _DrillHoleItemWidget({super.key, this.drillHole});
+  const _DrillHoleItemWidget({this.drillHole});
 
   final DrillHoleModel? drillHole;
 
