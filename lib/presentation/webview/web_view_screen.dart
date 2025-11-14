@@ -5,7 +5,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 import 'package:bnv_opendata/data/exception/app_exception.dart';
 import 'package:bnv_opendata/domain/locals/logger.dart';
-import 'package:bnv_opendata/generated/l10n.dart';
+import 'package:bnv_opendata/resources/generated/l10n.dart';
 import 'package:bnv_opendata/utils/app_bar.dart';
 import 'package:bnv_opendata/utils/constants/image_asset.dart';
 import 'package:bnv_opendata/utils/get_ext.dart';

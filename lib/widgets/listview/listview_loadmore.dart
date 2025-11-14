@@ -1,7 +1,7 @@
 import 'package:bnv_opendata/config/base/base_cubit.dart';
 import 'package:bnv_opendata/config/base/base_state.dart';
 import 'package:bnv_opendata/data/exception/app_exception.dart';
-import 'package:bnv_opendata/generated/l10n.dart';
+import 'package:bnv_opendata/resources/generated/l10n.dart';
 import 'package:bnv_opendata/utils/app_utils.dart';
 import 'package:bnv_opendata/utils/constants/api_constants.dart';
 import 'package:bnv_opendata/utils/constants/app_constants.dart';

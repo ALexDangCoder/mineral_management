@@ -1,4 +1,4 @@
-import 'package:bnv_opendata/generated/l10n.dart';
+import 'package:bnv_opendata/resources/generated/l10n.dart';
 import 'package:bnv_opendata/utils/style_utils.dart';
 import 'package:bnv_opendata/widgets/app_button.dart';
 import 'package:flutter/material.dart';

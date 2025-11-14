@@ -136,7 +136,7 @@ class XelaButton extends StatelessWidget {
           children: children,
         ),
       ),
-      onPressed: onPressed,
+      onPressed: state == XelaButtonState.DEFAULT ? onPressed : null,
       shape: RoundedRectangleBorder(
           side: type == XelaButtonType.PRIMARY
               ? BorderSide.none

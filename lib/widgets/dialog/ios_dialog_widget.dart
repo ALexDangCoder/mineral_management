@@ -1,5 +1,5 @@
 import 'package:bnv_opendata/config/resources/styles.dart';
-import 'package:bnv_opendata/generated/l10n.dart';
+import 'package:bnv_opendata/resources/generated/l10n.dart';
 import 'package:bnv_opendata/utils/get_ext.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

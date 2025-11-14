@@ -36,7 +36,7 @@ import 'package:flutter/material.dart';
 
 typedef AppWidgetBuilder = Widget Function(BuildContext, RouteSettings);
 
-class AppRouter {
+class TemplateAppRouter {
   static const dfNamed = Navigator.defaultRouteName;
 
   ///Main App

@@ -1,4 +1,6 @@
-import 'package:bnv_opendata/generated/l10n.dart';
+// import 'package:bnv_opendata/resources/generated/l10n.dart';
+
+import 'package:bnv_opendata/resources/generated/l10n.dart';
 
 class AppException implements Exception {
   String title;
