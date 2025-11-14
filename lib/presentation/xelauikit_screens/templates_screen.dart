@@ -26,13 +26,13 @@ class TemplatesScreen extends StatefulWidget {
 class _TemplatesScreenState extends State<TemplatesScreen> {
   @override
   Widget build(BuildContext context) {
-    var children = <Widget>[];
+    final children = <Widget>[];
 
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
       child: Text(
           "App templates made with care of usability and attention to details",
-          style: XelaTextStyle.XelaSmallBody.apply(color: XelaColor.Gray6)),
+          style: XelaTextStyle.xelaSmallBody.apply(color: XelaColor.Gray6)),
     ));
 
     children.add(Padding(
@@ -242,7 +242,7 @@ class _TemplatesScreenState extends State<TemplatesScreen> {
               padding: const EdgeInsets.all(16),
               child: Text(
                 "Templates",
-                style: XelaTextStyle.XelaHeadline.apply(color: XelaColor.Gray2),
+                style: XelaTextStyle.xelaHeadline.apply(color: XelaColor.Gray2),
               )),
           Expanded(
               child: ListView(

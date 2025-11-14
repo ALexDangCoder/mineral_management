@@ -33,7 +33,7 @@ class AppScaffold extends StatelessWidget {
               title: Text(
                 title!,
                 style:
-                    XelaTextStyle.XelaSubheadline.apply(color: XelaColor.Gray2),
+                    XelaTextStyle.xelaSubheadline.apply(color: XelaColor.Gray2),
               ),
               automaticallyImplyLeading: showBackButton,
               actions: actions,

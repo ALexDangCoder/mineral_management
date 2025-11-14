@@ -36,22 +36,22 @@ class BlocksScreen extends StatefulWidget {
 class _BlocksScreenState extends State<BlocksScreen> {
   @override
   Widget build(BuildContext context) {
-    var children = <Widget>[];
+    final children = <Widget>[];
 
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
       child: Text(
-          "Our Xela Blocks help to make beautiful apps. They are super easy to use and customize. You can freely combine them and quickly build a gorgeous project.",
-          style: XelaTextStyle.XelaSmallBody.apply(color: XelaColor.Gray6)),
+          'Our Xela Blocks help to make beautiful apps. They are super easy to use and customize. You can freely combine them and quickly build a gorgeous project.',
+          style: XelaTextStyle.xelaSmallBody.apply(color: XelaColor.Gray6)),
     ));
 
-    children.add(Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+    children.add(const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       child: XelaAlert(
         title: 'Attention!',
         text:
-            "Blocks are an example of using components and are not fully functional elements",
-        leftIcon: const Icon(
+            'Blocks are an example of using components and are not fully functional elements',
+        leftIcon: Icon(
           Icons.info,
           color: XelaColor.Blue7,
         ),
@@ -64,7 +64,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "SideBar #1",
+        text: 'SideBar #1',
         onPressed: () {
           Navigator.push(
             context,
@@ -82,7 +82,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "SideBar #2",
+        text: 'SideBar #2',
         onPressed: () {
           Navigator.push(
             context,
@@ -100,7 +100,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "SideBar #3",
+        text: 'SideBar #3',
         onPressed: () {
           Navigator.push(
             context,
@@ -118,7 +118,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "Form #1",
+        text: 'Form #1',
         onPressed: () {
           Navigator.push(
             context,
@@ -136,7 +136,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "Form #2",
+        text: 'Form #2',
         onPressed: () {
           Navigator.push(
             context,
@@ -154,7 +154,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "Form #3",
+        text: 'Form #3',
         onPressed: () {
           Navigator.push(
             context,
@@ -172,7 +172,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "Form #4",
+        text: 'Form #4',
         onPressed: () {
           Navigator.push(
             context,
@@ -190,11 +190,11 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "Filter #1",
+        text: 'Filter #1',
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Filter1()),
+            MaterialPageRoute(builder: (context) => const Filter1()),
           );
         },
         horizontalAlignment: MainAxisAlignment.start,
@@ -208,7 +208,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "Filter #2",
+        text: 'Filter #2',
         onPressed: () {
           Navigator.push(
             context,
@@ -226,7 +226,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "Ecommerce cards",
+        text: 'Ecommerce cards',
         onPressed: () {
           Navigator.push(
             context,
@@ -244,7 +244,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "Users list #1",
+        text: 'Users list #1',
         onPressed: () {
           Navigator.push(
             context,
@@ -262,11 +262,11 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "Users list #2",
+        text: 'Users list #2',
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => UsersList2()),
+            MaterialPageRoute(builder: (context) => const UsersList2()),
           );
         },
         horizontalAlignment: MainAxisAlignment.start,
@@ -280,7 +280,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "Users list #3",
+        text: 'Users list #3',
         onPressed: () {
           Navigator.push(
             context,
@@ -298,7 +298,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "Social Media Cards",
+        text: 'Social Media Cards',
         onPressed: () {
           Navigator.push(
             context,
@@ -316,7 +316,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "Music App #1",
+        text: 'Music App #1',
         onPressed: () {
           Navigator.push(
             context,
@@ -334,7 +334,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "Music App #2",
+        text: 'Music App #2',
         onPressed: () {
           Navigator.push(
             context,
@@ -352,7 +352,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "Music App #3",
+        text: 'Music App #3',
         onPressed: () {
           Navigator.push(
             context,
@@ -370,7 +370,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "Cryptocurrency #1",
+        text: 'Cryptocurrency #1',
         onPressed: () {
           Navigator.push(
             context,
@@ -388,7 +388,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "Cryptocurrency #2",
+        text: 'Cryptocurrency #2',
         onPressed: () {
           Navigator.push(
             context,
@@ -406,7 +406,7 @@ class _BlocksScreenState extends State<BlocksScreen> {
     children.add(Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: XelaButton(
-        text: "Cryptocurrency #3",
+        text: 'Cryptocurrency #3',
         onPressed: () {
           Navigator.push(
             context,
@@ -431,8 +431,8 @@ class _BlocksScreenState extends State<BlocksScreen> {
           Padding(
               padding: const EdgeInsets.all(16),
               child: Text(
-                "Blocks",
-                style: XelaTextStyle.XelaHeadline.apply(color: XelaColor.Gray2),
+                'Blocks',
+                style: XelaTextStyle.xelaHeadline.apply(color: XelaColor.Gray2),
               )),
           Expanded(
               child: ListView(

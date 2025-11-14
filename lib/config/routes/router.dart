@@ -43,7 +43,7 @@ import 'package:flutter/material.dart';
 
 typedef AppWidgetBuilder = Widget Function(BuildContext, RouteSettings);
 
-class TemplateAppRouter {
+class Routers {
   static const dfNamed = Navigator.defaultRouteName;
 
   ///Main App
@@ -187,7 +187,7 @@ class TemplateAppRouter {
       case drillHoleList:
         return MaterialPageRoute(builder: (ctx) => const DrillHoleListScreen());
       case mine3d:
-        return MaterialPageRoute(builder: (ctx) => const Mine3DScreen());
+        return MaterialPageRoute(builder: (ctx) => const Mine3DScreen(),);
       case alertList:
         return MaterialPageRoute(builder: (ctx) => const AlertListScreen());
       case progress:

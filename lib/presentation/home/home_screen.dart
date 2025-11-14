@@ -1,6 +1,8 @@
+import 'package:bnv_opendata/config/routes/router.dart';
+import 'package:bnv_opendata/presentation/alert/alert_list_screen.dart';
 import 'package:bnv_opendata/presentation/home/report_widget/report_widget.dart';
+import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
-import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
 import 'package:flutter/material.dart';
@@ -18,46 +20,74 @@ class HomeScreen extends StatelessWidget {
 }
 
 class _HomeScreenBody extends StatelessWidget {
-  const _HomeScreenBody({super.key});
+  const _HomeScreenBody();
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
       children: [
-        const ReportWidget(),
-        const SizedBox(height: 16,),
-        Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                AppS.of(context).warning_list,
-                style: XelaTextStyle.XelaSubheadline.apply(color: XelaColor.Gray2),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Xin chào,',
+                  style: XelaTextStyle.xelaBody.apply(
+                    color: XelaColor.Gray7,
+                  ),
+                ),
+                Text(
+                  'Nguyen Van A',
+                  style: XelaTextStyle.xelaSubheadline.apply(
+                    color: XelaColor.Gray1,
+                    fontWeightDelta: 2,
+                  ),
+                ),
+              ],
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  Routers.notificationManagement,
+                );
+              },
+              child: const Icon(
+                Icons.notifications,
+                size: 20,
+                color: XelaColor.Gray7,
               ),
-              const Text('Content')
-            ],
-          ),
+            ),
+          ],
         ),
-        const SizedBox(height: 16,),
-        Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+        Expanded(
+          child: ListView(
             children: [
-              Text(
-                'Tiến độ',
-                style: XelaTextStyle.XelaSubheadline.apply(color: XelaColor.Gray2),
+              const ReportWidget(),
+              const SizedBox(
+                height: 16,
               ),
-              const Text('Content ...')
+              Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: const AlertListScreen(),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: const ProgressScreen(),
+              ),
             ],
           ),
         ),

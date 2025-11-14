@@ -32,7 +32,7 @@ class AccountInfoScreen extends StatelessWidget {
 }
 
 class _AccountInfoListener extends StatelessWidget {
-  const _AccountInfoListener({super.key});
+  const _AccountInfoListener();
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class _AccountInfoListener extends StatelessWidget {
 }
 
 class _AccountInfoBody extends StatefulWidget {
-  const _AccountInfoBody({super.key});
+  const _AccountInfoBody();
 
   @override
   State<_AccountInfoBody> createState() => _AccountInfoBodyState();
@@ -87,14 +87,14 @@ class _AccountInfoBodyState extends State<_AccountInfoBody> {
                 const SizedBox(height: 28),
                 Text(
                   'Cán bộ kỹ thuật',
-                  style: XelaTextStyle.XelaHeadline.apply(
+                  style: XelaTextStyle.xelaHeadline.apply(
                     color: XelaColor.Gray2,
                   ),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   'Canbokythuat@gmail.com',
-                  style: XelaTextStyle.XelaBody.apply(
+                  style: XelaTextStyle.xelaBody.apply(
                     color: XelaColor.Gray2,
                   ),
                 ),

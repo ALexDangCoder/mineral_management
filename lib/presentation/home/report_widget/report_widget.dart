@@ -39,7 +39,7 @@ class _ReportWidgetState extends State<ReportWidget> {
               Text(
                 AppS.of(context).reserves_report,
                 style:
-                    XelaTextStyle.XelaSubheadline.apply(color: XelaColor.Gray2),
+                    XelaTextStyle.xelaSubheadline.apply(color: XelaColor.Gray2),
               ),
               const SizedBox(
                 width: 8,
@@ -57,7 +57,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                     children: [
                       Text(
                         _reportPeriod[_selectedIndex]['quarter'] ?? '',
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                           color: XelaColor.Blue6,
                         ),
                       ),
@@ -79,7 +79,7 @@ class _ReportWidgetState extends State<ReportWidget> {
             children: [
               Text(
                 '${AppS.of(context).reserves_total}1,250,000 tấn',
-                style: XelaTextStyle.XelaBodyBold.apply(color: XelaColor.Blue6),
+                style: XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Blue6),
               ),
               const SizedBox(height: 8),
               _progressWidget(
@@ -88,7 +88,7 @@ class _ReportWidgetState extends State<ReportWidget> {
               const SizedBox(height: 8),
               Text(
                 'Đã khai thác ${_reportPeriod[_selectedIndex]['value']}% trữ lượng phê duyệt',
-                style: XelaTextStyle.XelaCaption.apply(color: XelaColor.Blue6),
+                style: XelaTextStyle.xelaCaption.apply(color: XelaColor.Blue6),
               ),
             ],
           ),
@@ -126,10 +126,6 @@ class _ReportWidgetState extends State<ReportWidget> {
       isScrollControlled: true, // This is key for full screen
       builder: (BuildContext context) {
         return DraggableScrollableSheet(
-            initialChildSize: 0.5,
-            // Initial height of the sheet
-            minChildSize: 0.25,
-            // Minimum height when dragged down
             maxChildSize: 0.9,
             // Maximum height when dragged up
             expand: false,
@@ -142,7 +138,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                       Text(
                         AppS.of(context).select_reporting_period,
                         textAlign: TextAlign.center,
-                        style: XelaTextStyle.XelaBodyBold.apply(
+                        style: XelaTextStyle.xelaBodyBold.apply(
                           color: XelaColor.Gray2,
                         ),
                       ),
@@ -197,7 +193,7 @@ class _ReportWidgetState extends State<ReportWidget> {
               child: Text(
                 title,
                 textAlign: TextAlign.left,
-                style: XelaTextStyle.XelaCaption.apply(
+                style: XelaTextStyle.xelaCaption.apply(
                   color: XelaColor.Gray2,
                 ),
               ),

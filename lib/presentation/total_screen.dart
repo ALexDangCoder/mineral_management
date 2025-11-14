@@ -5,7 +5,7 @@ import 'package:bnv_opendata/presentation/notification_management/notification_m
 import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
 import 'package:bnv_opendata/presentation/project_detail/project_detail_screen.dart';
 import 'package:bnv_opendata/presentation/show_construction_map/show_construction_Map_screen.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Router;
 
 class TotalScreen extends StatelessWidget {
   const TotalScreen({super.key});
@@ -19,7 +19,7 @@ class TotalScreen extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, TemplateAppRouter.mine3d);
+                  Navigator.pushNamed(context, Routers.mine3d);
                 },
                 child: Container(
                   width: 100,

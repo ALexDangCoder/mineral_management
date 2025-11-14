@@ -244,7 +244,7 @@ class _Sidebar1State extends State<SideBar1>
                                                           "Home",
                                                           maxLines: 1,
                                                           style: XelaTextStyle
-                                                                  .XelaSmallBodyBold
+                                                                  .xelaSmallBodyBold
                                                               .apply(
                                                                   color: _isDark
                                                                       ? XelaColor
@@ -286,7 +286,7 @@ class _Sidebar1State extends State<SideBar1>
                                                           "Dashboard",
                                                           maxLines: 1,
                                                           style: XelaTextStyle
-                                                                  .XelaSmallBodyBold
+                                                                  .xelaSmallBodyBold
                                                               .apply(
                                                                   color: _isDark
                                                                       ? XelaColor
@@ -338,7 +338,7 @@ class _Sidebar1State extends State<SideBar1>
                                                           "Products",
                                                           maxLines: 1,
                                                           style: XelaTextStyle
-                                                                  .XelaSmallBodyBold
+                                                                  .xelaSmallBodyBold
                                                               .apply(
                                                                   color: _isDark
                                                                       ? XelaColor
@@ -379,7 +379,7 @@ class _Sidebar1State extends State<SideBar1>
                                                           "Events",
                                                           maxLines: 1,
                                                           style: XelaTextStyle
-                                                                  .XelaSmallBodyBold
+                                                                  .xelaSmallBodyBold
                                                               .apply(
                                                                   color: _isDark
                                                                       ? XelaColor
@@ -421,7 +421,7 @@ class _Sidebar1State extends State<SideBar1>
                                                           "Users",
                                                           maxLines: 1,
                                                           style: XelaTextStyle
-                                                                  .XelaSmallBodyBold
+                                                                  .xelaSmallBodyBold
                                                               .apply(
                                                                   color: _isDark
                                                                       ? XelaColor
@@ -473,7 +473,7 @@ class _Sidebar1State extends State<SideBar1>
                                                           "Sales",
                                                           maxLines: 1,
                                                           style: XelaTextStyle
-                                                                  .XelaSmallBodyBold
+                                                                  .xelaSmallBodyBold
                                                               .apply(
                                                                   color: _isDark
                                                                       ? XelaColor
@@ -514,7 +514,7 @@ class _Sidebar1State extends State<SideBar1>
                                                           "Discounts",
                                                           maxLines: 1,
                                                           style: XelaTextStyle
-                                                                  .XelaSmallBodyBold
+                                                                  .xelaSmallBodyBold
                                                               .apply(
                                                                   color: _isDark
                                                                       ? XelaColor
@@ -556,7 +556,7 @@ class _Sidebar1State extends State<SideBar1>
                                                           "Payments",
                                                           maxLines: 1,
                                                           style: XelaTextStyle
-                                                                  .XelaSmallBodyBold
+                                                                  .xelaSmallBodyBold
                                                               .apply(
                                                                   color: _isDark
                                                                       ? XelaColor
@@ -608,7 +608,7 @@ class _Sidebar1State extends State<SideBar1>
                                                           "Messages",
                                                           maxLines: 1,
                                                           style: XelaTextStyle
-                                                                  .XelaSmallBodyBold
+                                                                  .xelaSmallBodyBold
                                                               .apply(
                                                                   color: _isDark
                                                                       ? XelaColor
@@ -649,7 +649,7 @@ class _Sidebar1State extends State<SideBar1>
                                                           "Settings",
                                                           maxLines: 1,
                                                           style: XelaTextStyle
-                                                                  .XelaSmallBodyBold
+                                                                  .xelaSmallBodyBold
                                                               .apply(
                                                                   color: _isDark
                                                                       ? XelaColor
@@ -689,7 +689,7 @@ class _Sidebar1State extends State<SideBar1>
                                                         "Floyd Miles",
                                                         maxLines: 1,
                                                         style: XelaTextStyle
-                                                                .XelaSmallBodyBold
+                                                                .xelaSmallBodyBold
                                                             .apply(
                                                                 color: _isDark
                                                                     ? XelaColor
@@ -701,7 +701,7 @@ class _Sidebar1State extends State<SideBar1>
                                                         "debra.holt@example.com",
                                                         maxLines: 1,
                                                         style: XelaTextStyle
-                                                                .XelaCaption
+                                                                .xelaCaption
                                                             .apply(
                                                                 color: XelaColor
                                                                     .Gray6),

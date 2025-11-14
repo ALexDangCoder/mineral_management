@@ -54,7 +54,7 @@ class _AccordionComponentState extends State<AccordionComponent> {
                       Expanded(
                           child: Text(
                         "Accordion",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -86,7 +86,7 @@ class _AccordionComponentState extends State<AccordionComponent> {
                     child: Center(
                       child: Text(
                         "Usage Example",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -120,7 +120,7 @@ class _AccordionComponentState extends State<AccordionComponent> {
                           ),
                           Text(
                             "Placeholder content for this accordion. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.",
-                            style: XelaTextStyle.XelaSmallBody.apply(
+                            style: XelaTextStyle.xelaSmallBody.apply(
                                 color: _isDark
                                     ? XelaColor.Gray3
                                     : XelaColor.Gray3),
@@ -155,7 +155,7 @@ class _AccordionComponentState extends State<AccordionComponent> {
                           ),
                           Text(
                             "Placeholder content for this accordion. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.",
-                            style: XelaTextStyle.XelaSmallBody.apply(
+                            style: XelaTextStyle.xelaSmallBody.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2),
@@ -194,7 +194,7 @@ class _AccordionComponentState extends State<AccordionComponent> {
                           ),
                           Text(
                             "Placeholder content for this accordion. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.",
-                            style: XelaTextStyle.XelaSmallBody.apply(
+                            style: XelaTextStyle.xelaSmallBody.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2),

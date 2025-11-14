@@ -51,7 +51,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                       Expanded(
                           child: Text(
                         "Colors",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -83,7 +83,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                     child: Center(
                       child: Text(
                         "Main Colors",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -109,7 +109,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Blue",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -123,7 +123,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Pink",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -137,7 +137,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Green",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -151,7 +151,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Yellow",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -175,7 +175,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Orange",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -189,7 +189,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Red",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -203,7 +203,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Purple",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -217,7 +217,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Gray",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -231,7 +231,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                     child: Center(
                       child: Text(
                         "Gray shades",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -257,7 +257,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Gray1",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -271,7 +271,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Gray2",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -285,7 +285,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Gray3",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -299,7 +299,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Gray4",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -323,7 +323,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Gray5",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -337,7 +337,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Gray6",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -351,7 +351,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Gray7",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -365,7 +365,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Gray8",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -389,7 +389,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Gray9",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -403,7 +403,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Gray10",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -417,7 +417,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Gray11",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -431,7 +431,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Gray12",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -445,7 +445,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                     child: Center(
                       child: Text(
                         "Blue shades",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -471,7 +471,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Blue1",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -485,7 +485,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Blue2",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -499,7 +499,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Blue3",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -513,7 +513,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Blue4",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -537,7 +537,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Blue5",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -551,7 +551,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Blue6",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -565,7 +565,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Blue7",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -579,7 +579,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Blue8",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -603,7 +603,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Blue9",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -617,7 +617,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Blue10",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -631,7 +631,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Blue11",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -645,7 +645,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Blue12",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -659,7 +659,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                     child: Center(
                       child: Text(
                         "Pink shades",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -685,7 +685,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Pink1",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -699,7 +699,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Pink2",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -713,7 +713,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Pink3",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -727,7 +727,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Pink4",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -751,7 +751,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Pink5",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -765,7 +765,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Pink6",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -779,7 +779,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Pink7",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -793,7 +793,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Pink8",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -817,7 +817,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Pink9",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -831,7 +831,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Pink10",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -845,7 +845,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Pink11",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -859,7 +859,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Pink12",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -873,7 +873,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                     child: Center(
                       child: Text(
                         "Green shades",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -899,7 +899,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Green1",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -913,7 +913,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Green2",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -927,7 +927,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Green3",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -941,7 +941,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Green4",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -965,7 +965,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Green5",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -979,7 +979,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Green6",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -993,7 +993,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Green7",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1007,7 +1007,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Green8",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1031,7 +1031,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Green9",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1045,7 +1045,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Green10",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1059,7 +1059,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Green11",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1073,7 +1073,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Green12",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1087,7 +1087,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                     child: Center(
                       child: Text(
                         "Yellow shades",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -1113,7 +1113,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Yellow1",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1127,7 +1127,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Yellow2",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1141,7 +1141,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Yellow3",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1155,7 +1155,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Yellow4",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1179,7 +1179,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Yellow5",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1193,7 +1193,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Yellow6",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1207,7 +1207,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Yellow7",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1221,7 +1221,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Yellow8",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1245,7 +1245,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Yellow9",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1259,7 +1259,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Yellow10",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1273,7 +1273,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Yellow11",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1287,7 +1287,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Yellow12",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1301,7 +1301,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                     child: Center(
                       child: Text(
                         "Orange shades",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -1327,7 +1327,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Orange1",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1341,7 +1341,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Orange2",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1355,7 +1355,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Orange3",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1369,7 +1369,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Orange4",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1393,7 +1393,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Orange5",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1407,7 +1407,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Orange6",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1421,7 +1421,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Orange7",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1435,7 +1435,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Orange8",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1459,7 +1459,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Orange9",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1473,7 +1473,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Orange10",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1487,7 +1487,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Orange11",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1501,7 +1501,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Orange12",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1515,7 +1515,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                     child: Center(
                       child: Text(
                         "Red shades",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -1541,7 +1541,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Red1",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1555,7 +1555,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Red2",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1569,7 +1569,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Red3",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1583,7 +1583,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Red4",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1607,7 +1607,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Red5",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1621,7 +1621,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Red6",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1635,7 +1635,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Red7",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1649,7 +1649,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Red8",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1673,7 +1673,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Red9",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1687,7 +1687,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Red10",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1701,7 +1701,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Red11",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1715,7 +1715,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Red12",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1729,7 +1729,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                     child: Center(
                       child: Text(
                         "Purple shades",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -1755,7 +1755,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Purple1",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1769,7 +1769,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Purple2",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1783,7 +1783,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Purple3",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1797,7 +1797,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Purple4",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1821,7 +1821,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Purple5",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1835,7 +1835,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Purple6",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1849,7 +1849,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Purple7",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1863,7 +1863,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Purple8",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1887,7 +1887,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Purple9",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1901,7 +1901,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Purple10",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1915,7 +1915,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Purple11",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1929,7 +1929,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Purple12",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.black),
                             ),
                           ),
@@ -1943,7 +1943,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                     child: Center(
                       child: Text(
                         "Gradients",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -1973,7 +1973,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Pink to .Blue",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -1990,7 +1990,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Green to .Blue",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -2017,7 +2017,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Yellow to .Blue",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -2034,7 +2034,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Orange to .Blue",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -2061,7 +2061,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Red to .Blue",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -2078,7 +2078,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Purple to .Blue",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -2105,7 +2105,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Green to .Pink",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -2122,7 +2122,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Yellow to .Pink",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -2149,7 +2149,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Orange to .Pink",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -2166,7 +2166,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Red to .Pink",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -2193,7 +2193,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Purple to .Pink",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -2210,7 +2210,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Red to .Orange",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -2240,7 +2240,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Orange to .Yellow",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -2257,7 +2257,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Red to .Yellow",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -2287,7 +2287,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Purple to .Yellow",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -2307,7 +2307,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Purple to .Orange",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -2334,7 +2334,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Purple to .Red",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -2351,7 +2351,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Red to .Green",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -2378,7 +2378,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Yellow to .Green",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),
@@ -2395,7 +2395,7 @@ class _ColorsComponentState extends State<ColorsComponent> {
                             alignment: Alignment.center,
                             child: Text(
                               ".Orange to .Green",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: Colors.white),
                             ),
                           ),

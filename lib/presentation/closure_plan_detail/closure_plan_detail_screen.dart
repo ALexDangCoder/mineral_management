@@ -51,7 +51,7 @@ class ClosurePlanDetailScreen extends StatelessWidget {
                 Expanded(
                   child: Text(
                     "Chi tiết Đề án đóng cửa",
-                    style: XelaTextStyle.XelaHeadline,
+                    style: XelaTextStyle.xelaHeadline,
                   ),
                 ),
               ],
@@ -112,12 +112,12 @@ class _InfoCard extends StatelessWidget {
         children: [
           Text(
             label,
-            style: XelaTextStyle.XelaSubheadline,
+            style: XelaTextStyle.xelaSubheadline,
           ),
           const SizedBox(height: 8),
           Text(
             value,
-            style: XelaTextStyle.XelaBodyBold.apply(
+            style: XelaTextStyle.xelaBodyBold.apply(
               color: isExpired ? XelaColor.Red3 : XelaColor.Gray1,
             ),
           ),

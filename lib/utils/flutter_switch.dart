@@ -318,7 +318,7 @@ class _FlutterSwitchState extends State<FlutterSwitch>
           widget.toggleBorder as Border?;
     }
 
-    double _textSpace = widget.width - widget.toggleSize;
+    final double _textSpace = widget.width - widget.toggleSize;
 
     return AnimatedBuilder(
       animation: _animationController,

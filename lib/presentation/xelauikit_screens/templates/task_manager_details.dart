@@ -77,7 +77,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                           Text(
                               DateFormat.yMMMMd('en')
                                   .format(widget.selectedDate),
-                              style: XelaTextStyle.XelaButtonLarge.apply(
+                              style: XelaTextStyle.xelaButtonLarge.apply(
                                   color: Colors.white))
                         ],
                       )),
@@ -171,7 +171,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                               child: Row(
                                 children: [
                                   Text("01:00 PM",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray8)),
                                   const SizedBox(width: 16),
                                   Expanded(
@@ -195,7 +195,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                               child: Row(
                                 children: [
                                   Text("02:00 PM",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray8)),
                                   const SizedBox(width: 16),
                                   Expanded(
@@ -219,7 +219,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                               child: Row(
                                 children: [
                                   Text("03:00 PM",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray8)),
                                   const SizedBox(width: 16),
                                   Expanded(
@@ -243,7 +243,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                               child: Row(
                                 children: [
                                   Text("04:00 PM",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray8)),
                                   const SizedBox(width: 16),
                                   Expanded(
@@ -270,7 +270,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                               child: Row(
                                 children: [
                                   Text("05:00 PM",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray8)),
                                   const SizedBox(width: 16),
                                   Expanded(
@@ -286,7 +286,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                               child: Row(
                                 children: [
                                   Text("06:00 PM",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray8)),
                                   const SizedBox(width: 16),
                                   Expanded(
@@ -324,7 +324,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                               child: Row(
                                 children: [
                                   Text("07:00 PM",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray8)),
                                   const SizedBox(width: 16),
                                   Expanded(

@@ -87,7 +87,7 @@ class _Form1State extends State<Form1> {
                     child: Column(
                       children: [
                         Text("Create Your Free Account",
-                            style: XelaTextStyle.XelaHeadline.apply(
+                            style: XelaTextStyle.xelaHeadline.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2)),
@@ -96,12 +96,12 @@ class _Form1State extends State<Form1> {
                           children: [
                             const Spacer(),
                             Text("Already have an account? ",
-                                style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                style: XelaTextStyle.xelaSmallBodyBold.apply(
                                     color: _isDark
                                         ? XelaColor.Gray11
                                         : XelaColor.Gray2)),
                             Text("Log in",
-                                style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                style: XelaTextStyle.xelaSmallBodyBold.apply(
                                     color: _isDark
                                         ? XelaColor.Blue5
                                         : XelaColor.Blue3)),
@@ -178,12 +178,12 @@ class _Form1State extends State<Form1> {
                           children: [
                             const Spacer(),
                             Text("By signing up you are agreeing to ",
-                                style: XelaTextStyle.XelaCaption.apply(
+                                style: XelaTextStyle.xelaCaption.apply(
                                     color: _isDark
                                         ? XelaColor.Gray11
                                         : XelaColor.Gray2)),
                             Text("Terms & Conditions",
-                                style: XelaTextStyle.XelaCaption.apply(
+                                style: XelaTextStyle.xelaCaption.apply(
                                     color: _isDark
                                         ? XelaColor.Blue5
                                         : XelaColor.Blue3)),

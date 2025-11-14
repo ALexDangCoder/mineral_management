@@ -55,7 +55,7 @@ class ProjectDetailScreen extends StatelessWidget {
                 Expanded(
                   child: Text(
                     "Chi tiết Dự án Khai thác",
-                    style: XelaTextStyle.XelaHeadline.apply(
+                    style: XelaTextStyle.xelaHeadline.apply(
                       color: XelaColor.Gray2,
                     ),
                   ),
@@ -100,12 +100,12 @@ class _InfoCard extends StatelessWidget {
         children: [
           Text(
             label,
-            style: XelaTextStyle.XelaSubheadline,
+            style: XelaTextStyle.xelaSubheadline,
           ),
           const SizedBox(height: 8),
           Text(
             value,
-            style: XelaTextStyle.XelaBodyBold,
+            style: XelaTextStyle.xelaBodyBold,
           ),
         ],
       ),

@@ -48,7 +48,7 @@ class Mine3DScreen extends StatelessWidget {
                         Expanded(
                           child: Text(
                             "Mô hình 3D",
-                            style: XelaTextStyle.XelaHeadline.apply(
+                            style: XelaTextStyle.xelaHeadline.apply(
                               color: XelaColor.Gray2,
                             ),
                           ),
@@ -59,7 +59,7 @@ class Mine3DScreen extends StatelessWidget {
                     const SizedBox(height: 10),
                     Text(
                       state.mine.name,
-                      style: XelaTextStyle.XelaSubheadline,
+                      style: XelaTextStyle.xelaSubheadline,
                     ),
                     Expanded(
                       child: Padding(
@@ -80,7 +80,7 @@ class Mine3DScreen extends StatelessWidget {
                 return Center(
                   child: Text(
                     'Lỗi: ${state.message}',
-                    style: XelaTextStyle.XelaSubheadline,
+                    style: XelaTextStyle.xelaSubheadline,
                   ),
                 );
               }

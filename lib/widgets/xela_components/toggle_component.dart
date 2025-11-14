@@ -51,7 +51,7 @@ class _ToggleComponentState extends State<ToggleComponent> {
                       Expanded(
                           child: Text(
                         "Toggle",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -83,7 +83,7 @@ class _ToggleComponentState extends State<ToggleComponent> {
                     child: Center(
                       child: Text(
                         "Large",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -111,7 +111,7 @@ class _ToggleComponentState extends State<ToggleComponent> {
                         onToggle: (isChecked) {},
                         content: Text(
                           "Label",
-                          style: XelaTextStyle.XelaButtonMedium.apply(
+                          style: XelaTextStyle.xelaButtonMedium.apply(
                               color:
                                   _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                         ),
@@ -135,7 +135,7 @@ class _ToggleComponentState extends State<ToggleComponent> {
                         onToggle: (isChecked) {},
                         content: Text(
                           "Label",
-                          style: XelaTextStyle.XelaButtonMedium.apply(
+                          style: XelaTextStyle.xelaButtonMedium.apply(
                               color:
                                   _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                         ),
@@ -145,7 +145,7 @@ class _ToggleComponentState extends State<ToggleComponent> {
                     child: Center(
                       child: Text(
                         "Medium",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -173,7 +173,7 @@ class _ToggleComponentState extends State<ToggleComponent> {
                         onToggle: (isChecked) {},
                         content: Text(
                           "Label",
-                          style: XelaTextStyle.XelaButtonMedium.apply(
+                          style: XelaTextStyle.xelaButtonMedium.apply(
                               color:
                                   _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                         ),
@@ -197,7 +197,7 @@ class _ToggleComponentState extends State<ToggleComponent> {
                         onToggle: (isChecked) {},
                         content: Text(
                           "Label",
-                          style: XelaTextStyle.XelaButtonMedium.apply(
+                          style: XelaTextStyle.xelaButtonMedium.apply(
                               color:
                                   _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                         ),
@@ -207,7 +207,7 @@ class _ToggleComponentState extends State<ToggleComponent> {
                     child: Center(
                       child: Text(
                         "Small",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -235,7 +235,7 @@ class _ToggleComponentState extends State<ToggleComponent> {
                         onToggle: (isChecked) {},
                         content: Text(
                           "Label",
-                          style: XelaTextStyle.XelaButtonMedium.apply(
+                          style: XelaTextStyle.xelaButtonMedium.apply(
                               color:
                                   _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                         ),
@@ -259,7 +259,7 @@ class _ToggleComponentState extends State<ToggleComponent> {
                         onToggle: (isChecked) {},
                         content: Text(
                           "Label",
-                          style: XelaTextStyle.XelaButtonMedium.apply(
+                          style: XelaTextStyle.xelaButtonMedium.apply(
                               color:
                                   _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                         ),

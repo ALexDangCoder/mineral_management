@@ -138,7 +138,7 @@ class _XelaTabsState extends State<XelaTabs>
               item.label != null
                   ? Text(
                       item.label!,
-                      style: XelaTextStyle.XelaButtonMedium.apply(
+                      style: XelaTextStyle.xelaButtonMedium.apply(
                           color: selectedItemId == item.id
                               ? widget.primaryColor
                               : widget.secondaryColor),

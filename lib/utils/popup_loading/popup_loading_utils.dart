@@ -40,7 +40,7 @@ class PopupLoadingUtils {
 class _LoadingHub extends StatelessWidget {
   final Widget? subWidget;
 
-  const _LoadingHub({this.subWidget, super.key});
+  const _LoadingHub({this.subWidget});
 
   @override
   Widget build(BuildContext context) {

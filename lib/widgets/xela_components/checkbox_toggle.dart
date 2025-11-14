@@ -50,7 +50,7 @@ class _CheckboxComponentState extends State<CheckboxComponent> {
                       Expanded(
                           child: Text(
                         "Checkbox",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),

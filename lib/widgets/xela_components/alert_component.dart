@@ -53,7 +53,7 @@ class _AlertComponentState extends State<AlertComponent> {
                       Expanded(
                           child: Text(
                         "Alert",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -85,7 +85,7 @@ class _AlertComponentState extends State<AlertComponent> {
                     child: Center(
                       child: Text(
                         "Usage Example",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -133,7 +133,7 @@ class _AlertComponentState extends State<AlertComponent> {
                     child: Center(
                       child: Text(
                         "Variants",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),

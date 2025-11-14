@@ -53,7 +53,7 @@ class _ChipsComponentState extends State<ChipsComponent> {
                       Expanded(
                           child: Text(
                         "Chips",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -85,7 +85,7 @@ class _ChipsComponentState extends State<ChipsComponent> {
                     child: Center(
                       child: Text(
                         "Usage Example",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -110,7 +110,7 @@ class _ChipsComponentState extends State<ChipsComponent> {
                           Text(
                             "Pick a few to help us\n" +
                                 "personalize your account",
-                            style: XelaTextStyle.XelaHeadline.apply(
+                            style: XelaTextStyle.xelaHeadline.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2),
@@ -356,7 +356,7 @@ class _ChipsComponentState extends State<ChipsComponent> {
                           ),
                           Text(
                             "You can change these anytime in your profile settings. These just helps us to recommend topics you are interested in",
-                            style: XelaTextStyle.XelaCaption.apply(
+                            style: XelaTextStyle.xelaCaption.apply(
                                 color: XelaColor.Gray6),
                           )
                         ],
@@ -368,7 +368,7 @@ class _ChipsComponentState extends State<ChipsComponent> {
                     child: Center(
                       child: Text(
                         "Large",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -810,7 +810,7 @@ class _ChipsComponentState extends State<ChipsComponent> {
                     child: Center(
                       child: Text(
                         "Medium",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -1324,7 +1324,7 @@ class _ChipsComponentState extends State<ChipsComponent> {
                     child: Center(
                       child: Text(
                         "Small",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),

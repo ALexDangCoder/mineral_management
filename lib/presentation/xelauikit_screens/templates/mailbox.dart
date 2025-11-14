@@ -130,13 +130,13 @@ class _MailboxState extends State<Mailbox> {
                               child: Row(
                                 children: [
                                   Text("Inbox",
-                                      style: XelaTextStyle.XelaHeadline.apply(
+                                      style: XelaTextStyle.xelaHeadline.apply(
                                           color: _isDark
                                               ? Colors.white
                                               : XelaColor.Gray2)),
                                   const Spacer(),
                                   Text("1573 messages, 2 unread",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray6)),
                                 ],
                               ),
@@ -169,7 +169,7 @@ class _MailboxState extends State<Mailbox> {
                                               children: [
                                                 Text("Wonka Industries",
                                                     style: XelaTextStyle
-                                                            .XelaSmallBody
+                                                            .xelaSmallBody
                                                         .apply(
                                                             color: _isDark
                                                                 ? Colors.white
@@ -178,7 +178,7 @@ class _MailboxState extends State<Mailbox> {
                                                 const Spacer(),
                                                 Text("12:28 AM",
                                                     style: XelaTextStyle
-                                                            .XelaCaption
+                                                            .xelaCaption
                                                         .apply(
                                                             color: XelaColor
                                                                 .Gray8)),
@@ -187,7 +187,7 @@ class _MailboxState extends State<Mailbox> {
                                             Text(
                                                 "10 bizarre money habits making...",
                                                 style: XelaTextStyle
-                                                        .XelaSmallBody
+                                                        .xelaSmallBody
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -196,7 +196,7 @@ class _MailboxState extends State<Mailbox> {
                                             Text(
                                                 "@channel We’ve updated the open enrollment policies that our...",
                                                 style: XelaTextStyle
-                                                        .XelaSmallBody
+                                                        .xelaSmallBody
                                                     .apply(
                                                         color:
                                                             XelaColor.Gray6)),
@@ -248,7 +248,7 @@ class _MailboxState extends State<Mailbox> {
                                                 const SizedBox(width: 4),
                                                 Text("Leif Floyd",
                                                     style: XelaTextStyle
-                                                            .XelaSmallBody
+                                                            .xelaSmallBody
                                                         .apply(
                                                             color: _isDark
                                                                 ? Colors.white
@@ -257,7 +257,7 @@ class _MailboxState extends State<Mailbox> {
                                                 const SizedBox(width: 8),
                                                 Text("2",
                                                     style: XelaTextStyle
-                                                            .XelaCaption
+                                                            .xelaCaption
                                                         .apply(
                                                             color: XelaColor
                                                                 .Gray8)),
@@ -267,7 +267,7 @@ class _MailboxState extends State<Mailbox> {
                                                     color: XelaColor.Pink3),
                                                 Text("12:36 PM",
                                                     style: XelaTextStyle
-                                                            .XelaCaption
+                                                            .xelaCaption
                                                         .apply(
                                                             color: XelaColor
                                                                 .Gray8)),
@@ -275,7 +275,7 @@ class _MailboxState extends State<Mailbox> {
                                             ),
                                             Text("As worn in the World Tour...",
                                                 style: XelaTextStyle
-                                                        .XelaSmallBody
+                                                        .xelaSmallBody
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -284,7 +284,7 @@ class _MailboxState extends State<Mailbox> {
                                             Text(
                                                 "Bummer I had to miss your presentation! I just got a chance...",
                                                 style: XelaTextStyle
-                                                        .XelaSmallBody
+                                                        .xelaSmallBody
                                                     .apply(
                                                         color:
                                                             XelaColor.Gray6)),
@@ -332,7 +332,7 @@ class _MailboxState extends State<Mailbox> {
                                               children: [
                                                 Text("SP-holding",
                                                     style: XelaTextStyle
-                                                            .XelaSmallBody
+                                                            .xelaSmallBody
                                                         .apply(
                                                             color: _isDark
                                                                 ? Colors.white
@@ -341,14 +341,14 @@ class _MailboxState extends State<Mailbox> {
                                                 const SizedBox(width: 8),
                                                 Text("5",
                                                     style: XelaTextStyle
-                                                            .XelaCaption
+                                                            .xelaCaption
                                                         .apply(
                                                             color: XelaColor
                                                                 .Gray8)),
                                                 const Spacer(),
                                                 Text("1:26 AM",
                                                     style: XelaTextStyle
-                                                            .XelaCaption
+                                                            .xelaCaption
                                                         .apply(
                                                             color: XelaColor
                                                                 .Gray8)),
@@ -357,7 +357,7 @@ class _MailboxState extends State<Mailbox> {
                                             Text(
                                                 "[WEEKEND ONLY] Get this NOW b...",
                                                 style: XelaTextStyle
-                                                        .XelaSmallBody
+                                                        .xelaSmallBody
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -366,7 +366,7 @@ class _MailboxState extends State<Mailbox> {
                                             Text(
                                                 "@MarvinMcKinney is the best person to ask. Marvin, can you...",
                                                 style: XelaTextStyle
-                                                        .XelaSmallBody
+                                                        .xelaSmallBody
                                                     .apply(
                                                         color:
                                                             XelaColor.Gray6)),
@@ -414,7 +414,7 @@ class _MailboxState extends State<Mailbox> {
                                               children: [
                                                 Text("Krusty Krab",
                                                     style: XelaTextStyle
-                                                            .XelaSmallBody
+                                                            .xelaSmallBody
                                                         .apply(
                                                             color: _isDark
                                                                 ? Colors.white
@@ -423,7 +423,7 @@ class _MailboxState extends State<Mailbox> {
                                                 const Spacer(),
                                                 Text("10:34 AM",
                                                     style: XelaTextStyle
-                                                            .XelaCaption
+                                                            .xelaCaption
                                                         .apply(
                                                             color: XelaColor
                                                                 .Gray8)),
@@ -431,7 +431,7 @@ class _MailboxState extends State<Mailbox> {
                                             ),
                                             Text("Idea hash tags for emails",
                                                 style: XelaTextStyle
-                                                        .XelaSmallBody
+                                                        .xelaSmallBody
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -440,7 +440,7 @@ class _MailboxState extends State<Mailbox> {
                                             Text(
                                                 "I danced with Chuck Norris sliding down a hill because I can't co...",
                                                 style: XelaTextStyle
-                                                        .XelaSmallBody
+                                                        .xelaSmallBody
                                                     .apply(
                                                         color:
                                                             XelaColor.Gray6)),
@@ -488,7 +488,7 @@ class _MailboxState extends State<Mailbox> {
                                               children: [
                                                 Text("David Oshodi",
                                                     style: XelaTextStyle
-                                                            .XelaSmallBody
+                                                            .xelaSmallBody
                                                         .apply(
                                                             color: _isDark
                                                                 ? Colors.white
@@ -497,7 +497,7 @@ class _MailboxState extends State<Mailbox> {
                                                 const Spacer(),
                                                 Text("10:00 AM",
                                                     style: XelaTextStyle
-                                                            .XelaCaption
+                                                            .xelaCaption
                                                         .apply(
                                                             color: XelaColor
                                                                 .Gray8)),
@@ -506,7 +506,7 @@ class _MailboxState extends State<Mailbox> {
                                             Text(
                                                 "Pairs nicely with spreadsheets",
                                                 style: XelaTextStyle
-                                                        .XelaSmallBody
+                                                        .xelaSmallBody
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -515,7 +515,7 @@ class _MailboxState extends State<Mailbox> {
                                             Text(
                                                 "I rolled around a fireman while listening to Gangnam Style bec...",
                                                 style: XelaTextStyle
-                                                        .XelaSmallBody
+                                                        .xelaSmallBody
                                                     .apply(
                                                         color:
                                                             XelaColor.Gray6)),

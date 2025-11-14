@@ -72,15 +72,15 @@ class _XelaAlertState extends State<XelaAlert> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(widget.title,
-                      style: XelaTextStyle.XelaSubheadline.apply(color: widget.primaryColor)),
+                      style: XelaTextStyle.xelaSubheadline.apply(color: widget.primaryColor)),
                   const SizedBox(height: 4),
                   Text(widget.text,
-                      style: XelaTextStyle.XelaBody.apply(color: widget.secondaryColor)),
+                      style: XelaTextStyle.xelaBody.apply(color: widget.secondaryColor)),
                   if (formatted != null) ...[
                     const SizedBox(height: 6),
                     Text(
                       formatted,
-                      style: XelaTextStyle.XelaCaption.apply(color: XelaColor.Gray6),
+                      style: XelaTextStyle.xelaCaption.apply(color: XelaColor.Gray6),
                     ),
                   ],
                 ],

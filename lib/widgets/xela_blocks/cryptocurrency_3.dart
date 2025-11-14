@@ -65,7 +65,7 @@ class _Cryptocurrency3State extends State<Cryptocurrency3> {
                     ),
                     Expanded(
                         child: Text("My Account",
-                            style: XelaTextStyle.XelaSubheadline.apply(
+                            style: XelaTextStyle.xelaSubheadline.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2))),
@@ -110,12 +110,12 @@ class _Cryptocurrency3State extends State<Cryptocurrency3> {
                                           children: [
                                         Text("Your active Deposit",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: _isDark
                                                         ? XelaColor.Gray8
                                                         : XelaColor.Gray6)),
                                         Text("\$525,834.12",
-                                            style: XelaTextStyle.XelaHeadline
+                                            style: XelaTextStyle.xelaHeadline
                                                 .apply(
                                                     color: _isDark
                                                         ? Colors.white
@@ -128,7 +128,7 @@ class _Cryptocurrency3State extends State<Cryptocurrency3> {
                                         children: [
                                           Text("View transactions",
                                               style: XelaTextStyle
-                                                      .XelaSmallBodyBold
+                                                      .xelaSmallBodyBold
                                                   .apply(
                                                       color: XelaColor.Blue6)),
                                           const SizedBox(width: 8),
@@ -154,7 +154,7 @@ class _Cryptocurrency3State extends State<Cryptocurrency3> {
                                   children: [
                                     Expanded(
                                         child: Text("Balances",
-                                            style: XelaTextStyle.XelaBodyBold
+                                            style: XelaTextStyle.xelaBodyBold
                                                 .apply(
                                                     color: _isDark
                                                         ? Colors.white
@@ -219,13 +219,13 @@ class _Cryptocurrency3State extends State<Cryptocurrency3> {
                                             const SizedBox(height: 8),
                                             Text("83.874 ETH",
                                                 style: XelaTextStyle
-                                                        .XelaSubheadline
+                                                        .xelaSubheadline
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
                                                             : XelaColor.Gray2)),
                                             Text("\$3,284.00 ",
-                                                style: XelaTextStyle.XelaCaption
+                                                style: XelaTextStyle.xelaCaption
                                                     .apply(
                                                         color: _isDark
                                                             ? XelaColor.Gray6
@@ -266,13 +266,13 @@ class _Cryptocurrency3State extends State<Cryptocurrency3> {
                                             const SizedBox(height: 8),
                                             Text("1 BTC",
                                                 style: XelaTextStyle
-                                                        .XelaSubheadline
+                                                        .xelaSubheadline
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
                                                             : XelaColor.Gray2)),
                                             Text("\$8,006.00 ",
-                                                style: XelaTextStyle.XelaCaption
+                                                style: XelaTextStyle.xelaCaption
                                                     .apply(
                                                         color: _isDark
                                                             ? XelaColor.Gray6
@@ -317,13 +317,13 @@ class _Cryptocurrency3State extends State<Cryptocurrency3> {
                                             const SizedBox(height: 8),
                                             Text("1000 DASH",
                                                 style: XelaTextStyle
-                                                        .XelaSubheadline
+                                                        .xelaSubheadline
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
                                                             : XelaColor.Gray2)),
                                             Text("\$2,833.00",
-                                                style: XelaTextStyle.XelaCaption
+                                                style: XelaTextStyle.xelaCaption
                                                     .apply(
                                                         color: _isDark
                                                             ? XelaColor.Gray6
@@ -364,13 +364,13 @@ class _Cryptocurrency3State extends State<Cryptocurrency3> {
                                             const SizedBox(height: 8),
                                             Text("10.048 XMR",
                                                 style: XelaTextStyle
-                                                        .XelaSubheadline
+                                                        .xelaSubheadline
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
                                                             : XelaColor.Gray2)),
                                             Text("\$76,500",
-                                                style: XelaTextStyle.XelaCaption
+                                                style: XelaTextStyle.xelaCaption
                                                     .apply(
                                                         color: _isDark
                                                             ? XelaColor.Gray6
@@ -390,7 +390,7 @@ class _Cryptocurrency3State extends State<Cryptocurrency3> {
                                   children: [
                                     Expanded(
                                         child: Text("Exchange rate",
-                                            style: XelaTextStyle.XelaBodyBold
+                                            style: XelaTextStyle.xelaBodyBold
                                                 .apply(
                                                     color: _isDark
                                                         ? Colors.white
@@ -406,10 +406,10 @@ class _Cryptocurrency3State extends State<Cryptocurrency3> {
                                     Expanded(
                                         child: Text("Name",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: XelaColor.Gray6))),
                                     Text("Value",
-                                        style: XelaTextStyle.XelaCaption.apply(
+                                        style: XelaTextStyle.xelaCaption.apply(
                                             color: XelaColor.Gray6)),
                                     const SizedBox(width: 8),
                                     const Icon(Icons.arrow_downward,
@@ -445,7 +445,7 @@ class _Cryptocurrency3State extends State<Cryptocurrency3> {
                                         children: [
                                           Text("Monero",
                                               style: XelaTextStyle
-                                                      .XelaSmallBodyBold
+                                                      .xelaSmallBodyBold
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -454,7 +454,7 @@ class _Cryptocurrency3State extends State<Cryptocurrency3> {
                                       ),
                                       Text("XMR",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: XelaColor.Gray8))
                                     ],
                                   )),
@@ -462,7 +462,7 @@ class _Cryptocurrency3State extends State<Cryptocurrency3> {
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       Text("\$76,500",
-                                          style: XelaTextStyle.XelaSmallBodyBold
+                                          style: XelaTextStyle.xelaSmallBodyBold
                                               .apply(
                                                   color: _isDark
                                                       ? Colors.white
@@ -473,7 +473,7 @@ class _Cryptocurrency3State extends State<Cryptocurrency3> {
                                               size: 10, color: XelaColor.Red6),
                                           const SizedBox(width: 4),
                                           Text("7.91%",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(color: XelaColor.Red6))
                                         ],
                                       )
@@ -511,7 +511,7 @@ class _Cryptocurrency3State extends State<Cryptocurrency3> {
                                         children: [
                                           Text("Litecoin",
                                               style: XelaTextStyle
-                                                      .XelaSmallBodyBold
+                                                      .xelaSmallBodyBold
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -520,7 +520,7 @@ class _Cryptocurrency3State extends State<Cryptocurrency3> {
                                       ),
                                       Text("LTC",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: XelaColor.Gray8))
                                     ],
                                   )),
@@ -528,7 +528,7 @@ class _Cryptocurrency3State extends State<Cryptocurrency3> {
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       Text("\$84,311",
-                                          style: XelaTextStyle.XelaSmallBodyBold
+                                          style: XelaTextStyle.xelaSmallBodyBold
                                               .apply(
                                                   color: _isDark
                                                       ? Colors.white
@@ -540,7 +540,7 @@ class _Cryptocurrency3State extends State<Cryptocurrency3> {
                                               color: XelaColor.Green1),
                                           const SizedBox(width: 4),
                                           Text("31.29%",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Green1))
                                         ],

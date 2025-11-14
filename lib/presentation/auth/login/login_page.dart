@@ -30,7 +30,7 @@ class LoginPage extends StatelessWidget {
 }
 
 class _LoginPageListener extends StatelessWidget {
-  const _LoginPageListener({super.key});
+  const _LoginPageListener();
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +61,7 @@ class _LoginPageListener extends StatelessWidget {
 }
 
 class _LoginPageBody extends StatefulWidget {
-  const _LoginPageBody({super.key});
+  const _LoginPageBody();
 
   @override
   State<_LoginPageBody> createState() => _LoginPageBodyState();
@@ -94,12 +94,12 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
               const SizedBox(height: 24),
               Text(
                 AppS.of(context).mineral_management.toUpperCase(),
-                style: XelaTextStyle.XelaHeadline.apply(color: XelaColor.Gray2),
+                style: XelaTextStyle.xelaHeadline.apply(color: XelaColor.Gray2),
               ),
               const SizedBox(height: 8),
               Text(
                 AppS.of(context).login_to_use,
-                style: XelaTextStyle.XelaBody.apply(
+                style: XelaTextStyle.xelaBody.apply(
                   color: XelaColor.Gray2,
                 ),
               ),

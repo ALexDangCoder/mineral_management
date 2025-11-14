@@ -95,7 +95,7 @@ class _ChartsComponentState extends State<ChartsComponent> {
                       Expanded(
                           child: Text(
                         "Charts",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -127,7 +127,7 @@ class _ChartsComponentState extends State<ChartsComponent> {
                     child: Center(
                       child: Text(
                         "Usage Example",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -151,7 +151,7 @@ class _ChartsComponentState extends State<ChartsComponent> {
                         children: [
                           Text(
                             "Top enquiries",
-                            style: XelaTextStyle.XelaHeadline.apply(
+                            style: XelaTextStyle.xelaHeadline.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2),
@@ -240,7 +240,7 @@ class _ChartsComponentState extends State<ChartsComponent> {
                                       Text(
                                         "UI/UX Design",
                                         style:
-                                            XelaTextStyle.XelaButtonSmall.apply(
+                                            XelaTextStyle.xelaButtonSmall.apply(
                                                 color: _isDark
                                                     ? XelaColor.Gray11
                                                     : XelaColor.Gray2),
@@ -266,7 +266,7 @@ class _ChartsComponentState extends State<ChartsComponent> {
                                       Text(
                                         "Graphic Design",
                                         style:
-                                            XelaTextStyle.XelaButtonSmall.apply(
+                                            XelaTextStyle.xelaButtonSmall.apply(
                                                 color: _isDark
                                                     ? XelaColor.Gray11
                                                     : XelaColor.Gray2),
@@ -292,7 +292,7 @@ class _ChartsComponentState extends State<ChartsComponent> {
                                       Text(
                                         "Logotypes",
                                         style:
-                                            XelaTextStyle.XelaButtonSmall.apply(
+                                            XelaTextStyle.xelaButtonSmall.apply(
                                                 color: _isDark
                                                     ? XelaColor.Gray11
                                                     : XelaColor.Gray2),
@@ -318,7 +318,7 @@ class _ChartsComponentState extends State<ChartsComponent> {
                                       Text(
                                         "Illustrations",
                                         style:
-                                            XelaTextStyle.XelaButtonSmall.apply(
+                                            XelaTextStyle.xelaButtonSmall.apply(
                                                 color: _isDark
                                                     ? XelaColor.Gray11
                                                     : XelaColor.Gray2),
@@ -346,14 +346,14 @@ class _ChartsComponentState extends State<ChartsComponent> {
                           children: [
                             Text(
                               "Daily Visitors",
-                              style: XelaTextStyle.XelaHeadline.apply(
+                              style: XelaTextStyle.xelaHeadline.apply(
                                   color: _isDark
                                       ? XelaColor.Gray11
                                       : XelaColor.Gray2),
                             ),
                             Text(
                               "Today & Yesterday",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: XelaColor.Gray6),
                             ),
                             SizedBox(
@@ -383,7 +383,7 @@ class _ChartsComponentState extends State<ChartsComponent> {
                     child: Center(
                       child: Text(
                         "Line Charts",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -1000,7 +1000,7 @@ class _ChartsComponentState extends State<ChartsComponent> {
                     child: Center(
                       child: Text(
                         "Bar Charts",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -1113,7 +1113,7 @@ class _ChartsComponentState extends State<ChartsComponent> {
                     child: Center(
                       child: Text(
                         "Pie Charts",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -1170,7 +1170,7 @@ class _ChartsComponentState extends State<ChartsComponent> {
                     child: Center(
                       child: Text(
                         "Doughnut Charts",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),

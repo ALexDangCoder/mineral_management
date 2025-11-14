@@ -27,7 +27,7 @@ class XelaSteps extends StatefulWidget {
       this.secondaryColor = XelaColor.Gray11,
       this.errorColor = XelaColor.Red3,
       this.iconColor = Colors.white,
-      this.lines = true});
+      this.lines = true,});
 
   @override
   _XelaStepsState createState() => _XelaStepsState();
@@ -48,7 +48,7 @@ class _XelaStepsState extends State<XelaSteps> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> children = [];
+    final List<Widget> children = [];
 
     if (widget.orientation == XelaStepsOrientation.VERTICAL) {
       for (var step in widget.steps) {
@@ -57,8 +57,7 @@ class _XelaStepsState extends State<XelaSteps> {
           children: [
             Column(
               children: [
-                widget.steps.first.id != step.id
-                    ? Container(
+                if (widget.steps.first.id != step.id) Container(
                         padding: const EdgeInsets.only(bottom: 4),
                         child: Container(
                           width: 2,
@@ -70,8 +69,7 @@ class _XelaStepsState extends State<XelaSteps> {
                                       ? widget.errorColor
                                       : widget.secondaryColor)
                               .withOpacity(widget.lines ? 1 : 0),
-                        ))
-                    : Container(),
+                        ),) else Container(),
                 Container(
                   alignment: Alignment.center,
                   width: 32,
@@ -100,14 +98,13 @@ class _XelaStepsState extends State<XelaSteps> {
                             )
                           : Text(
                               step.id.toString(),
-                              style: XelaTextStyle.XelaButtonMedium.apply(
+                              style: XelaTextStyle.xelaButtonMedium.apply(
                                   color: step.state == XelaStepsState.ACTIVE
                                       ? widget.primaryAccentColor
-                                      : widget.primaryTextColor),
+                                      : widget.primaryTextColor,),
                             ),
                 ),
-                widget.steps.last.id != step.id
-                    ? Container(
+                if (widget.steps.last.id != step.id) Container(
                         padding: const EdgeInsets.only(top: 4),
                         child: Container(
                           width: 2,
@@ -120,8 +117,7 @@ class _XelaStepsState extends State<XelaSteps> {
                                       : widget.secondaryColor)
                               .withOpacity(widget.lines ? 1 : 0),
                         ),
-                      )
-                    : Container()
+                      ) else Container(),
               ],
             ),
             Expanded(
@@ -129,31 +125,27 @@ class _XelaStepsState extends State<XelaSteps> {
               padding: EdgeInsets.only(
                   left: 12,
                   top: widget.steps.last.id != step.id ? 0 : 9,
-                  bottom: widget.steps.first.id != step.id ? 0 : 9),
+                  bottom: widget.steps.first.id != step.id ? 0 : 9,),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  step.title != null
-                      ? Text(
+                  if (step.title != null) Text(
                           step.title!,
-                          style: XelaTextStyle.XelaButtonMedium.apply(
+                          style: XelaTextStyle.xelaButtonMedium.apply(
                               color: step.state == XelaStepsState.ACTIVE
                                   ? widget.primaryAccentColor
-                                  : widget.primaryTextColor),
-                        )
-                      : Container(),
-                  step.caption != null
-                      ? Text(
+                                  : widget.primaryTextColor,),
+                        ) else Container(),
+                  if (step.caption != null) Text(
                           step.caption!,
-                          style: XelaTextStyle.XelaCaption.apply(
-                              color: widget.secondaryTextColor),
-                        )
-                      : Container()
+                          style: XelaTextStyle.xelaCaption.apply(
+                              color: widget.secondaryTextColor,),
+                        ) else Container(),
                 ],
               ),
-            ))
+            ),),
           ],
-        ));
+        ),);
       }
     } else {
       for (var step in widget.steps) {
@@ -180,8 +172,8 @@ class _XelaStepsState extends State<XelaSteps> {
                               .withOpacity(
                                   widget.lines && step != widget.steps.first
                                       ? 1
-                                      : 0),
-                        ))),
+                                      : 0,),
+                        ),),),
                 Container(
                   alignment: Alignment.center,
                   width: 32,
@@ -210,10 +202,10 @@ class _XelaStepsState extends State<XelaSteps> {
                             )
                           : Text(
                               step.id.toString(),
-                              style: XelaTextStyle.XelaButtonMedium.apply(
+                              style: XelaTextStyle.xelaButtonMedium.apply(
                                   color: step.state == XelaStepsState.ACTIVE
                                       ? widget.primaryAccentColor
-                                      : widget.primaryTextColor),
+                                      : widget.primaryTextColor,),
                             ),
                 ),
                 Expanded(
@@ -229,9 +221,9 @@ class _XelaStepsState extends State<XelaSteps> {
                                 ? widget.errorColor
                                 : widget.secondaryColor)
                         .withOpacity(
-                            widget.lines && step != widget.steps.last ? 1 : 0),
+                            widget.lines && step != widget.steps.last ? 1 : 0,),
                   ),
-                ))
+                ),),
               ],
             ),
             Padding(
@@ -239,27 +231,23 @@ class _XelaStepsState extends State<XelaSteps> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  step.title != null
-                      ? Text(
+                  if (step.title != null) Text(
                           step.title!,
-                          style: XelaTextStyle.XelaButtonMedium.apply(
+                          style: XelaTextStyle.xelaButtonMedium.apply(
                               color: step.state == XelaStepsState.ACTIVE
                                   ? widget.primaryAccentColor
-                                  : widget.primaryTextColor),
-                        )
-                      : Container(),
-                  step.caption != null
-                      ? Text(
+                                  : widget.primaryTextColor,),
+                        ) else Container(),
+                  if (step.caption != null) Text(
                           step.caption!,
-                          style: XelaTextStyle.XelaCaption.apply(
-                              color: widget.secondaryTextColor),
-                        )
-                      : Container()
+                          style: XelaTextStyle.xelaCaption.apply(
+                              color: widget.secondaryTextColor,),
+                        ) else Container(),
                 ],
               ),
-            )
+            ),
           ],
-        )));
+        ),),);
       }
     }
 
@@ -294,5 +282,5 @@ class XelaStepItem {
       {required this.id,
       this.title,
       this.caption,
-      this.state = XelaStepsState.DEFAULT});
+      this.state = XelaStepsState.DEFAULT,});
 }

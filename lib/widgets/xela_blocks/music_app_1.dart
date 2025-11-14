@@ -61,7 +61,7 @@ class _MusicApp1State extends State<MusicApp1> {
                     Expanded(
                         child: Text(
                       "Now Playing",
-                      style: XelaTextStyle.XelaBodyBold.apply(
+                      style: XelaTextStyle.xelaBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2),
                       textAlign: TextAlign.center,
                     )),
@@ -102,10 +102,10 @@ class _MusicApp1State extends State<MusicApp1> {
                       ),
                     ),
                     Text("Let Me Be Your Superhero",
-                        style: XelaTextStyle.XelaBodyBold.apply(
+                        style: XelaTextStyle.xelaBodyBold.apply(
                             color: _isDark ? Colors.white : XelaColor.Gray2)),
                     Text("Smash Into Pieces",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: XelaColor.Gray8)),
                     const SizedBox(height: 24),
                     Padding(
@@ -148,10 +148,10 @@ class _MusicApp1State extends State<MusicApp1> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("16:44",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: XelaColor.Gray8)),
                           Text("3:02:05",
-                              style: XelaTextStyle.XelaCaption.apply(
+                              style: XelaTextStyle.xelaCaption.apply(
                                   color: XelaColor.Gray8)),
                         ],
                       ),
@@ -198,12 +198,12 @@ class _MusicApp1State extends State<MusicApp1> {
                     ),
                     Center(
                       child: Text("Next",
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color: XelaColor.Gray8)),
                     ),
                     Center(
                       child: Text("Just Close Your Eyes - Fivefold",
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color: XelaColor.Gray8)),
                     ),
                     const SizedBox(height: 24),
@@ -212,7 +212,7 @@ class _MusicApp1State extends State<MusicApp1> {
                         color: _isDark ? Colors.white : XelaColor.Gray2),
                     Center(
                       child: Text("More",
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color: _isDark ? Colors.white : XelaColor.Gray2)),
                     ),
                     const SizedBox(height: 24),

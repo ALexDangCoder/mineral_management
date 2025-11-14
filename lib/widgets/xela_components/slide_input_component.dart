@@ -52,7 +52,7 @@ class _SliderInputComponentState extends State<SliderInputComponent> {
                       Expanded(
                           child: Text(
                         "Slider Input",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -84,7 +84,7 @@ class _SliderInputComponentState extends State<SliderInputComponent> {
                     child: Center(
                       child: Text(
                         "Usage Example",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -131,7 +131,7 @@ class _SliderInputComponentState extends State<SliderInputComponent> {
                     child: Center(
                       child: Text(
                         "Horizontal",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -172,7 +172,7 @@ class _SliderInputComponentState extends State<SliderInputComponent> {
                     child: Center(
                       child: Text(
                         "Vertical",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),

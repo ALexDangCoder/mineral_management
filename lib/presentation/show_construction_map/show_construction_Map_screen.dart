@@ -7,54 +7,18 @@ class ShowConstructionMapScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                RawMaterialButton(
-                  elevation: 0,
-                  focusElevation: 2,
-                  highlightElevation: 0,
-                  fillColor: Colors.transparent,
-                  hoverElevation: 0,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  constraints: const BoxConstraints(),
-                  child: const Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Icon(
-                      Icons.arrow_back_ios_new,
-                      size: 20,
-                      color: XelaColor.Gray2,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Text(
-                    "Bản đồ khu vực",
-                    style: XelaTextStyle.XelaHeadline.apply(
-                      color: XelaColor.Gray2,
-                    ),
-                  ),
-                ),
-              ],
+    return Column(
+      children: [
+        // ====== Nội dung chính ======
+        const Expanded(
+          child: Center(
+            child: Text(
+              "Bản đồ khu vực",
+              style: XelaTextStyle.xelaTitle3,
             ),
-
-            // ====== Nội dung chính ======
-            const Expanded(
-              child: Center(
-                child: Text(
-                  "Bản đồ khu vực",
-                  style: XelaTextStyle.XelaTitle3,
-                ),
-              ),
-            ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }

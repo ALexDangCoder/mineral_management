@@ -86,12 +86,12 @@ class _DrillHoleItemWidget extends StatelessWidget {
         children: [
           Text(
             drillHole?.holeName ?? '',
-            style: XelaTextStyle.XelaBodyBold.apply(color: XelaColor.Gray2),
+            style: XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Gray2),
           ),
           const SizedBox(height: 8),
           Text(
             '${drillHole?.mine?.mineName} - ${drillHole?.description}',
-            style: XelaTextStyle.XelaCaption.apply(color: XelaColor.Gray6),
+            style: XelaTextStyle.xelaCaption.apply(color: XelaColor.Gray6),
           ),
           const SizedBox(height: 8),
           // Text(

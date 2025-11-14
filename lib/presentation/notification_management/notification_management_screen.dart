@@ -34,17 +34,17 @@ class NotificationManagementScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
-              title: const Text('Tất cả trạng thái', style: XelaTextStyle.XelaBodyBold,),
+              title: const Text('Tất cả trạng thái', style: XelaTextStyle.xelaBodyBold,),
               trailing: current == NotificationStatusFilterEnum.all ? const Icon(Icons.check) : null,
               onTap: () => Navigator.pop(_, NotificationStatusFilterEnum.all),
             ),
             ListTile(
-              title: const Text('Đã đọc', style: XelaTextStyle.XelaBodyBold,),
+              title: const Text('Đã đọc', style: XelaTextStyle.xelaBodyBold,),
               trailing: current == NotificationStatusFilterEnum.read ? const Icon(Icons.check) : null,
               onTap: () => Navigator.pop(_, NotificationStatusFilterEnum.read),
             ),
             ListTile(
-              title: const Text('Chưa đọc', style: XelaTextStyle.XelaBodyBold,),
+              title: const Text('Chưa đọc', style: XelaTextStyle.xelaBodyBold,),
               trailing: current == NotificationStatusFilterEnum.unread ? const Icon(Icons.check) : null,
               onTap: () => Navigator.pop(_, NotificationStatusFilterEnum.unread),
             ),
@@ -69,17 +69,17 @@ class NotificationManagementScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
-              title: const Text('Mặc định', style: XelaTextStyle.XelaBodyBold,),
+              title: const Text('Mặc định', style: XelaTextStyle.xelaBodyBold,),
               trailing: current == NotificationSortEnum.none ? const Icon(Icons.check) : null,
               onTap: () => Navigator.pop(_, NotificationSortEnum.none),
             ),
             ListTile(
-              title: const Text('A → Z (tiêu đề)', style: XelaTextStyle.XelaBodyBold,),
+              title: const Text('A → Z (tiêu đề)', style: XelaTextStyle.xelaBodyBold,),
               trailing: current == NotificationSortEnum.titleAZ ? const Icon(Icons.check) : null,
               onTap: () => Navigator.pop(_, NotificationSortEnum.titleAZ),
             ),
             ListTile(
-              title: const Text('Z → A (tiêu đề)', style: XelaTextStyle.XelaBodyBold,),
+              title: const Text('Z → A (tiêu đề)', style: XelaTextStyle.xelaBodyBold,),
               trailing: current == NotificationSortEnum.titleZA ? const Icon(Icons.check) : null,
               onTap: () => Navigator.pop(_, NotificationSortEnum.titleZA),
             ),
@@ -126,7 +126,7 @@ class NotificationManagementScreen extends StatelessWidget {
                       Expanded(
                         child: Text(
                           "Thông báo",
-                          style: XelaTextStyle.XelaHeadline
+                          style: XelaTextStyle.xelaHeadline
                               .apply(color: XelaColor.Gray2),
                         ),
                       ),
@@ -184,7 +184,7 @@ class NotificationManagementScreen extends StatelessWidget {
                                   itemBuilder: (_) => const [
                                     PopupMenuItem(
                                       value: 'all',
-                                      child: Text('Tất cả trạng thái', style: XelaTextStyle.XelaHeadline,),
+                                      child: Text('Tất cả trạng thái', style: XelaTextStyle.xelaHeadline,),
                                     ),
                                     PopupMenuItem(
                                       value: 'read',
@@ -281,7 +281,7 @@ class NotificationManagementScreen extends StatelessWidget {
         padding: EdgeInsets.only(top: 100),
         child: Center(
           child:
-          Text('Không có thông báo', style: XelaTextStyle.XelaSubheadline),
+          Text('Không có thông báo', style: XelaTextStyle.xelaSubheadline),
         ),
       );
     }

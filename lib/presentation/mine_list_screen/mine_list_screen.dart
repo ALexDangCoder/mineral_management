@@ -70,17 +70,17 @@ class _MineItemWidget extends StatelessWidget {
         children: [
           Text(
             mineModel?.mineName ?? '',
-            style: XelaTextStyle.XelaBodyBold.apply(color: XelaColor.Gray2),
+            style: XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Gray2),
           ),
           const SizedBox(height: 8),
           Text(
             '${AppS.of(context).mineral_type}: ${mineModel?.mineralType}',
-            style: XelaTextStyle.XelaCaption.apply(color: XelaColor.Gray6),
+            style: XelaTextStyle.xelaCaption.apply(color: XelaColor.Gray6),
           ),
           const SizedBox(height: 8),
           Text(
             '${AppS.of(context).status}: ${mineModel?.status?.title}',
-            style: XelaTextStyle.XelaSmallBodyBold.apply(
+            style: XelaTextStyle.xelaSmallBodyBold.apply(
               color: _getStatusColor(mineModel?.status),
             ),
           ),

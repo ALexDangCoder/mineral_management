@@ -111,7 +111,7 @@ class _XelaTextareaState extends State<XelaTextarea> {
                             Expanded(
                                 child: Text(
                               widget.placeholder!,
-                              style: XelaTextStyle.XelaSmallBody.apply(
+                              style: XelaTextStyle.xelaSmallBody.apply(
                                   color: widget.placeholderColor),
                             )),
                             widget.showCounter
@@ -119,7 +119,7 @@ class _XelaTextareaState extends State<XelaTextarea> {
                                     currentLength.toString() +
                                         "/" +
                                         widget.maxLength.toString(),
-                                    style: XelaTextStyle.XelaSmallBody.apply(
+                                    style: XelaTextStyle.xelaSmallBody.apply(
                                         color: widget.placeholderColor))
                                 : Container()
                           ],
@@ -137,7 +137,7 @@ class _XelaTextareaState extends State<XelaTextarea> {
                         });
                       },
                       controller: widget.textEditingController,
-                      style: XelaTextStyle.XelaButtonMedium.apply(
+                      style: XelaTextStyle.xelaButtonMedium.apply(
                         color: widget.state == XelaTextareaState.DISABLED
                             ? widget.disabledTextfieldColor
                             : widget.textfieldColor,
@@ -178,7 +178,7 @@ class _XelaTextareaState extends State<XelaTextarea> {
             child: widget.helperText != null
                 ? Text(
                     widget.helperText!,
-                    style: XelaTextStyle.XelaCaption.apply(
+                    style: XelaTextStyle.xelaCaption.apply(
                         color: widget.state == XelaTextareaState.DEFAULT
                             ? widget.defaultHelperTextColor
                             : widget.state == XelaTextareaState.ERROR

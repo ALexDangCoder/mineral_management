@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: const EdgeInsets.all(4),
                       child: const Text(
                         "DESIGN SYSTEM",
-                        style: XelaTextStyle.XelaSmallBodyBold,
+                        style: XelaTextStyle.xelaSmallBodyBold,
                       ),
                     ),
                     Container(
@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Text(
                         "Perfectly shaped UI kit for Flutter App with reusable components for your next mobile and desktop apps.\nSaves time and helps teams and indiehackers to release Flutter applications faster.",
                         textAlign: TextAlign.center,
-                        style: XelaTextStyle.XelaBody.apply(
+                        style: XelaTextStyle.xelaBody.apply(
                             color: XelaColor.Gray2),
                       ),
                     )

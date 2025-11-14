@@ -19,42 +19,17 @@ class _AlertListScreenState extends State<AlertListScreen> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => AlertListCubit(AlertRepositoryImpl())..load(),
-      child: Scaffold(
-        body: SafeArea(
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  RawMaterialButton(
-                    elevation: 0,
-                    focusElevation: 2,
-                    highlightElevation: 0,
-                    fillColor: Colors.transparent,
-                    hoverElevation: 0,
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    constraints: const BoxConstraints(),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Icon(Icons.arrow_back_ios_new,
-                          size: 20, color: XelaColor.Gray2),
-                    ),
-                  ),
-                  Expanded(
-                    child: Text(
-                      "Danh sách Cảnh báo",
-                      style: XelaTextStyle.XelaHeadline.apply(
-                        color: XelaColor.Gray2,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const Expanded(child: _Body()),
-            ],
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Cảnh báo',
+            style: XelaTextStyle.xelaSubheadline.apply(
+              color: XelaColor.Gray2,
+            ),
           ),
-        ),
+          const _Body(),
+        ],
       ),
     );
   }
@@ -71,34 +46,33 @@ class _Body extends StatelessWidget {
           case AlertListStatus.loading:
             return const Center(child: CircularProgressIndicator());
           case AlertListStatus.failure:
-            return _Error(
-              message: state.error,
-              onRetry: () => context.read<AlertListCubit>().load(),
-            );
+            return const SizedBox.shrink();
           case AlertListStatus.success:
             if (state.items.isEmpty) {
               return const Center(
                 child: Text(
                   'Không có cảnh báo',
-                  style: XelaTextStyle.XelaBodyBold,
+                  style: XelaTextStyle.xelaBodyBold,
                 ),
               );
             }
-            return ListView.separated(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              itemCount: state.items.length,
-              separatorBuilder: (_, __) => const SizedBox(height: 12),
-              itemBuilder: (context, i) {
-                final item = state.items[i];
-                return _AlertCard(
-                  title: item.title,
-                  subtitle: item.subtitle,
-                  type: item.type,
-                  onTap: () {
-                    // TODO: điều hướng tới màn chi tiết theo type:
-                  },
-                );
-              },
+            return SizedBox(
+              height: 110,
+              child: ListView.builder(
+                itemCount: state.items.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, i) {
+                  final item = state.items[i];
+                  return _AlertCard(
+                    title: item.title,
+                    subtitle: item.subtitle,
+                    type: item.type,
+                    onTap: () {
+                      // TODO: điều hướng tới màn chi tiết theo type:
+                    },
+                  );
+                },
+              ),
             );
           case AlertListStatus.initial:
             return const SizedBox.shrink();
@@ -137,6 +111,9 @@ class _AlertCard extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(16),
       child: Container(
+        margin: const EdgeInsets.only(
+          right: 16,
+        ),
         decoration: BoxDecoration(
           color: XelaColor.Gray12,
           borderRadius: BorderRadius.circular(16),
@@ -156,16 +133,27 @@ class _AlertCard extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 12),
-            Expanded(
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.6,
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 14, horizontal: 4),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(title, style: XelaTextStyle.XelaSubheadline),
+                    Text(
+                      title,
+                      style: XelaTextStyle.xelaSubheadline,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                     const SizedBox(height: 4),
-                    Text(subtitle, style: XelaTextStyle.XelaBody),
+                    Text(
+                      subtitle,
+                      style: XelaTextStyle.xelaBody,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ],
                 ),
               ),
@@ -173,30 +161,6 @@ class _AlertCard extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class _Error extends StatelessWidget {
-  final String? message;
-  final VoidCallback onRetry;
-
-  const _Error({this.message, required this.onRetry});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(mainAxisSize: MainAxisSize.min, children: [
-        const Icon(Icons.error_outline),
-        const SizedBox(height: 8),
-        Text(message ?? 'Đã có lỗi xảy ra',
-            style: XelaTextStyle.XelaSubheadline),
-        const SizedBox(height: 8),
-        ElevatedButton(
-          onPressed: onRetry,
-          child: const Text('Thử lại', style: XelaTextStyle.XelaSubheadline),
-        ),
-      ]),
     );
   }
 }

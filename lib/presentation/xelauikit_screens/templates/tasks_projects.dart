@@ -89,7 +89,7 @@ class _TasksProjectsState extends State<TasksProjects> {
                             children: [
                               Text(
                                 "Projects",
-                                style: XelaTextStyle.XelaButtonLarge.apply(
+                                style: XelaTextStyle.xelaButtonLarge.apply(
                                     color:
                                     _isDark ? Colors.white : XelaColor.Gray2),
                                 textAlign: TextAlign.center,
@@ -140,14 +140,14 @@ class _TasksProjectsState extends State<TasksProjects> {
                       Row(
                         children: [
                           Text("184",
-                              style: XelaTextStyle.XelaHeadline.apply(
+                              style: XelaTextStyle.xelaHeadline.apply(
                                   color: _isDark
                                       ? Colors.white
                                       : XelaColor.Gray2)),
                           const SizedBox(width: 8),
                           Text("Projects",
                               style:
-                              XelaTextStyle.XelaSmallBodyBold.apply(
+                              XelaTextStyle.xelaSmallBodyBold.apply(
                                   color: _isDark
                                       ? Colors.white
                                       : XelaColor.Gray2)),
@@ -200,7 +200,7 @@ class _TasksProjectsState extends State<TasksProjects> {
                                       ),
                                       const SizedBox(width: 8),
                                       Text("Active",
-                                          style: XelaTextStyle.XelaButtonSmall
+                                          style: XelaTextStyle.xelaButtonSmall
                                               .apply(
                                               color: _isDark
                                                   ? Colors.white
@@ -221,7 +221,7 @@ class _TasksProjectsState extends State<TasksProjects> {
                                       ),
                                       const SizedBox(width: 8),
                                       Text("Completed",
-                                          style: XelaTextStyle.XelaButtonSmall
+                                          style: XelaTextStyle.xelaButtonSmall
                                               .apply(
                                               color: _isDark
                                                   ? Colors.white
@@ -242,7 +242,7 @@ class _TasksProjectsState extends State<TasksProjects> {
                                       ),
                                       const SizedBox(width: 8),
                                       Text("Review",
-                                          style: XelaTextStyle.XelaButtonSmall
+                                          style: XelaTextStyle.xelaButtonSmall
                                               .apply(
                                               color: _isDark
                                                   ? Colors.white
@@ -263,7 +263,7 @@ class _TasksProjectsState extends State<TasksProjects> {
                                       ),
                                       const SizedBox(width: 8),
                                       Text("To do",
-                                          style: XelaTextStyle.XelaButtonSmall
+                                          style: XelaTextStyle.xelaButtonSmall
                                               .apply(
                                               color: _isDark
                                                   ? Colors.white
@@ -278,14 +278,14 @@ class _TasksProjectsState extends State<TasksProjects> {
                       Row(
                         children: [
                           Text("7",
-                              style: XelaTextStyle.XelaHeadline.apply(
+                              style: XelaTextStyle.xelaHeadline.apply(
                                   color: _isDark
                                       ? Colors.white
                                       : XelaColor.Gray2)),
                           const SizedBox(width: 8),
                           Text("Teams",
                               style:
-                              XelaTextStyle.XelaSmallBodyBold.apply(
+                              XelaTextStyle.xelaSmallBodyBold.apply(
                                   color: _isDark
                                       ? Colors.white
                                       : XelaColor.Gray2)),
@@ -430,14 +430,14 @@ class _TasksProjectsState extends State<TasksProjects> {
                       Row(
                         children: [
                           Text("23",
-                              style: XelaTextStyle.XelaHeadline.apply(
+                              style: XelaTextStyle.xelaHeadline.apply(
                                   color: _isDark
                                       ? Colors.white
                                       : XelaColor.Gray2)),
                           const SizedBox(width: 8),
                           Text("Members",
                               style:
-                              XelaTextStyle.XelaSmallBodyBold.apply(
+                              XelaTextStyle.xelaSmallBodyBold.apply(
                                   color: _isDark
                                       ? Colors.white
                                       : XelaColor.Gray2)),
@@ -548,7 +548,7 @@ class _TasksProjectsState extends State<TasksProjects> {
                         const SizedBox(width: 8),
                         Text(
                           !isShowDetails ? "Show Details" : "Hide Details",
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color:
                               _isDark ? XelaColor.Blue6 : XelaColor.Blue3),
                         )
@@ -598,7 +598,7 @@ class _TasksProjectsState extends State<TasksProjects> {
                                       const SizedBox(width: 8),
                                       Text(selectedTab.label!,
                                           style:
-                                          XelaTextStyle.XelaSmallBodyBold.apply(
+                                          XelaTextStyle.xelaSmallBodyBold.apply(
                                               color: _isDark
                                                   ? Colors.white
                                                   : XelaColor.Gray2)),
@@ -663,21 +663,21 @@ class _TasksProjectsState extends State<TasksProjects> {
                         textColor: _isDark ? XelaColor.Blue1 : XelaColor.Blue3),
                     const SizedBox(width: 8),
                     Text("High",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color:
                             _isDark ? XelaColor.Blue6 : XelaColor.Blue3)),
                     const Spacer(),
                     Text("June 26-28, 2020",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: XelaColor.Gray6))
                   ],
                 ),
                 const SizedBox(height: 16),
                 Text("Management Activities Completed",
-                    style: XelaTextStyle.XelaBodyBold.apply(
+                    style: XelaTextStyle.xelaBodyBold.apply(
                         color: _isDark ? Colors.white : XelaColor.Gray2)),
                 Text("Discharge Insulating Concrete Forms",
-                    style: XelaTextStyle.XelaCaption.apply(
+                    style: XelaTextStyle.xelaCaption.apply(
                         color: XelaColor.Gray6)),
                 const SizedBox(height: 16),
                 Row(
@@ -744,22 +744,22 @@ class _TasksProjectsState extends State<TasksProjects> {
                         _isDark ? XelaColor.Orange1 : XelaColor.Orange3),
                     const SizedBox(width: 8),
                     Text("Medium",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark
                                 ? XelaColor.Orange6
                                 : XelaColor.Orange3)),
                     const Spacer(),
                     Text("July 11, 2020",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: XelaColor.Gray6))
                   ],
                 ),
                 const SizedBox(height: 16),
                 Text("Security Planning",
-                    style: XelaTextStyle.XelaBodyBold.apply(
+                    style: XelaTextStyle.xelaBodyBold.apply(
                         color: _isDark ? Colors.white : XelaColor.Gray2)),
                 Text("Supplement Grading",
-                    style: XelaTextStyle.XelaCaption.apply(
+                    style: XelaTextStyle.xelaCaption.apply(
                         color: XelaColor.Gray6)),
                 const SizedBox(height: 16),
                 Row(
@@ -806,7 +806,7 @@ class _TasksProjectsState extends State<TasksProjects> {
                             size: 15, color: XelaColor.Gray6),
                         const SizedBox(width: 8),
                         Text("3",
-                            style: XelaTextStyle.XelaCaption.apply(
+                            style: XelaTextStyle.xelaCaption.apply(
                                 color: XelaColor.Gray6))
                       ],
                     )
@@ -837,21 +837,21 @@ class _TasksProjectsState extends State<TasksProjects> {
                         _isDark ? XelaColor.Green1 : XelaColor.Green3),
                     const SizedBox(width: 8),
                     Text("Low",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color:
                             _isDark ? XelaColor.Green6 : XelaColor.Green3)),
                     const Spacer(),
                     Text("August 1-2, 2020",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: XelaColor.Gray6))
                   ],
                 ),
                 const SizedBox(height: 16),
                 Text("Documentation",
-                    style: XelaTextStyle.XelaBodyBold.apply(
+                    style: XelaTextStyle.xelaBodyBold.apply(
                         color: _isDark ? Colors.white : XelaColor.Gray2)),
                 Text("Repair Grinding and Shredding Equipment",
-                    style: XelaTextStyle.XelaCaption.apply(
+                    style: XelaTextStyle.xelaCaption.apply(
                         color: XelaColor.Gray6)),
                 const SizedBox(height: 16),
                 Row(
@@ -914,7 +914,7 @@ class _TasksProjectsState extends State<TasksProjects> {
                             size: 15, color: XelaColor.Gray6),
                         const SizedBox(width: 8),
                         Text("23",
-                            style: XelaTextStyle.XelaCaption.apply(
+                            style: XelaTextStyle.xelaCaption.apply(
                                 color: XelaColor.Gray6))
                       ],
                     )
@@ -951,22 +951,22 @@ class _TasksProjectsState extends State<TasksProjects> {
                       textColor: _isDark ? XelaColor.Green1 : XelaColor.Green3),
                   const SizedBox(width: 8),
                   Text("Low",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color:
                           _isDark ? XelaColor.Green6 : XelaColor.Green3)),
                   const Spacer(),
                   Text("August 1-2, 2020",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: XelaColor.Gray6))
                 ],
               ),
               const SizedBox(height: 16),
               Text("Documentation",
-                  style: XelaTextStyle.XelaBodyBold.apply(
+                  style: XelaTextStyle.xelaBodyBold.apply(
                       color: _isDark ? Colors.white : XelaColor.Gray2)),
               Text("Repair Grinding and Shredding Equipment",
                   style:
-                  XelaTextStyle.XelaCaption.apply(color: XelaColor.Gray6)),
+                  XelaTextStyle.xelaCaption.apply(color: XelaColor.Gray6)),
               const SizedBox(height: 16),
               Row(
                 children: [
@@ -1027,7 +1027,7 @@ class _TasksProjectsState extends State<TasksProjects> {
                       const Icon(Icons.chat, size: 15, color: XelaColor.Gray6),
                       const SizedBox(width: 8),
                       Text("23",
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color: XelaColor.Gray6))
                     ],
                   )
@@ -1056,21 +1056,21 @@ class _TasksProjectsState extends State<TasksProjects> {
                       textColor: _isDark ? XelaColor.Blue1 : XelaColor.Blue3),
                   const SizedBox(width: 8),
                   Text("High",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: _isDark ? XelaColor.Blue6 : XelaColor.Blue3)),
                   const Spacer(),
                   Text("June 26-28, 2020",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: XelaColor.Gray6))
                 ],
               ),
               const SizedBox(height: 16),
               Text("Management Activities Completed",
-                  style: XelaTextStyle.XelaBodyBold.apply(
+                  style: XelaTextStyle.xelaBodyBold.apply(
                       color: _isDark ? Colors.white : XelaColor.Gray2)),
               Text("Discharge Insulating Concrete Forms",
                   style:
-                  XelaTextStyle.XelaCaption.apply(color: XelaColor.Gray6)),
+                  XelaTextStyle.xelaCaption.apply(color: XelaColor.Gray6)),
               const SizedBox(height: 16),
               Row(
                 children: [
@@ -1136,22 +1136,22 @@ class _TasksProjectsState extends State<TasksProjects> {
                       _isDark ? XelaColor.Orange1 : XelaColor.Orange3),
                   const SizedBox(width: 8),
                   Text("Medium",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color:
                           _isDark ? XelaColor.Orange6 : XelaColor.Orange3)),
                   const Spacer(),
                   Text("July 11, 2020",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: XelaColor.Gray6))
                 ],
               ),
               const SizedBox(height: 16),
               Text("Security Planning",
-                  style: XelaTextStyle.XelaBodyBold.apply(
+                  style: XelaTextStyle.xelaBodyBold.apply(
                       color: _isDark ? Colors.white : XelaColor.Gray2)),
               Text("Supplement Grading",
                   style:
-                  XelaTextStyle.XelaCaption.apply(color: XelaColor.Gray6)),
+                  XelaTextStyle.xelaCaption.apply(color: XelaColor.Gray6)),
               const SizedBox(height: 16),
               Row(
                 children: [
@@ -1196,7 +1196,7 @@ class _TasksProjectsState extends State<TasksProjects> {
                       const Icon(Icons.chat, size: 15, color: XelaColor.Gray6),
                       const SizedBox(width: 8),
                       Text("3",
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color: XelaColor.Gray6))
                     ],
                   )
@@ -1234,22 +1234,22 @@ class _TasksProjectsState extends State<TasksProjects> {
                         _isDark ? XelaColor.Orange1 : XelaColor.Orange3),
                     const SizedBox(width: 8),
                     Text("Medium",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark
                                 ? XelaColor.Orange6
                                 : XelaColor.Orange3)),
                     const Spacer(),
                     Text("July 11, 2020",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: XelaColor.Gray6))
                   ],
                 ),
                 const SizedBox(height: 16),
                 Text("Security Planning",
-                    style: XelaTextStyle.XelaBodyBold.apply(
+                    style: XelaTextStyle.xelaBodyBold.apply(
                         color: _isDark ? Colors.white : XelaColor.Gray2)),
                 Text("Supplement Grading",
-                    style: XelaTextStyle.XelaCaption.apply(
+                    style: XelaTextStyle.xelaCaption.apply(
                         color: XelaColor.Gray6)),
                 const SizedBox(height: 16),
                 Row(
@@ -1296,7 +1296,7 @@ class _TasksProjectsState extends State<TasksProjects> {
                             size: 15, color: XelaColor.Gray6),
                         const SizedBox(width: 8),
                         Text("3",
-                            style: XelaTextStyle.XelaCaption.apply(
+                            style: XelaTextStyle.xelaCaption.apply(
                                 color: XelaColor.Gray6))
                       ],
                     )
@@ -1327,21 +1327,21 @@ class _TasksProjectsState extends State<TasksProjects> {
                         _isDark ? XelaColor.Green1 : XelaColor.Green3),
                     const SizedBox(width: 8),
                     Text("Low",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color:
                             _isDark ? XelaColor.Green6 : XelaColor.Green3)),
                     const Spacer(),
                     Text("August 1-2, 2020",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: XelaColor.Gray6))
                   ],
                 ),
                 const SizedBox(height: 16),
                 Text("Documentation",
-                    style: XelaTextStyle.XelaBodyBold.apply(
+                    style: XelaTextStyle.xelaBodyBold.apply(
                         color: _isDark ? Colors.white : XelaColor.Gray2)),
                 Text("Repair Grinding and Shredding Equipment",
-                    style: XelaTextStyle.XelaCaption.apply(
+                    style: XelaTextStyle.xelaCaption.apply(
                         color: XelaColor.Gray6)),
                 const SizedBox(height: 16),
                 Row(
@@ -1404,7 +1404,7 @@ class _TasksProjectsState extends State<TasksProjects> {
                             size: 15, color: XelaColor.Gray6),
                         const SizedBox(width: 8),
                         Text("23",
-                            style: XelaTextStyle.XelaCaption.apply(
+                            style: XelaTextStyle.xelaCaption.apply(
                                 color: XelaColor.Gray6))
                       ],
                     )
@@ -1434,21 +1434,21 @@ class _TasksProjectsState extends State<TasksProjects> {
                         textColor: _isDark ? XelaColor.Blue1 : XelaColor.Blue3),
                     const SizedBox(width: 8),
                     Text("High",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color:
                             _isDark ? XelaColor.Blue6 : XelaColor.Blue3)),
                     const Spacer(),
                     Text("June 26-28, 2020",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: XelaColor.Gray6))
                   ],
                 ),
                 const SizedBox(height: 16),
                 Text("Management Activities Completed",
-                    style: XelaTextStyle.XelaBodyBold.apply(
+                    style: XelaTextStyle.xelaBodyBold.apply(
                         color: _isDark ? Colors.white : XelaColor.Gray2)),
                 Text("Discharge Insulating Concrete Forms",
-                    style: XelaTextStyle.XelaCaption.apply(
+                    style: XelaTextStyle.xelaCaption.apply(
                         color: XelaColor.Gray6)),
                 const SizedBox(height: 16),
                 Row(

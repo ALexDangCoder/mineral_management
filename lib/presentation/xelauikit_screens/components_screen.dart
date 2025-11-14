@@ -45,7 +45,7 @@ class _ComponentsScreenState extends State<ComponentsScreen> {
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
       child: Text(
           "Ready-to-use components and automatic styling. A rich variety of UI components specially designed for mobile apps. Xela Design System provides tabs, side menu, stack navigation and tons of other components such as lists and forms.",
-          style: XelaTextStyle.XelaSmallBody.apply(color: XelaColor.Gray6)),
+          style: XelaTextStyle.xelaSmallBody.apply(color: XelaColor.Gray6)),
     ));
 
     children.add(Padding(
@@ -517,7 +517,7 @@ class _ComponentsScreenState extends State<ComponentsScreen> {
               padding: const EdgeInsets.all(16),
               child: Text(
                 "Components",
-                style: XelaTextStyle.XelaHeadline.apply(color: XelaColor.Gray2),
+                style: XelaTextStyle.xelaHeadline.apply(color: XelaColor.Gray2),
               )),
           Expanded(
               child: ListView(

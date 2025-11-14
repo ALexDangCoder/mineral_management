@@ -34,7 +34,7 @@ class XelaSliderInput extends StatefulWidget {
       this.divisions = 100,
       this.showLabel = true,
       this.valueIndicatorColor = XelaColor.Gray3,
-      this.valueIndicatorTextStyle = XelaTextStyle.XelaCaption,
+      this.valueIndicatorTextStyle = XelaTextStyle.xelaCaption,
       this.valueIndicatorTextColor = Colors.white});
 
   @override
@@ -282,21 +282,21 @@ class XelaSliderThumbShape extends SliderComponentShape {
           : XelaColor.Gray11
       ..style = PaintingStyle.fill;
 
-    Rect fillRect = Rect.fromCenter(
+    final Rect fillRect = Rect.fromCenter(
         center: center, width: thumbRadius - 2, height: thumbRadius - 2);
-    Rect borderRect = Rect.fromCenter(
+    final Rect borderRect = Rect.fromCenter(
         center: center, width: thumbRadius, height: thumbRadius);
-    RRect fillRRect = RRect.fromRectAndCorners(fillRect,
+    final RRect fillRRect = RRect.fromRectAndCorners(fillRect,
         topRight: const Radius.circular(8),
         topLeft: const Radius.circular(8),
         bottomLeft: const Radius.circular(8),
         bottomRight: const Radius.circular(8));
 
-    Rect shadowRect = Rect.fromCenter(
+    final Rect shadowRect = Rect.fromCenter(
         center: center.translate(0, -4),
         width: thumbRadius - 1,
         height: thumbRadius - 1);
-    RRect shadowRRect = RRect.fromRectAndCorners(shadowRect,
+    final RRect shadowRRect = RRect.fromRectAndCorners(shadowRect,
         topRight: const Radius.circular(8),
         topLeft: const Radius.circular(8),
         bottomLeft: const Radius.circular(8),
@@ -307,29 +307,29 @@ class XelaSliderThumbShape extends SliderComponentShape {
 
     canvas.drawRRect(fillRRect, fillPaint);
 
-    Rect lineRectMid =
+    final Rect lineRectMid =
         Rect.fromCenter(center: center, width: 1, height: thumbRadius - 2 - 10);
-    RRect lineRRectMid = RRect.fromRectAndCorners(lineRectMid,
+    final RRect lineRRectMid = RRect.fromRectAndCorners(lineRectMid,
         topRight: const Radius.circular(2),
         topLeft: const Radius.circular(2),
         bottomLeft: const Radius.circular(2),
         bottomRight: const Radius.circular(2));
 
-    Rect lineRectLeft = Rect.fromCenter(
+    final Rect lineRectLeft = Rect.fromCenter(
         center: center.translate(-4.5, 0),
         width: 1,
         height: thumbRadius - 2 - 10);
-    RRect lineRRectLeft = RRect.fromRectAndCorners(lineRectLeft,
+    final RRect lineRRectLeft = RRect.fromRectAndCorners(lineRectLeft,
         topRight: const Radius.circular(2),
         topLeft: const Radius.circular(2),
         bottomLeft: const Radius.circular(2),
         bottomRight: const Radius.circular(2));
 
-    Rect lineRectRight = Rect.fromCenter(
+    final Rect lineRectRight = Rect.fromCenter(
         center: center.translate(4.5, 0),
         width: 1,
         height: thumbRadius - 2 - 10);
-    RRect lineRRectRight = RRect.fromRectAndCorners(lineRectRight,
+    final RRect lineRRectRight = RRect.fromRectAndCorners(lineRectRight,
         topRight: const Radius.circular(2),
         topLeft: const Radius.circular(2),
         bottomLeft: const Radius.circular(2),

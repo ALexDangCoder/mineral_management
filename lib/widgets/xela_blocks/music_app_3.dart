@@ -124,7 +124,7 @@ class _MusicApp3State extends State<MusicApp3> {
                     ),
                     Expanded(
                         child: Text("Browse Music",
-                            style: XelaTextStyle.XelaHeadline.apply(
+                            style: XelaTextStyle.xelaHeadline.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2))),
@@ -163,7 +163,7 @@ class _MusicApp3State extends State<MusicApp3> {
                                 child: Row(
                                   children: [
                                     Text("Popular artists",
-                                        style: XelaTextStyle.XelaBodyBold.apply(
+                                        style: XelaTextStyle.xelaBodyBold.apply(
                                             color: _isDark
                                                 ? XelaColor.Gray10
                                                 : XelaColor.Gray2))
@@ -193,7 +193,7 @@ class _MusicApp3State extends State<MusicApp3> {
                                           favorites[index].avatar,
                                           const SizedBox(height: 8),
                                           Text(favorites[index].name,
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray6))
                                         ],
@@ -207,7 +207,7 @@ class _MusicApp3State extends State<MusicApp3> {
                                 child: Row(
                                   children: [
                                     Text("New Releases",
-                                        style: XelaTextStyle.XelaBodyBold.apply(
+                                        style: XelaTextStyle.xelaBodyBold.apply(
                                             color: _isDark
                                                 ? XelaColor.Gray10
                                                 : XelaColor.Gray2))
@@ -258,13 +258,13 @@ class _MusicApp3State extends State<MusicApp3> {
                                 child: Row(
                                   children: [
                                     Text("Top weekly",
-                                        style: XelaTextStyle.XelaBodyBold.apply(
+                                        style: XelaTextStyle.xelaBodyBold.apply(
                                             color: _isDark
                                                 ? XelaColor.Gray10
                                                 : XelaColor.Gray2)),
                                     const Spacer(),
                                     Text("View all",
-                                        style: XelaTextStyle.XelaBodyBold.apply(
+                                        style: XelaTextStyle.xelaBodyBold.apply(
                                             color: _isDark
                                                 ? XelaColor.Blue6
                                                 : XelaColor.Blue3)),
@@ -278,7 +278,7 @@ class _MusicApp3State extends State<MusicApp3> {
                                   Row(
                                     children: [
                                       Text("1",
-                                          style: XelaTextStyle.XelaButtonMedium
+                                          style: XelaTextStyle.xelaButtonMedium
                                               .apply(
                                                   color: _isDark
                                                       ? XelaColor.Gray8
@@ -311,7 +311,7 @@ class _MusicApp3State extends State<MusicApp3> {
                                                 children: [
                                                   Text("Baby One More Time",
                                                       style: XelaTextStyle
-                                                              .XelaButtonMedium
+                                                              .xelaButtonMedium
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -320,7 +320,7 @@ class _MusicApp3State extends State<MusicApp3> {
                                                   Text(
                                                       "Hedwig and the Angry Inch",
                                                       style: XelaTextStyle
-                                                              .XelaCaption
+                                                              .xelaCaption
                                                           .apply(
                                                               color: _isDark
                                                                   ? XelaColor
@@ -344,7 +344,7 @@ class _MusicApp3State extends State<MusicApp3> {
                                   Row(
                                     children: [
                                       Text("2",
-                                          style: XelaTextStyle.XelaButtonMedium
+                                          style: XelaTextStyle.xelaButtonMedium
                                               .apply(
                                                   color: _isDark
                                                       ? XelaColor.Gray8
@@ -377,7 +377,7 @@ class _MusicApp3State extends State<MusicApp3> {
                                                 children: [
                                                   Text("It's My Life",
                                                       style: XelaTextStyle
-                                                              .XelaButtonMedium
+                                                              .xelaButtonMedium
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -385,7 +385,7 @@ class _MusicApp3State extends State<MusicApp3> {
                                                                       .Gray2)),
                                                   Text("DJay",
                                                       style: XelaTextStyle
-                                                              .XelaCaption
+                                                              .xelaCaption
                                                           .apply(
                                                               color: _isDark
                                                                   ? XelaColor
@@ -409,7 +409,7 @@ class _MusicApp3State extends State<MusicApp3> {
                                   Row(
                                     children: [
                                       Text("3",
-                                          style: XelaTextStyle.XelaButtonMedium
+                                          style: XelaTextStyle.xelaButtonMedium
                                               .apply(
                                                   color: _isDark
                                                       ? XelaColor.Gray8
@@ -442,7 +442,7 @@ class _MusicApp3State extends State<MusicApp3> {
                                                 children: [
                                                   Text("Bad Ideas",
                                                       style: XelaTextStyle
-                                                              .XelaButtonMedium
+                                                              .xelaButtonMedium
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -450,7 +450,7 @@ class _MusicApp3State extends State<MusicApp3> {
                                                                       .Gray2)),
                                                   Text("Dorothy Vallens",
                                                       style: XelaTextStyle
-                                                              .XelaCaption
+                                                              .xelaCaption
                                                           .apply(
                                                               color: _isDark
                                                                   ? XelaColor
@@ -474,7 +474,7 @@ class _MusicApp3State extends State<MusicApp3> {
                                   Row(
                                     children: [
                                       Text("4",
-                                          style: XelaTextStyle.XelaButtonMedium
+                                          style: XelaTextStyle.xelaButtonMedium
                                               .apply(
                                                   color: _isDark
                                                       ? XelaColor.Gray8
@@ -507,7 +507,7 @@ class _MusicApp3State extends State<MusicApp3> {
                                                 children: [
                                                   Text("Time",
                                                       style: XelaTextStyle
-                                                              .XelaButtonMedium
+                                                              .xelaButtonMedium
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -515,7 +515,7 @@ class _MusicApp3State extends State<MusicApp3> {
                                                                       .Gray2)),
                                                   Text("Curren\$y",
                                                       style: XelaTextStyle
-                                                              .XelaCaption
+                                                              .xelaCaption
                                                           .apply(
                                                               color: _isDark
                                                                   ? XelaColor
@@ -539,7 +539,7 @@ class _MusicApp3State extends State<MusicApp3> {
                                   Row(
                                     children: [
                                       Text("5",
-                                          style: XelaTextStyle.XelaButtonMedium
+                                          style: XelaTextStyle.xelaButtonMedium
                                               .apply(
                                                   color: _isDark
                                                       ? XelaColor.Gray8
@@ -572,7 +572,7 @@ class _MusicApp3State extends State<MusicApp3> {
                                                 children: [
                                                   Text("Baby ",
                                                       style: XelaTextStyle
-                                                              .XelaButtonMedium
+                                                              .xelaButtonMedium
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -580,7 +580,7 @@ class _MusicApp3State extends State<MusicApp3> {
                                                                       .Gray2)),
                                                   Text("Angry Inch",
                                                       style: XelaTextStyle
-                                                              .XelaCaption
+                                                              .xelaCaption
                                                           .apply(
                                                               color: _isDark
                                                                   ? XelaColor

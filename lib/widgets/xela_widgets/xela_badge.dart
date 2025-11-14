@@ -42,7 +42,7 @@ class _XelaBadgeState extends State<XelaBadge> {
               color: widget.background),
           child: Text(
             widget.text,
-            style: XelaTextStyle.XelaCaption.apply(color: widget.textColor),
+            style: XelaTextStyle.xelaCaption.apply(color: widget.textColor),
           ),
         )
       ],

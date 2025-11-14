@@ -21,13 +21,13 @@ class _SegmentedControlComponentState extends State<SegmentedControlComponent> {
 
   @override
   Widget build(BuildContext context) {
-    List<XelaSegmentedControlItem> itemsLabel = [
+    final List<XelaSegmentedControlItem> itemsLabel = [
       XelaSegmentedControlItem(id: "1", label: "label"),
       XelaSegmentedControlItem(id: "2", label: "label"),
       XelaSegmentedControlItem(id: "3", label: "label"),
     ];
 
-    List<XelaSegmentedControlItem> itemsLabelIcon = [
+    final List<XelaSegmentedControlItem> itemsLabelIcon = [
       XelaSegmentedControlItem(
           id: "1",
           label: "label",
@@ -51,7 +51,7 @@ class _SegmentedControlComponentState extends State<SegmentedControlComponent> {
               size: 20, color: _isDark ? XelaColor.Gray11 : XelaColor.Gray2)),
     ];
 
-    List<XelaSegmentedControlItem> itemsIcon = [
+    final List<XelaSegmentedControlItem> itemsIcon = [
       XelaSegmentedControlItem(
           id: "1",
           iconActive: Icon(Icons.grid_view,
@@ -72,7 +72,7 @@ class _SegmentedControlComponentState extends State<SegmentedControlComponent> {
               size: 20, color: _isDark ? XelaColor.Gray11 : XelaColor.Gray2)),
     ];
 
-    List<XelaSegmentedControlItem> items = [
+    final List<XelaSegmentedControlItem> items = [
       XelaSegmentedControlItem(
           id: "1",
           label: "label",
@@ -89,7 +89,7 @@ class _SegmentedControlComponentState extends State<SegmentedControlComponent> {
               size: 20, color: _isDark ? XelaColor.Gray11 : XelaColor.Gray2)),
     ];
 
-    List<XelaSegmentedControlItem> items1 = [
+    final List<XelaSegmentedControlItem> items1 = [
       XelaSegmentedControlItem(
           id: "1",
           iconActive: Icon(Icons.align_horizontal_left,
@@ -110,7 +110,7 @@ class _SegmentedControlComponentState extends State<SegmentedControlComponent> {
               size: 20, color: _isDark ? Colors.white : XelaColor.Gray2)),
     ];
 
-    List<XelaSegmentedControlItem> items2 = [
+    final List<XelaSegmentedControlItem> items2 = [
       XelaSegmentedControlItem(id: "1", label: "Day"),
       XelaSegmentedControlItem(id: "2", label: "Week"),
       XelaSegmentedControlItem(id: "3", label: "Month"),
@@ -150,7 +150,7 @@ class _SegmentedControlComponentState extends State<SegmentedControlComponent> {
                       Expanded(
                           child: Text(
                         "Segmented Control",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -182,7 +182,7 @@ class _SegmentedControlComponentState extends State<SegmentedControlComponent> {
                     child: Center(
                       child: Text(
                         "Example Usage",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -207,7 +207,7 @@ class _SegmentedControlComponentState extends State<SegmentedControlComponent> {
                           Expanded(
                               child: Text(
                             "Alignment",
-                            style: XelaTextStyle.XelaBodyBold.apply(
+                            style: XelaTextStyle.xelaBodyBold.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2),
@@ -247,7 +247,7 @@ class _SegmentedControlComponentState extends State<SegmentedControlComponent> {
                     child: Center(
                       child: Text(
                         "AutoResize Off",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -324,7 +324,7 @@ class _SegmentedControlComponentState extends State<SegmentedControlComponent> {
                     child: Center(
                       child: Text(
                         "AutoResize On",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),

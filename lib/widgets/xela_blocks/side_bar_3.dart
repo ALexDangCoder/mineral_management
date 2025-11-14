@@ -147,7 +147,7 @@ class _Sidebar3State extends State<SideBar3> {
                           ),
                           Expanded(
                               child: Text("Integrations",
-                                  style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                  style: XelaTextStyle.xelaSmallBodyBold.apply(
                                       color: _isDark
                                           ? XelaColor.Gray11
                                           : XelaColor.Gray2))),
@@ -188,14 +188,14 @@ class _Sidebar3State extends State<SideBar3> {
                                 Expanded(
                                     child: Text(
                                   "Instagram",
-                                  style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                  style: XelaTextStyle.xelaSmallBodyBold.apply(
                                       color: _isDark
                                           ? XelaColor.Gray11
                                           : XelaColor.Gray2),
                                 )),
                                 const SizedBox(width: 16),
                                 Text("167",
-                                    style: XelaTextStyle.XelaCaption.apply(
+                                    style: XelaTextStyle.xelaCaption.apply(
                                         color: XelaColor.Gray6))
                               ],
                             ),
@@ -213,7 +213,7 @@ class _Sidebar3State extends State<SideBar3> {
                                 Expanded(
                                     child: Text(
                                   "Facebook",
-                                  style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                  style: XelaTextStyle.xelaSmallBodyBold.apply(
                                       color: _isDark
                                           ? XelaColor.Gray11
                                           : XelaColor.Gray2),
@@ -235,7 +235,7 @@ class _Sidebar3State extends State<SideBar3> {
                                 Expanded(
                                     child: Text(
                                   "Slack",
-                                  style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                  style: XelaTextStyle.xelaSmallBodyBold.apply(
                                       color: _isDark
                                           ? XelaColor.Gray11
                                           : XelaColor.Gray2),
@@ -257,14 +257,14 @@ class _Sidebar3State extends State<SideBar3> {
                                 Expanded(
                                     child: Text(
                                   "Twitch",
-                                  style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                  style: XelaTextStyle.xelaSmallBodyBold.apply(
                                       color: _isDark
                                           ? XelaColor.Gray11
                                           : XelaColor.Gray2),
                                 )),
                                 const SizedBox(width: 16),
                                 Text("3",
-                                    style: XelaTextStyle.XelaCaption.apply(
+                                    style: XelaTextStyle.xelaCaption.apply(
                                         color: XelaColor.Gray6))
                               ],
                             ),
@@ -282,7 +282,7 @@ class _Sidebar3State extends State<SideBar3> {
                                 Expanded(
                                     child: Text(
                                   "Snapchat",
-                                  style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                  style: XelaTextStyle.xelaSmallBodyBold.apply(
                                       color: _isDark
                                           ? XelaColor.Gray11
                                           : XelaColor.Gray2),
@@ -304,7 +304,7 @@ class _Sidebar3State extends State<SideBar3> {
                                 Expanded(
                                     child: Text(
                                   "Discord",
-                                  style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                  style: XelaTextStyle.xelaSmallBodyBold.apply(
                                       color: _isDark
                                           ? XelaColor.Blue6
                                           : XelaColor.Blue6),
@@ -334,7 +334,7 @@ class _Sidebar3State extends State<SideBar3> {
                                 Expanded(
                                     child: Text(
                                   "Twitter",
-                                  style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                  style: XelaTextStyle.xelaSmallBodyBold.apply(
                                       color: _isDark
                                           ? XelaColor.Gray11
                                           : XelaColor.Gray2),
@@ -356,14 +356,14 @@ class _Sidebar3State extends State<SideBar3> {
                                 Expanded(
                                     child: Text(
                                   "Github",
-                                  style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                  style: XelaTextStyle.xelaSmallBodyBold.apply(
                                       color: _isDark
                                           ? XelaColor.Gray11
                                           : XelaColor.Gray2),
                                 )),
                                 const SizedBox(width: 16),
                                 Text("17",
-                                    style: XelaTextStyle.XelaCaption.apply(
+                                    style: XelaTextStyle.xelaCaption.apply(
                                         color: XelaColor.Gray6))
                               ],
                             ),
@@ -396,7 +396,7 @@ class _Sidebar3State extends State<SideBar3> {
                               children: [
                                 Text(
                                   "Upgrade to Premium for more features!",
-                                  style: XelaTextStyle.XelaButtonSmall.apply(
+                                  style: XelaTextStyle.xelaButtonSmall.apply(
                                       color: _isDark
                                           ? XelaColor.Gray11
                                           : XelaColor.Gray2),

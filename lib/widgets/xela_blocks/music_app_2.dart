@@ -66,7 +66,7 @@ class _MusicApp2State extends State<MusicApp2> {
                     Expanded(
                         child: Text(
                       "Equalizer",
-                      style: XelaTextStyle.XelaBodyBold.apply(
+                      style: XelaTextStyle.xelaBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2),
                       textAlign: TextAlign.center,
                     )),
@@ -104,7 +104,7 @@ class _MusicApp2State extends State<MusicApp2> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text("Preset",
-                                    style: XelaTextStyle.XelaBodyBold.apply(
+                                    style: XelaTextStyle.xelaBodyBold.apply(
                                         color: _isDark
                                             ? Colors.white
                                             : XelaColor.Gray2)),
@@ -137,19 +137,19 @@ class _MusicApp2State extends State<MusicApp2> {
                                     children: [
                                       Text("+12db",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: _isDark
                                                       ? XelaColor.Gray6
                                                       : XelaColor.Gray8)),
                                       Text("0db",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: _isDark
                                                       ? XelaColor.Gray6
                                                       : XelaColor.Gray8)),
                                       Text("-12db",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: _isDark
                                                       ? XelaColor.Gray6
                                                       : XelaColor.Gray8)),
@@ -182,7 +182,7 @@ class _MusicApp2State extends State<MusicApp2> {
                                 Column(
                                   children: [
                                     Text("50",
-                                        style: XelaTextStyle.XelaCaption.apply(
+                                        style: XelaTextStyle.xelaCaption.apply(
                                             color: _isDark
                                                 ? XelaColor.Gray6
                                                 : XelaColor.Gray8)),
@@ -206,7 +206,7 @@ class _MusicApp2State extends State<MusicApp2> {
                                 Column(
                                   children: [
                                     Text("100",
-                                        style: XelaTextStyle.XelaCaption.apply(
+                                        style: XelaTextStyle.xelaCaption.apply(
                                             color: _isDark
                                                 ? XelaColor.Gray6
                                                 : XelaColor.Gray8)),
@@ -230,7 +230,7 @@ class _MusicApp2State extends State<MusicApp2> {
                                 Column(
                                   children: [
                                     Text("200",
-                                        style: XelaTextStyle.XelaCaption.apply(
+                                        style: XelaTextStyle.xelaCaption.apply(
                                             color: _isDark
                                                 ? XelaColor.Gray6
                                                 : XelaColor.Gray8)),
@@ -254,7 +254,7 @@ class _MusicApp2State extends State<MusicApp2> {
                                 Column(
                                   children: [
                                     Text("250",
-                                        style: XelaTextStyle.XelaCaption.apply(
+                                        style: XelaTextStyle.xelaCaption.apply(
                                             color: _isDark
                                                 ? XelaColor.Gray6
                                                 : XelaColor.Gray8)),
@@ -278,7 +278,7 @@ class _MusicApp2State extends State<MusicApp2> {
                                 Column(
                                   children: [
                                     Text("500",
-                                        style: XelaTextStyle.XelaCaption.apply(
+                                        style: XelaTextStyle.xelaCaption.apply(
                                             color: _isDark
                                                 ? XelaColor.Gray6
                                                 : XelaColor.Gray8)),
@@ -302,7 +302,7 @@ class _MusicApp2State extends State<MusicApp2> {
                                 Column(
                                   children: [
                                     Text("1k",
-                                        style: XelaTextStyle.XelaCaption.apply(
+                                        style: XelaTextStyle.xelaCaption.apply(
                                             color: _isDark
                                                 ? XelaColor.Gray6
                                                 : XelaColor.Gray8)),
@@ -338,7 +338,7 @@ class _MusicApp2State extends State<MusicApp2> {
                             child: XelaToggle(
                               onToggle: (status) {},
                               content: Text("Effects",
-                                  style: XelaTextStyle.XelaBodyBold.apply(
+                                  style: XelaTextStyle.xelaBodyBold.apply(
                                       color: _isDark
                                           ? Colors.white
                                           : XelaColor.Gray2)),
@@ -356,7 +356,7 @@ class _MusicApp2State extends State<MusicApp2> {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 24),
                             child: Text("Bass Boost",
-                                style: XelaTextStyle.XelaCaption.apply(
+                                style: XelaTextStyle.xelaCaption.apply(
                                     color: _isDark
                                         ? XelaColor.Gray6
                                         : XelaColor.Gray8),
@@ -377,12 +377,12 @@ class _MusicApp2State extends State<MusicApp2> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text("0%",
-                                    style: XelaTextStyle.XelaCaption.apply(
+                                    style: XelaTextStyle.xelaCaption.apply(
                                         color: _isDark
                                             ? XelaColor.Gray6
                                             : XelaColor.Gray8)),
                                 Text("100%",
-                                    style: XelaTextStyle.XelaCaption.apply(
+                                    style: XelaTextStyle.xelaCaption.apply(
                                         color: _isDark
                                             ? XelaColor.Gray6
                                             : XelaColor.Gray8))
@@ -393,7 +393,7 @@ class _MusicApp2State extends State<MusicApp2> {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 24),
                             child: Text("3D Effect",
-                                style: XelaTextStyle.XelaCaption.apply(
+                                style: XelaTextStyle.xelaCaption.apply(
                                     color: _isDark
                                         ? XelaColor.Gray6
                                         : XelaColor.Gray8),
@@ -414,12 +414,12 @@ class _MusicApp2State extends State<MusicApp2> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text("0%",
-                                    style: XelaTextStyle.XelaCaption.apply(
+                                    style: XelaTextStyle.xelaCaption.apply(
                                         color: _isDark
                                             ? XelaColor.Gray6
                                             : XelaColor.Gray8)),
                                 Text("100%",
-                                    style: XelaTextStyle.XelaCaption.apply(
+                                    style: XelaTextStyle.xelaCaption.apply(
                                         color: _isDark
                                             ? XelaColor.Gray6
                                             : XelaColor.Gray8))
@@ -456,12 +456,12 @@ class _MusicApp2State extends State<MusicApp2> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text("Find our way",
-                                    style: XelaTextStyle.XelaBodyBold.apply(
+                                    style: XelaTextStyle.xelaBodyBold.apply(
                                         color: _isDark
                                             ? Colors.white
                                             : XelaColor.Gray2)),
                                 Text("Being As An Ocean",
-                                    style: XelaTextStyle.XelaCaption.apply(
+                                    style: XelaTextStyle.xelaCaption.apply(
                                         color: XelaColor.Gray8)),
                               ],
                             )),
