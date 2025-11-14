@@ -41,7 +41,7 @@ class _AboutScreenState extends State<AboutScreen> {
                     padding: const EdgeInsets.all(4),
                     child: const Text(
                       "DESIGN SYSTEM",
-                      style: XelaTextStyle.XelaSmallBodyBold,
+                      style: XelaTextStyle.xelaSmallBodyBold,
                     ),
                   ),
                   Container(
@@ -50,7 +50,7 @@ class _AboutScreenState extends State<AboutScreen> {
                       "XelaUIKit library - UI toolkit for the Flutter Apps. Optimized for building data-dense interfaces for mobile applications. UI matches with Figma library",
                       textAlign: TextAlign.center,
                       style:
-                          XelaTextStyle.XelaBody.apply(color: XelaColor.Gray2),
+                          XelaTextStyle.xelaBody.apply(color: XelaColor.Gray2),
                     ),
                   ),
                   Padding(

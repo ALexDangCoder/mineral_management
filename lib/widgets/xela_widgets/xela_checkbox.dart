@@ -122,14 +122,14 @@ class _XelaCheckboxState extends State<XelaCheckbox> {
                   widget.label != null
                       ? Text(
                           widget.label!,
-                          style: XelaTextStyle.XelaButtonMedium.apply(
+                          style: XelaTextStyle.xelaButtonMedium.apply(
                               color: widget.labelColor),
                         )
                       : Container(),
                   widget.caption != null
                       ? Text(
                           widget.caption!,
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color: widget.captionColor),
                         )
                       : Container(),
@@ -139,7 +139,7 @@ class _XelaCheckboxState extends State<XelaCheckbox> {
             widget.value != null
                 ? Text(
                     widget.value!,
-                    style: XelaTextStyle.XelaButtonLarge.apply(
+                    style: XelaTextStyle.xelaButtonLarge.apply(
                         color: widget.valueColor),
                   )
                 : Container()

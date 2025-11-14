@@ -56,7 +56,7 @@ class _ToastComponentState extends State<ToastComponent> {
                       Expanded(
                           child: Text(
                         "Toast",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -88,7 +88,7 @@ class _ToastComponentState extends State<ToastComponent> {
                     child: Center(
                       child: Text(
                         "Usage Example",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -177,7 +177,7 @@ class _ToastComponentState extends State<ToastComponent> {
                     child: Center(
                       child: Text(
                         "Autoresize Off",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -509,7 +509,7 @@ class _ToastComponentState extends State<ToastComponent> {
                     child: Center(
                       child: Text(
                         "Autoresize On",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),

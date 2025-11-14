@@ -51,7 +51,7 @@ class _TextInputComponentState extends State<TextInputComponent> {
                       Expanded(
                           child: Text(
                         "Text Input",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),

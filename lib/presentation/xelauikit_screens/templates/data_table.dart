@@ -83,7 +83,7 @@ class _DataTableState extends State<DataTable> {
                           SizedBox(width: 8),
                           Text(
                             "Orders",
-                            style: XelaTextStyle.XelaButtonLarge.apply(
+                            style: XelaTextStyle.xelaButtonLarge.apply(
                                 color: Colors.white),
                             textAlign: TextAlign.center,
                           )
@@ -193,11 +193,11 @@ class _DataTableState extends State<DataTable> {
                               child: Row(
                                 children: [
                                   Text("21 - 30 of 88 results",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray8)),
                                   const Spacer(),
                                   Text("Items per page",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray8)),
                                   const SizedBox(width: 8),
                                   XelaButton(
@@ -251,11 +251,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Order ID No.",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("998-5878",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 ],
               ),
@@ -263,11 +263,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Customer",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Oludayo Ayomide",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2)),
                 ],
               ),
@@ -275,11 +275,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Product",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("DJI Mavic Pro 2",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2)),
                 ],
               ),
@@ -287,7 +287,7 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Status",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Container(
@@ -296,7 +296,7 @@ class _DataTableState extends State<DataTable> {
                         borderRadius: BorderRadius.circular(10),
                         color: _isDark ? XelaColor.Red7 : XelaColor.Red11),
                     child: Text("Rejected",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Red1 : XelaColor.Red3)),
                   )
                 ],
@@ -305,11 +305,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Price",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("\$17.84",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2)),
                 ],
               ),
@@ -317,11 +317,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Created date",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Mar 13, 2021 08:05 AM",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 ],
               ),
@@ -329,11 +329,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Delivery status",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Received",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: XelaColor.Blue6)),
                 ],
               ),
@@ -350,11 +350,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Order ID No.",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("623-4534",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 ],
               ),
@@ -362,11 +362,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Customer",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Edwin Martins",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2)),
                 ],
               ),
@@ -374,11 +374,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Product",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Macbook Pro 16 inch (2021)",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2)),
                 ],
               ),
@@ -386,7 +386,7 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Status",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Container(
@@ -395,7 +395,7 @@ class _DataTableState extends State<DataTable> {
                         borderRadius: BorderRadius.circular(10),
                         color: _isDark ? XelaColor.Green8 : XelaColor.Green11),
                     child: Text("Completed",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color:
                                 _isDark ? XelaColor.Green1 : XelaColor.Green1)),
                   )
@@ -405,11 +405,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Price",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("\$6.48",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2)),
                 ],
               ),
@@ -417,11 +417,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Created date",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Sep 4, 2021 12:14 AM",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 ],
               ),
@@ -429,11 +429,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Delivery status",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Received",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: XelaColor.Blue6)),
                 ],
               ),
@@ -450,11 +450,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Order ID No.",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("395-9823",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 ],
               ),
@@ -462,11 +462,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Customer",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Hellen Jummy",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2)),
                 ],
               ),
@@ -474,11 +474,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Product",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Lego Star'War edition",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2)),
                 ],
               ),
@@ -486,7 +486,7 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Status",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Container(
@@ -496,7 +496,7 @@ class _DataTableState extends State<DataTable> {
                         color:
                             _isDark ? XelaColor.Orange8 : XelaColor.Orange11),
                     child: Text("Pending",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark
                                 ? XelaColor.Orange1
                                 : XelaColor.Orange3)),
@@ -507,11 +507,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Price",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("\$11.70",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2)),
                 ],
               ),
@@ -519,11 +519,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Created date",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Jan 11, 2021 01:49 PM",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 ],
               ),
@@ -531,11 +531,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Delivery status",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Draft",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 ],
               ),
@@ -558,11 +558,11 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Order ID No.",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Text("395-9823",
-                    style: XelaTextStyle.XelaCaption.apply(
+                    style: XelaTextStyle.xelaCaption.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
               ],
             ),
@@ -570,11 +570,11 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Customer",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Text("Hellen Jummy",
-                    style: XelaTextStyle.XelaSmallBodyBold.apply(
+                    style: XelaTextStyle.xelaSmallBodyBold.apply(
                         color: _isDark ? Colors.white : XelaColor.Gray2)),
               ],
             ),
@@ -582,11 +582,11 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Product",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Text("Lego Star'War edition",
-                    style: XelaTextStyle.XelaSmallBodyBold.apply(
+                    style: XelaTextStyle.xelaSmallBodyBold.apply(
                         color: _isDark ? Colors.white : XelaColor.Gray2)),
               ],
             ),
@@ -594,7 +594,7 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Status",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Container(
@@ -603,7 +603,7 @@ class _DataTableState extends State<DataTable> {
                       borderRadius: BorderRadius.circular(10),
                       color: _isDark ? XelaColor.Orange8 : XelaColor.Orange11),
                   child: Text("Pending",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color:
                               _isDark ? XelaColor.Orange1 : XelaColor.Orange3)),
                 )
@@ -613,11 +613,11 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Price",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Text("\$11.70",
-                    style: XelaTextStyle.XelaSmallBodyBold.apply(
+                    style: XelaTextStyle.xelaSmallBodyBold.apply(
                         color: _isDark ? Colors.white : XelaColor.Gray2)),
               ],
             ),
@@ -625,11 +625,11 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Created date",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Text("Jan 11, 2021 01:49 PM",
-                    style: XelaTextStyle.XelaCaption.apply(
+                    style: XelaTextStyle.xelaCaption.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
               ],
             ),
@@ -637,11 +637,11 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Delivery status",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Text("Draft",
-                    style: XelaTextStyle.XelaCaption.apply(
+                    style: XelaTextStyle.xelaCaption.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
               ],
             ),
@@ -658,11 +658,11 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Order ID No.",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Text("998-5878",
-                    style: XelaTextStyle.XelaCaption.apply(
+                    style: XelaTextStyle.xelaCaption.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
               ],
             ),
@@ -670,11 +670,11 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Customer",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Text("Oludayo Ayomide",
-                    style: XelaTextStyle.XelaSmallBodyBold.apply(
+                    style: XelaTextStyle.xelaSmallBodyBold.apply(
                         color: _isDark ? Colors.white : XelaColor.Gray2)),
               ],
             ),
@@ -682,11 +682,11 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Product",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Text("DJI Mavic Pro 2",
-                    style: XelaTextStyle.XelaSmallBodyBold.apply(
+                    style: XelaTextStyle.xelaSmallBodyBold.apply(
                         color: _isDark ? Colors.white : XelaColor.Gray2)),
               ],
             ),
@@ -694,7 +694,7 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Status",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Container(
@@ -703,7 +703,7 @@ class _DataTableState extends State<DataTable> {
                       borderRadius: BorderRadius.circular(10),
                       color: _isDark ? XelaColor.Red7 : XelaColor.Red11),
                   child: Text("Rejected",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: _isDark ? XelaColor.Red1 : XelaColor.Red3)),
                 )
               ],
@@ -712,11 +712,11 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Price",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Text("\$17.84",
-                    style: XelaTextStyle.XelaSmallBodyBold.apply(
+                    style: XelaTextStyle.xelaSmallBodyBold.apply(
                         color: _isDark ? Colors.white : XelaColor.Gray2)),
               ],
             ),
@@ -724,11 +724,11 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Created date",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Text("Mar 13, 2021 08:05 AM",
-                    style: XelaTextStyle.XelaCaption.apply(
+                    style: XelaTextStyle.xelaCaption.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
               ],
             ),
@@ -736,11 +736,11 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Delivery status",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Text("Received",
-                    style: XelaTextStyle.XelaCaption.apply(
+                    style: XelaTextStyle.xelaCaption.apply(
                         color: XelaColor.Blue6)),
               ],
             ),
@@ -757,11 +757,11 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Order ID No.",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Text("623-4534",
-                    style: XelaTextStyle.XelaCaption.apply(
+                    style: XelaTextStyle.xelaCaption.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
               ],
             ),
@@ -769,11 +769,11 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Customer",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Text("Edwin Martins",
-                    style: XelaTextStyle.XelaSmallBodyBold.apply(
+                    style: XelaTextStyle.xelaSmallBodyBold.apply(
                         color: _isDark ? Colors.white : XelaColor.Gray2)),
               ],
             ),
@@ -781,11 +781,11 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Product",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Text("Macbook Pro 16 inch (2021)",
-                    style: XelaTextStyle.XelaSmallBodyBold.apply(
+                    style: XelaTextStyle.xelaSmallBodyBold.apply(
                         color: _isDark ? Colors.white : XelaColor.Gray2)),
               ],
             ),
@@ -793,7 +793,7 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Status",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Container(
@@ -802,7 +802,7 @@ class _DataTableState extends State<DataTable> {
                       borderRadius: BorderRadius.circular(10),
                       color: _isDark ? XelaColor.Green8 : XelaColor.Green11),
                   child: Text("Completed",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color:
                               _isDark ? XelaColor.Green1 : XelaColor.Green1)),
                 )
@@ -812,11 +812,11 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Price",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Text("\$6.48",
-                    style: XelaTextStyle.XelaSmallBodyBold.apply(
+                    style: XelaTextStyle.xelaSmallBodyBold.apply(
                         color: _isDark ? Colors.white : XelaColor.Gray2)),
               ],
             ),
@@ -824,11 +824,11 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Created date",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Text("Sep 4, 2021 12:14 AM",
-                    style: XelaTextStyle.XelaCaption.apply(
+                    style: XelaTextStyle.xelaCaption.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
               ],
             ),
@@ -836,11 +836,11 @@ class _DataTableState extends State<DataTable> {
             Row(
               children: [
                 Text("Delivery status",
-                    style: XelaTextStyle.XelaSmallBody.apply(
+                    style: XelaTextStyle.xelaSmallBody.apply(
                         color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 const Spacer(),
                 Text("Received",
-                    style: XelaTextStyle.XelaCaption.apply(
+                    style: XelaTextStyle.xelaCaption.apply(
                         color: XelaColor.Blue6)),
               ],
             ),
@@ -863,11 +863,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Order ID No.",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("623-4534",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 ],
               ),
@@ -875,11 +875,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Customer",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Edwin Martins",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2)),
                 ],
               ),
@@ -887,11 +887,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Product",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Macbook Pro 16 inch (2021)",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2)),
                 ],
               ),
@@ -899,7 +899,7 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Status",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Container(
@@ -908,7 +908,7 @@ class _DataTableState extends State<DataTable> {
                         borderRadius: BorderRadius.circular(10),
                         color: _isDark ? XelaColor.Green8 : XelaColor.Green11),
                     child: Text("Completed",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color:
                                 _isDark ? XelaColor.Green1 : XelaColor.Green1)),
                   )
@@ -918,11 +918,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Price",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("\$6.48",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2)),
                 ],
               ),
@@ -930,11 +930,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Created date",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Sep 4, 2021 12:14 AM",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 ],
               ),
@@ -942,11 +942,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Delivery status",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Received",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: XelaColor.Blue6)),
                 ],
               ),
@@ -963,11 +963,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Order ID No.",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("395-9823",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 ],
               ),
@@ -975,11 +975,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Customer",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Hellen Jummy",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2)),
                 ],
               ),
@@ -987,11 +987,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Product",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Lego Star'War edition",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2)),
                 ],
               ),
@@ -999,7 +999,7 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Status",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Container(
@@ -1009,7 +1009,7 @@ class _DataTableState extends State<DataTable> {
                         color:
                             _isDark ? XelaColor.Orange8 : XelaColor.Orange11),
                     child: Text("Pending",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark
                                 ? XelaColor.Orange1
                                 : XelaColor.Orange3)),
@@ -1020,11 +1020,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Price",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("\$11.70",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2)),
                 ],
               ),
@@ -1032,11 +1032,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Created date",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Jan 11, 2021 01:49 PM",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 ],
               ),
@@ -1044,11 +1044,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Delivery status",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Draft",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 ],
               ),
@@ -1065,11 +1065,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Order ID No.",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("998-5878",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 ],
               ),
@@ -1077,11 +1077,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Customer",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Oludayo Ayomide",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2)),
                 ],
               ),
@@ -1089,11 +1089,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Product",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("DJI Mavic Pro 2",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2)),
                 ],
               ),
@@ -1101,7 +1101,7 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Status",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Container(
@@ -1110,7 +1110,7 @@ class _DataTableState extends State<DataTable> {
                         borderRadius: BorderRadius.circular(10),
                         color: _isDark ? XelaColor.Red7 : XelaColor.Red11),
                     child: Text("Rejected",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Red1 : XelaColor.Red3)),
                   )
                 ],
@@ -1119,11 +1119,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Price",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("\$17.84",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? Colors.white : XelaColor.Gray2)),
                 ],
               ),
@@ -1131,11 +1131,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Created date",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Mar 13, 2021 08:05 AM",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                 ],
               ),
@@ -1143,11 +1143,11 @@ class _DataTableState extends State<DataTable> {
               Row(
                 children: [
                   Text("Delivery status",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray8 : XelaColor.Gray6)),
                   const Spacer(),
                   Text("Received",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: XelaColor.Blue6)),
                 ],
               ),

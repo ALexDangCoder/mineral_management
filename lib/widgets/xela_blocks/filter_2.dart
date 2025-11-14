@@ -62,7 +62,7 @@ class _Filter2State extends State<Filter2> {
                     ),
                     Expanded(
                         child: Text("Filters",
-                            style: XelaTextStyle.XelaHeadline.apply(
+                            style: XelaTextStyle.xelaHeadline.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2))),
@@ -110,7 +110,7 @@ class _Filter2State extends State<Filter2> {
                         ),
                         Text(
                           "Job type",
-                          style: XelaTextStyle.XelaHeadline.apply(
+                          style: XelaTextStyle.xelaHeadline.apply(
                               color:
                                   _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                         ),
@@ -196,7 +196,7 @@ class _Filter2State extends State<Filter2> {
                         ),
                         Text(
                           "Salary",
-                          style: XelaTextStyle.XelaHeadline.apply(
+                          style: XelaTextStyle.xelaHeadline.apply(
                               color:
                                   _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                         ),
@@ -217,7 +217,7 @@ class _Filter2State extends State<Filter2> {
                         ),
                         Text(
                           "Experience level",
-                          style: XelaTextStyle.XelaHeadline.apply(
+                          style: XelaTextStyle.xelaHeadline.apply(
                               color:
                                   _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                         ),

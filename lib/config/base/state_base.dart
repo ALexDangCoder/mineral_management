@@ -1,4 +1,4 @@
-import 'package:bnv_opendata/generated/l10n.dart';
+import 'package:bnv_opendata/resources/generated/l10n.dart';
 import 'package:bnv_opendata/widgets/dialog/dialog_utils.dart';
 import 'package:bnv_opendata/widgets/listener/event_bus.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +20,7 @@ abstract class BaseState<T extends StatefulWidget> extends BaseSetState<T> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!
+    WidgetsBinding.instance
         .addPostFrameCallback((_) => afterFirstLayout(context));
     _handleEventBus();
   }

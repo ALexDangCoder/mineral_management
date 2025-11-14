@@ -57,7 +57,7 @@ class _RangeSliderInputComponentState extends State<RangeSliderInputComponent> {
                       Expanded(
                           child: Text(
                         "Range Slider Input",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -89,7 +89,7 @@ class _RangeSliderInputComponentState extends State<RangeSliderInputComponent> {
                     child: Center(
                       child: Text(
                         "Usage Example",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -113,7 +113,7 @@ class _RangeSliderInputComponentState extends State<RangeSliderInputComponent> {
                         children: [
                           Text(
                             "Price Range",
-                            style: XelaTextStyle.XelaHeadline.apply(
+                            style: XelaTextStyle.xelaHeadline.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2),
@@ -128,14 +128,14 @@ class _RangeSliderInputComponentState extends State<RangeSliderInputComponent> {
                           ),
                           Text(
                             "\$$minPrice - \$$maxPrice",
-                            style: XelaTextStyle.XelaSubheadline.apply(
+                            style: XelaTextStyle.xelaSubheadline.apply(
                                 color: _isDark
                                     ? XelaColor.Blue5
                                     : XelaColor.Blue3),
                           ),
                           Text(
                             "Average price: \$430",
-                            style: XelaTextStyle.XelaCaption.apply(
+                            style: XelaTextStyle.xelaCaption.apply(
                                 color: _isDark
                                     ? XelaColor.Gray6
                                     : XelaColor.Gray3),
@@ -166,12 +166,12 @@ class _RangeSliderInputComponentState extends State<RangeSliderInputComponent> {
                               children: [
                                 Text(
                                   "\$0",
-                                  style: XelaTextStyle.XelaCaption.apply(
+                                  style: XelaTextStyle.xelaCaption.apply(
                                       color: XelaColor.Gray6),
                                 ),
                                 Text(
                                   "\$1000",
-                                  style: XelaTextStyle.XelaCaption.apply(
+                                  style: XelaTextStyle.xelaCaption.apply(
                                       color: XelaColor.Gray6),
                                 )
                               ],
@@ -186,7 +186,7 @@ class _RangeSliderInputComponentState extends State<RangeSliderInputComponent> {
                     child: Center(
                       child: Text(
                         "Variants",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),

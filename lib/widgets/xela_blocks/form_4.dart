@@ -93,12 +93,12 @@ class _Form4State extends State<Form4> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text("Sign up as",
-                            style: XelaTextStyle.XelaHeadline.apply(
+                            style: XelaTextStyle.xelaHeadline.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2)),
                         Text("Company Name",
-                            style: XelaTextStyle.XelaHeadline.apply(
+                            style: XelaTextStyle.xelaHeadline.apply(
                                 color: _isDark
                                     ? XelaColor.Blue5
                                     : XelaColor.Blue3)),

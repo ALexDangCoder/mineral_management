@@ -53,7 +53,7 @@ class _UserAvatarComponentState extends State<UserAvatarComponent> {
                       Expanded(
                           child: Text(
                         "User Avatar",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -85,7 +85,7 @@ class _UserAvatarComponentState extends State<UserAvatarComponent> {
                     child: Center(
                       child: Text(
                         "Image",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -639,7 +639,7 @@ class _UserAvatarComponentState extends State<UserAvatarComponent> {
                     child: Center(
                       child: Text(
                         "Icon",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -1193,7 +1193,7 @@ class _UserAvatarComponentState extends State<UserAvatarComponent> {
                     child: Center(
                       child: Text(
                         "Initials",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),

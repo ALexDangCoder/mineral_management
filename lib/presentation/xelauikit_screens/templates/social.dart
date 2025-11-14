@@ -163,13 +163,13 @@ class _SocialState extends State<Social> {
                               child: Row(
                                 children: [
                                   Text("Stories",
-                                      style: XelaTextStyle.XelaHeadline.apply(
+                                      style: XelaTextStyle.xelaHeadline.apply(
                                           color: _isDark
                                               ? Colors.white
                                               : XelaColor.Gray2)),
                                   const Spacer(),
                                   Text("Watch all",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Blue6)),
                                 ],
                               ),
@@ -215,7 +215,7 @@ class _SocialState extends State<Social> {
                                             ),
                                             const SizedBox(height: 8),
                                             Text("Add story",
-                                                style: XelaTextStyle.XelaCaption
+                                                style: XelaTextStyle.xelaCaption
                                                     .apply(
                                                         color: XelaColor.Gray6))
                                           ],
@@ -239,7 +239,7 @@ class _SocialState extends State<Social> {
                                           ),
                                           const SizedBox(height: 8),
                                           Text(socialUsers[index - 1].name,
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray6))
                                         ],
@@ -254,7 +254,7 @@ class _SocialState extends State<Social> {
                               child: Row(
                                 children: [
                                   Text("Feeds",
-                                      style: XelaTextStyle.XelaHeadline.apply(
+                                      style: XelaTextStyle.xelaHeadline.apply(
                                           color: _isDark
                                               ? Colors.white
                                               : XelaColor.Gray2)),
@@ -299,7 +299,7 @@ class _SocialState extends State<Social> {
                                                 children: [
                                                   Text("r/playstation",
                                                       style: XelaTextStyle
-                                                              .XelaButtonMedium
+                                                              .xelaButtonMedium
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -319,7 +319,7 @@ class _SocialState extends State<Social> {
                                               Text(
                                                   "u/shadknight20 • 19 hours ago",
                                                   style: XelaTextStyle
-                                                          .XelaCaption
+                                                          .xelaCaption
                                                       .apply(
                                                           color:
                                                               XelaColor.Gray8))
@@ -336,7 +336,7 @@ class _SocialState extends State<Social> {
                                       const SizedBox(height: 16),
                                       Text(
                                           "Playstation is partnering with Discord.",
-                                          style: XelaTextStyle.XelaButtonMedium
+                                          style: XelaTextStyle.xelaButtonMedium
                                               .apply(
                                                   color: _isDark
                                                       ? Colors.white
@@ -387,7 +387,7 @@ class _SocialState extends State<Social> {
                                               const SizedBox(width: 8),
                                               Text("114",
                                                   style:
-                                                      XelaTextStyle.XelaCaption
+                                                      XelaTextStyle.xelaCaption
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -423,7 +423,7 @@ class _SocialState extends State<Social> {
                                                 const SizedBox(width: 16),
                                                 Text("1.4k",
                                                     style: XelaTextStyle
-                                                            .XelaButtonMedium
+                                                            .xelaButtonMedium
                                                         .apply(
                                                             color: _isDark
                                                                 ? Colors.white
@@ -485,7 +485,7 @@ class _SocialState extends State<Social> {
                                               children: [
                                                 Text("Dianne Russell",
                                                     style: XelaTextStyle
-                                                            .XelaButtonMedium
+                                                            .xelaButtonMedium
                                                         .apply(
                                                             color: _isDark
                                                                 ? Colors.white
@@ -493,7 +493,7 @@ class _SocialState extends State<Social> {
                                                                     .Gray2)),
                                                 Text("Oslo, Norway",
                                                     style: XelaTextStyle
-                                                            .XelaCaption
+                                                            .xelaCaption
                                                         .apply(
                                                             color: XelaColor
                                                                 .Gray8))
@@ -572,7 +572,7 @@ class _SocialState extends State<Social> {
                                             children: [
                                               Text("5,486 views",
                                                   style:
-                                                      XelaTextStyle.XelaCaption
+                                                      XelaTextStyle.xelaCaption
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -582,14 +582,14 @@ class _SocialState extends State<Social> {
                                                 children: [
                                                   Text("Liked by ",
                                                       style: XelaTextStyle
-                                                              .XelaCaption
+                                                              .xelaCaption
                                                           .apply(
                                                               color: XelaColor
                                                                   .Gray8)),
                                                   Text(
                                                       "Jenny Wilson and 159 others",
                                                       style: XelaTextStyle
-                                                              .XelaCaption
+                                                              .xelaCaption
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -606,7 +606,7 @@ class _SocialState extends State<Social> {
                                           child: Text(
                                               "The Parrot's Evolutionary Past... (More)",
                                               style: XelaTextStyle
-                                                      .XelaButtonMedium
+                                                      .xelaButtonMedium
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -616,7 +616,7 @@ class _SocialState extends State<Social> {
                                           padding: EdgeInsets.symmetric(
                                               horizontal: 8),
                                           child: Text("Dec 4, 2021 21:42",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray8))),
                                       const SizedBox(height: 8),
@@ -665,7 +665,7 @@ class _SocialState extends State<Social> {
                                               children: [
                                                 Text("Darlene Robertson",
                                                     style: XelaTextStyle
-                                                            .XelaButtonMedium
+                                                            .xelaButtonMedium
                                                         .apply(
                                                             color: _isDark
                                                                 ? Colors.white
@@ -673,7 +673,7 @@ class _SocialState extends State<Social> {
                                                                     .Gray2)),
                                                 Text("Naples, Italy",
                                                     style: XelaTextStyle
-                                                            .XelaCaption
+                                                            .xelaCaption
                                                         .apply(
                                                             color: XelaColor
                                                                 .Gray8))
@@ -729,7 +729,7 @@ class _SocialState extends State<Social> {
                                                               12)),
                                                   child: Text("2:56",
                                                       style: XelaTextStyle
-                                                              .XelaCaption
+                                                              .xelaCaption
                                                           .apply(
                                                               color: Colors
                                                                   .white)),
@@ -786,14 +786,14 @@ class _SocialState extends State<Social> {
                                                 children: [
                                                   Text("Liked by ",
                                                       style: XelaTextStyle
-                                                              .XelaCaption
+                                                              .xelaCaption
                                                           .apply(
                                                               color: XelaColor
                                                                   .Gray8)),
                                                   Text(
                                                       "Jenny Wilson and 852 others",
                                                       style: XelaTextStyle
-                                                              .XelaCaption
+                                                              .xelaCaption
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -810,7 +810,7 @@ class _SocialState extends State<Social> {
                                           child: Text(
                                               "The Parrot's Evolutionary Past... (More)",
                                               style: XelaTextStyle
-                                                      .XelaButtonMedium
+                                                      .xelaButtonMedium
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -820,7 +820,7 @@ class _SocialState extends State<Social> {
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 8),
                                           child: Text("Nov 22, 2021 15:36",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray8))),
                                       const SizedBox(height: 8),

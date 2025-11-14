@@ -105,7 +105,7 @@ class _XelaTextFieldState extends State<XelaTextField> {
               initialValue: widget.value,
               onChanged: widget.onChange,
               controller: widget.textEditingController,
-              style: XelaTextStyle.XelaButtonMedium.apply(
+              style: XelaTextStyle.xelaButtonMedium.apply(
                 color: widget.state == XelaTextFieldState.DISABLED
                     ? widget.disabledTextfieldColor
                     : widget.textfieldColor,
@@ -115,9 +115,9 @@ class _XelaTextFieldState extends State<XelaTextField> {
               cursorColor: widget.textfieldColor,
               decoration: InputDecoration(
                 labelText: widget.placeholder,
-                labelStyle: XelaTextStyle.XelaSmallBody.apply(
+                labelStyle: XelaTextStyle.xelaSmallBody.apply(
                     color: widget.placeholderColor),
-                floatingLabelStyle: XelaTextStyle.XelaSmallBody.apply(
+                floatingLabelStyle: XelaTextStyle.xelaSmallBody.apply(
                     color: widget.placeholderColor),
                 border: InputBorder.none,
                 hoverColor: Colors.transparent,
@@ -158,7 +158,7 @@ class _XelaTextFieldState extends State<XelaTextField> {
             child: widget.helperText != null
                 ? Text(
                     widget.helperText!,
-                    style: XelaTextStyle.XelaCaption.apply(
+                    style: XelaTextStyle.xelaCaption.apply(
                         color: widget.state == XelaTextFieldState.DEFAULT
                             ? widget.defaultHelperTextColor
                             : widget.state == XelaTextFieldState.ERROR

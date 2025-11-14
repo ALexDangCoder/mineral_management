@@ -112,10 +112,10 @@ class _XelaChartState extends State<XelaChart> {
     if (widget.datasetsLineChart != null &&
         widget.labels != null &&
         widget.type == XelaChartType.LINE) {
-      double fromStep =
+      final double fromStep =
           maxData + (widget.dataStep - (maxData % widget.dataStep));
-      double toStep = minData - (widget.dataStep - (minData % widget.dataStep));
-      double stepsCountDouble = (fromStep - toStep) / widget.dataStep;
+      final double toStep = minData - (widget.dataStep - (minData % widget.dataStep));
+      final double stepsCountDouble = (fromStep - toStep) / widget.dataStep;
       int stepsCount = stepsCountDouble.toInt();
       if ((stepsCountDouble - stepsCount.toDouble()) > 0) {
         stepsCount += 1;
@@ -141,10 +141,10 @@ class _XelaChartState extends State<XelaChart> {
     } else if (widget.datasetsBarChart != null &&
         widget.labels != null &&
         widget.type == XelaChartType.BAR) {
-      double fromStep =
+      final double fromStep =
           maxData + (widget.dataStep - (maxData % widget.dataStep));
-      double toStep = minData - (widget.dataStep - (minData % widget.dataStep));
-      double stepsCountDouble = (fromStep - toStep) / widget.dataStep;
+      final double toStep = minData - (widget.dataStep - (minData % widget.dataStep));
+      final double stepsCountDouble = (fromStep - toStep) / widget.dataStep;
       int stepsCount = stepsCountDouble.toInt();
       if ((stepsCountDouble - stepsCount.toDouble()) > 0) {
         stepsCount += 1;
@@ -206,27 +206,27 @@ class XelaDoughnutChartPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     for (var j = 0; j < datasets.length; j++) {
-      var dataset = datasets[j];
+      final dataset = datasets[j];
       double sum = 0;
       for (var data in dataset.data) {
         sum += data;
       }
 
-      var center = Offset(size.width / 2, size.height / 2);
+      final center = Offset(size.width / 2, size.height / 2);
 
-      var circleSize = size.height - strokeWidth * 4 * j;
+      final circleSize = size.height - strokeWidth * 4 * j;
 
       double tempEndDegrees = -90;
       for (var i = 0; i < dataset.data.length; i++) {
-        var data = dataset.data[i];
-        var paint = Paint()
+        final data = dataset.data[i];
+        final paint = Paint()
           ..style = PaintingStyle.stroke
           ..strokeWidth = strokeWidth
           ..strokeJoin = StrokeJoin.round
           ..color = dataset.fillColors[i];
 
-        double temp = data * 360 / sum;
-        double startDegrees = tempEndDegrees;
+        final double temp = data * 360 / sum;
+        final double startDegrees = tempEndDegrees;
         tempEndDegrees += temp;
 
         canvas.drawArc(
@@ -259,22 +259,22 @@ class XelaPieChartPainter extends CustomPainter {
       sum += data;
     }
 
-    var paintBg = Paint()
+    final paintBg = Paint()
       ..style = PaintingStyle.fill
       ..color = background;
 
-    var center = Offset(size.width / 2, size.height / 2);
+    final center = Offset(size.width / 2, size.height / 2);
 
     canvas.drawCircle(center, size.height / 2, paintBg);
     double tempEndDegrees = -90;
     for (var i = 0; i < dataset.data.length; i++) {
-      var data = dataset.data[i];
-      var paint = Paint()
+      final data = dataset.data[i];
+      final paint = Paint()
         ..style = PaintingStyle.fill
         ..color = dataset.fillColors[i];
 
-      double temp = data * 360 / sum;
-      double startDegrees = tempEndDegrees;
+      final double temp = data * 360 / sum;
+      final double startDegrees = tempEndDegrees;
       tempEndDegrees += temp;
       canvas.drawArc(
           Rect.fromCenter(
@@ -328,30 +328,30 @@ class XelaBarChartPainter extends CustomPainter {
 
     numberFormat ??= intl.NumberFormat("0", "en");
 
-    var leftOffset = 32;
-    var bottomOffset = 24;
-    var rowWidth = (size.width - leftOffset) / labels.length.toDouble();
+    final leftOffset = 32;
+    final bottomOffset = 24;
+    final rowWidth = (size.width - leftOffset) / labels.length.toDouble();
 
-    double firstStep = fromStep - step * stepsCount;
+    final double firstStep = fromStep - step * stepsCount;
 
-    var rowHeight = (size.height - bottomOffset) /
+    final rowHeight = (size.height - bottomOffset) /
         ((stepsCount) + ((firstStep + step) >= minData ? 1 : 0) - 1).toDouble();
 
     for (var i = 0; i < labels.length; i++) {
-      var labelSpan = TextSpan(
+      final labelSpan = TextSpan(
           text: labels[i],
-          style: XelaTextStyle.XelaCaption.apply(color: labelsColor));
-      var labelPainter = TextPainter(
+          style: XelaTextStyle.xelaCaption.apply(color: labelsColor));
+      final labelPainter = TextPainter(
           text: labelSpan,
           textDirection: TextDirection.ltr,
           textAlign: TextAlign.center);
       labelPainter.layout(minWidth: rowWidth, maxWidth: rowWidth);
-      var labelOffset =
+      final labelOffset =
           Offset(rowWidth * i + leftOffset, size.height - bottomOffset);
       labelPainter.paint(canvas, labelOffset);
 
       for (var j = 0; j < datasets.length; j++) {
-        var data = datasets[j].data[i];
+        final data = datasets[j].data[i];
 
         borderLinePaint.strokeWidth = rowWidth - 8;
 
@@ -360,7 +360,7 @@ class XelaBarChartPainter extends CustomPainter {
 
         borderLinePaint.color = borderColor;
 
-        var lineX = rowWidth * i + leftOffset + 4;
+        final lineX = rowWidth * i + leftOffset + 4;
 
         canvas.drawRRect(
             RRect.fromRectAndRadius(
@@ -373,7 +373,7 @@ class XelaBarChartPainter extends CustomPainter {
             borderLinePaint);
 
         borderLinePaint.color = datasets[j].fillColor;
-        var yLine = (size.height - bottomOffset) -
+        final yLine = (size.height - bottomOffset) -
             ((data) * (rowHeight / step)) -
             (minData <= 0 ? 0 : 1) *
                 rowHeight *
@@ -395,12 +395,12 @@ class XelaBarChartPainter extends CustomPainter {
     for (var j = 0;
         j < stepsCount + (((firstStep + step) >= minData ? 1 : 0));
         j++) {
-      var labelSpan = TextSpan(
+      final labelSpan = TextSpan(
           text: beforeData +
               numberFormat!.format(fromStep - step * j).toString() +
               afterData,
-          style: XelaTextStyle.XelaCaption.apply(color: labelsColor));
-      var labelPainter = TextPainter(
+          style: XelaTextStyle.xelaCaption.apply(color: labelsColor));
+      final labelPainter = TextPainter(
           text: labelSpan,
           textDirection: TextDirection.ltr,
           textAlign: TextAlign.right);
@@ -409,11 +409,11 @@ class XelaBarChartPainter extends CustomPainter {
         maxWidth: leftOffset.toDouble() - 4,
       );
 
-      var lineY = rowHeight * j;
+      final lineY = rowHeight * j;
 
       borderLinePaint.strokeWidth = 1;
 
-      var labelOffset = Offset(
+      final labelOffset = Offset(
           0,
           lineY -
               (j == 0
@@ -493,49 +493,49 @@ class XelaLineChartPainter extends CustomPainter {
 
     numberFormat ??= intl.NumberFormat("0", "en");
 
-    var leftOffset = 32;
-    var bottomOffset = 24;
-    var rowWidth =
+    final leftOffset = 32;
+    final bottomOffset = 24;
+    final rowWidth =
         (size.width - leftOffset * 1.5) / (labels.length.toDouble() - 1);
 
     for (var i = 0; i < labels.length; i++) {
-      var labelSpan = TextSpan(
+      final labelSpan = TextSpan(
           text: labels[i],
-          style: XelaTextStyle.XelaCaption.apply(color: labelsColor));
-      var labelPainter = TextPainter(
+          style: XelaTextStyle.xelaCaption.apply(color: labelsColor));
+      final labelPainter = TextPainter(
           text: labelSpan,
           textDirection: TextDirection.ltr,
           //textAlign: i == 0 ? TextAlign.right : i == labels.length - 1 ? TextAlign.left : TextAlign.center
           textAlign: TextAlign.center);
       labelPainter.layout(minWidth: rowWidth, maxWidth: rowWidth);
 
-      var lineX = (rowWidth) * i + leftOffset + borderLinePaint.strokeWidth * 6;
+      final lineX = (rowWidth) * i + leftOffset + borderLinePaint.strokeWidth * 6;
 
-      var labelOffset =
+      final labelOffset =
           Offset(lineX - rowWidth / 2, size.height - bottomOffset + 6);
       labelPainter.paint(canvas, labelOffset);
 
       //var lineX = (rowWidth)*i+leftOffset + borderLinePaint.strokeWidth*5;
-      var linePath = Path();
+      final linePath = Path();
       linePath.moveTo(lineX, 0);
       linePath.lineTo(lineX, size.height - bottomOffset);
       canvas.drawPath(linePath, borderLinePaint);
     }
 
-    double firstStep = fromStep - step * stepsCount;
+    final double firstStep = fromStep - step * stepsCount;
 
-    var rowHeight = (size.height - bottomOffset) /
+    final rowHeight = (size.height - bottomOffset) /
         ((stepsCount) + ((firstStep + step) >= minData ? 1 : 0) - 1).toDouble();
 
     for (var j = 0;
         j < stepsCount + (((firstStep + step) >= minData ? 1 : 0));
         j++) {
-      var labelSpan = TextSpan(
+      final labelSpan = TextSpan(
           text: beforeData +
               numberFormat!.format(fromStep - step * j).toString() +
               afterData,
-          style: XelaTextStyle.XelaCaption.apply(color: labelsColor));
-      var labelPainter = TextPainter(
+          style: XelaTextStyle.xelaCaption.apply(color: labelsColor));
+      final labelPainter = TextPainter(
           text: labelSpan,
           textDirection: TextDirection.ltr,
           textAlign: TextAlign.right);
@@ -544,9 +544,9 @@ class XelaLineChartPainter extends CustomPainter {
         maxWidth: leftOffset.toDouble() - 4,
       );
 
-      var lineY = rowHeight * j;
+      final lineY = rowHeight * j;
 
-      var labelOffset = Offset(
+      final labelOffset = Offset(
           0,
           lineY -
               (j == 0
@@ -560,30 +560,30 @@ class XelaLineChartPainter extends CustomPainter {
               1);
       labelPainter.paint(canvas, labelOffset);
 
-      var linePath = Path();
+      final linePath = Path();
       linePath.moveTo(leftOffset.toDouble() + 6, lineY);
       linePath.lineTo(size.width - leftOffset * 0.5 + 6, lineY);
       canvas.drawPath(linePath, borderLinePaint);
     }
 
     for (var i = 0; i < datasets.length; i++) {
-      var dataset = datasets[i];
+      final dataset = datasets[i];
       linePaint.color = dataset.lineColor;
       fillPaint.color = dataset.fillColor != Colors.transparent
           ? dataset.fillColor.withOpacity(0.24)
           : Colors.transparent;
       var prevOffset = const Offset(0, 0);
-      var pathLine = Path();
-      var path = Path();
+      final pathLine = Path();
+      final path = Path();
       for (var j = 0; j < dataset.data.length; j++) {
-        var data = dataset.data[j];
-        var xLine = rowWidth * j + leftOffset + 6;
-        var yLine = (size.height - bottomOffset) -
+        final data = dataset.data[j];
+        final xLine = rowWidth * j + leftOffset + 6;
+        final yLine = (size.height - bottomOffset) -
             ((data) * (rowHeight / step)) -
             (minData <= 0 ? 1 : 0) *
                 rowHeight *
                 (-firstStep / step - ((firstStep + step) >= minData ? 0 : 1));
-        var offset = Offset(xLine, yLine);
+        final offset = Offset(xLine, yLine);
 
         if (j == 0) {
           path.moveTo(offset.dx, size.height - bottomOffset);
@@ -591,8 +591,8 @@ class XelaLineChartPainter extends CustomPainter {
           pathLine.moveTo(offset.dx, offset.dy);
           prevOffset = offset;
         } else {
-          var deltaX = offset.dx - prevOffset.dx;
-          var curveXOffset = deltaX * dataset.tension;
+          final deltaX = offset.dx - prevOffset.dx;
+          final curveXOffset = deltaX * dataset.tension;
           pathLine.cubicTo(prevOffset.dx + curveXOffset, prevOffset.dy,
               offset.dx - curveXOffset, offset.dy, offset.dx, offset.dy);
           path.cubicTo(prevOffset.dx + curveXOffset, prevOffset.dy,
@@ -613,15 +613,15 @@ class XelaLineChartPainter extends CustomPainter {
         pointStrokePaint.color = dataset.pointColor;
 
         for (var j = 0; j < dataset.data.length; j++) {
-          var data = dataset.data[j];
-          var xLine = rowWidth * j + leftOffset + 6;
-          var yLine = (size.height - bottomOffset) -
+          final data = dataset.data[j];
+          final xLine = rowWidth * j + leftOffset + 6;
+          final yLine = (size.height - bottomOffset) -
               ((data) * (rowHeight / step)) -
               (minData <= 0 ? 1 : 0) *
                   rowHeight *
                   (-firstStep / step - ((firstStep + step) >= minData ? 0 : 1));
 
-          var offset = Offset(xLine, yLine);
+          final offset = Offset(xLine, yLine);
           canvas.drawCircle(offset, 4, pointBgPaint);
           canvas.drawCircle(offset, 4, pointStrokePaint);
         }
@@ -684,46 +684,46 @@ class XelaLineChartOLDPainter extends CustomPainter {
 
     numberFormat ??= intl.NumberFormat("0", "en");
 
-    var leftOffset = 32;
-    var bottomOffset = 24;
-    var rowWidth = (size.width - leftOffset) / labels.length.toDouble();
+    final leftOffset = 32;
+    final bottomOffset = 24;
+    final rowWidth = (size.width - leftOffset) / labels.length.toDouble();
 
     for (var i = 0; i < labels.length; i++) {
-      var labelSpan = TextSpan(
+      final labelSpan = TextSpan(
           text: labels[i],
-          style: XelaTextStyle.XelaCaption.apply(color: labelsColor));
-      var labelPainter = TextPainter(
+          style: XelaTextStyle.xelaCaption.apply(color: labelsColor));
+      final labelPainter = TextPainter(
           text: labelSpan,
           textDirection: TextDirection.ltr,
           textAlign: TextAlign.center);
       labelPainter.layout(minWidth: rowWidth, maxWidth: rowWidth);
-      var labelOffset =
+      final labelOffset =
           Offset(rowWidth * i + leftOffset, size.height - bottomOffset);
       labelPainter.paint(canvas, labelOffset);
 
-      var lineX = rowWidth * i +
+      final lineX = rowWidth * i +
           leftOffset +
           rowWidth / 2 -
           borderLinePaint.strokeWidth +
           1;
-      var linePath = Path();
+      final linePath = Path();
       linePath.moveTo(lineX, 0);
       linePath.lineTo(lineX, size.height - bottomOffset);
       canvas.drawPath(linePath, borderLinePaint);
     }
 
-    double firstStep = fromStep - step * stepsCount;
+    final double firstStep = fromStep - step * stepsCount;
 
-    var rowHeight = (size.height - bottomOffset) /
+    final rowHeight = (size.height - bottomOffset) /
         (stepsCount + ((firstStep + step) >= minData ? 1 : 0)).toDouble();
 
     for (var j = 0;
         j < stepsCount + (((firstStep + step) >= minData ? 1 : 0));
         j++) {
-      var labelSpan = TextSpan(
+      final labelSpan = TextSpan(
           text: numberFormat!.format(fromStep - step * j).toString(),
-          style: XelaTextStyle.XelaCaption.apply(color: labelsColor));
-      var labelPainter = TextPainter(
+          style: XelaTextStyle.xelaCaption.apply(color: labelsColor));
+      final labelPainter = TextPainter(
           text: labelSpan,
           textDirection: TextDirection.ltr,
           textAlign: TextAlign.right);
@@ -732,35 +732,35 @@ class XelaLineChartOLDPainter extends CustomPainter {
         maxWidth: leftOffset.toDouble(),
       );
 
-      var lineY = rowHeight * j + rowHeight / 2;
+      final lineY = rowHeight * j + rowHeight / 2;
 
-      var labelOffset = Offset(0, lineY - labelSpan.style!.fontSize! / 2 - 1);
+      final labelOffset = Offset(0, lineY - labelSpan.style!.fontSize! / 2 - 1);
       labelPainter.paint(canvas, labelOffset);
 
-      var linePath = Path();
+      final linePath = Path();
       linePath.moveTo(leftOffset.toDouble() + 6, lineY);
       linePath.lineTo(size.width, lineY);
       canvas.drawPath(linePath, borderLinePaint);
     }
 
     for (var i = 0; i < datasets.length; i++) {
-      var dataset = datasets[i];
+      final dataset = datasets[i];
       linePaint.color = dataset.lineColor;
       fillPaint.color = dataset.fillColor.withOpacity(0.24);
       var prevOffset = const Offset(0, 0);
-      var pathLine = Path();
-      var path = Path();
+      final pathLine = Path();
+      final path = Path();
       for (var j = 0; j < dataset.data.length; j++) {
-        var data = dataset.data[j];
-        var xLine = rowWidth * j + leftOffset + rowWidth / 2;
-        var yLine = (size.height - bottomOffset) -
+        final data = dataset.data[j];
+        final xLine = rowWidth * j + leftOffset + rowWidth / 2;
+        final yLine = (size.height - bottomOffset) -
             ((data) * (rowHeight / step)) -
             rowHeight / 2 -
             (minData <= 0 ? 1 : 0) *
                 rowHeight *
                 (-firstStep / step - ((firstStep + step) >= minData ? 0 : 1));
         //var yLine = (size.height - bottomOffset) - ((data)*(rowHeight/step)) - rowHeight/2;
-        var offset = Offset(xLine, yLine);
+        final offset = Offset(xLine, yLine);
 
         if (j == 0) {
           path.moveTo(offset.dx, size.height - bottomOffset);
@@ -768,8 +768,8 @@ class XelaLineChartOLDPainter extends CustomPainter {
           pathLine.moveTo(offset.dx, offset.dy);
           prevOffset = offset;
         } else {
-          var deltaX = offset.dx - prevOffset.dx;
-          var curveXOffset = deltaX * dataset.tension;
+          final deltaX = offset.dx - prevOffset.dx;
+          final curveXOffset = deltaX * dataset.tension;
           pathLine.cubicTo(prevOffset.dx + curveXOffset, prevOffset.dy,
               offset.dx - curveXOffset, offset.dy, offset.dx, offset.dy);
           path.cubicTo(prevOffset.dx + curveXOffset, prevOffset.dy,
@@ -790,16 +790,16 @@ class XelaLineChartOLDPainter extends CustomPainter {
         pointStrokePaint.color = dataset.pointColor;
 
         for (var j = 0; j < dataset.data.length; j++) {
-          var data = dataset.data[j];
-          var xLine = rowWidth * j + leftOffset + rowWidth / 2;
-          var yLine = (size.height - bottomOffset) -
+          final data = dataset.data[j];
+          final xLine = rowWidth * j + leftOffset + rowWidth / 2;
+          final yLine = (size.height - bottomOffset) -
               ((data) * (rowHeight / step)) -
               rowHeight / 2 -
               (minData <= 0 ? 1 : 0) *
                   rowHeight *
                   (-firstStep / step - ((firstStep + step) >= minData ? 0 : 1));
 
-          var offset = Offset(xLine, yLine);
+          final offset = Offset(xLine, yLine);
           canvas.drawCircle(offset, 4, pointBgPaint);
           canvas.drawCircle(offset, 4, pointStrokePaint);
         }

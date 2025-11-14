@@ -81,7 +81,7 @@ class _XelaAccordionState extends State<XelaAccordion> {
                       : Container(),
                   Text(
                     widget.title,
-                    style: XelaTextStyle.XelaBodyBold.apply(
+                    style: XelaTextStyle.xelaBodyBold.apply(
                         color: widget.isOpen
                             ? widget.openTitleColor
                             : widget.closeTitleColor),

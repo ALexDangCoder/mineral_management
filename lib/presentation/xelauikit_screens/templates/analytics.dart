@@ -68,7 +68,7 @@ class _AnalyticsState extends State<Analytics> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text("Statistics",
-                              style: XelaTextStyle.XelaButtonLarge.apply(
+                              style: XelaTextStyle.xelaButtonLarge.apply(
                                   color: Colors.white))
                         ],
                       )),
@@ -121,7 +121,7 @@ class _AnalyticsState extends State<Analytics> {
                                         Expanded(
                                             child: Text("Users by devices",
                                                 style: XelaTextStyle
-                                                        .XelaSubheadline
+                                                        .xelaSubheadline
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -168,7 +168,7 @@ class _AnalyticsState extends State<Analytics> {
                                               children: [
                                                 Text("2846",
                                                     style: XelaTextStyle
-                                                            .XelaSubheadline
+                                                            .xelaSubheadline
                                                         .apply(
                                                             color: _isDark
                                                                 ? Colors.white
@@ -176,7 +176,7 @@ class _AnalyticsState extends State<Analytics> {
                                                                     .Gray2)),
                                                 Text("Total",
                                                     style: XelaTextStyle
-                                                            .XelaCaption
+                                                            .xelaCaption
                                                         .apply(
                                                             color: XelaColor
                                                                 .Gray8)),
@@ -203,7 +203,7 @@ class _AnalyticsState extends State<Analytics> {
                                         const SizedBox(width: 12),
                                         Text("Mobile",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: _isDark
                                                         ? Colors.white
                                                         : XelaColor.Gray2)),
@@ -226,7 +226,7 @@ class _AnalyticsState extends State<Analytics> {
                                         const SizedBox(width: 12),
                                         Text("Tablet",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: _isDark
                                                         ? Colors.white
                                                         : XelaColor.Gray2)),
@@ -249,7 +249,7 @@ class _AnalyticsState extends State<Analytics> {
                                         const SizedBox(width: 12),
                                         Text("Laptop",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: _isDark
                                                         ? Colors.white
                                                         : XelaColor.Gray2)),
@@ -272,7 +272,7 @@ class _AnalyticsState extends State<Analytics> {
                                         const SizedBox(width: 12),
                                         Text("Desktop PC",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: _isDark
                                                         ? Colors.white
                                                         : XelaColor.Gray2)),
@@ -300,7 +300,7 @@ class _AnalyticsState extends State<Analytics> {
                                         Expanded(
                                             child: Text("Visitors",
                                                 style: XelaTextStyle
-                                                        .XelaSubheadline
+                                                        .xelaSubheadline
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -316,7 +316,7 @@ class _AnalyticsState extends State<Analytics> {
                                         Expanded(
                                             child: Text("254,852",
                                                 style:
-                                                    XelaTextStyle.XelaHeadline
+                                                    XelaTextStyle.xelaHeadline
                                                         .apply(
                                                             color: _isDark
                                                                 ? Colors.white
@@ -327,12 +327,12 @@ class _AnalyticsState extends State<Analytics> {
                                               CrossAxisAlignment.end,
                                           children: [
                                             Text("New / Returning",
-                                                style: XelaTextStyle.XelaCaption
+                                                style: XelaTextStyle.xelaCaption
                                                     .apply(
                                                         color:
                                                             XelaColor.Gray6)),
                                             Text("45,762 / 2,491",
-                                                style: XelaTextStyle.XelaCaption
+                                                style: XelaTextStyle.xelaCaption
                                                     .apply(
                                                         color:
                                                             XelaColor.Gray6)),
@@ -383,7 +383,7 @@ class _AnalyticsState extends State<Analytics> {
                                             ),
                                             const SizedBox(width: 8),
                                             Text("New visitors",
-                                                style: XelaTextStyle.XelaCaption
+                                                style: XelaTextStyle.xelaCaption
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -402,7 +402,7 @@ class _AnalyticsState extends State<Analytics> {
                                             ),
                                             const SizedBox(width: 8),
                                             Text("Returning visitors",
-                                                style: XelaTextStyle.XelaCaption
+                                                style: XelaTextStyle.xelaCaption
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -433,14 +433,14 @@ class _AnalyticsState extends State<Analytics> {
                                         Expanded(
                                             child: Text("Comments",
                                                 style: XelaTextStyle
-                                                        .XelaSubheadline
+                                                        .xelaSubheadline
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
                                                             : XelaColor
                                                                 .Gray2))),
                                         Text("view all",
-                                            style: XelaTextStyle.XelaButtonSmall
+                                            style: XelaTextStyle.xelaButtonSmall
                                                 .apply(color: XelaColor.Blue6))
                                       ],
                                     ),
@@ -467,20 +467,20 @@ class _AnalyticsState extends State<Analytics> {
                                                   children: [
                                                     Text("James Friday",
                                                         style: XelaTextStyle
-                                                                .XelaSmallBodyBold
+                                                                .xelaSmallBodyBold
                                                             .apply(
                                                                 color: XelaColor
                                                                     .Blue5)),
                                                     Text("just commented on",
                                                         style: XelaTextStyle
-                                                                .XelaCaption
+                                                                .xelaCaption
                                                             .apply(
                                                                 color: XelaColor
                                                                     .Gray8)),
                                                     Text(
                                                         "Analysing Potential Pro...",
                                                         style: XelaTextStyle
-                                                                .XelaSmallBodyBold
+                                                                .xelaSmallBodyBold
                                                             .apply(
                                                                 color: _isDark
                                                                     ? Colors
@@ -496,7 +496,7 @@ class _AnalyticsState extends State<Analytics> {
                                               ],
                                             ),
                                             Text("5 minutes ago",
-                                                style: XelaTextStyle.XelaCaption
+                                                style: XelaTextStyle.xelaCaption
                                                     .apply(
                                                         color: XelaColor.Gray8))
                                           ],
@@ -526,20 +526,20 @@ class _AnalyticsState extends State<Analytics> {
                                                   children: [
                                                     Text("Oludayo Ayomide",
                                                         style: XelaTextStyle
-                                                                .XelaSmallBodyBold
+                                                                .xelaSmallBodyBold
                                                             .apply(
                                                                 color: XelaColor
                                                                     .Blue5)),
                                                     Text("just commented on",
                                                         style: XelaTextStyle
-                                                                .XelaCaption
+                                                                .xelaCaption
                                                             .apply(
                                                                 color: XelaColor
                                                                     .Gray8)),
                                                     Text(
                                                         "How Good Is Your Prob...",
                                                         style: XelaTextStyle
-                                                                .XelaSmallBodyBold
+                                                                .xelaSmallBodyBold
                                                             .apply(
                                                                 color: _isDark
                                                                     ? Colors
@@ -555,7 +555,7 @@ class _AnalyticsState extends State<Analytics> {
                                               ],
                                             ),
                                             Text("2 days ago",
-                                                style: XelaTextStyle.XelaCaption
+                                                style: XelaTextStyle.xelaCaption
                                                     .apply(
                                                         color: XelaColor.Gray8))
                                           ],
@@ -584,7 +584,7 @@ class _AnalyticsState extends State<Analytics> {
                                         Expanded(
                                             child: Text("Page Views",
                                                 style: XelaTextStyle
-                                                        .XelaSubheadline
+                                                        .xelaSubheadline
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -660,7 +660,7 @@ class _AnalyticsState extends State<Analytics> {
                                             ),
                                             const SizedBox(width: 8),
                                             Text("Unique page views",
-                                                style: XelaTextStyle.XelaCaption
+                                                style: XelaTextStyle.xelaCaption
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -679,7 +679,7 @@ class _AnalyticsState extends State<Analytics> {
                                             ),
                                             const SizedBox(width: 8),
                                             Text("Bounce rate",
-                                                style: XelaTextStyle.XelaCaption
+                                                style: XelaTextStyle.xelaCaption
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -710,7 +710,7 @@ class _AnalyticsState extends State<Analytics> {
                                         Expanded(
                                             child: Text("Referrals",
                                                 style: XelaTextStyle
-                                                        .XelaSubheadline
+                                                        .xelaSubheadline
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -725,12 +725,12 @@ class _AnalyticsState extends State<Analytics> {
                                       children: [
                                         Text("Source",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: XelaColor.Gray8)),
                                         const Spacer(),
                                         Text("Users",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: XelaColor.Gray8)),
                                       ],
                                     ),
@@ -756,7 +756,7 @@ class _AnalyticsState extends State<Analytics> {
                                         Expanded(
                                           child: Text("google.com",
                                               style: XelaTextStyle
-                                                      .XelaSmallBodyBold
+                                                      .xelaSmallBodyBold
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -764,7 +764,7 @@ class _AnalyticsState extends State<Analytics> {
                                         ),
                                         Text("45904",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -793,7 +793,7 @@ class _AnalyticsState extends State<Analytics> {
                                         Expanded(
                                           child: Text("facebook.com",
                                               style: XelaTextStyle
-                                                      .XelaSmallBodyBold
+                                                      .xelaSmallBodyBold
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -801,7 +801,7 @@ class _AnalyticsState extends State<Analytics> {
                                         ),
                                         Text("20796",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -830,7 +830,7 @@ class _AnalyticsState extends State<Analytics> {
                                         Expanded(
                                           child: Text("instagram.com",
                                               style: XelaTextStyle
-                                                      .XelaSmallBodyBold
+                                                      .xelaSmallBodyBold
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -838,7 +838,7 @@ class _AnalyticsState extends State<Analytics> {
                                         ),
                                         Text("50963",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -867,7 +867,7 @@ class _AnalyticsState extends State<Analytics> {
                                         Expanded(
                                           child: Text("pinterest.com",
                                               style: XelaTextStyle
-                                                      .XelaSmallBodyBold
+                                                      .xelaSmallBodyBold
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -875,7 +875,7 @@ class _AnalyticsState extends State<Analytics> {
                                         ),
                                         Text("93046",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -904,7 +904,7 @@ class _AnalyticsState extends State<Analytics> {
                                         Expanded(
                                             child: Text("Most Popular Pages",
                                                 style: XelaTextStyle
-                                                        .XelaSubheadline
+                                                        .xelaSubheadline
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -919,12 +919,12 @@ class _AnalyticsState extends State<Analytics> {
                                       children: [
                                         Text("Page",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: XelaColor.Gray8)),
                                         const Spacer(),
                                         Text("Unique page views",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: XelaColor.Gray8)),
                                       ],
                                     ),
@@ -933,7 +933,7 @@ class _AnalyticsState extends State<Analytics> {
                                       children: [
                                         Text("1",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -942,13 +942,13 @@ class _AnalyticsState extends State<Analytics> {
                                         Expanded(
                                           child: Text("/en-en/p/products",
                                               style: XelaTextStyle
-                                                      .XelaSmallBodyBold
+                                                      .xelaSmallBodyBold
                                                   .apply(
                                                       color: XelaColor.Blue6)),
                                         ),
                                         Text("5948",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -960,7 +960,7 @@ class _AnalyticsState extends State<Analytics> {
                                       children: [
                                         Text("2",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -969,13 +969,13 @@ class _AnalyticsState extends State<Analytics> {
                                         Expanded(
                                           child: Text("/en-en/p/signup",
                                               style: XelaTextStyle
-                                                      .XelaSmallBodyBold
+                                                      .xelaSmallBodyBold
                                                   .apply(
                                                       color: XelaColor.Blue6)),
                                         ),
                                         Text("6025",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -987,7 +987,7 @@ class _AnalyticsState extends State<Analytics> {
                                       children: [
                                         Text("3",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -996,13 +996,13 @@ class _AnalyticsState extends State<Analytics> {
                                         Expanded(
                                           child: Text("/en-en/p/home",
                                               style: XelaTextStyle
-                                                      .XelaSmallBodyBold
+                                                      .xelaSmallBodyBold
                                                   .apply(
                                                       color: XelaColor.Blue6)),
                                         ),
                                         Text("1439",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -1014,7 +1014,7 @@ class _AnalyticsState extends State<Analytics> {
                                       children: [
                                         Text("4",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -1023,13 +1023,13 @@ class _AnalyticsState extends State<Analytics> {
                                         Expanded(
                                           child: Text("/en-en/p/login",
                                               style: XelaTextStyle
-                                                      .XelaSmallBodyBold
+                                                      .xelaSmallBodyBold
                                                   .apply(
                                                       color: XelaColor.Blue6)),
                                         ),
                                         Text("8861",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white

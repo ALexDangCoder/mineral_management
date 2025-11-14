@@ -54,7 +54,7 @@ class _NumberInputComponentState extends State<NumberInputComponent> {
                       Expanded(
                           child: Text(
                         "Number Input",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -86,7 +86,7 @@ class _NumberInputComponentState extends State<NumberInputComponent> {
                     child: Center(
                       child: Text(
                         "Usage Example",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -144,7 +144,7 @@ class _NumberInputComponentState extends State<NumberInputComponent> {
                     child: Center(
                       child: Text(
                         "Variants state: DEFAULT",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -253,7 +253,7 @@ class _NumberInputComponentState extends State<NumberInputComponent> {
                     child: Center(
                       child: Text(
                         "Variants state: ERROR",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -370,7 +370,7 @@ class _NumberInputComponentState extends State<NumberInputComponent> {
                     child: Center(
                       child: Text(
                         "Variants state: SUCCESS",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -487,7 +487,7 @@ class _NumberInputComponentState extends State<NumberInputComponent> {
                     child: Center(
                       child: Text(
                         "Variants state: DISABLED",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),

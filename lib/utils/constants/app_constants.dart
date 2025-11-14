@@ -45,3 +45,8 @@ class DateTimeFormat {
   static const DOB_FORMAT = _dtFormat4;
   static const CREATE_BLOG_FORMAT = _dtFormat5;
 }
+
+class StorageKeys {
+  static const accessToken = 'ACCESS_TOKEN';
+  static const userInfo = 'USER_INFO';
+}

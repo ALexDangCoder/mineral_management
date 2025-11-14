@@ -142,7 +142,7 @@ class _JobSearchState extends State<JobSearch> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text("Advanced search",
-                                          style: XelaTextStyle.XelaButtonMedium
+                                          style: XelaTextStyle.xelaButtonMedium
                                               .apply(
                                                   color: _isDark
                                                       ? Colors.white
@@ -164,7 +164,7 @@ class _JobSearchState extends State<JobSearch> {
                                 children: [
                                   Text("Results",
                                       style:
-                                          XelaTextStyle.XelaSubheadline.apply(
+                                          XelaTextStyle.xelaSubheadline.apply(
                                               color: _isDark
                                                   ? Colors.white
                                                   : XelaColor.Gray2)),
@@ -219,7 +219,7 @@ class _JobSearchState extends State<JobSearch> {
                                             children: [
                                               Text("Fixed Income Specialist",
                                                   style:
-                                                      XelaTextStyle.XelaBodyBold
+                                                      XelaTextStyle.xelaBodyBold
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -228,7 +228,7 @@ class _JobSearchState extends State<JobSearch> {
                                               Text(
                                                   "2715 Ash Dr. San Jose, South Dakota 83475",
                                                   style: XelaTextStyle
-                                                          .XelaCaption
+                                                          .xelaCaption
                                                       .apply(
                                                           color:
                                                               XelaColor.Gray6)),
@@ -277,7 +277,7 @@ class _JobSearchState extends State<JobSearch> {
                                                   : XelaColor.Purple3),
                                           const Spacer(),
                                           Text("2 minutes ago",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray6)),
                                         ],
@@ -323,7 +323,7 @@ class _JobSearchState extends State<JobSearch> {
                                             children: [
                                               Text("Group Sales Manager",
                                                   style:
-                                                      XelaTextStyle.XelaBodyBold
+                                                      XelaTextStyle.xelaBodyBold
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -332,7 +332,7 @@ class _JobSearchState extends State<JobSearch> {
                                               Text(
                                                   "8502 Preston Rd. Inglewood, Maine 98380",
                                                   style: XelaTextStyle
-                                                          .XelaCaption
+                                                          .xelaCaption
                                                       .apply(
                                                           color:
                                                               XelaColor.Gray6)),
@@ -381,7 +381,7 @@ class _JobSearchState extends State<JobSearch> {
                                                   : XelaColor.Blue3),
                                           const Spacer(),
                                           Text("10 minutes ago",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray6)),
                                         ],
@@ -430,7 +430,7 @@ class _JobSearchState extends State<JobSearch> {
                                             children: [
                                               Text("Account Representative",
                                                   style:
-                                                      XelaTextStyle.XelaBodyBold
+                                                      XelaTextStyle.xelaBodyBold
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -439,7 +439,7 @@ class _JobSearchState extends State<JobSearch> {
                                               Text(
                                                   "1901 Thornridge Cir. Shiloh, Hawaii 81063",
                                                   style: XelaTextStyle
-                                                          .XelaCaption
+                                                          .xelaCaption
                                                       .apply(
                                                           color:
                                                               XelaColor.Gray6)),
@@ -488,7 +488,7 @@ class _JobSearchState extends State<JobSearch> {
                                                   : XelaColor.Green3),
                                           const Spacer(),
                                           Text("2 hours ago",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray6)),
                                         ],

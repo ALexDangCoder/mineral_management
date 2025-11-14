@@ -121,7 +121,7 @@ class _XelaChipState extends State<XelaChip> {
                   : Container(),
               Text(
                 widget.text,
-                style: XelaTextStyle.XelaCaption.apply(
+                style: XelaTextStyle.xelaCaption.apply(
                     color: widget.selected
                         ? widget.selectedContentColor
                         : widget.defaultContentColor),

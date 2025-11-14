@@ -109,77 +109,76 @@ class _XelaUserAvatarState extends State<XelaUserAvatar> {
                       ? Text(
                           widget.initials!,
                           style: (widget.size == XelaUserAvatarSize.LARGE
-                                  ? XelaTextStyle.XelaHeadline
+                                  ? XelaTextStyle.xelaHeadline
                                   : widget.size == XelaUserAvatarSize.MEDIUM
-                                      ? XelaTextStyle.XelaSubheadline
-                                      : XelaTextStyle.XelaButtonMedium)
+                                      ? XelaTextStyle.xelaSubheadline
+                                      : XelaTextStyle.xelaButtonMedium)
                               .apply(color: widget.foreground),
                         )
                       : null),
         ),
-        widget.decoration != null
-            ? Container(
-                width: widget.decoration == XelaUserAvatarDecoration.INDICATOR
-                    ? widget.size == XelaUserAvatarSize.LARGE
-                        ? 12
-                        : widget.size == XelaUserAvatarSize.MEDIUM
-                            ? 10
-                            : 8
-                    : widget.size == XelaUserAvatarSize.LARGE
-                        ? 18
-                        : widget.size == XelaUserAvatarSize.MEDIUM
-                            ? 16
-                            : 12,
-                height: widget.decoration == XelaUserAvatarDecoration.INDICATOR
-                    ? widget.size == XelaUserAvatarSize.LARGE
-                        ? 12
-                        : widget.size == XelaUserAvatarSize.MEDIUM
-                            ? 10
-                            : 8
-                    : widget.size == XelaUserAvatarSize.LARGE
-                        ? 18
-                        : widget.size == XelaUserAvatarSize.MEDIUM
-                            ? 16
-                            : 12,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: widget.decorationBackground,
-                    border:
-                        widget.decoration == XelaUserAvatarDecoration.COUNTER
-                            ? null
-                            : Border.all(
-                                color: widget.decorationBorderColor,
-                                width: widget.size == XelaUserAvatarSize.LARGE
-                                    ? 3
-                                    : widget.size == XelaUserAvatarSize.MEDIUM
-                                        ? 2
-                                        : 1)),
-                clipBehavior: Clip.hardEdge,
-                child: widget.decoration == XelaUserAvatarDecoration.PLUS
-                    ? SizedBox(
-                        width: 8,
-                        height: 8,
-                        child: FittedBox(
-                          child: widget.plusIcon,
+        if (widget.decoration != null)
+          Container(
+            width: widget.decoration == XelaUserAvatarDecoration.INDICATOR
+                ? widget.size == XelaUserAvatarSize.LARGE
+                    ? 12
+                    : widget.size == XelaUserAvatarSize.MEDIUM
+                        ? 10
+                        : 8
+                : widget.size == XelaUserAvatarSize.LARGE
+                    ? 18
+                    : widget.size == XelaUserAvatarSize.MEDIUM
+                        ? 16
+                        : 12,
+            height: widget.decoration == XelaUserAvatarDecoration.INDICATOR
+                ? widget.size == XelaUserAvatarSize.LARGE
+                    ? 12
+                    : widget.size == XelaUserAvatarSize.MEDIUM
+                        ? 10
+                        : 8
+                : widget.size == XelaUserAvatarSize.LARGE
+                    ? 18
+                    : widget.size == XelaUserAvatarSize.MEDIUM
+                        ? 16
+                        : 12,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: widget.decorationBackground,
+                border: widget.decoration == XelaUserAvatarDecoration.COUNTER
+                    ? null
+                    : Border.all(
+                        color: widget.decorationBorderColor,
+                        width: widget.size == XelaUserAvatarSize.LARGE
+                            ? 3
+                            : widget.size == XelaUserAvatarSize.MEDIUM
+                                ? 2
+                                : 1)),
+            clipBehavior: Clip.hardEdge,
+            child: widget.decoration == XelaUserAvatarDecoration.PLUS
+                ? SizedBox(
+                    width: 8,
+                    height: 8,
+                    child: FittedBox(
+                      child: widget.plusIcon,
+                    ),
+                  )
+                : widget.decoration == XelaUserAvatarDecoration.COUNTER
+                    ? FittedBox(
+                        child: Text(
+                          widget.count.toString(),
+                          style: TextStyle(
+                              fontSize: widget.size == XelaUserAvatarSize.LARGE
+                                  ? 10
+                                  : 8,
+                              color: widget.decorationForeground),
+                          textAlign: TextAlign.center,
                         ),
                       )
-                    : widget.decoration == XelaUserAvatarDecoration.COUNTER
-                        ? FittedBox(
-                            child: Text(
-                              widget.count.toString(),
-                              style: TextStyle(
-                                  fontSize:
-                                      widget.size == XelaUserAvatarSize.LARGE
-                                          ? 10
-                                          : 8,
-                                  color: widget.decorationForeground),
-                              textAlign: TextAlign.center,
-                            ),
-                          )
-                        : Container(),
-              )
-            : Container()
+                    : Container(),
+          )
+        else
+          const SizedBox.shrink()
       ],
     );
   }

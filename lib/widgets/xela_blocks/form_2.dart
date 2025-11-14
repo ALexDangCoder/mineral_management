@@ -89,7 +89,7 @@ class _Form2State extends State<Form2> {
                     child: Column(
                       children: [
                         Text("Get’s started",
-                            style: XelaTextStyle.XelaTitle3.apply(
+                            style: XelaTextStyle.xelaTitle3.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2)),
@@ -98,12 +98,12 @@ class _Form2State extends State<Form2> {
                           children: [
                             const Spacer(),
                             Text("Already have an account? ",
-                                style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                style: XelaTextStyle.xelaSmallBodyBold.apply(
                                     color: _isDark
                                         ? XelaColor.Gray11
                                         : XelaColor.Gray2)),
                             Text("Log in",
-                                style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                style: XelaTextStyle.xelaSmallBodyBold.apply(
                                     color: _isDark
                                         ? XelaColor.Orange5
                                         : XelaColor.Orange3)),
@@ -141,7 +141,7 @@ class _Form2State extends State<Form2> {
                         ),
                         const SizedBox(height: 24),
                         Text("Or continue with ",
-                            style: XelaTextStyle.XelaCaption.apply(
+                            style: XelaTextStyle.xelaCaption.apply(
                                 color: XelaColor.Gray8)),
                         const SizedBox(height: 24),
                         XelaTextField(

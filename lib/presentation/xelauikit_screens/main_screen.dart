@@ -1,3 +1,10 @@
+import 'package:bnv_opendata/presentation/closure_plan_detail/closure_plan_detail_screen.dart';
+import 'package:bnv_opendata/presentation/mine_3d/mine_3d_screen.dart';
+import 'package:bnv_opendata/presentation/notification_management/notification_management_screen.dart';
+import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
+import 'package:bnv_opendata/presentation/project_detail/project_detail_screen.dart';
+import 'package:bnv_opendata/presentation/show_construction_map/show_construction_Map_screen.dart';
+import 'package:bnv_opendata/presentation/total_screen.dart';
 import 'package:bnv_opendata/presentation/xelauikit_screens/about_screen.dart';
 import 'package:bnv_opendata/presentation/xelauikit_screens/blocks_screen.dart';
 import 'package:bnv_opendata/presentation/xelauikit_screens/components_screen.dart';
@@ -6,22 +13,22 @@ import 'package:bnv_opendata/presentation/xelauikit_screens/templates_screen.dar
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:flutter/material.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+class MainScreenXela extends StatefulWidget {
+  const MainScreenXela({super.key});
 
   @override
-  _MainScreenState createState() => _MainScreenState();
+  _MainScreenXelaState createState() => _MainScreenXelaState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _MainScreenXelaState extends State<MainScreenXela> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _pages = <Widget>[
+  static  List<Widget> _pages = <Widget>[
     HomeScreen(),
     ComponentsScreen(),
     BlocksScreen(),
     TemplatesScreen(),
-    AboutScreen(),
+    TotalScreen(),
   ];
 
   void _onItemTapped(int index) {

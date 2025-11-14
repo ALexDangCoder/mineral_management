@@ -66,7 +66,7 @@ class _DatePickerComponentState extends State<DatePickerComponent> {
                       Expanded(
                           child: Text(
                         "Date Picker",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -98,7 +98,7 @@ class _DatePickerComponentState extends State<DatePickerComponent> {
                     child: Center(
                       child: Text(
                         "Usage Example",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -179,7 +179,7 @@ class _DatePickerComponentState extends State<DatePickerComponent> {
                             children: [
                               Text(
                                 "Date",
-                                style: XelaTextStyle.XelaButtonMedium.apply(
+                                style: XelaTextStyle.xelaButtonMedium.apply(
                                     color: _isDark
                                         ? XelaColor.Gray11
                                         : XelaColor.Gray3),
@@ -190,7 +190,7 @@ class _DatePickerComponentState extends State<DatePickerComponent> {
                                       DateFormat.yMMMMd('en')
                                           .format(selectedDate!),
                                       style:
-                                          XelaTextStyle.XelaButtonMedium.apply(
+                                          XelaTextStyle.xelaButtonMedium.apply(
                                               color: _isDark
                                                   ? XelaColor.Gray11
                                                   : XelaColor.Gray3),
@@ -205,7 +205,7 @@ class _DatePickerComponentState extends State<DatePickerComponent> {
                             children: [
                               Text(
                                 "Location",
-                                style: XelaTextStyle.XelaButtonMedium.apply(
+                                style: XelaTextStyle.xelaButtonMedium.apply(
                                     color: _isDark
                                         ? XelaColor.Gray11
                                         : XelaColor.Gray3),
@@ -213,7 +213,7 @@ class _DatePickerComponentState extends State<DatePickerComponent> {
                               const Spacer(),
                               Text(
                                 "4140 Parker Rd. Alletown",
-                                style: XelaTextStyle.XelaButtonMedium.apply(
+                                style: XelaTextStyle.xelaButtonMedium.apply(
                                     color: _isDark
                                         ? XelaColor.Gray11
                                         : XelaColor.Gray3),
@@ -239,7 +239,7 @@ class _DatePickerComponentState extends State<DatePickerComponent> {
                     child: Center(
                       child: Text(
                         "Multiply Dates",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -299,7 +299,7 @@ class _DatePickerComponentState extends State<DatePickerComponent> {
                     child: Center(
                       child: Text(
                         "Range Dates",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -361,7 +361,7 @@ class _DatePickerComponentState extends State<DatePickerComponent> {
                     child: Center(
                       child: Text(
                         "Single Date",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),

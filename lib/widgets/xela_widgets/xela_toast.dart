@@ -92,13 +92,13 @@ class _XelaToastState extends State<XelaToast> {
                       children: [
                         Text(
                           widget.title,
-                          style: XelaTextStyle.XelaBodyBold.apply(
+                          style: XelaTextStyle.xelaBodyBold.apply(
                               color: widget.titleColor),
                         ),
                         widget.description != null
                             ? Text(
                                 widget.description!,
-                                style: XelaTextStyle.XelaSmallBody.apply(
+                                style: XelaTextStyle.xelaSmallBody.apply(
                                     color: widget.descriptionColor),
                               )
                             : Container(),
@@ -205,13 +205,13 @@ class _XelaToastState extends State<XelaToast> {
                         children: [
                           Text(
                             widget.title,
-                            style: XelaTextStyle.XelaBodyBold.apply(
+                            style: XelaTextStyle.xelaBodyBold.apply(
                                 color: widget.titleColor),
                           ),
                           widget.description != null
                               ? Text(
                                   widget.description!,
-                                  style: XelaTextStyle.XelaSmallBody.apply(
+                                  style: XelaTextStyle.xelaSmallBody.apply(
                                       color: widget.descriptionColor),
                                 )
                               : Container(),

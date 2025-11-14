@@ -14,8 +14,8 @@ Dio provideDio() {
   final appConstants = Get.find<AppConstants>();
   final options = BaseOptions(
     baseUrl: appConstants.baseUrl,
-    receiveTimeout: _connectTimeOut,
-    connectTimeout: _connectTimeOut,
+    receiveTimeout: Duration(milliseconds: _connectTimeOut),
+    connectTimeout: Duration(milliseconds: _connectTimeOut),
     followRedirects: false,
   );
   final dio = Dio(options);

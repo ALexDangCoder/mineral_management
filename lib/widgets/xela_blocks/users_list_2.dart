@@ -10,6 +10,8 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 
 class UsersList2 extends StatefulWidget {
+  const UsersList2({super.key});
+
   @override
   _UsersList2State createState() => _UsersList2State();
 }
@@ -140,7 +142,7 @@ class _UsersList2State extends State<UsersList2> {
                     ),
                     Expanded(
                         child: Text("Calls",
-                            style: XelaTextStyle.XelaHeadline.apply(
+                            style: XelaTextStyle.xelaHeadline.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2))),
@@ -216,14 +218,14 @@ class _UsersList2State extends State<UsersList2> {
                                       children: [
                                         Text("Don’t disturb me",
                                             style:
-                                                XelaTextStyle.XelaButtonMedium
+                                                XelaTextStyle.xelaButtonMedium
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
                                                             : XelaColor.Gray2)),
                                         Text("Snooze all incoming calls",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: XelaColor.Gray6))
                                       ],
                                     ),
@@ -257,7 +259,7 @@ class _UsersList2State extends State<UsersList2> {
                                         Expanded(
                                             child: Text("Roselle Ehrman",
                                                 style: XelaTextStyle
-                                                        .XelaButtonMedium
+                                                        .xelaButtonMedium
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -265,7 +267,7 @@ class _UsersList2State extends State<UsersList2> {
                                                                 .Gray2))),
                                         Text("2 mon ago",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: XelaColor.Gray8))
                                       ],
                                     ),
@@ -295,7 +297,7 @@ class _UsersList2State extends State<UsersList2> {
                                         Expanded(
                                             child: Text("Johnsie Jock",
                                                 style: XelaTextStyle
-                                                        .XelaButtonMedium
+                                                        .xelaButtonMedium
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -303,7 +305,7 @@ class _UsersList2State extends State<UsersList2> {
                                                                 .Gray2))),
                                         Text("5 hours ago",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: XelaColor.Gray8))
                                       ],
                                     ),
@@ -334,7 +336,7 @@ class _UsersList2State extends State<UsersList2> {
                                         Expanded(
                                             child: Text("Phyllis Godley",
                                                 style: XelaTextStyle
-                                                        .XelaButtonMedium
+                                                        .xelaButtonMedium
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -342,7 +344,7 @@ class _UsersList2State extends State<UsersList2> {
                                                                 .Gray2))),
                                         Text("1 mon ago",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: XelaColor.Gray8))
                                       ],
                                     ),
@@ -372,7 +374,7 @@ class _UsersList2State extends State<UsersList2> {
                                         Expanded(
                                             child: Text("Lauralee Quintero",
                                                 style: XelaTextStyle
-                                                        .XelaButtonMedium
+                                                        .xelaButtonMedium
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -380,7 +382,7 @@ class _UsersList2State extends State<UsersList2> {
                                                                 .Gray2))),
                                         Text("15 min ago",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: XelaColor.Gray8))
                                       ],
                                     ),
@@ -410,7 +412,7 @@ class _UsersList2State extends State<UsersList2> {
                                         Expanded(
                                             child: Text("Elanor Pera",
                                                 style: XelaTextStyle
-                                                        .XelaButtonMedium
+                                                        .xelaButtonMedium
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -418,7 +420,7 @@ class _UsersList2State extends State<UsersList2> {
                                                                 .Gray2))),
                                         Text("2 week ago",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: XelaColor.Gray8))
                                       ],
                                     ),
@@ -448,7 +450,7 @@ class _UsersList2State extends State<UsersList2> {
                                         Expanded(
                                             child: Text("Kylee Danford",
                                                 style: XelaTextStyle
-                                                        .XelaButtonMedium
+                                                        .xelaButtonMedium
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -456,7 +458,7 @@ class _UsersList2State extends State<UsersList2> {
                                                                 .Gray2))),
                                         Text("5 mon ago",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: XelaColor.Gray8))
                                       ],
                                     ),
@@ -486,7 +488,7 @@ class _UsersList2State extends State<UsersList2> {
                                         Expanded(
                                             child: Text("Roselle Ehrman",
                                                 style: XelaTextStyle
-                                                        .XelaButtonMedium
+                                                        .xelaButtonMedium
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -494,7 +496,7 @@ class _UsersList2State extends State<UsersList2> {
                                                                 .Gray2))),
                                         Text("5 mon ago",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: XelaColor.Gray8))
                                       ],
                                     ),
@@ -525,7 +527,7 @@ class _UsersList2State extends State<UsersList2> {
                                         Expanded(
                                             child: Text("Roselle Ehrman",
                                                 style: XelaTextStyle
-                                                        .XelaButtonMedium
+                                                        .xelaButtonMedium
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -533,7 +535,7 @@ class _UsersList2State extends State<UsersList2> {
                                                                 .Gray2))),
                                         Text("2 mon ago",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: XelaColor.Gray8))
                                       ],
                                     ),

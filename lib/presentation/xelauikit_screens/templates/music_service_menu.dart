@@ -105,12 +105,12 @@ class _MusicServiceMenuState extends State<MusicServiceMenu> {
                             ),
                             const SizedBox(height: 4),
                             Text("Edwin Martins",
-                                style: XelaTextStyle.XelaBodyBold.apply(
+                                style: XelaTextStyle.xelaBodyBold.apply(
                                     color: _isDark
                                         ? Colors.white
                                         : XelaColor.Gray2)),
                             Text("jessica.hanson@example.com",
-                                style: XelaTextStyle.XelaCaption.apply(
+                                style: XelaTextStyle.xelaCaption.apply(
                                     color: XelaColor.Gray8)),
                             const SizedBox(height: 32),
                             Padding(
@@ -140,7 +140,7 @@ class _MusicServiceMenuState extends State<MusicServiceMenu> {
                                     Expanded(
                                         child: Text("Home",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -166,7 +166,7 @@ class _MusicServiceMenuState extends State<MusicServiceMenu> {
                                     Expanded(
                                         child: Text("Browse",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -192,7 +192,7 @@ class _MusicServiceMenuState extends State<MusicServiceMenu> {
                                     Expanded(
                                         child: Text("Albums",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -218,7 +218,7 @@ class _MusicServiceMenuState extends State<MusicServiceMenu> {
                                     Expanded(
                                         child: Text("Artists",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -237,7 +237,7 @@ class _MusicServiceMenuState extends State<MusicServiceMenu> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text("My Account",
-                                        style: XelaTextStyle.XelaSmallBodyBold
+                                        style: XelaTextStyle.xelaSmallBodyBold
                                             .apply(color: XelaColor.Gray6))
                                   ],
                                 ),
@@ -260,7 +260,7 @@ class _MusicServiceMenuState extends State<MusicServiceMenu> {
                                     Expanded(
                                         child: Text("Recently Played",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -286,7 +286,7 @@ class _MusicServiceMenuState extends State<MusicServiceMenu> {
                                     Expanded(
                                         child: Text("Favorites",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -312,7 +312,7 @@ class _MusicServiceMenuState extends State<MusicServiceMenu> {
                                     Expanded(
                                         child: Text("Recommended",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -338,7 +338,7 @@ class _MusicServiceMenuState extends State<MusicServiceMenu> {
                                     Expanded(
                                         child: Text("Local files",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -357,7 +357,7 @@ class _MusicServiceMenuState extends State<MusicServiceMenu> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text("Playlists",
-                                        style: XelaTextStyle.XelaSmallBodyBold
+                                        style: XelaTextStyle.xelaSmallBodyBold
                                             .apply(color: XelaColor.Gray6)),
                                     const Spacer(),
                                     Icon(Icons.add,
@@ -386,7 +386,7 @@ class _MusicServiceMenuState extends State<MusicServiceMenu> {
                                     Expanded(
                                         child: Text("HYPEBEAST",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -412,7 +412,7 @@ class _MusicServiceMenuState extends State<MusicServiceMenu> {
                                     Expanded(
                                         child: Text("West Coast Hip-Hop",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -438,7 +438,7 @@ class _MusicServiceMenuState extends State<MusicServiceMenu> {
                                     Expanded(
                                         child: Text("Beat MODE",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -464,7 +464,7 @@ class _MusicServiceMenuState extends State<MusicServiceMenu> {
                                     Expanded(
                                         child: Text("Ill Lyricsist",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -490,7 +490,7 @@ class _MusicServiceMenuState extends State<MusicServiceMenu> {
                                     Expanded(
                                         child: Text("Good Vibes",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -516,7 +516,7 @@ class _MusicServiceMenuState extends State<MusicServiceMenu> {
                                     Expanded(
                                         child: Text("Rap Caviar",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -542,7 +542,7 @@ class _MusicServiceMenuState extends State<MusicServiceMenu> {
                                     Expanded(
                                         child: Text("Good Vibes",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white

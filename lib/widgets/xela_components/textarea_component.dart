@@ -52,7 +52,7 @@ class _TextareaComponentState extends State<TextareaComponent> {
                       Expanded(
                           child: Text(
                         "Textarea",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -84,7 +84,7 @@ class _TextareaComponentState extends State<TextareaComponent> {
                     child: Center(
                       child: Text(
                         "Variants",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),

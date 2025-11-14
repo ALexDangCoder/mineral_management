@@ -54,7 +54,7 @@ class _BadgeComponentState extends State<BadgeComponent> {
                       Expanded(
                           child: Text(
                         "Badge",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -86,7 +86,7 @@ class _BadgeComponentState extends State<BadgeComponent> {
                     child: Center(
                       child: Text(
                         "Usage Example",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -110,7 +110,7 @@ class _BadgeComponentState extends State<BadgeComponent> {
                         children: [
                           Text(
                             "Additional information",
-                            style: XelaTextStyle.XelaHeadline.apply(
+                            style: XelaTextStyle.xelaHeadline.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2),
@@ -131,7 +131,7 @@ class _BadgeComponentState extends State<BadgeComponent> {
                                 Expanded(
                                     child: Text(
                                   "Device Fingerprint",
-                                  style: XelaTextStyle.XelaButtonMedium.apply(
+                                  style: XelaTextStyle.xelaButtonMedium.apply(
                                       color: _isDark
                                           ? XelaColor.Gray11
                                           : XelaColor.Gray2),
@@ -156,7 +156,7 @@ class _BadgeComponentState extends State<BadgeComponent> {
                                 Expanded(
                                     child: Text(
                                   "User Agent",
-                                  style: XelaTextStyle.XelaButtonMedium.apply(
+                                  style: XelaTextStyle.xelaButtonMedium.apply(
                                       color: _isDark
                                           ? XelaColor.Gray11
                                           : XelaColor.Gray2),
@@ -180,7 +180,7 @@ class _BadgeComponentState extends State<BadgeComponent> {
                                 Expanded(
                                     child: Text(
                                   "IP",
-                                  style: XelaTextStyle.XelaButtonMedium.apply(
+                                  style: XelaTextStyle.xelaButtonMedium.apply(
                                       color: _isDark
                                           ? XelaColor.Gray11
                                           : XelaColor.Gray2),
@@ -204,7 +204,7 @@ class _BadgeComponentState extends State<BadgeComponent> {
                                 Expanded(
                                     child: Text(
                                   "Attempts",
-                                  style: XelaTextStyle.XelaButtonMedium.apply(
+                                  style: XelaTextStyle.xelaButtonMedium.apply(
                                       color: _isDark
                                           ? XelaColor.Gray11
                                           : XelaColor.Gray2),
@@ -229,7 +229,7 @@ class _BadgeComponentState extends State<BadgeComponent> {
                     child: Center(
                       child: Text(
                         "Variants",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),

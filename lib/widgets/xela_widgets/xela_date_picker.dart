@@ -98,7 +98,7 @@ class _XelaDatePickerState extends State<XelaDatePicker> {
     widget.selectedDates ??= [];
 
     initializeDateFormatting(widget.localeName);
-    var tempWeekdays =
+    final tempWeekdays =
         DateFormat.EEEE(widget.localeName).dateSymbols.SHORTWEEKDAYS;
     if (widget.firstDayOfWeek == XelaFirstDayOfWeek.MONDAY) {
       for (var i = 1; i < 7; i++) {
@@ -117,7 +117,7 @@ class _XelaDatePickerState extends State<XelaDatePicker> {
         child: Text(
           weekday.capitalize ?? '',
           style:
-              XelaTextStyle.XelaCaption.apply(color: widget.weekdayHeaderColor),
+              XelaTextStyle.xelaCaption.apply(color: widget.weekdayHeaderColor),
           textAlign: TextAlign.center,
         ),
       ));
@@ -157,18 +157,18 @@ class _XelaDatePickerState extends State<XelaDatePicker> {
           widget.selectedDate!.month, widget.selectedDate!.day);
     }
 
-    int lastMonthDay =
+    final int lastMonthDay =
         DateTime(currentYearMonth.year, currentYearMonth.month + 1, 0).day;
-    int firstDayOfWeek =
+    final int firstDayOfWeek =
         DateTime(currentYearMonth.year, currentYearMonth.month, 1).weekday;
-    int rows = ((lastMonthDay + firstDayOfWeek) ~/ daysPerWeek) +
+    final int rows = ((lastMonthDay + firstDayOfWeek) ~/ daysPerWeek) +
         ((lastMonthDay + firstDayOfWeek) % (daysPerWeek) > 0 ? 1 : 0);
-    List<DateTime> days = [];
+    final List<DateTime> days = [];
 
-    DateTime prevMonth =
+    final DateTime prevMonth =
         DateTime(currentYearMonth.year, currentYearMonth.month - 1, 1);
-    int lastPrevMonthDay = DateTime(prevMonth.year, prevMonth.month + 1, 0).day;
-    DateTime nextMonth =
+    final int lastPrevMonthDay = DateTime(prevMonth.year, prevMonth.month + 1, 0).day;
+    final DateTime nextMonth =
         DateTime(currentYearMonth.year, currentYearMonth.month + 1, 1);
     int day;
     int i;
@@ -191,16 +191,16 @@ class _XelaDatePickerState extends State<XelaDatePicker> {
       }
     }
 
-    List<Widget> rowsList = [];
+    final List<Widget> rowsList = [];
 
-    DateTime today = DateTime.now();
+    final DateTime today = DateTime.now();
 
     for (var r = 0; r < rows; r++) {
-      List<Widget> cells = [];
+      final List<Widget> cells = [];
 
       for (var cell = 0; cell < daysPerWeek; cell++) {
-        int index = (r * daysPerWeek) + cell;
-        DateTime dayDate = days[index];
+        final int index = (r * daysPerWeek) + cell;
+        final DateTime dayDate = days[index];
         bool isEnabledDate = false;
 
         if (widget.minDate != null && widget.maxDate != null) {
@@ -350,11 +350,11 @@ class _XelaDatePickerState extends State<XelaDatePicker> {
                     Text(
                       dayDate.day.toString(),
                       style: TextStyle(
-                          fontSize: XelaTextStyle.XelaButtonMedium.fontSize,
+                          fontSize: XelaTextStyle.xelaButtonMedium.fontSize,
                           fontWeight: isEnabledDate
-                              ? XelaTextStyle.XelaButtonMedium.fontWeight
+                              ? XelaTextStyle.xelaButtonMedium.fontWeight
                               : FontWeight.normal,
-                          fontFamily: XelaTextStyle.XelaButtonMedium.fontFamily,
+                          fontFamily: XelaTextStyle.xelaButtonMedium.fontFamily,
                           color: textColor),
                       textAlign: TextAlign.center,
                     )
@@ -374,7 +374,7 @@ class _XelaDatePickerState extends State<XelaDatePicker> {
       ));
     }
 
-    var datesContainer = Column(
+    final datesContainer = Column(
       children: rowsList,
     );
 
@@ -385,7 +385,7 @@ class _XelaDatePickerState extends State<XelaDatePicker> {
           children: [
             Text(
               currentYearMonth.year.toString(),
-              style: XelaTextStyle.XelaHeadline.apply(
+              style: XelaTextStyle.xelaHeadline.apply(
                   color: widget.yearHeaderColor),
             ),
             const SizedBox(
@@ -396,7 +396,7 @@ class _XelaDatePickerState extends State<XelaDatePicker> {
                       .format(currentYearMonth)
                       .capitalize ??
                   '',
-              style: XelaTextStyle.XelaHeadline.apply(
+              style: XelaTextStyle.xelaHeadline.apply(
                   color: widget.monthHeaderColor),
             ),
             const Spacer(),

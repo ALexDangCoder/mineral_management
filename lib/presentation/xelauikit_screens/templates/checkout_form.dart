@@ -64,7 +64,7 @@ class _CheckoutFormState extends State<CheckoutForm> {
                         ),
                       ),
                       Text("Checkout",
-                          style: XelaTextStyle.XelaButtonLarge.apply(
+                          style: XelaTextStyle.xelaButtonLarge.apply(
                               color: Colors.white)),
                       const Spacer(),
                       Padding(
@@ -112,7 +112,7 @@ class _CheckoutFormState extends State<CheckoutForm> {
                                           : XelaColor.Blue11),
                                   child: Text("1",
                                       style:
-                                          XelaTextStyle.XelaButtonMedium.apply(
+                                          XelaTextStyle.xelaButtonMedium.apply(
                                               color: _isDark
                                                   ? XelaColor.Blue2
                                                   : XelaColor.Blue3)),
@@ -123,7 +123,7 @@ class _CheckoutFormState extends State<CheckoutForm> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text("Personal Details",
-                                        style: XelaTextStyle.XelaHeadline.apply(
+                                        style: XelaTextStyle.xelaHeadline.apply(
                                             color: _isDark
                                                 ? Colors.white
                                                 : XelaColor.Gray2)),
@@ -131,11 +131,11 @@ class _CheckoutFormState extends State<CheckoutForm> {
                                       children: [
                                         Text("If you already have an account ",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: XelaColor.Gray6)),
                                         Text("Sign in here",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: _isDark
                                                         ? XelaColor.Blue6
                                                         : XelaColor.Blue3))

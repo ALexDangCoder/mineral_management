@@ -130,7 +130,7 @@ class _XelaSegmentedControlState extends State<XelaSegmentedControl>
               item.label != null
                   ? Text(
                       item.label!,
-                      style: XelaTextStyle.XelaButtonMedium.apply(
+                      style: XelaTextStyle.xelaButtonMedium.apply(
                           color: selectedItemId == item.id
                               ? widget.primaryFontColor
                               : widget.secondaryFontColor),
