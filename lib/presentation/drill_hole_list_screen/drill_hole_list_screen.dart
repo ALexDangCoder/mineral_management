@@ -1,4 +1,4 @@
-import 'package:bnv_opendata/config/themes/app_theme.dart';
+import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/data/models/drill_hole_model.dart';
 import 'package:bnv_opendata/presentation/drill_hole_list_screen/cubit/drill_hole_list_cubit.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
@@ -19,8 +19,21 @@ class DrillHoleListScreen extends StatelessWidget {
       child: AppScaffold(
         title: AppS.of(context).query_drill_hole,
         body: const _HoleListBody(),
-        bgColor: XelaColor.Gray12,
-        appBarColor: XelaColor.Gray12,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.info, color: XelaColor.Gray2),
+            onPressed: () {
+              Navigator.pushNamed(
+                context,
+                Routers.projectDetail,
+                arguments: {
+                  'projectName': 'Chi tiết mỏ',
+                },
+              );
+            },
+            tooltip: 'Chi tiết mỏ',
+          ),
+        ],
       ),
     );
   }
@@ -77,29 +90,48 @@ class _DrillHoleItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(16)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(
-            drillHole?.holeName ?? '',
-            style: XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Gray2),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            '${drillHole?.mine?.mineName} - ${drillHole?.description}',
-            style: XelaTextStyle.xelaCaption.apply(color: XelaColor.Gray6),
-          ),
-          const SizedBox(height: 8),
-          // Text(
-          //   '${AppS.of(context).status}: ${mineModel?.status?.title}',
-          //   style: XelaTextStyle.XelaSmallBodyBold.apply(
-          //     color: _getStatusColor(mineModel?.status),
-          //   ),
-        ],
+    return InkWell(
+      onTap: () {
+        // Click vào item lỗ khoan -> điều hướng đến Drill Hole Detail
+        Navigator.pushNamed(
+          context,
+          Routers.drillHoleDetail,
+          arguments: {
+            'drillHole': drillHole,
+            'depth': '150.5 m',
+            'diameter': '76 mm',
+            'coordinates': '21.0285°N, 105.8542°E',
+            'drillingDate': '15/03/2024',
+            'completionDate': '20/03/2024',
+            'rockType': 'Đá vôi',
+          },
+        );
+      },
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(16)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              drillHole?.holeName ?? '',
+              style: XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Gray2),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              '${drillHole?.mine?.mineName} - ${drillHole?.description}',
+              style: XelaTextStyle.xelaCaption.apply(color: XelaColor.Gray6),
+            ),
+            const SizedBox(height: 8),
+            // Text(
+            //   '${AppS.of(context).status}: ${mineModel?.status?.title}',
+            //   style: XelaTextStyle.XelaSmallBodyBold.apply(
+            //     color: _getStatusColor(mineModel?.status),
+            //   ),
+          ],
+        ),
       ),
     );
   }

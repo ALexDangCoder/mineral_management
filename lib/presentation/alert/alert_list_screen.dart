@@ -1,3 +1,4 @@
+import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/data/model/alert_medel.dart';
 import 'package:bnv_opendata/data/repositories/alert_repository_impl.dart';
 import 'package:bnv_opendata/presentation/alert/cubit/alert_list_cubit.dart';
@@ -68,7 +69,31 @@ class _Body extends StatelessWidget {
                     subtitle: item.subtitle,
                     type: item.type,
                     onTap: () {
-                      // TODO: điều hướng tới màn chi tiết theo type:
+                      // Điều hướng tới màn chi tiết theo type
+                      switch (item.type) {
+                        case AlertModel.licenseExpired:
+                          Navigator.pushNamed(
+                            context,
+                            Routers.projectDetail,
+                            arguments: {
+                              'alertType': 'license',
+                              'alertData': item,
+                              'projectName': item.title,
+                            },
+                          );
+                          break;
+                        case AlertModel.mineClosurePlan:
+                          Navigator.pushNamed(
+                            context,
+                            Routers.closurePlanDetail,
+                            arguments: {
+                              'alertType': 'closure',
+                              'alertData': item,
+                              'projectName': item.title,
+                            },
+                          );
+                          break;
+                      }
                     },
                   );
                 },

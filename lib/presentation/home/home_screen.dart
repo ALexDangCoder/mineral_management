@@ -1,4 +1,5 @@
 import 'package:bnv_opendata/config/routes/router.dart';
+import 'package:bnv_opendata/config/themes/app_theme.dart';
 import 'package:bnv_opendata/presentation/alert/alert_list_screen.dart';
 import 'package:bnv_opendata/presentation/home/report_widget/report_widget.dart';
 import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
@@ -88,10 +89,96 @@ class _HomeScreenBody extends StatelessWidget {
                 ),
                 child: const ProgressScreen(),
               ),
+              const SizedBox(
+                height: 16,
+              ),
+              // Quick access buttons
+              Row(
+                children: [
+                  Expanded(
+                    child: _QuickAccessCard(
+                      icon: Icons.description,
+                      title: 'Báo cáo địa chất',
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          Routers.geologicalReportList,
+                        );
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: _QuickAccessCard(
+                      icon: Icons.inventory_2,
+                      title: 'Tra cứu trữ lượng',
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          Routers.resourceReserves,
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
       ],
+    );
+  }
+}
+
+class _QuickAccessCard extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final VoidCallback onTap;
+
+  const _QuickAccessCard({
+    required this.icon,
+    required this.title,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: AppTheme.getInstance().primaryColor().withOpacity(0.1),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Icon(
+                icon,
+                color: AppTheme.getInstance().primaryColor(),
+                size: 24,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              title,
+              style: XelaTextStyle.xelaCaption.apply(
+                color: XelaColor.Gray2,
+              ),
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

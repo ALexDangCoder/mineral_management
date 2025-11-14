@@ -1,3 +1,6 @@
+import 'package:bnv_opendata/config/routes/router.dart';
+import 'package:bnv_opendata/config/themes/app_theme.dart';
+import 'package:bnv_opendata/widgets/xela_widgets/xela_button.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_divider.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
@@ -25,12 +28,17 @@ class ProjectDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)?.settings.arguments;
+    String finalProjectName = projectName;
+    if (args is Map) {
+      finalProjectName = args['projectName'] ?? projectName;
+    }
+
     return Scaffold(
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
           children: [
-            // ✅ AppBar custom đồng bộ Xela UI
             Row(
               children: [
                 RawMaterialButton(
@@ -54,7 +62,7 @@ class ProjectDetailScreen extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    "Chi tiết Dự án Khai thác",
+                    title,
                     style: XelaTextStyle.xelaHeadline.apply(
                       color: XelaColor.Gray2,
                     ),
@@ -68,11 +76,30 @@ class ProjectDetailScreen extends StatelessWidget {
               child: XelaDivider(),
             ),
             const SizedBox(height: 4),
-            _InfoCard(label: 'Tên dự án', value: projectName),
+            _InfoCard(label: 'Tên dự án', value: finalProjectName),
             const SizedBox(height: 14),
             _InfoCard(label: 'Ngày bắt đầu', value: _formatDate(startDate)),
             const SizedBox(height: 14),
             _InfoCard(label: 'Ngân sách', value: budget),
+            const SizedBox(height: 24),
+            // Button "Xem mô hình 3D"
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: XelaButton(
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    Routers.mine3d,
+                    arguments: {
+                      'projectName': finalProjectName,
+                      'fromProjectDetail': true,
+                    },
+                  );
+                },
+                text: 'Xem mô hình 3D',
+                background: AppTheme.getInstance().primaryColor(),
+              ),
+            ),
             const SizedBox(height: 24),
           ],
         ),

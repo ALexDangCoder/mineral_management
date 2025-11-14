@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/config/themes/app_theme.dart';
 import 'package:bnv_opendata/domain/models/xela_button_models.dart';
 import 'package:bnv_opendata/presentation/auth/login/cubit/login_cubit.dart';
@@ -159,7 +160,12 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
                 },
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    Routers.changePassword,
+                  );
+                },
                 child: Text(AppS.of(context).forgot_password),
               ),
               const SizedBox(height: 28),

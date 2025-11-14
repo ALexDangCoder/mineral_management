@@ -1,7 +1,7 @@
 import 'dart:math';
 
+import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
-import 'package:bnv_opendata/widgets/xela_widgets/xela_divider.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
 import 'package:flutter/material.dart';
 
@@ -51,23 +51,38 @@ class _ProgressCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-          child: Text(
-            title,
-            style: XelaTextStyle.xelaBodyBold,
-          ),
-        ),
-        const SizedBox(height: 12),
-        _progressWidget(
+    return InkWell(
+      onTap: () {
+        // Click vào progress card -> điều hướng đến Project Detail
+        Navigator.pushNamed(
           context,
-          percent: percent,
-          color: barColor,
-        ),
-      ],
+          Routers.projectDetail,
+          arguments: {
+            'projectName': 'Dự án Mở rộng mỏ Thạch Khê',
+            'progressTitle': title,
+            'progressPercent': percent,
+          },
+        );
+      },
+      borderRadius: BorderRadius.circular(8),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+            child: Text(
+              title,
+              style: XelaTextStyle.xelaBodyBold,
+            ),
+          ),
+          const SizedBox(height: 12),
+          _progressWidget(
+            context,
+            percent: percent,
+            color: barColor,
+          ),
+        ],
+      ),
     );
   }
 }

@@ -1,5 +1,8 @@
+import 'package:bnv_opendata/config/routes/router.dart';
+import 'package:bnv_opendata/config/themes/app_theme.dart';
 import 'package:bnv_opendata/data/repositories/mine_repositories.dart';
 import 'package:bnv_opendata/presentation/mine_3d/cubit/mine_3d_state.dart';
+import 'package:bnv_opendata/widgets/xela_widgets/xela_button.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +25,16 @@ class Mine3DScreen extends StatelessWidget {
                 return const Center(child: CircularProgressIndicator());
               }
               if (state is Mine3DLoaded) {
+                // Nhận arguments từ các màn hình khác
+                final args = ModalRoute.of(context)?.settings.arguments;
+                String? projectName;
+                if (args is Map) {
+                  projectName = args['projectName'] as String?;
+                } else if (args != null) {
+                  // Nếu args là MineModel
+                  projectName = state.mine.name;
+                }
+
                 return Column(
                   children: [
                     Row(
@@ -70,6 +83,24 @@ class Mine3DScreen extends StatelessWidget {
                           autoRotate: true,
                           cameraControls: true,
                         ),
+                      ),
+                    ),
+                    // Button "Chi tiết dự án"
+                    Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: XelaButton(
+                        onPressed: () {
+                          Navigator.pushNamed(
+                            context,
+                            Routers.projectDetail,
+                            arguments: {
+                              'projectName': projectName ?? state.mine.name,
+                              'fromMine3D': true,
+                            },
+                          );
+                        },
+                        text: 'Chi tiết dự án',
+                        background: AppTheme.getInstance().primaryColor(),
                       ),
                     ),
                   ],

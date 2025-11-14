@@ -27,7 +27,7 @@ class AppScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // resizeToAvoidBottomInset: false,
-      backgroundColor: bgColor ?? AppTheme.getInstance().primaryColor(),
+      backgroundColor: bgColor ?? XelaColor.Gray12,
       appBar: title != null
           ? AppBar(
               title: Text(

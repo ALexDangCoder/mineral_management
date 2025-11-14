@@ -3,13 +3,18 @@ import 'package:bnv_opendata/presentation/alert/alert_list_screen.dart';
 import 'package:bnv_opendata/presentation/auth/change_password/change_password_screen.dart';
 import 'package:bnv_opendata/presentation/auth/login/login_page.dart';
 import 'package:bnv_opendata/presentation/closure_plan_detail/closure_plan_detail_screen.dart';
+import 'package:bnv_opendata/presentation/construction_detail/construction_detail_screen.dart';
+import 'package:bnv_opendata/presentation/drill_hole_detail/drill_hole_detail_screen.dart';
 import 'package:bnv_opendata/presentation/drill_hole_list_screen/drill_hole_list_screen.dart';
+import 'package:bnv_opendata/presentation/geological_report_list/geological_report_list_screen.dart';
 import 'package:bnv_opendata/presentation/main_screen/main_screen.dart';
 import 'package:bnv_opendata/presentation/mine_3d/mine_3d_screen.dart';
+import 'package:bnv_opendata/presentation/mine_detail/mine_detail_screen.dart';
 import 'package:bnv_opendata/presentation/mine_list_screen/mine_list_screen.dart';
 import 'package:bnv_opendata/presentation/notification_management/notification_management_screen.dart';
 import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
 import 'package:bnv_opendata/presentation/project_detail/project_detail_screen.dart';
+import 'package:bnv_opendata/presentation/resource_reserves/resource_reserves_screen.dart';
 import 'package:bnv_opendata/presentation/show_construction_map/show_construction_Map_screen.dart';
 import 'package:bnv_opendata/presentation/splash/splash_screen.dart';
 import 'package:bnv_opendata/presentation/xelauikit_screens/main_screen.dart';
@@ -97,7 +102,12 @@ class Routers {
 
   ///Main App
   static const mineList = '/mine_list';
+  static const mineDetail = '/mine_detail';
   static const drillHoleList = '/drill_hole_list';
+  static const drillHoleDetail = '/drill_hole_detail';
+  static const constructionDetail = '/construction_detail';
+  static const geologicalReportList = '/geological_report_list';
+  static const resourceReserves = '/resource_reserves';
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     // final args = settings.arguments;
@@ -184,8 +194,18 @@ class Routers {
         return MaterialPageRoute(builder: (ctx) => const AccountInfoScreen());
       case mineList:
         return MaterialPageRoute(builder: (ctx) => const MineListScreen());
+      case mineDetail:
+        return MaterialPageRoute(builder: (ctx) => const MineDetailScreen());
       case drillHoleList:
         return MaterialPageRoute(builder: (ctx) => const DrillHoleListScreen());
+      case drillHoleDetail:
+        return MaterialPageRoute(builder: (ctx) => const DrillHoleDetailScreen());
+      case constructionDetail:
+        return MaterialPageRoute(builder: (ctx) => const ConstructionDetailScreen());
+      case geologicalReportList:
+        return MaterialPageRoute(builder: (ctx) => const GeologicalReportListScreen());
+      case resourceReserves:
+        return MaterialPageRoute(builder: (ctx) => const ResourceReservesScreen());
       case mine3d:
         return MaterialPageRoute(builder: (ctx) => const Mine3DScreen(),);
       case alertList:

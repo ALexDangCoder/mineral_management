@@ -1,3 +1,7 @@
+import 'package:bnv_opendata/config/routes/router.dart';
+import 'package:bnv_opendata/config/themes/app_theme.dart';
+import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
+import 'package:bnv_opendata/widgets/xela_widgets/xela_button.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_divider.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
@@ -9,7 +13,7 @@ class ClosurePlanDetailScreen extends StatelessWidget {
   final String projectName;
   final DateTime startDate;
 
-   ClosurePlanDetailScreen({
+  ClosurePlanDetailScreen({
     super.key,
     String? title,
     String? projectName,
@@ -22,67 +26,76 @@ class ClosurePlanDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: ListView(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
-          children: [
-            Row(
+    // Nhận arguments từ các màn hình khác
+    final args = ModalRoute.of(context)?.settings.arguments;
+    String finalProjectName = projectName;
+    if (args is Map) {
+      finalProjectName = args['projectName'] ?? projectName;
+    }
+
+    return AppScaffold(
+      title: title,
+      bgColor: XelaColor.Gray12,
+      body: ListView(
+        children: [
+          const SizedBox(height: 4),
+          _InfoCard(
+            label: 'Tên dự án',
+            value: finalProjectName,
+            isExpired: false,
+          ),
+          const SizedBox(height: 14),
+          _InfoCard(
+            label: 'Ngày Phê Duyệt',
+            value: _formatDate(startDate),
+            isExpired: false,
+          ),
+          const SizedBox(height: 14),
+          _InfoCard(
+            label: 'Ngày hết hiệu lực',
+            value: _formatDate(startDate),
+            isExpired: true,
+          ),
+          const SizedBox(height: 24),
+          // Buttons navigation
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
               children: [
-                RawMaterialButton(
-                  elevation: 0,
-                  focusElevation: 2,
-                  highlightElevation: 0,
-                  fillColor: Colors.transparent,
-                  hoverElevation: 0,
+                XelaButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.pushNamed(
+                      context,
+                      Routers.projectDetail,
+                      arguments: {
+                        'projectName': finalProjectName,
+                        'fromClosurePlan': true,
+                      },
+                    );
                   },
-                  constraints: const BoxConstraints(),
-                  child: const Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Icon(
-                      Icons.arrow_back_ios_new,
-                      size: 20,
-                      color: XelaColor.Gray2,
-                    ),
-                  ),
+                  text: 'Xem chi tiết dự án',
+                  background: AppTheme.getInstance().primaryColor(),
                 ),
-                Expanded(
-                  child: Text(
-                    "Chi tiết Đề án đóng cửa",
-                    style: XelaTextStyle.xelaHeadline,
-                  ),
+                const SizedBox(height: 16),
+                XelaButton(
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      Routers.mine3d,
+                      arguments: {
+                        'projectName': finalProjectName,
+                        'fromClosurePlan': true,
+                      },
+                    );
+                  },
+                  text: 'Xem mô hình 3D',
+                  background: AppTheme.getInstance().primaryColor(),
                 ),
               ],
             ),
-      
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              child: XelaDivider(),
-            ),
-            const SizedBox(height: 4),
-      
-            _InfoCard(
-              label: 'Tên dự án',
-              value: projectName,
-              isExpired: false,
-            ),
-            const SizedBox(height: 14),
-            _InfoCard(
-              label: 'Ngày Phê Duyệt',
-              value: _formatDate(startDate),
-              isExpired: false,
-            ),
-            const SizedBox(height: 14),
-            _InfoCard(
-              label: 'Ngày hết hiệu lực',
-              value: _formatDate(startDate),
-              isExpired: true,
-            ),
-            const SizedBox(height: 24),
-          ],
-        ),
+          ),
+          const SizedBox(height: 24),
+        ],
       ),
     );
   }

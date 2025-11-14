@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/config/themes/app_theme.dart';
 import 'package:bnv_opendata/dependencies/app_dependenies.dart';
 import 'package:bnv_opendata/domain/models/xela_textfield_models.dart';
@@ -134,12 +135,9 @@ class _AccountInfoBodyState extends State<_AccountInfoBody> {
                       const SizedBox(height: 16),
                       XelaButton(
                         onPressed: () {
-                          Navigator.push(
+                          Navigator.pushNamed(
                             context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const ChangePasswordScreen(),
-                            ),
+                            Routers.changePassword,
                           );
                         },
                         text: AppS.of(context).change_password,
