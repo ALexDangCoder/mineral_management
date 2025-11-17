@@ -61,7 +61,7 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                     ),
                     Expanded(
                         child: Text("Ecommerce cards",
-                            style: XelaTextStyle.XelaSubheadline.apply(
+                            style: XelaTextStyle.xelaSubheadline.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2))),
@@ -135,12 +135,12 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                 ),
                               ),
                               Text("Headsets",
-                                  style: XelaTextStyle.XelaCaption.apply(
+                                  style: XelaTextStyle.xelaCaption.apply(
                                       color: _isDark
                                           ? XelaColor.Gray8
                                           : XelaColor.Gray6)),
                               Text("Arctis 7P Wireless",
-                                  style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                  style: XelaTextStyle.xelaSmallBodyBold.apply(
                                       color: _isDark
                                           ? XelaColor.Gray12
                                           : XelaColor.Gray2)),
@@ -150,7 +150,7 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                   Expanded(
                                       child: Text("\$179.99",
                                           style:
-                                              XelaTextStyle.XelaBodyBold.apply(
+                                              XelaTextStyle.xelaBodyBold.apply(
                                                   color: _isDark
                                                       ? XelaColor.Blue5
                                                       : XelaColor.Blue3))),
@@ -162,7 +162,7 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                   const SizedBox(width: 8),
                                   Text("4.9",
                                       style:
-                                          XelaTextStyle.XelaButtonSmall.apply(
+                                          XelaTextStyle.xelaButtonSmall.apply(
                                               color: _isDark
                                                   ? XelaColor.Gray11
                                                   : XelaColor.Gray5))
@@ -216,18 +216,18 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                 ),
                               ),
                               Text("Samsung",
-                                  style: XelaTextStyle.XelaCaption.apply(
+                                  style: XelaTextStyle.xelaCaption.apply(
                                       color: _isDark
                                           ? XelaColor.Gray8
                                           : XelaColor.Gray6)),
                               Text("Galaxy Watch Active 3",
-                                  style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                  style: XelaTextStyle.xelaSmallBodyBold.apply(
                                       color: _isDark
                                           ? XelaColor.Gray12
                                           : XelaColor.Gray2)),
                               const SizedBox(height: 12),
                               Text("\$168.00",
-                                  style: XelaTextStyle.XelaBodyBold.apply(
+                                  style: XelaTextStyle.xelaBodyBold.apply(
                                       color: _isDark
                                           ? XelaColor.Gray12
                                           : XelaColor.Gray2)),
@@ -256,7 +256,7 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                         Image.asset("assets/images/ec-3.png"),
                                   )),
                               Text("Xbox One X",
-                                  style: XelaTextStyle.XelaCaption.apply(
+                                  style: XelaTextStyle.xelaCaption.apply(
                                       color: _isDark
                                           ? XelaColor.Gray8
                                           : XelaColor.Gray6)),
@@ -265,14 +265,14 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                       horizontal: 24),
                                   child: Text("NEON ORANGE SHADOW XBOX GAMEPAD",
                                       style:
-                                          XelaTextStyle.XelaSmallBodyBold.apply(
+                                          XelaTextStyle.xelaSmallBodyBold.apply(
                                               color: _isDark
                                                   ? XelaColor.Gray12
                                                   : XelaColor.Gray2),
                                       textAlign: TextAlign.center)),
                               const SizedBox(height: 12),
                               Text("\$168.00",
-                                  style: XelaTextStyle.XelaBodyBold.apply(
+                                  style: XelaTextStyle.xelaBodyBold.apply(
                                       color: _isDark
                                           ? XelaColor.Orange5
                                           : XelaColor.Orange3)),
@@ -320,12 +320,12 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                               ),
                               const SizedBox(height: 16),
                               Text("Facial Moisturiser",
-                                  style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                  style: XelaTextStyle.xelaSmallBodyBold.apply(
                                       color: _isDark
                                           ? XelaColor.Gray12
                                           : XelaColor.Gray2)),
                               Text("Size: 4.25fl.oz / 128ml",
-                                  style: XelaTextStyle.XelaCaption.apply(
+                                  style: XelaTextStyle.xelaCaption.apply(
                                       color: _isDark
                                           ? XelaColor.Gray8
                                           : XelaColor.Gray6)),
@@ -334,7 +334,7 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                 children: [
                                   Expanded(
                                       child: Text("\$12.99",
-                                          style: XelaTextStyle.XelaSubheadline
+                                          style: XelaTextStyle.xelaSubheadline
                                               .apply(
                                                   color: _isDark
                                                       ? XelaColor.Gray12
@@ -382,7 +382,7 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                 children: [
                                   Expanded(
                                       child: Text("€8.99",
-                                          style: XelaTextStyle.XelaSubheadline
+                                          style: XelaTextStyle.xelaSubheadline
                                               .apply(
                                                   color: _isDark
                                                       ? XelaColor.Gray12
@@ -395,7 +395,7 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                   const SizedBox(width: 8),
                                   Text("4.9",
                                       style:
-                                          XelaTextStyle.XelaButtonSmall.apply(
+                                          XelaTextStyle.xelaButtonSmall.apply(
                                               color: _isDark
                                                   ? XelaColor.Gray11
                                                   : XelaColor.Gray5))
@@ -403,12 +403,12 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                               ),
                               const SizedBox(height: 8),
                               Text("Facial Moisturiser",
-                                  style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                  style: XelaTextStyle.xelaSmallBodyBold.apply(
                                       color: _isDark
                                           ? XelaColor.Gray12
                                           : XelaColor.Gray2)),
                               Text("38ml / 1fl.oz",
-                                  style: XelaTextStyle.XelaCaption.apply(
+                                  style: XelaTextStyle.xelaCaption.apply(
                                       color: _isDark
                                           ? XelaColor.Gray8
                                           : XelaColor.Gray6)),
@@ -460,13 +460,13 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text("Orange Big Leaf Beach Top",
-                                        style: XelaTextStyle.XelaSmallBodyBold
+                                        style: XelaTextStyle.xelaSmallBodyBold
                                             .apply(
                                                 color: _isDark
                                                     ? XelaColor.Gray12
                                                     : XelaColor.Gray2)),
                                     Text("Brandname",
-                                        style: XelaTextStyle.XelaCaption.apply(
+                                        style: XelaTextStyle.xelaCaption.apply(
                                             color: _isDark
                                                 ? XelaColor.Gray8
                                                 : XelaColor.Gray6)),
@@ -474,12 +474,12 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                     Row(
                                       children: [
                                         Text("£30.00",
-                                            style: XelaTextStyle.XelaSubheadline
+                                            style: XelaTextStyle.xelaSubheadline
                                                 .apply(
                                                     color: XelaColor.Green1)),
                                         const SizedBox(width: 8),
                                         Text("£30.00",
-                                            style: XelaTextStyle.XelaButtonSmall
+                                            style: XelaTextStyle.xelaButtonSmall
                                                 .apply(
                                                     color: XelaColor.Gray8,
                                                     decoration: TextDecoration
@@ -537,12 +537,12 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text("Women’s clothing",
-                                        style: XelaTextStyle.XelaCaption.apply(
+                                        style: XelaTextStyle.xelaCaption.apply(
                                             color: _isDark
                                                 ? XelaColor.Gray8
                                                 : XelaColor.Gray6)),
                                     Text("Ribbed Knitted Midi Cardigan",
-                                        style: XelaTextStyle.XelaSmallBodyBold
+                                        style: XelaTextStyle.xelaSmallBodyBold
                                             .apply(
                                                 color: _isDark
                                                     ? XelaColor.Gray12
@@ -553,12 +553,12 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                         Expanded(
                                             child: Text("\$128.50",
                                                 style: XelaTextStyle
-                                                        .XelaBodyBold
+                                                        .xelaBodyBold
                                                     .apply(
                                                         color:
                                                             XelaColor.Blue5))),
                                         Text("48 reviews",
-                                            style: XelaTextStyle.XelaButtonSmall
+                                            style: XelaTextStyle.xelaButtonSmall
                                                 .apply(
                                                     color: _isDark
                                                         ? XelaColor.Orange5
@@ -623,7 +623,7 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                       children: [
                                         Expanded(
                                             child: Text("Sportswear",
-                                                style: XelaTextStyle.XelaCaption
+                                                style: XelaTextStyle.xelaCaption
                                                     .apply(
                                                         color: _isDark
                                                             ? XelaColor.Gray8
@@ -631,7 +631,7 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                                                 .Gray6))),
                                         Text("4 colors",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: _isDark
                                                         ? XelaColor.Gray8
                                                         : XelaColor.Gray6))
@@ -639,7 +639,7 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                     ),
                                     const SizedBox(height: 8),
                                     Text("Nike Sportswear Tech Fleece AW77",
-                                        style: XelaTextStyle.XelaSmallBodyBold
+                                        style: XelaTextStyle.xelaSmallBodyBold
                                             .apply(
                                                 color: _isDark
                                                     ? XelaColor.Gray12
@@ -650,7 +650,7 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                         Expanded(
                                             child: Text("\$52.99",
                                                 style: XelaTextStyle
-                                                        .XelaBodyBold
+                                                        .xelaBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? XelaColor.Gray12
@@ -663,7 +663,7 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                                 : XelaColor.Yellow3),
                                         const SizedBox(width: 8),
                                         Text("4.9",
-                                            style: XelaTextStyle.XelaButtonSmall
+                                            style: XelaTextStyle.xelaButtonSmall
                                                 .apply(
                                                     color: _isDark
                                                         ? XelaColor.Gray11
@@ -729,7 +729,7 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                       children: [
                                         Expanded(
                                             child: Text("Running Shoes",
-                                                style: XelaTextStyle.XelaCaption
+                                                style: XelaTextStyle.xelaCaption
                                                     .apply(
                                                         color: _isDark
                                                             ? XelaColor.Gray8
@@ -742,7 +742,7 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                                 : XelaColor.Yellow3),
                                         const SizedBox(width: 8),
                                         Text("4.9",
-                                            style: XelaTextStyle.XelaButtonSmall
+                                            style: XelaTextStyle.xelaButtonSmall
                                                 .apply(
                                                     color: _isDark
                                                         ? XelaColor.Gray11
@@ -752,7 +752,7 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                     const SizedBox(height: 8),
                                     Text(
                                         "Lightweight Gymwear Sport Running Shoes",
-                                        style: XelaTextStyle.XelaSmallBodyBold
+                                        style: XelaTextStyle.xelaSmallBodyBold
                                             .apply(
                                                 color: _isDark
                                                     ? XelaColor.Gray12
@@ -763,7 +763,7 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                         Expanded(
                                             child: Text("\$179.99",
                                                 style: XelaTextStyle
-                                                        .XelaBodyBold
+                                                        .xelaBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? XelaColor.Blue5
@@ -817,7 +817,7 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                     Text(
                                       "Grey Oversized Elasticated Hem Cropped Sweater",
                                       style:
-                                          XelaTextStyle.XelaSmallBodyBold.apply(
+                                          XelaTextStyle.xelaSmallBodyBold.apply(
                                               color: _isDark
                                                   ? XelaColor.Gray12
                                                   : XelaColor.Gray2),
@@ -829,7 +829,7 @@ class _EcommerceCardsState extends State<EcommerceCards> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text("\$52.99",
-                                            style: XelaTextStyle.XelaBodyBold
+                                            style: XelaTextStyle.xelaBodyBold
                                                 .apply(
                                                     color: _isDark
                                                         ? XelaColor.Orange5

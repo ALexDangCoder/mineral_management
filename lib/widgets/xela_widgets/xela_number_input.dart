@@ -87,12 +87,12 @@ class _XelaNumberInputState extends State<XelaNumberInput> {
           widget.label != null
               ? Text(
                   widget.label!,
-                  style: XelaTextStyle.XelaSmallBody.apply(
+                  style: XelaTextStyle.xelaSmallBody.apply(
                       color: widget.labelColor),
                 )
               : Container(),
           Text(widget.value.toString(),
-              style: XelaTextStyle.XelaButtonMedium.apply(
+              style: XelaTextStyle.xelaButtonMedium.apply(
                   color: widget.valueColor))
         ],
       ))),
@@ -147,7 +147,7 @@ class _XelaNumberInputState extends State<XelaNumberInput> {
             child: widget.helperText != null
                 ? Text(
                     widget.helperText!,
-                    style: XelaTextStyle.XelaCaption.apply(
+                    style: XelaTextStyle.xelaCaption.apply(
                         color: widget.helperTextColor),
                   )
                 : Container())

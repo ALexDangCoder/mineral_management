@@ -1,3 +1,22 @@
+import 'package:bnv_opendata/presentation/account_info/account_info_screen.dart';
+import 'package:bnv_opendata/presentation/alert/alert_list_screen.dart';
+import 'package:bnv_opendata/presentation/auth/change_password/change_password_screen.dart';
+import 'package:bnv_opendata/presentation/auth/login/login_page.dart';
+import 'package:bnv_opendata/presentation/closure_plan_detail/closure_plan_detail_screen.dart';
+import 'package:bnv_opendata/presentation/construction_detail/construction_detail_screen.dart';
+import 'package:bnv_opendata/presentation/drill_hole_detail/drill_hole_detail_screen.dart';
+import 'package:bnv_opendata/presentation/drill_hole_list_screen/drill_hole_list_screen.dart';
+import 'package:bnv_opendata/presentation/geological_report_list/geological_report_list_screen.dart';
+import 'package:bnv_opendata/presentation/main_screen/main_screen.dart';
+import 'package:bnv_opendata/presentation/mine_3d/mine_3d_screen.dart';
+import 'package:bnv_opendata/presentation/mine_detail/mine_detail_screen.dart';
+import 'package:bnv_opendata/presentation/mine_list_screen/mine_list_screen.dart';
+import 'package:bnv_opendata/presentation/notification_management/notification_management_screen.dart';
+import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
+import 'package:bnv_opendata/presentation/project_detail/project_detail_screen.dart';
+import 'package:bnv_opendata/presentation/resource_reserves/resource_reserves_screen.dart';
+import 'package:bnv_opendata/presentation/show_construction_map/show_construction_Map_screen.dart';
+import 'package:bnv_opendata/presentation/splash/splash_screen.dart';
 import 'package:bnv_opendata/presentation/xelauikit_screens/main_screen.dart';
 import 'package:bnv_opendata/utils/constants/app_constants.dart';
 import 'package:bnv_opendata/widgets/xela_components/accordion_component.dart';
@@ -29,12 +48,12 @@ import 'package:flutter/material.dart';
 
 typedef AppWidgetBuilder = Widget Function(BuildContext, RouteSettings);
 
-class TemplateAppRouter {
+class Routers {
   static const dfNamed = Navigator.defaultRouteName;
 
   ///Main App
   static const splash = '/splash';
-  static const main = '/main';
+  static const mainXela = '/mainXela';
 
   //Xela UI Screen
   static const typography = '/typography';
@@ -63,12 +82,39 @@ class TemplateAppRouter {
   static const toggle = '/toggle';
   static const tooltip = '/tooltip';
 
+  //App Screens
+  static const main = '/main';
+  static const mine3d = '/mine_3d';
+  static const alertList = '/alert_list';
+  static const progress = '/progress';
+  static const showConstructionMap = '/show_construction_map';
+  static const projectDetail = '/project_detail';
+  static const notificationManagement = '/notification_management';
+  static const closurePlanDetail = '/closure_plan_detail';
+
+  ///Auth
+  static const login = '/login';
+  static const logout = '/logout';
+  static const changePassword = '/change_password';
+
+  ///Account
+  static const accountInfo = '/account_info';
+
+  ///Main App
+  static const mineList = '/mine_list';
+  static const mineDetail = '/mine_detail';
+  static const drillHoleList = '/drill_hole_list';
+  static const drillHoleDetail = '/drill_hole_detail';
+  static const constructionDetail = '/construction_detail';
+  static const geologicalReportList = '/geological_report_list';
+  static const resourceReserves = '/resource_reserves';
+
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     // final args = settings.arguments;
 
     switch (settings.name) {
-      case main:
-        return MaterialPageRoute(builder: (ctx) => const MainScreen());
+      case mainXela:
+        return MaterialPageRoute(builder: (ctx) => const MainScreenXela());
       //Router screen ui xela kit
       case typography:
         return MaterialPageRoute(builder: (ctx) => const TypographyComponent());
@@ -97,15 +143,25 @@ class TemplateAppRouter {
       case divider:
         return MaterialPageRoute(builder: (ctx) => const DividerComponent());
       case numberInput:
-        return MaterialPageRoute(builder: (ctx) => const NumberInputComponent());
+        return MaterialPageRoute(
+          builder: (ctx) => const NumberInputComponent(),
+        );
       case rangeSliderInput:
-        return MaterialPageRoute(builder: (ctx) => const RangeSliderInputComponent());
+        return MaterialPageRoute(
+          builder: (ctx) => const RangeSliderInputComponent(),
+        );
       case radioButton:
-        return MaterialPageRoute(builder: (ctx) => const RadioButtonComponent());
+        return MaterialPageRoute(
+          builder: (ctx) => const RadioButtonComponent(),
+        );
       case segmentedControl:
-        return MaterialPageRoute(builder: (ctx) => const SegmentedControlComponent());
+        return MaterialPageRoute(
+          builder: (ctx) => const SegmentedControlComponent(),
+        );
       case sliderInput:
-        return MaterialPageRoute(builder: (ctx) => const SliderInputComponent());
+        return MaterialPageRoute(
+          builder: (ctx) => const SliderInputComponent(),
+        );
       case steps:
         return MaterialPageRoute(builder: (ctx) => const StepsComponent());
       case tab:
@@ -120,7 +176,56 @@ class TemplateAppRouter {
         return MaterialPageRoute(builder: (ctx) => const ToggleComponent());
       case tooltip:
         return MaterialPageRoute(builder: (ctx) => const TooltipsComponent());
+
+      /// App Screens
+      case splash:
+        return MaterialPageRoute(builder: (ctx) => const SplashScreen());
+      case main:
+        return MaterialPageRoute(builder: (ctx) => const MainScreen());
+      case login:
+        return MaterialPageRoute(builder: (ctx) => const LoginPage());
+      case logout:
+        return MaterialPageRoute(builder: (ctx) => const ColorsComponent());
+      case changePassword:
+        return MaterialPageRoute(
+          builder: (ctx) => const ChangePasswordScreen(),
+        );
+      case accountInfo:
+        return MaterialPageRoute(builder: (ctx) => const AccountInfoScreen());
+      case mineList:
+        return MaterialPageRoute(builder: (ctx) => const MineListScreen());
+      case mineDetail:
+        return MaterialPageRoute(builder: (ctx) => const MineDetailScreen());
+      case drillHoleList:
+        return MaterialPageRoute(builder: (ctx) => const DrillHoleListScreen());
+      case drillHoleDetail:
+        return MaterialPageRoute(builder: (ctx) => const DrillHoleDetailScreen());
+      case constructionDetail:
+        return MaterialPageRoute(builder: (ctx) => const ConstructionDetailScreen());
+      case geologicalReportList:
+        return MaterialPageRoute(builder: (ctx) => const GeologicalReportListScreen());
+      case resourceReserves:
+        return MaterialPageRoute(builder: (ctx) => const ResourceReservesScreen());
+      case mine3d:
+        return MaterialPageRoute(builder: (ctx) => const Mine3DScreen(),);
+      case alertList:
+        return MaterialPageRoute(builder: (ctx) => const AlertListScreen());
+      case progress:
+        return MaterialPageRoute(builder: (ctx) => const ProgressScreen());
+      case showConstructionMap:
+        return MaterialPageRoute(
+          builder: (ctx) => const ShowConstructionMapScreen(),
+        );
+      case projectDetail:
+        return MaterialPageRoute(builder: (ctx) => ProjectDetailScreen());
+      case notificationManagement:
+        return MaterialPageRoute(
+          builder: (ctx) => NotificationManagementScreen(),
+        );
+      case closurePlanDetail:
+        return MaterialPageRoute(builder: (ctx) => ClosurePlanDetailScreen());
     }
+    return null;
   }
 }
 
@@ -154,77 +259,77 @@ class PageTransition<T> extends PageRouteBuilder<T> {
     this.reverseDuration = const Duration(milliseconds: 300),
     RouteSettings? settings,
   })  : assert(
-          inheritTheme,
-          "'ctx' cannot be null when 'inheritTheme' is true",
-        ),
+  inheritTheme,
+  "'ctx' cannot be null when 'inheritTheme' is true",
+  ),
         super(
-          pageBuilder: (
+        pageBuilder: (
             BuildContext context,
             Animation<double> animation,
             Animation<double> secondaryAnimation,
-          ) {
-            return inheritTheme
-                ? InheritedTheme.captureAll(
-                    ctx!,
-                    child,
-                  )
-                : child;
-          },
-          transitionDuration: duration,
-          reverseTransitionDuration: reverseDuration,
-          settings: settings,
-          maintainState: true,
-          transitionsBuilder: (
+            ) {
+          return inheritTheme
+              ? InheritedTheme.captureAll(
+            ctx!,
+            child,
+          )
+              : child;
+        },
+        transitionDuration: duration,
+        reverseTransitionDuration: reverseDuration,
+        settings: settings,
+        maintainState: true,
+        transitionsBuilder: (
             BuildContext context,
             Animation<double> animation,
             Animation<double> secondaryAnimation,
             Widget child,
-          ) {
-            switch (type) {
-              case PageTransitionType.FADE:
-                return FadeTransition(opacity: animation, child: child);
-                // ignore: dead_code
-                break;
-              case PageTransitionType.RIGHT_TO_LEFT:
-                return SlideTransition(
-                  position: Tween<Offset>(
-                    begin: const Offset(1, 0),
-                    end: Offset.zero,
-                  ).animate(animation),
-                  child: child,
-                );
-                // ignore: dead_code
-                break;
-              case PageTransitionType.BOTTOM_TO_TOP:
-                return SlideTransition(
-                  position: Tween<Offset>(
-                    begin: const Offset(0, 1),
-                    end: Offset.zero,
-                  ).animate(animation),
-                  child: child,
-                );
-                // ignore: dead_code
-                break;
-              case PageTransitionType.RIGHT_TO_LEFT_WITH_FADE:
-                return SlideTransition(
-                  position: Tween<Offset>(
-                    begin: const Offset(1.0, 0.0),
-                    end: Offset.zero,
-                  ).animate(animation),
-                  child: FadeTransition(
-                    opacity: animation,
-                    child: SlideTransition(
-                      position: Tween<Offset>(
-                        begin: const Offset(1, 0),
-                        end: Offset.zero,
-                      ).animate(animation),
-                      child: child,
-                    ),
+            ) {
+          switch (type) {
+            case PageTransitionType.FADE:
+              return FadeTransition(opacity: animation, child: child);
+              // ignore: dead_code
+              break;
+            case PageTransitionType.RIGHT_TO_LEFT:
+              return SlideTransition(
+                position: Tween<Offset>(
+                  begin: const Offset(1, 0),
+                  end: Offset.zero,
+                ).animate(animation),
+                child: child,
+              );
+              // ignore: dead_code
+              break;
+            case PageTransitionType.BOTTOM_TO_TOP:
+              return SlideTransition(
+                position: Tween<Offset>(
+                  begin: const Offset(0, 1),
+                  end: Offset.zero,
+                ).animate(animation),
+                child: child,
+              );
+              // ignore: dead_code
+              break;
+            case PageTransitionType.RIGHT_TO_LEFT_WITH_FADE:
+              return SlideTransition(
+                position: Tween<Offset>(
+                  begin: const Offset(1.0, 0.0),
+                  end: Offset.zero,
+                ).animate(animation),
+                child: FadeTransition(
+                  opacity: animation,
+                  child: SlideTransition(
+                    position: Tween<Offset>(
+                      begin: const Offset(1, 0),
+                      end: Offset.zero,
+                    ).animate(animation),
+                    child: child,
                   ),
-                );
-                // ignore: dead_code
-                break;
-            }
-          },
-        );
+                ),
+              );
+              // ignore: dead_code
+              break;
+          }
+        },
+      );
 }

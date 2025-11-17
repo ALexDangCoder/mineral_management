@@ -110,14 +110,14 @@ class _EcommerceState extends State<Ecommerce> {
                                 const Spacer(),
                                 Text("⚡ Deals today",
                                     style:
-                                        XelaTextStyle.XelaSmallBodyBold.apply(
+                                        XelaTextStyle.xelaSmallBodyBold.apply(
                                             color: _isDark
                                                 ? Colors.white
                                                 : XelaColor.Gray2)),
                                 const SizedBox(width: 32),
                                 Text("✨ Special prices",
                                     style:
-                                        XelaTextStyle.XelaSmallBodyBold.apply(
+                                        XelaTextStyle.xelaSmallBodyBold.apply(
                                             color: _isDark
                                                 ? Colors.white
                                                 : XelaColor.Gray2)),
@@ -151,14 +151,14 @@ class _EcommerceState extends State<Ecommerce> {
                                           CrossAxisAlignment.stretch,
                                       children: [
                                         Text("Fire Up more table time",
-                                            style: XelaTextStyle.XelaHeadline
+                                            style: XelaTextStyle.xelaHeadline
                                                 .apply(
                                                     color: _isDark
                                                         ? Colors.white
                                                         : XelaColor.Gray2),
                                             textAlign: TextAlign.center),
                                         Text("Summer is sweet together",
-                                            style: XelaTextStyle.XelaBodyBold
+                                            style: XelaTextStyle.xelaBodyBold
                                                 .apply(color: XelaColor.Gray6),
                                             textAlign: TextAlign.center),
                                         const SizedBox(height: 24),
@@ -190,7 +190,7 @@ class _EcommerceState extends State<Ecommerce> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 16),
                               child: Text("Browse by Category",
-                                  style: XelaTextStyle.XelaHeadline.apply(
+                                  style: XelaTextStyle.xelaHeadline.apply(
                                       color: _isDark
                                           ? Colors.white
                                           : XelaColor.Gray2)),
@@ -200,7 +200,7 @@ class _EcommerceState extends State<Ecommerce> {
                               children: [
                                 const Spacer(),
                                 Text("All Categories",
-                                    style: XelaTextStyle.XelaCaption.apply(
+                                    style: XelaTextStyle.xelaCaption.apply(
                                         color: _isDark
                                             ? XelaColor.Blue6
                                             : XelaColor.Blue3)),
@@ -245,7 +245,7 @@ class _EcommerceState extends State<Ecommerce> {
                                                 const SizedBox(height: 8),
                                                 Text("Vegetables",
                                                     style: XelaTextStyle
-                                                            .XelaBodyBold
+                                                            .xelaBodyBold
                                                         .apply(
                                                             color: _isDark
                                                                 ? Colors.white
@@ -271,7 +271,7 @@ class _EcommerceState extends State<Ecommerce> {
                                               style: TextStyle(fontSize: 34)),
                                           const SizedBox(height: 8),
                                           Text("Fruits",
-                                              style: XelaTextStyle.XelaBodyBold
+                                              style: XelaTextStyle.xelaBodyBold
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -305,7 +305,7 @@ class _EcommerceState extends State<Ecommerce> {
                                               style: TextStyle(fontSize: 34)),
                                           const SizedBox(height: 8),
                                           Text("Berries",
-                                              style: XelaTextStyle.XelaBodyBold
+                                              style: XelaTextStyle.xelaBodyBold
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -346,7 +346,7 @@ class _EcommerceState extends State<Ecommerce> {
                                               style: TextStyle(fontSize: 34)),
                                           const SizedBox(height: 8),
                                           Text("Meat",
-                                              style: XelaTextStyle.XelaBodyBold
+                                              style: XelaTextStyle.xelaBodyBold
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -382,7 +382,7 @@ class _EcommerceState extends State<Ecommerce> {
                                                 const SizedBox(height: 8),
                                                 Text("Chicken",
                                                     style: XelaTextStyle
-                                                            .XelaBodyBold
+                                                            .xelaBodyBold
                                                         .apply(
                                                             color: _isDark
                                                                 ? Colors.white
@@ -416,7 +416,7 @@ class _EcommerceState extends State<Ecommerce> {
                                               style: TextStyle(fontSize: 34)),
                                           const SizedBox(height: 8),
                                           Text("Fish",
-                                              style: XelaTextStyle.XelaBodyBold
+                                              style: XelaTextStyle.xelaBodyBold
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -457,7 +457,7 @@ class _EcommerceState extends State<Ecommerce> {
                                               style: TextStyle(fontSize: 34)),
                                           const SizedBox(height: 8),
                                           Text("Seafood",
-                                              style: XelaTextStyle.XelaBodyBold
+                                              style: XelaTextStyle.xelaBodyBold
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -491,7 +491,7 @@ class _EcommerceState extends State<Ecommerce> {
                                               style: TextStyle(fontSize: 34)),
                                           const SizedBox(height: 8),
                                           Text("Cheese",
-                                              style: XelaTextStyle.XelaBodyBold
+                                              style: XelaTextStyle.xelaBodyBold
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -525,7 +525,7 @@ class _EcommerceState extends State<Ecommerce> {
                                               style: TextStyle(fontSize: 34)),
                                           const SizedBox(height: 8),
                                           Text("Bread",
-                                              style: XelaTextStyle.XelaBodyBold
+                                              style: XelaTextStyle.xelaBodyBold
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white

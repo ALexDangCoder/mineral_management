@@ -27,13 +27,13 @@ class AppScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // resizeToAvoidBottomInset: false,
-      backgroundColor: bgColor ?? AppTheme.getInstance().primaryColor(),
+      backgroundColor: bgColor ?? XelaColor.Gray12,
       appBar: title != null
           ? AppBar(
               title: Text(
                 title!,
                 style:
-                    XelaTextStyle.XelaSubheadline.apply(color: XelaColor.Gray2),
+                    XelaTextStyle.xelaSubheadline.apply(color: XelaColor.Gray2),
               ),
               automaticallyImplyLeading: showBackButton,
               actions: actions,

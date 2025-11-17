@@ -79,7 +79,7 @@ class _XelaDialogState extends State<XelaDialog> {
                 widget.title != null
                     ? Text(
                         widget.title!,
-                        style: XelaTextStyle.XelaHeadline.apply(
+                        style: XelaTextStyle.xelaHeadline.apply(
                             color: widget.titleColor),
                         textAlign: TextAlign.center,
                       )
@@ -90,7 +90,7 @@ class _XelaDialogState extends State<XelaDialog> {
                 widget.description != null
                     ? Text(
                         widget.description!,
-                        style: XelaTextStyle.XelaBody.apply(
+                        style: XelaTextStyle.xelaBody.apply(
                             color: widget.titleColor),
                         textAlign: TextAlign.center,
                       )

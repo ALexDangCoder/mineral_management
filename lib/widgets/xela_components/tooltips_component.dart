@@ -53,7 +53,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                       Expanded(
                           child: Text(
                         "Tooltips",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -85,7 +85,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                     child: Center(
                       child: Text(
                         "Usage Example",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -105,7 +105,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                             "life. According to radiometric dating estimation\n" +
                             "and other evidence, Earth formed over\n" +
                             "4.5 billion years ago.",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: Colors.white),
                       ),
                       arrowDirection: XelaTooltipArrowDirection.BOTTOM,
@@ -127,7 +127,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                     child: Center(
                       child: Text(
                         "Top",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -149,7 +149,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                               "life. According to radiometric dating estimation\n" +
                               "and other evidence, Earth formed over\n" +
                               "4.5 billion years ago.",
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color: Colors.white),
                         ),
                         arrowDirection: XelaTooltipArrowDirection.BOTTOM_LEFT,
@@ -167,7 +167,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                               "life. According to radiometric dating estimation\n" +
                               "and other evidence, Earth formed over\n" +
                               "4.5 billion years ago.",
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color: Colors.white),
                         ),
                         arrowDirection: XelaTooltipArrowDirection.BOTTOM,
@@ -185,7 +185,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                               "life. According to radiometric dating estimation\n" +
                               "and other evidence, Earth formed over\n" +
                               "4.5 billion years ago.",
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color: Colors.white),
                         ),
                         arrowDirection: XelaTooltipArrowDirection.BOTTOM_RIGHT,
@@ -198,7 +198,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                     child: Center(
                       child: Text(
                         "Bottom",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -220,7 +220,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                               "life. According to radiometric dating estimation\n" +
                               "and other evidence, Earth formed over\n" +
                               "4.5 billion years ago.",
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color: Colors.white),
                         ),
                         arrowDirection: XelaTooltipArrowDirection.TOP_LEFT,
@@ -238,7 +238,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                               "life. According to radiometric dating estimation\n" +
                               "and other evidence, Earth formed over\n" +
                               "4.5 billion years ago.",
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color: Colors.white),
                         ),
                         arrowDirection: XelaTooltipArrowDirection.TOP,
@@ -256,7 +256,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                               "life. According to radiometric dating estimation\n" +
                               "and other evidence, Earth formed over\n" +
                               "4.5 billion years ago.",
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color: Colors.white),
                         ),
                         arrowDirection: XelaTooltipArrowDirection.TOP_RIGHT,
@@ -269,7 +269,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                     child: Center(
                       child: Text(
                         "Right",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -291,7 +291,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                               "life. According to radiometric dating estimation\n" +
                               "and other evidence, Earth formed over\n" +
                               "4.5 billion years ago.",
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color: Colors.white),
                         ),
                         arrowDirection: XelaTooltipArrowDirection.LEFT_TOP,
@@ -309,7 +309,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                               "life. According to radiometric dating estimation\n" +
                               "and other evidence, Earth formed over\n" +
                               "4.5 billion years ago.",
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color: Colors.white),
                         ),
                         arrowDirection: XelaTooltipArrowDirection.LEFT,
@@ -327,7 +327,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                               "life. According to radiometric dating estimation\n" +
                               "and other evidence, Earth formed over\n" +
                               "4.5 billion years ago.",
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color: Colors.white),
                         ),
                         arrowDirection: XelaTooltipArrowDirection.LEFT_BOTTOM,
@@ -340,7 +340,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                     child: Center(
                       child: Text(
                         "Left",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -362,7 +362,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                               "life. According to radiometric dating estimation\n" +
                               "and other evidence, Earth formed over\n" +
                               "4.5 billion years ago.",
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color: Colors.white),
                         ),
                         arrowDirection: XelaTooltipArrowDirection.RIGHT_TOP,
@@ -380,7 +380,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                               "life. According to radiometric dating estimation\n" +
                               "and other evidence, Earth formed over\n" +
                               "4.5 billion years ago.",
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color: Colors.white),
                         ),
                         arrowDirection: XelaTooltipArrowDirection.RIGHT,
@@ -398,7 +398,7 @@ class _TooltipsComponentState extends State<TooltipsComponent> {
                               "life. According to radiometric dating estimation\n" +
                               "and other evidence, Earth formed over\n" +
                               "4.5 billion years ago.",
-                          style: XelaTextStyle.XelaCaption.apply(
+                          style: XelaTextStyle.xelaCaption.apply(
                               color: Colors.white),
                         ),
                         arrowDirection: XelaTooltipArrowDirection.RIGHT_BOTTOM,

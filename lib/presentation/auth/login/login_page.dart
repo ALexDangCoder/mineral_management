@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/config/themes/app_theme.dart';
 import 'package:bnv_opendata/domain/models/xela_button_models.dart';
 import 'package:bnv_opendata/presentation/auth/login/cubit/login_cubit.dart';
@@ -22,15 +23,16 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => LoginCubit(),
-      child: const AppScaffold(
-        body: _LoginPageListener(),
+      child: AppScaffold(
+        bgColor: AppTheme.getInstance().primaryColor(),
+        body: const _LoginPageListener(),
       ),
     );
   }
 }
 
 class _LoginPageListener extends StatelessWidget {
-  const _LoginPageListener({super.key});
+  const _LoginPageListener();
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +63,7 @@ class _LoginPageListener extends StatelessWidget {
 }
 
 class _LoginPageBody extends StatefulWidget {
-  const _LoginPageBody({super.key});
+  const _LoginPageBody();
 
   @override
   State<_LoginPageBody> createState() => _LoginPageBodyState();
@@ -94,12 +96,12 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
               const SizedBox(height: 24),
               Text(
                 AppS.of(context).mineral_management.toUpperCase(),
-                style: XelaTextStyle.XelaHeadline.apply(color: XelaColor.Gray2),
+                style: XelaTextStyle.xelaHeadline.apply(color: XelaColor.Gray2),
               ),
               const SizedBox(height: 8),
               Text(
                 AppS.of(context).login_to_use,
-                style: XelaTextStyle.XelaBody.apply(
+                style: XelaTextStyle.xelaBody.apply(
                   color: XelaColor.Gray2,
                 ),
               ),
@@ -159,7 +161,12 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
                 },
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    Routers.changePassword,
+                  );
+                },
                 child: Text(AppS.of(context).forgot_password),
               ),
               const SizedBox(height: 28),

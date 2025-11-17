@@ -28,7 +28,7 @@ class ChangePasswordScreen extends StatelessWidget {
 }
 
 class _ChangePasswordListener extends StatelessWidget {
-  const _ChangePasswordListener({super.key});
+  const _ChangePasswordListener();
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class _ChangePasswordListener extends StatelessWidget {
 }
 
 class _ChangePasswordBody extends StatelessWidget {
-  const _ChangePasswordBody({super.key});
+  const _ChangePasswordBody();
 
   @override
   Widget build(BuildContext context) {

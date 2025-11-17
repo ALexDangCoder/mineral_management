@@ -67,7 +67,7 @@ class _Cryptocurrency2State extends State<Cryptocurrency2> {
                     ),
                     Expanded(
                         child: Text("My Wallet",
-                            style: XelaTextStyle.XelaSubheadline.apply(
+                            style: XelaTextStyle.xelaSubheadline.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2))),
@@ -120,12 +120,12 @@ class _Cryptocurrency2State extends State<Cryptocurrency2> {
                                           children: [
                                         Text("Current Balance",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: _isDark
                                                         ? XelaColor.Gray8
                                                         : XelaColor.Gray6)),
                                         Text("0.00004869 ETH",
-                                            style: XelaTextStyle.XelaHeadline
+                                            style: XelaTextStyle.xelaHeadline
                                                 .apply(
                                                     color: _isDark
                                                         ? Colors.white
@@ -135,7 +135,7 @@ class _Cryptocurrency2State extends State<Cryptocurrency2> {
                                             Text(
                                               "\$4,231.01",
                                               style: XelaTextStyle
-                                                      .XelaSmallBodyBold
+                                                      .xelaSmallBodyBold
                                                   .apply(
                                                       color: XelaColor.Blue6),
                                             ),
@@ -145,7 +145,7 @@ class _Cryptocurrency2State extends State<Cryptocurrency2> {
                                                 color: XelaColor.Green1),
                                             const SizedBox(width: 4),
                                             Text("4.52%",
-                                                style: XelaTextStyle.XelaCaption
+                                                style: XelaTextStyle.xelaCaption
                                                     .apply(
                                                         color:
                                                             XelaColor.Green1))
@@ -222,7 +222,7 @@ class _Cryptocurrency2State extends State<Cryptocurrency2> {
                                   children: [
                                     Expanded(
                                         child: Text("Trending",
-                                            style: XelaTextStyle.XelaBodyBold
+                                            style: XelaTextStyle.xelaBodyBold
                                                 .apply(
                                                     color: _isDark
                                                         ? Colors.white
@@ -282,7 +282,7 @@ class _Cryptocurrency2State extends State<Cryptocurrency2> {
                             const SizedBox(height: 24),
                             Text(
                               "Transactions",
-                              style: XelaTextStyle.XelaButtonMedium.apply(
+                              style: XelaTextStyle.xelaButtonMedium.apply(
                                   color:
                                       _isDark ? Colors.white : XelaColor.Gray2),
                             ),

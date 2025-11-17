@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:math';
 
+import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
@@ -25,74 +26,84 @@ class _ReportWidgetState extends State<ReportWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Row(
-            children: [
-              Text(
-                AppS.of(context).reserves_report,
-                style:
-                    XelaTextStyle.XelaSubheadline.apply(color: XelaColor.Gray2),
-              ),
-              const SizedBox(
-                width: 8,
-              ),
-              const Spacer(),
-              InkWell(
-                onTap: () => _showReportingPeriod(context),
-                child: Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: XelaColor.Gray12,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Row(
-                    children: [
-                      Text(
-                        _reportPeriod[_selectedIndex]['quarter'] ?? '',
-                        style: XelaTextStyle.XelaCaption.apply(
-                          color: XelaColor.Blue6,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 4,
-                      ),
-                      const Icon(Icons.arrow_drop_down)
-                    ],
-                  ),
+    return InkWell(
+      onTap: () {
+        // Click vào widget -> điều hướng đến Resource Reserves
+        Navigator.pushNamed(context, Routers.resourceReserves);
+      },
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              children: [
+                Text(
+                  AppS.of(context).reserves_report,
+                  style: XelaTextStyle.xelaSubheadline
+                      .apply(color: XelaColor.Gray2),
                 ),
-              )
-            ],
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                '${AppS.of(context).reserves_total}1,250,000 tấn',
-                style: XelaTextStyle.XelaBodyBold.apply(color: XelaColor.Blue6),
-              ),
-              const SizedBox(height: 8),
-              _progressWidget(
-                percent: (_reportPeriod[_selectedIndex]['value'] as int) / 100,
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'Đã khai thác ${_reportPeriod[_selectedIndex]['value']}% trữ lượng phê duyệt',
-                style: XelaTextStyle.XelaCaption.apply(color: XelaColor.Blue6),
-              ),
-            ],
-          ),
-        ],
+                const SizedBox(
+                  width: 8,
+                ),
+                const Spacer(),
+                InkWell(
+                  onTap: () => _showReportingPeriod(context),
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: XelaColor.Gray12,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          _reportPeriod[_selectedIndex]['quarter'] ?? '',
+                          style: XelaTextStyle.xelaCaption.apply(
+                            color: XelaColor.Blue6,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 4,
+                        ),
+                        const Icon(Icons.arrow_drop_down)
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  '${AppS.of(context).reserves_total}1,250,000 tấn',
+                  style:
+                      XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Blue6),
+                ),
+                const SizedBox(height: 8),
+                _progressWidget(
+                  percent:
+                      (_reportPeriod[_selectedIndex]['value'] as int) / 100,
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Đã khai thác ${_reportPeriod[_selectedIndex]['value']}% trữ lượng phê duyệt',
+                  style:
+                      XelaTextStyle.xelaCaption.apply(color: XelaColor.Blue6),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -126,10 +137,6 @@ class _ReportWidgetState extends State<ReportWidget> {
       isScrollControlled: true, // This is key for full screen
       builder: (BuildContext context) {
         return DraggableScrollableSheet(
-            initialChildSize: 0.5,
-            // Initial height of the sheet
-            minChildSize: 0.25,
-            // Minimum height when dragged down
             maxChildSize: 0.9,
             // Maximum height when dragged up
             expand: false,
@@ -142,7 +149,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                       Text(
                         AppS.of(context).select_reporting_period,
                         textAlign: TextAlign.center,
-                        style: XelaTextStyle.XelaBodyBold.apply(
+                        style: XelaTextStyle.xelaBodyBold.apply(
                           color: XelaColor.Gray2,
                         ),
                       ),
@@ -197,7 +204,7 @@ class _ReportWidgetState extends State<ReportWidget> {
               child: Text(
                 title,
                 textAlign: TextAlign.left,
-                style: XelaTextStyle.XelaCaption.apply(
+                style: XelaTextStyle.xelaCaption.apply(
                   color: XelaColor.Gray2,
                 ),
               ),

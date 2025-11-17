@@ -93,7 +93,7 @@ class _Form3State extends State<Form3> {
                     child: Column(
                       children: [
                         Text("Create account",
-                            style: XelaTextStyle.XelaTitle3.apply(
+                            style: XelaTextStyle.xelaTitle3.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2)),
@@ -175,7 +175,7 @@ class _Form3State extends State<Form3> {
                         ),
                         const SizedBox(height: 24),
                         Text("or",
-                            style: XelaTextStyle.XelaCaption.apply(
+                            style: XelaTextStyle.xelaCaption.apply(
                                 color: XelaColor.Gray8)),
                         const SizedBox(height: 24),
                         XelaButton(

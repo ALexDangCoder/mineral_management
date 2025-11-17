@@ -65,7 +65,7 @@ class _CheckoutState extends State<Checkout> {
                         ),
                       ),
                       Text("Your cart",
-                          style: XelaTextStyle.XelaButtonLarge.apply(
+                          style: XelaTextStyle.xelaButtonLarge.apply(
                               color: Colors.white)),
                       const Spacer(),
                       Padding(
@@ -119,19 +119,19 @@ class _CheckoutState extends State<Checkout> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text("Adidas Gazelle Black",
-                                        style: XelaTextStyle.XelaSmallBodyBold
+                                        style: XelaTextStyle.xelaSmallBodyBold
                                             .apply(
                                                 color: _isDark
                                                     ? Colors.white
                                                     : XelaColor.Gray2)),
                                     Text("Color: Black",
-                                        style: XelaTextStyle.XelaCaption.apply(
+                                        style: XelaTextStyle.xelaCaption.apply(
                                             color: XelaColor.Gray6)),
                                     const SizedBox(height: 8),
                                     Row(
                                       children: [
                                         Text("€283,11",
-                                            style: XelaTextStyle.XelaSubheadline
+                                            style: XelaTextStyle.xelaSubheadline
                                                 .apply(
                                                     color: _isDark
                                                         ? Colors.white
@@ -176,19 +176,19 @@ class _CheckoutState extends State<Checkout> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text("Adidas Yeezy Boost 350 V2",
-                                        style: XelaTextStyle.XelaSmallBodyBold
+                                        style: XelaTextStyle.xelaSmallBodyBold
                                             .apply(
                                                 color: _isDark
                                                     ? Colors.white
                                                     : XelaColor.Gray2)),
                                     Text("Size: 58",
-                                        style: XelaTextStyle.XelaCaption.apply(
+                                        style: XelaTextStyle.xelaCaption.apply(
                                             color: XelaColor.Gray6)),
                                     const SizedBox(height: 8),
                                     Row(
                                       children: [
                                         Text("€59,55",
-                                            style: XelaTextStyle.XelaSubheadline
+                                            style: XelaTextStyle.xelaSubheadline
                                                 .apply(
                                                     color: _isDark
                                                         ? Colors.white
@@ -218,10 +218,10 @@ class _CheckoutState extends State<Checkout> {
                                 Expanded(
                                     child: Text("Subtotal",
                                         style:
-                                            XelaTextStyle.XelaSmallBody.apply(
+                                            XelaTextStyle.xelaSmallBody.apply(
                                                 color: XelaColor.Gray8))),
                                 Text("€342,66",
-                                    style: XelaTextStyle.XelaBodyBold.apply(
+                                    style: XelaTextStyle.xelaBodyBold.apply(
                                         color: _isDark
                                             ? Colors.white
                                             : XelaColor.Gray2))
@@ -233,10 +233,10 @@ class _CheckoutState extends State<Checkout> {
                                 Expanded(
                                     child: Text("Shipping",
                                         style:
-                                            XelaTextStyle.XelaSmallBody.apply(
+                                            XelaTextStyle.xelaSmallBody.apply(
                                                 color: XelaColor.Gray8))),
                                 Text("Calculated on next step",
-                                    style: XelaTextStyle.XelaSmallBody.apply(
+                                    style: XelaTextStyle.xelaSmallBody.apply(
                                         color: XelaColor.Gray8))
                               ],
                             ),
@@ -246,10 +246,10 @@ class _CheckoutState extends State<Checkout> {
                                 Expanded(
                                     child: Text("Taxes (estimated)",
                                         style:
-                                            XelaTextStyle.XelaSmallBody.apply(
+                                            XelaTextStyle.xelaSmallBody.apply(
                                                 color: XelaColor.Gray8))),
                                 Text("€48",
-                                    style: XelaTextStyle.XelaBodyBold.apply(
+                                    style: XelaTextStyle.xelaBodyBold.apply(
                                         color: _isDark
                                             ? Colors.white
                                             : XelaColor.Gray2))
@@ -261,10 +261,10 @@ class _CheckoutState extends State<Checkout> {
                                 Expanded(
                                     child: Text("Discount",
                                         style:
-                                            XelaTextStyle.XelaSmallBody.apply(
+                                            XelaTextStyle.xelaSmallBody.apply(
                                                 color: XelaColor.Gray8))),
                                 Text("€30",
-                                    style: XelaTextStyle.XelaBodyBold.apply(
+                                    style: XelaTextStyle.xelaBodyBold.apply(
                                         color: _isDark
                                             ? Colors.white
                                             : XelaColor.Gray2))
@@ -276,10 +276,10 @@ class _CheckoutState extends State<Checkout> {
                                 Expanded(
                                     child: Text("Total",
                                         style:
-                                            XelaTextStyle.XelaSmallBody.apply(
+                                            XelaTextStyle.xelaSmallBody.apply(
                                                 color: XelaColor.Gray8))),
                                 Text("€360,66",
-                                    style: XelaTextStyle.XelaHeadline.apply(
+                                    style: XelaTextStyle.xelaHeadline.apply(
                                         color: _isDark
                                             ? Colors.white
                                             : XelaColor.Gray2))
@@ -305,14 +305,14 @@ class _CheckoutState extends State<Checkout> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text("Delivery",
-                                        style: XelaTextStyle.XelaSmallBodyBold
+                                        style: XelaTextStyle.xelaSmallBodyBold
                                             .apply(
                                                 color: _isDark
                                                     ? Colors.white
                                                     : XelaColor.Gray2)),
                                     Text(
                                         "Track the progress of your order in real time",
-                                        style: XelaTextStyle.XelaCaption.apply(
+                                        style: XelaTextStyle.xelaCaption.apply(
                                             color: XelaColor.Gray6)),
                                   ],
                                 ))
@@ -332,14 +332,14 @@ class _CheckoutState extends State<Checkout> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text("Returns",
-                                        style: XelaTextStyle.XelaSmallBodyBold
+                                        style: XelaTextStyle.xelaSmallBodyBold
                                             .apply(
                                                 color: _isDark
                                                     ? Colors.white
                                                     : XelaColor.Gray2)),
                                     Text(
                                         "14 day money-back returns if you change your mind.",
-                                        style: XelaTextStyle.XelaCaption.apply(
+                                        style: XelaTextStyle.xelaCaption.apply(
                                             color: XelaColor.Gray6)),
                                   ],
                                 ))

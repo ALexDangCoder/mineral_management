@@ -55,7 +55,7 @@ class _XelaRadioButtonGroupState extends State<XelaRadioButtonGroup> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> children = [];
+    final List<Widget> children = [];
     for (var item in widget.items) {
       children.add(const SizedBox(height: 4));
       children.add(InkWell(
@@ -130,14 +130,14 @@ class _XelaRadioButtonGroupState extends State<XelaRadioButtonGroup> {
                         item.label != null
                             ? Text(
                                 item.label!,
-                                style: XelaTextStyle.XelaButtonMedium.apply(
+                                style: XelaTextStyle.xelaButtonMedium.apply(
                                     color: widget.labelColor),
                               )
                             : Container(),
                         item.caption != null
                             ? Text(
                                 item.caption!,
-                                style: XelaTextStyle.XelaCaption.apply(
+                                style: XelaTextStyle.xelaCaption.apply(
                                     color: widget.captionColor),
                               )
                             : Container(),
@@ -147,7 +147,7 @@ class _XelaRadioButtonGroupState extends State<XelaRadioButtonGroup> {
                   item.value != null
                       ? Text(
                           item.value!,
-                          style: XelaTextStyle.XelaButtonLarge.apply(
+                          style: XelaTextStyle.xelaButtonLarge.apply(
                               color: widget.valueColor),
                         )
                       : Container()

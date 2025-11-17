@@ -50,7 +50,7 @@ class _TypographyComponentState extends State<TypographyComponent> {
                       Expanded(
                           child: Text(
                         "Typography",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -72,7 +72,7 @@ class _TypographyComponentState extends State<TypographyComponent> {
                         ),
                       ),
                     ],
-                  )),
+                  ),),
               Expanded(
                   child: ListView(
                 padding: EdgeInsets.zero,
@@ -82,7 +82,7 @@ class _TypographyComponentState extends State<TypographyComponent> {
                         horizontal: 24, vertical: 12),
                     child: Text(
                       "Title1",
-                      style: XelaTextStyle.XelaTitle1.apply(
+                      style: XelaTextStyle.xelaTitle1.apply(
                           color: _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                     ),
                   ),
@@ -91,7 +91,7 @@ class _TypographyComponentState extends State<TypographyComponent> {
                         horizontal: 24, vertical: 12),
                     child: Text(
                       "Title2",
-                      style: XelaTextStyle.XelaTitle2.apply(
+                      style: XelaTextStyle.xelaTitle2.apply(
                           color: _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                     ),
                   ),
@@ -100,7 +100,7 @@ class _TypographyComponentState extends State<TypographyComponent> {
                         horizontal: 24, vertical: 12),
                     child: Text(
                       "Title3",
-                      style: XelaTextStyle.XelaTitle3.apply(
+                      style: XelaTextStyle.xelaTitle3.apply(
                           color: _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                     ),
                   ),
@@ -109,7 +109,7 @@ class _TypographyComponentState extends State<TypographyComponent> {
                         horizontal: 24, vertical: 12),
                     child: Text(
                       "Headline",
-                      style: XelaTextStyle.XelaHeadline.apply(
+                      style: XelaTextStyle.xelaHeadline.apply(
                           color: _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                     ),
                   ),
@@ -118,7 +118,7 @@ class _TypographyComponentState extends State<TypographyComponent> {
                         horizontal: 24, vertical: 12),
                     child: Text(
                       "Subheadline",
-                      style: XelaTextStyle.XelaSubheadline.apply(
+                      style: XelaTextStyle.xelaSubheadline.apply(
                           color: _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                     ),
                   ),
@@ -127,7 +127,7 @@ class _TypographyComponentState extends State<TypographyComponent> {
                         horizontal: 24, vertical: 12),
                     child: Text(
                       "Body",
-                      style: XelaTextStyle.XelaBody.apply(
+                      style: XelaTextStyle.xelaBody.apply(
                           color: _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                     ),
                   ),
@@ -136,7 +136,7 @@ class _TypographyComponentState extends State<TypographyComponent> {
                         horizontal: 24, vertical: 12),
                     child: Text(
                       "Body Bold",
-                      style: XelaTextStyle.XelaBodyBold.apply(
+                      style: XelaTextStyle.xelaBodyBold.apply(
                           color: _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                     ),
                   ),
@@ -145,7 +145,7 @@ class _TypographyComponentState extends State<TypographyComponent> {
                         horizontal: 24, vertical: 12),
                     child: Text(
                       "Small Body",
-                      style: XelaTextStyle.XelaSmallBody.apply(
+                      style: XelaTextStyle.xelaSmallBody.apply(
                           color: _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                     ),
                   ),
@@ -154,7 +154,7 @@ class _TypographyComponentState extends State<TypographyComponent> {
                         horizontal: 24, vertical: 12),
                     child: Text(
                       "Small Body Bold",
-                      style: XelaTextStyle.XelaSmallBodyBold.apply(
+                      style: XelaTextStyle.xelaSmallBodyBold.apply(
                           color: _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                     ),
                   ),
@@ -163,7 +163,7 @@ class _TypographyComponentState extends State<TypographyComponent> {
                         horizontal: 24, vertical: 12),
                     child: Text(
                       "Caption",
-                      style: XelaTextStyle.XelaCaption.apply(
+                      style: XelaTextStyle.xelaCaption.apply(
                           color: _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                     ),
                   ),
@@ -172,7 +172,7 @@ class _TypographyComponentState extends State<TypographyComponent> {
                         horizontal: 24, vertical: 12),
                     child: Text(
                       "Button Large",
-                      style: XelaTextStyle.XelaButtonLarge.apply(
+                      style: XelaTextStyle.xelaButtonLarge.apply(
                           color: _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                     ),
                   ),
@@ -181,7 +181,7 @@ class _TypographyComponentState extends State<TypographyComponent> {
                         horizontal: 24, vertical: 12),
                     child: Text(
                       "Button Medium",
-                      style: XelaTextStyle.XelaButtonMedium.apply(
+                      style: XelaTextStyle.xelaButtonMedium.apply(
                           color: _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                     ),
                   ),
@@ -190,7 +190,7 @@ class _TypographyComponentState extends State<TypographyComponent> {
                         horizontal: 24, vertical: 12),
                     child: Text(
                       "Button Small",
-                      style: XelaTextStyle.XelaButtonSmall.apply(
+                      style: XelaTextStyle.xelaButtonSmall.apply(
                           color: _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                     ),
                   ),

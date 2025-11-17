@@ -16,6 +16,8 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 
 class Filter1 extends StatefulWidget {
+  const Filter1({super.key});
+
   @override
   _Filter1State createState() => _Filter1State();
 }
@@ -67,7 +69,7 @@ class _Filter1State extends State<Filter1> {
                     ),
                     Expanded(
                         child: Text("Filters",
-                            style: XelaTextStyle.XelaHeadline.apply(
+                            style: XelaTextStyle.xelaHeadline.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2))),
@@ -236,7 +238,7 @@ class _Filter1State extends State<Filter1> {
                                 ),
                                 const SizedBox(height: 16),
                                 Text("Quantity, k",
-                                    style: XelaTextStyle.XelaCaption.apply(
+                                    style: XelaTextStyle.xelaCaption.apply(
                                         color: XelaColor.Gray8)),
                                 XelaRangeSliderInput(
                                   values: const RangeValues(30, 80),
@@ -254,13 +256,13 @@ class _Filter1State extends State<Filter1> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text("10",
-                                        style: XelaTextStyle.XelaSmallBodyBold
+                                        style: XelaTextStyle.xelaSmallBodyBold
                                             .apply(
                                                 color: _isDark
                                                     ? XelaColor.Gray10
                                                     : XelaColor.Gray2)),
                                     Text("100",
-                                        style: XelaTextStyle.XelaSmallBodyBold
+                                        style: XelaTextStyle.xelaSmallBodyBold
                                             .apply(
                                                 color: _isDark
                                                     ? XelaColor.Gray10
@@ -355,7 +357,7 @@ class _Filter1State extends State<Filter1> {
                                 InkWell(
                                   child: Text(
                                     "View more",
-                                    style: XelaTextStyle.XelaButtonSmall.apply(
+                                    style: XelaTextStyle.xelaButtonSmall.apply(
                                         color: _isDark
                                             ? XelaColor.Blue5
                                             : XelaColor.Blue3),

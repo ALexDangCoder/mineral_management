@@ -74,7 +74,7 @@ class _TaskManagerState extends State<TaskManager> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text("Tasks",
-                              style: XelaTextStyle.XelaButtonLarge.apply(
+                              style: XelaTextStyle.xelaButtonLarge.apply(
                                   color: Colors.white))
                         ],
                       )),
@@ -121,13 +121,13 @@ class _TaskManagerState extends State<TaskManager> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text("Cody Fisher",
-                                        style: XelaTextStyle.XelaSmallBodyBold
+                                        style: XelaTextStyle.xelaSmallBodyBold
                                             .apply(
                                                 color: _isDark
                                                     ? Colors.white
                                                     : XelaColor.Gray2)),
                                     Text("kenzi.lawson@example.com",
-                                        style: XelaTextStyle.XelaSmallBodyBold
+                                        style: XelaTextStyle.xelaSmallBodyBold
                                             .apply(color: XelaColor.Gray6)),
                                   ],
                                 )),

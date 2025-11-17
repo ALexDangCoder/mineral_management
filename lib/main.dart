@@ -1,5 +1,4 @@
 import 'package:bnv_opendata/config/resources/strings.dart';
-import 'package:bnv_opendata/config/routes/app_routers.dart';
 import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/config/themes/app_theme.dart';
 import 'package:bnv_opendata/data/di/module.dart';
@@ -9,7 +8,7 @@ import 'package:bnv_opendata/presentation/main_cubit/auth_cubit.dart';
 import 'package:bnv_opendata/presentation/splash/splash_screen.dart';
 import 'package:bnv_opendata/resources/generated/l10n.dart';
 import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Router;
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -18,6 +17,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 Future<void> mainApp() async {
+
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await PrefsService.init();
@@ -90,8 +90,8 @@ class _MyAppState extends State<MyApp> {
           ],
           locale:
           Locale.fromSubtags(languageCode: PrefsService.getLanguage()),
-          onGenerateRoute: AppRouter.generateRoute,
-          initialRoute: AppRouter.splash,
+          onGenerateRoute: Routers.generateRoute,
+          initialRoute: Routers.splash,
         ),
       ),
     );

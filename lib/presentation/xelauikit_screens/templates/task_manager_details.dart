@@ -77,7 +77,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                           Text(
                               DateFormat.yMMMMd('en')
                                   .format(widget.selectedDate),
-                              style: XelaTextStyle.XelaButtonLarge.apply(
+                              style: XelaTextStyle.xelaButtonLarge.apply(
                                   color: Colors.white))
                         ],
                       )),
@@ -171,7 +171,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                               child: Row(
                                 children: [
                                   Text("01:00 PM",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray8)),
                                   const SizedBox(width: 16),
                                   Expanded(
@@ -188,14 +188,14 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                                   _isDark ? XelaColor.Pink6 : XelaColor.Pink3,
                               background:
                                   _isDark ? XelaColor.Gray2 : XelaColor.Pink12,
-                              secondaryColor: XelaColor.Gray7,
+                              secondaryColor: XelaColor.Gray7, id: '',
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(vertical: 8),
                               child: Row(
                                 children: [
                                   Text("02:00 PM",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray8)),
                                   const SizedBox(width: 16),
                                   Expanded(
@@ -212,14 +212,14 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                                   _isDark ? XelaColor.Blue6 : XelaColor.Blue3,
                               background:
                                   _isDark ? XelaColor.Gray2 : XelaColor.Blue12,
-                              secondaryColor: XelaColor.Gray7,
+                              secondaryColor: XelaColor.Gray7, id: '',
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(vertical: 8),
                               child: Row(
                                 children: [
                                   Text("03:00 PM",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray8)),
                                   const SizedBox(width: 16),
                                   Expanded(
@@ -236,14 +236,14 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                                   _isDark ? XelaColor.Green1 : XelaColor.Green1,
                               background:
                                   _isDark ? XelaColor.Gray2 : XelaColor.Green12,
-                              secondaryColor: XelaColor.Gray7,
+                              secondaryColor: XelaColor.Gray7, id: '',
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(vertical: 8),
                               child: Row(
                                 children: [
                                   Text("04:00 PM",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray8)),
                                   const SizedBox(width: 16),
                                   Expanded(
@@ -263,14 +263,14 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                               background: _isDark
                                   ? XelaColor.Gray2
                                   : XelaColor.Yellow12,
-                              secondaryColor: XelaColor.Gray7,
+                              secondaryColor: XelaColor.Gray7, id: '',
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(vertical: 8),
                               child: Row(
                                 children: [
                                   Text("05:00 PM",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray8)),
                                   const SizedBox(width: 16),
                                   Expanded(
@@ -286,7 +286,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                               child: Row(
                                 children: [
                                   Text("06:00 PM",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray8)),
                                   const SizedBox(width: 16),
                                   Expanded(
@@ -305,7 +305,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                               background: _isDark
                                   ? XelaColor.Gray2
                                   : XelaColor.Orange12,
-                              secondaryColor: XelaColor.Gray7,
+                              secondaryColor: XelaColor.Gray7, id: '',
                             ),
                             const SizedBox(height: 8),
                             XelaAlert(
@@ -317,14 +317,14 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                               background: _isDark
                                   ? XelaColor.Gray2
                                   : XelaColor.Orange12,
-                              secondaryColor: XelaColor.Gray7,
+                              secondaryColor: XelaColor.Gray7, id: '',
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(vertical: 8),
                               child: Row(
                                 children: [
                                   Text("07:00 PM",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray8)),
                                   const SizedBox(width: 16),
                                   Expanded(
@@ -341,7 +341,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                                   _isDark ? XelaColor.Red6 : XelaColor.Red3,
                               background:
                                   _isDark ? XelaColor.Gray2 : XelaColor.Red12,
-                              secondaryColor: XelaColor.Gray7,
+                              secondaryColor: XelaColor.Gray7, id: '',
                             ),
                             const SizedBox(height: 8),
                             XelaAlert(
@@ -353,7 +353,7 @@ class _TaskManagerDetailsState extends State<TaskManagerDetails> {
                               background: _isDark
                                   ? XelaColor.Gray2
                                   : XelaColor.Purple12,
-                              secondaryColor: XelaColor.Gray7,
+                              secondaryColor: XelaColor.Gray7, id: '',
                             ),
                           ],
                         ),

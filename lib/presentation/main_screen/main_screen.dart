@@ -1,10 +1,9 @@
 import 'package:bnv_opendata/config/themes/app_theme.dart';
 import 'package:bnv_opendata/presentation/main_screen/cubit/main_screen_cubit.dart';
+import 'package:bnv_opendata/presentation/mine_3d/mine_3d_screen.dart';
+import 'package:bnv_opendata/presentation/notification_management/notification_management_screen.dart';
 import 'package:bnv_opendata/presentation/screen_exports.dart';
-import 'package:bnv_opendata/presentation/xelauikit_screens/about_screen.dart';
-import 'package:bnv_opendata/presentation/xelauikit_screens/blocks_screen.dart';
-import 'package:bnv_opendata/presentation/xelauikit_screens/components_screen.dart';
-import 'package:bnv_opendata/presentation/xelauikit_screens/templates_screen.dart';
+import 'package:bnv_opendata/presentation/show_construction_map/show_construction_Map_screen.dart';
 import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:flutter/material.dart';
@@ -23,20 +22,18 @@ class MainScreen extends StatelessWidget {
 }
 
 class _MainScreenBody extends StatefulWidget {
-  const _MainScreenBody({super.key});
+  const _MainScreenBody();
 
   @override
   State<_MainScreenBody> createState() => _MainScreenBodyState();
 }
 
 class _MainScreenBodyState extends State<_MainScreenBody> {
-  static const List<Widget> _pages = <Widget>[
-    HomeScreen(),
-    ComponentsScreen(),
-    MineListScreen(), //BlocksScreen()
-    DrillHoleListScreen(),
-    // TemplatesScreen(),
-    AccountInfoScreen(),
+  static final List<Widget> _pages = <Widget>[
+    const HomeScreen(),
+    const ShowConstructionMapScreen(),
+    const MineListScreen(),
+    const AccountInfoScreen(),
   ];
 
   @override
@@ -81,31 +78,20 @@ class _MainScreenBodyState extends State<_MainScreenBody> {
               BottomNavigationBarItem(
                 backgroundColor: XelaColor.Gray12,
                 icon: Icon(
-                  Icons.query_stats,
+                  Icons.list_alt,
                   size: 20,
                   color: state.indexPage == 2
                       ? AppTheme.getInstance().primaryColor()
                       : XelaColor.Gray7,
                 ),
-                label: AppS.of(context).mine_page,
-              ),
-              BottomNavigationBarItem(
-                backgroundColor: XelaColor.Gray12,
-                icon: Icon(
-                  Icons.share_location_outlined,
-                  size: 20,
-                  color: state.indexPage == 3
-                      ? AppTheme.getInstance().primaryColor()
-                      : XelaColor.Gray7,
-                ),
-                label: AppS.of(context).drill_hole_page,
+                label: 'Vùng mỏ',
               ),
               BottomNavigationBarItem(
                 backgroundColor: XelaColor.Gray12,
                 icon: Icon(
                   Icons.account_circle_rounded,
                   size: 20,
-                  color: state.indexPage == 4
+                  color: state.indexPage == 3
                       ? AppTheme.getInstance().primaryColor()
                       : XelaColor.Gray7,
                 ),

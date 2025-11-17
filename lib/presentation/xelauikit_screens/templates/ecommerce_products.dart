@@ -92,7 +92,7 @@ class _EcommerceProductsState extends State<EcommerceProducts> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text("Popular Products",
-                                style: XelaTextStyle.XelaHeadline.apply(
+                                style: XelaTextStyle.xelaHeadline.apply(
                                     color: _isDark
                                         ? Colors.white
                                         : XelaColor.Gray2)),
@@ -101,7 +101,7 @@ class _EcommerceProductsState extends State<EcommerceProducts> {
                               children: [
                                 const Spacer(),
                                 Text("View all",
-                                    style: XelaTextStyle.XelaCaption.apply(
+                                    style: XelaTextStyle.xelaCaption.apply(
                                         color: _isDark
                                             ? XelaColor.Blue6
                                             : XelaColor.Blue3)),
@@ -153,21 +153,21 @@ class _EcommerceProductsState extends State<EcommerceProducts> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text("Strawberries",
-                                          style: XelaTextStyle.XelaSmallBodyBold
+                                          style: XelaTextStyle.xelaSmallBodyBold
                                               .apply(
                                                   color: _isDark
                                                       ? Colors.white
                                                       : XelaColor.Gray2)),
                                       Text("16 oz pkg | \$0.31 / oz",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: XelaColor.Gray6)),
                                       const SizedBox(height: 8),
                                       Row(
                                         children: [
                                           Text("\$4.99",
                                               style: XelaTextStyle
-                                                      .XelaSubheadline
+                                                      .xelaSubheadline
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -228,21 +228,21 @@ class _EcommerceProductsState extends State<EcommerceProducts> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text("Clementines (Mandarins)",
-                                          style: XelaTextStyle.XelaSmallBodyBold
+                                          style: XelaTextStyle.xelaSmallBodyBold
                                               .apply(
                                                   color: _isDark
                                                       ? Colors.white
                                                       : XelaColor.Gray2)),
                                       Text("3 lb bag | \$0.12 / oz",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: XelaColor.Gray6)),
                                       const SizedBox(height: 8),
                                       Row(
                                         children: [
                                           Text("\$5.99",
                                               style: XelaTextStyle
-                                                      .XelaSubheadline
+                                                      .xelaSubheadline
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -303,21 +303,21 @@ class _EcommerceProductsState extends State<EcommerceProducts> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text("Sweet Corn",
-                                          style: XelaTextStyle.XelaSmallBodyBold
+                                          style: XelaTextStyle.xelaSmallBodyBold
                                               .apply(
                                                   color: _isDark
                                                       ? Colors.white
                                                       : XelaColor.Gray2)),
                                       Text("1 ear | \$0.41 / ea",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: XelaColor.Gray6)),
                                       const SizedBox(height: 8),
                                       Row(
                                         children: [
                                           Text("\$0.41",
                                               style: XelaTextStyle
-                                                      .XelaSubheadline
+                                                      .xelaSubheadline
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -378,21 +378,21 @@ class _EcommerceProductsState extends State<EcommerceProducts> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text("Eggplant",
-                                          style: XelaTextStyle.XelaSmallBodyBold
+                                          style: XelaTextStyle.xelaSmallBodyBold
                                               .apply(
                                                   color: _isDark
                                                       ? Colors.white
                                                       : XelaColor.Gray2)),
                                       Text("1 ea | \$2.76 / ea",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: XelaColor.Gray6)),
                                       const SizedBox(height: 8),
                                       Row(
                                         children: [
                                           Text("\$2.76",
                                               style: XelaTextStyle
-                                                      .XelaSubheadline
+                                                      .xelaSubheadline
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -453,21 +453,21 @@ class _EcommerceProductsState extends State<EcommerceProducts> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text("Broccoli Organic",
-                                          style: XelaTextStyle.XelaSmallBodyBold
+                                          style: XelaTextStyle.xelaSmallBodyBold
                                               .apply(
                                                   color: _isDark
                                                       ? Colors.white
                                                       : XelaColor.Gray2)),
                                       Text("1 head | \$3.49 / ea",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: XelaColor.Gray6)),
                                       const SizedBox(height: 8),
                                       Row(
                                         children: [
                                           Text("\$3.49",
                                               style: XelaTextStyle
-                                                      .XelaSubheadline
+                                                      .xelaSubheadline
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white

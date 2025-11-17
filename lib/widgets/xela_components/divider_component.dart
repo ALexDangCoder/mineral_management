@@ -52,7 +52,7 @@ class _DividerComponentState extends State<DividerComponent> {
                       Expanded(
                           child: Text(
                         "Divider",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -84,7 +84,7 @@ class _DividerComponentState extends State<DividerComponent> {
                     child: Center(
                       child: Text(
                         "Horizontal",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -125,7 +125,7 @@ class _DividerComponentState extends State<DividerComponent> {
                     child: Center(
                       child: Text(
                         "Vertical",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),

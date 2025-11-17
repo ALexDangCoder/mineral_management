@@ -109,10 +109,10 @@ class _XelaUserAvatarState extends State<XelaUserAvatar> {
                       ? Text(
                           widget.initials!,
                           style: (widget.size == XelaUserAvatarSize.LARGE
-                                  ? XelaTextStyle.XelaHeadline
+                                  ? XelaTextStyle.xelaHeadline
                                   : widget.size == XelaUserAvatarSize.MEDIUM
-                                      ? XelaTextStyle.XelaSubheadline
-                                      : XelaTextStyle.XelaButtonMedium)
+                                      ? XelaTextStyle.xelaSubheadline
+                                      : XelaTextStyle.xelaButtonMedium)
                               .apply(color: widget.foreground),
                         )
                       : null),

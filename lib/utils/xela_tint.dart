@@ -5,11 +5,10 @@ class XelaTint extends SingleChildRenderObjectWidget {
   final Color color;
 
   const XelaTint({
-    Key? key,
+    super.key,
     required this.color,
-    required Widget child,
-  })  : assert(color != null),
-        super(key: key, child: child);
+    required Widget super.child,
+  });
 
   @override
   RenderObject createRenderObject(BuildContext context) {
@@ -27,8 +26,7 @@ class XelaRenderTint extends RenderProxyBox {
   XelaRenderTint({
     Color color = Colors.transparent,
     RenderBox? child,
-  })  : assert(color != null),
-        _color = color,
+  })  : _color = color,
         super(child);
 
   Color _color;
@@ -36,7 +34,6 @@ class XelaRenderTint extends RenderProxyBox {
   Color get color => _color;
 
   set color(Color color) {
-    assert(color != null);
     if (_color == color) return;
     _color = color;
     markNeedsPaint();

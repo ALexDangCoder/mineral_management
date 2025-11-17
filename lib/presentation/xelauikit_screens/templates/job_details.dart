@@ -118,12 +118,12 @@ class _JobDetailsState extends State<JobDetails> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text("Abstergo Ltd.",
-                                        style: XelaTextStyle.XelaBodyBold.apply(
+                                        style: XelaTextStyle.xelaBodyBold.apply(
                                             color: _isDark
                                                 ? Colors.white
                                                 : XelaColor.Gray2)),
                                     Text("Lafayette, California",
-                                        style: XelaTextStyle.XelaCaption.apply(
+                                        style: XelaTextStyle.xelaCaption.apply(
                                             color: XelaColor.Gray6)),
                                   ],
                                 )),
@@ -173,28 +173,28 @@ class _JobDetailsState extends State<JobDetails> {
                                     : XelaColor.Gray11),
                             const SizedBox(height: 24),
                             Text("Experience",
-                                style: XelaTextStyle.XelaCaption.apply(
+                                style: XelaTextStyle.xelaCaption.apply(
                                     color: XelaColor.Gray6)),
                             Text("Minimum 3+ Years",
-                                style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                style: XelaTextStyle.xelaSmallBodyBold.apply(
                                     color: _isDark
                                         ? Colors.white
                                         : XelaColor.Gray2)),
                             const SizedBox(height: 24),
                             Text("Job Type",
-                                style: XelaTextStyle.XelaCaption.apply(
+                                style: XelaTextStyle.xelaCaption.apply(
                                     color: XelaColor.Gray6)),
                             Text("Remote, Full Time",
-                                style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                style: XelaTextStyle.xelaSmallBodyBold.apply(
                                     color: _isDark
                                         ? Colors.white
                                         : XelaColor.Gray2)),
                             const SizedBox(height: 24),
                             Text("Offer Salary",
-                                style: XelaTextStyle.XelaCaption.apply(
+                                style: XelaTextStyle.xelaCaption.apply(
                                     color: XelaColor.Gray6)),
                             Text("\$35-\$55/hour",
-                                style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                style: XelaTextStyle.xelaSmallBodyBold.apply(
                                     color: _isDark
                                         ? Colors.white
                                         : XelaColor.Gray2)),
@@ -206,20 +206,20 @@ class _JobDetailsState extends State<JobDetails> {
                                     : XelaColor.Gray11),
                             const SizedBox(height: 24),
                             Text("Senior Product Designer, Financial Services",
-                                style: XelaTextStyle.XelaHeadline.apply(
+                                style: XelaTextStyle.xelaHeadline.apply(
                                     color: _isDark
                                         ? Colors.white
                                         : XelaColor.Gray2)),
                             const SizedBox(height: 24),
                             Text("Job Description",
-                                style: XelaTextStyle.XelaBodyBold.apply(
+                                style: XelaTextStyle.xelaBodyBold.apply(
                                     color: _isDark
                                         ? Colors.white
                                         : XelaColor.Gray2)),
                             const SizedBox(height: 24),
                             Text(
                                 "The Financial Services team at Square is responsible for all ways in which a seller may receive, manage, and transfer funds within the Square ecosystem. As a senior-level Product Designer for Financial Services, you will drive the design for experiences that millions of small- and medium-sized businesses depend on to thrive in today’s economy. We have multiple, high impact roles open across several product areas that cover all aspects of starting and running a business. We’re looking for designers who are motivated by turning complex financial problems into simple and elegant solutions. You’ll help make decisions that directly improve our product direction and roadmap. Your work will span from core features to experimental projects. Being a collaborative role, you will partner with other designers, project managers, data analysts, and engineers. We believe generalists have a hand in each stage of product development, so Product Designers at Square take projects from napkin sketches to final specifications.",
-                                style: XelaTextStyle.XelaSmallBody.apply(
+                                style: XelaTextStyle.xelaSmallBody.apply(
                                     color: _isDark
                                         ? Colors.white
                                         : XelaColor.Gray2)),
@@ -231,20 +231,20 @@ class _JobDetailsState extends State<JobDetails> {
                                     : XelaColor.Gray11),
                             const SizedBox(height: 24),
                             Text("Qualifications",
-                                style: XelaTextStyle.XelaBodyBold.apply(
+                                style: XelaTextStyle.xelaBodyBold.apply(
                                     color: _isDark
                                         ? Colors.white
                                         : XelaColor.Gray2)),
                             const SizedBox(height: 24),
                             Text("You have:",
-                                style: XelaTextStyle.XelaSmallBodyBold.apply(
+                                style: XelaTextStyle.xelaSmallBodyBold.apply(
                                     color: _isDark
                                         ? XelaColor.Blue5
                                         : XelaColor.Blue3)),
                             const SizedBox(height: 8),
                             Text(
                                 "- 7+ years of relevant professional experience \n- A portfolio that shows work you were directly responsible for the success of\n- Experience as a primary contributor to multiple high impact projects",
-                                style: XelaTextStyle.XelaSmallBody.apply(
+                                style: XelaTextStyle.xelaSmallBody.apply(
                                     color: _isDark
                                         ? Colors.white
                                         : XelaColor.Gray2)),

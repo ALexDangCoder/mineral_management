@@ -162,7 +162,7 @@ class _TabsComponentState extends State<TabsComponent> {
                       Expanded(
                           child: Text(
                         "Tabs",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -194,7 +194,7 @@ class _TabsComponentState extends State<TabsComponent> {
                     child: Center(
                       child: Text(
                         "Usage Example",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -218,7 +218,7 @@ class _TabsComponentState extends State<TabsComponent> {
                         children: [
                           Text(
                             "Components",
-                            style: XelaTextStyle.XelaHeadline.apply(
+                            style: XelaTextStyle.xelaHeadline.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2),
@@ -271,7 +271,7 @@ class _TabsComponentState extends State<TabsComponent> {
                                               child: Text(
                                             "Device Fingerprint",
                                             style:
-                                                XelaTextStyle.XelaButtonMedium
+                                                XelaTextStyle.xelaButtonMedium
                                                     .apply(
                                                         color: _isDark
                                                             ? XelaColor.Gray11
@@ -300,7 +300,7 @@ class _TabsComponentState extends State<TabsComponent> {
                                               child: Text(
                                             "User Agent",
                                             style:
-                                                XelaTextStyle.XelaButtonMedium
+                                                XelaTextStyle.xelaButtonMedium
                                                     .apply(
                                                         color: _isDark
                                                             ? XelaColor.Gray11
@@ -328,7 +328,7 @@ class _TabsComponentState extends State<TabsComponent> {
                                               child: Text(
                                             "IP",
                                             style:
-                                                XelaTextStyle.XelaButtonMedium
+                                                XelaTextStyle.xelaButtonMedium
                                                     .apply(
                                                         color: _isDark
                                                             ? XelaColor.Gray11
@@ -356,7 +356,7 @@ class _TabsComponentState extends State<TabsComponent> {
                                               child: Text(
                                             "Attempts",
                                             style:
-                                                XelaTextStyle.XelaButtonMedium
+                                                XelaTextStyle.xelaButtonMedium
                                                     .apply(
                                                         color: _isDark
                                                             ? XelaColor.Gray11
@@ -639,7 +639,7 @@ class _TabsComponentState extends State<TabsComponent> {
                     child: Center(
                       child: Text(
                         "Variants",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),

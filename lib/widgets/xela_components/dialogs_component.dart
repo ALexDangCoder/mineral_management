@@ -59,7 +59,7 @@ class _DialogsComponentState extends State<DialogsComponent> {
                           Expanded(
                               child: Text(
                             "Dialogs",
-                            style: XelaTextStyle.XelaSubheadline.apply(
+                            style: XelaTextStyle.xelaSubheadline.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2),
@@ -92,7 +92,7 @@ class _DialogsComponentState extends State<DialogsComponent> {
                         child: Center(
                           child: Text(
                             "Usage Example",
-                            style: XelaTextStyle.XelaCaption.apply(
+                            style: XelaTextStyle.xelaCaption.apply(
                                 color: _isDark
                                     ? XelaColor.Gray6
                                     : XelaColor.Gray4),
@@ -126,7 +126,7 @@ class _DialogsComponentState extends State<DialogsComponent> {
                         child: Center(
                           child: Text(
                             "Variants",
-                            style: XelaTextStyle.XelaCaption.apply(
+                            style: XelaTextStyle.xelaCaption.apply(
                                 color: _isDark
                                     ? XelaColor.Gray6
                                     : XelaColor.Gray4),

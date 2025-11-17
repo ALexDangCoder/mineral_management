@@ -104,7 +104,7 @@ class _SocialNotificationsState extends State<SocialNotifications> {
                                 children: [
                                   Text("Requests",
                                       style:
-                                          XelaTextStyle.XelaSubheadline.apply(
+                                          XelaTextStyle.xelaSubheadline.apply(
                                               color: _isDark
                                                   ? Colors.white
                                                   : XelaColor.Gray2)),
@@ -142,13 +142,13 @@ class _SocialNotificationsState extends State<SocialNotifications> {
                                         children: [
                                           Text("Lauralee Quintero",
                                               style: XelaTextStyle
-                                                      .XelaSmallBodyBold
+                                                      .xelaSmallBodyBold
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
                                                           : XelaColor.Gray2)),
                                           Text("wants to add you to friends",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: _isDark
                                                           ? XelaColor.Gray8
@@ -162,12 +162,12 @@ class _SocialNotificationsState extends State<SocialNotifications> {
                                       const SizedBox(width: 64),
                                       Text("Accept",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: XelaColor.Blue6)),
                                       const SizedBox(width: 16),
                                       Text("Decline",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: _isDark
                                                       ? XelaColor.Gray8
                                                       : XelaColor.Gray6)),
@@ -197,13 +197,13 @@ class _SocialNotificationsState extends State<SocialNotifications> {
                                         children: [
                                           Text("Brittni Landoma",
                                               style: XelaTextStyle
-                                                      .XelaSmallBodyBold
+                                                      .xelaSmallBodyBold
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
                                                           : XelaColor.Gray2)),
                                           Text("wants to add you to friends",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: _isDark
                                                           ? XelaColor.Gray8
@@ -217,12 +217,12 @@ class _SocialNotificationsState extends State<SocialNotifications> {
                                       const SizedBox(width: 64),
                                       Text("Accept",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: XelaColor.Blue6)),
                                       const SizedBox(width: 16),
                                       Text("Decline",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: _isDark
                                                       ? XelaColor.Gray8
                                                       : XelaColor.Gray6)),
@@ -249,7 +249,7 @@ class _SocialNotificationsState extends State<SocialNotifications> {
                                 children: [
                                   Text("Suggestions for you",
                                       style:
-                                          XelaTextStyle.XelaSubheadline.apply(
+                                          XelaTextStyle.xelaSubheadline.apply(
                                               color: _isDark
                                                   ? Colors.white
                                                   : XelaColor.Gray2)),
@@ -274,14 +274,14 @@ class _SocialNotificationsState extends State<SocialNotifications> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text("Chantal Shelburne",
-                                          style: XelaTextStyle.XelaSmallBodyBold
+                                          style: XelaTextStyle.xelaSmallBodyBold
                                               .apply(
                                                   color: _isDark
                                                       ? Colors.white
                                                       : XelaColor.Gray2)),
                                       Text("Memphis, TN, US",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: _isDark
                                                       ? XelaColor.Gray8
                                                       : XelaColor.Gray6)),
@@ -310,14 +310,14 @@ class _SocialNotificationsState extends State<SocialNotifications> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text("Marci Senter",
-                                          style: XelaTextStyle.XelaSmallBodyBold
+                                          style: XelaTextStyle.xelaSmallBodyBold
                                               .apply(
                                                   color: _isDark
                                                       ? Colors.white
                                                       : XelaColor.Gray2)),
                                       Text("Newark, NJ, US",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: _isDark
                                                       ? XelaColor.Gray8
                                                       : XelaColor.Gray6)),
@@ -346,14 +346,14 @@ class _SocialNotificationsState extends State<SocialNotifications> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text("Janetta Rotolo",
-                                          style: XelaTextStyle.XelaSmallBodyBold
+                                          style: XelaTextStyle.xelaSmallBodyBold
                                               .apply(
                                                   color: _isDark
                                                       ? Colors.white
                                                       : XelaColor.Gray2)),
                                       Text("Fort Worth, TX, US",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: _isDark
                                                       ? XelaColor.Gray8
                                                       : XelaColor.Gray6)),
@@ -382,14 +382,14 @@ class _SocialNotificationsState extends State<SocialNotifications> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text("Tyra Dhillon",
-                                          style: XelaTextStyle.XelaSmallBodyBold
+                                          style: XelaTextStyle.xelaSmallBodyBold
                                               .apply(
                                                   color: _isDark
                                                       ? Colors.white
                                                       : XelaColor.Gray2)),
                                       Text("Springfield, MA, US",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: _isDark
                                                       ? XelaColor.Gray8
                                                       : XelaColor.Gray6)),
@@ -418,14 +418,14 @@ class _SocialNotificationsState extends State<SocialNotifications> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text("Marielle Wigington",
-                                          style: XelaTextStyle.XelaSmallBodyBold
+                                          style: XelaTextStyle.xelaSmallBodyBold
                                               .apply(
                                                   color: _isDark
                                                       ? Colors.white
                                                       : XelaColor.Gray2)),
                                       Text("Honolulu, HI, US",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: _isDark
                                                       ? XelaColor.Gray8
                                                       : XelaColor.Gray6)),
@@ -438,7 +438,7 @@ class _SocialNotificationsState extends State<SocialNotifications> {
                             ),
                             const SizedBox(height: 16),
                             Text("View All",
-                                style: XelaTextStyle.XelaCaption.apply(
+                                style: XelaTextStyle.xelaCaption.apply(
                                     color: XelaColor.Blue6)),
                             const SizedBox(height: 32),
                             Padding(
@@ -632,14 +632,14 @@ class _SocialNotificationsState extends State<SocialNotifications> {
                                     Row(
                                       children: [
                                         Text("184.3K",
-                                            style: XelaTextStyle.XelaHeadline
+                                            style: XelaTextStyle.xelaHeadline
                                                 .apply(
                                                     color: _isDark
                                                         ? Colors.white
                                                         : XelaColor.Gray2)),
                                         const SizedBox(width: 8),
                                         Text("Followers",
-                                            style: XelaTextStyle.XelaSmallBody
+                                            style: XelaTextStyle.xelaSmallBody
                                                 .apply(
                                                     color: _isDark
                                                         ? XelaColor.Gray8
@@ -650,7 +650,7 @@ class _SocialNotificationsState extends State<SocialNotifications> {
                                       children: [
                                         Text("Active now on your profile",
                                             style:
-                                                XelaTextStyle.XelaSmallBodyBold
+                                                XelaTextStyle.xelaSmallBodyBold
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -678,19 +678,19 @@ class _SocialNotificationsState extends State<SocialNotifications> {
                               child: Row(
                                 children: [
                                   Text("About",
-                                      style: XelaTextStyle.XelaSmallBody.apply(
+                                      style: XelaTextStyle.xelaSmallBody.apply(
                                           color: _isDark
                                               ? XelaColor.Gray8
                                               : XelaColor.Gray6)),
                                   const SizedBox(width: 24),
                                   Text("Accessibility",
-                                      style: XelaTextStyle.XelaSmallBody.apply(
+                                      style: XelaTextStyle.xelaSmallBody.apply(
                                           color: _isDark
                                               ? XelaColor.Gray8
                                               : XelaColor.Gray6)),
                                   const SizedBox(width: 24),
                                   Text("Help Center",
-                                      style: XelaTextStyle.XelaSmallBody.apply(
+                                      style: XelaTextStyle.xelaSmallBody.apply(
                                           color: _isDark
                                               ? XelaColor.Gray8
                                               : XelaColor.Gray6)),
@@ -704,13 +704,13 @@ class _SocialNotificationsState extends State<SocialNotifications> {
                               child: Row(
                                 children: [
                                   Text("Privacy and Terms",
-                                      style: XelaTextStyle.XelaSmallBody.apply(
+                                      style: XelaTextStyle.xelaSmallBody.apply(
                                           color: _isDark
                                               ? XelaColor.Gray8
                                               : XelaColor.Gray6)),
                                   const SizedBox(width: 24),
                                   Text("Advertising",
-                                      style: XelaTextStyle.XelaSmallBody.apply(
+                                      style: XelaTextStyle.xelaSmallBody.apply(
                                           color: _isDark
                                               ? XelaColor.Gray8
                                               : XelaColor.Gray6)),

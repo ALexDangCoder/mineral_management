@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/config/themes/app_theme.dart';
 import 'package:bnv_opendata/dependencies/app_dependenies.dart';
 import 'package:bnv_opendata/domain/models/xela_textfield_models.dart';
@@ -32,7 +33,7 @@ class AccountInfoScreen extends StatelessWidget {
 }
 
 class _AccountInfoListener extends StatelessWidget {
-  const _AccountInfoListener({super.key});
+  const _AccountInfoListener();
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,7 @@ class _AccountInfoListener extends StatelessWidget {
 }
 
 class _AccountInfoBody extends StatefulWidget {
-  const _AccountInfoBody({super.key});
+  const _AccountInfoBody();
 
   @override
   State<_AccountInfoBody> createState() => _AccountInfoBodyState();
@@ -87,14 +88,14 @@ class _AccountInfoBodyState extends State<_AccountInfoBody> {
                 const SizedBox(height: 28),
                 Text(
                   'Cán bộ kỹ thuật',
-                  style: XelaTextStyle.XelaHeadline.apply(
+                  style: XelaTextStyle.xelaHeadline.apply(
                     color: XelaColor.Gray2,
                   ),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   'Canbokythuat@gmail.com',
-                  style: XelaTextStyle.XelaBody.apply(
+                  style: XelaTextStyle.xelaBody.apply(
                     color: XelaColor.Gray2,
                   ),
                 ),
@@ -134,12 +135,9 @@ class _AccountInfoBodyState extends State<_AccountInfoBody> {
                       const SizedBox(height: 16),
                       XelaButton(
                         onPressed: () {
-                          Navigator.push(
+                          Navigator.pushNamed(
                             context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const ChangePasswordScreen(),
-                            ),
+                            Routers.changePassword,
                           );
                         },
                         text: AppS.of(context).change_password,

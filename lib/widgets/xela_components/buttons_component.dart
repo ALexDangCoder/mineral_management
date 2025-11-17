@@ -55,7 +55,7 @@ class _ButtonsComponentState extends State<ButtonsComponent> {
                       Expanded(
                           child: Text(
                         "Buttons",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -87,7 +87,7 @@ class _ButtonsComponentState extends State<ButtonsComponent> {
                     child: Center(
                       child: Text(
                         "Usage Example",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -211,7 +211,7 @@ class _ButtonsComponentState extends State<ButtonsComponent> {
                     child: Center(
                       child: Text(
                         "Type: Primary Size: Large",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -340,7 +340,7 @@ class _ButtonsComponentState extends State<ButtonsComponent> {
                     child: Center(
                       child: Text(
                         "Type: Secondary Size: Large",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -507,7 +507,7 @@ class _ButtonsComponentState extends State<ButtonsComponent> {
                     child: Center(
                       child: Text(
                         "Type: Primary Size: Medium",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -636,7 +636,7 @@ class _ButtonsComponentState extends State<ButtonsComponent> {
                     child: Center(
                       child: Text(
                         "Type: Secondary Size: Medium",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -803,7 +803,7 @@ class _ButtonsComponentState extends State<ButtonsComponent> {
                     child: Center(
                       child: Text(
                         "Type: Primary Size: Small",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -932,7 +932,7 @@ class _ButtonsComponentState extends State<ButtonsComponent> {
                     child: Center(
                       child: Text(
                         "Type: Secondary Size: Small",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),

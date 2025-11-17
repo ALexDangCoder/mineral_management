@@ -141,7 +141,7 @@ class _UsersList1State extends State<UsersList1> {
                     ),
                     Expanded(
                         child: Text("Chats",
-                            style: XelaTextStyle.XelaHeadline.apply(
+                            style: XelaTextStyle.xelaHeadline.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2))),
@@ -180,7 +180,7 @@ class _UsersList1State extends State<UsersList1> {
                                 child: Row(
                                   children: [
                                     Text("Favorites",
-                                        style: XelaTextStyle.XelaSmallBodyBold
+                                        style: XelaTextStyle.xelaSmallBodyBold
                                             .apply(
                                                 color: _isDark
                                                     ? XelaColor.Gray10
@@ -211,7 +211,7 @@ class _UsersList1State extends State<UsersList1> {
                                           favorites[index].avatar,
                                           const SizedBox(height: 8),
                                           Text(favorites[index].name,
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray8))
                                         ],
@@ -225,7 +225,7 @@ class _UsersList1State extends State<UsersList1> {
                                 child: Row(
                                   children: [
                                     Text("Contacts",
-                                        style: XelaTextStyle.XelaSmallBodyBold
+                                        style: XelaTextStyle.xelaSmallBodyBold
                                             .apply(
                                                 color: _isDark
                                                     ? XelaColor.Gray10
@@ -257,7 +257,7 @@ class _UsersList1State extends State<UsersList1> {
                                                   child: Text(
                                                       "Charolette Hanlin",
                                                       style: XelaTextStyle
-                                                              .XelaButtonMedium
+                                                              .xelaButtonMedium
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -280,13 +280,13 @@ class _UsersList1State extends State<UsersList1> {
                                               Expanded(
                                                   child: Text("How are you?",
                                                       style: XelaTextStyle
-                                                              .XelaCaption
+                                                              .xelaCaption
                                                           .apply(
                                                               color: XelaColor
                                                                   .Gray8))),
                                               Text("08:00",
                                                   style: XelaTextStyle
-                                                          .XelaCaption
+                                                          .xelaCaption
                                                       .apply(
                                                           color:
                                                               XelaColor.Gray8))
@@ -327,7 +327,7 @@ class _UsersList1State extends State<UsersList1> {
                                               Expanded(
                                                   child: Text("Phyllis Godley",
                                                       style: XelaTextStyle
-                                                              .XelaButtonMedium
+                                                              .xelaButtonMedium
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -351,13 +351,13 @@ class _UsersList1State extends State<UsersList1> {
                                                   child: Text(
                                                       "I'll be there in 2 mins",
                                                       style: XelaTextStyle
-                                                              .XelaCaption
+                                                              .xelaCaption
                                                           .apply(
                                                               color: XelaColor
                                                                   .Gray8))),
                                               Text("5/27/15",
                                                   style: XelaTextStyle
-                                                          .XelaCaption
+                                                          .xelaCaption
                                                       .apply(
                                                           color:
                                                               XelaColor.Gray8))
@@ -388,7 +388,7 @@ class _UsersList1State extends State<UsersList1> {
                                               Expanded(
                                                   child: Text("Brittni Lando",
                                                       style: XelaTextStyle
-                                                              .XelaButtonMedium
+                                                              .xelaButtonMedium
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -412,13 +412,13 @@ class _UsersList1State extends State<UsersList1> {
                                                   child: Text(
                                                       "just ideas for next time",
                                                       style: XelaTextStyle
-                                                              .XelaCaption
+                                                              .xelaCaption
                                                           .apply(
                                                               color: XelaColor
                                                                   .Gray8))),
                                               Text("07:12",
                                                   style: XelaTextStyle
-                                                          .XelaCaption
+                                                          .xelaCaption
                                                       .apply(
                                                           color:
                                                               XelaColor.Gray8))
@@ -449,7 +449,7 @@ class _UsersList1State extends State<UsersList1> {
                                                   child: Text(
                                                       "Maryland Winkles",
                                                       style: XelaTextStyle
-                                                              .XelaButtonMedium
+                                                              .xelaButtonMedium
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -472,13 +472,13 @@ class _UsersList1State extends State<UsersList1> {
                                               Expanded(
                                                   child: Text("perfect!",
                                                       style: XelaTextStyle
-                                                              .XelaCaption
+                                                              .xelaCaption
                                                           .apply(
                                                               color: XelaColor
                                                                   .Gray8))),
                                               Text("00:03",
                                                   style: XelaTextStyle
-                                                          .XelaCaption
+                                                          .xelaCaption
                                                       .apply(
                                                           color:
                                                               XelaColor.Gray8))
@@ -509,7 +509,7 @@ class _UsersList1State extends State<UsersList1> {
                                                   child: Text(
                                                       "Leatrice Handler",
                                                       style: XelaTextStyle
-                                                              .XelaButtonMedium
+                                                              .xelaButtonMedium
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -533,13 +533,13 @@ class _UsersList1State extends State<UsersList1> {
                                                   child: Text(
                                                       "Haha that's terrifying 😂",
                                                       style: XelaTextStyle
-                                                              .XelaCaption
+                                                              .xelaCaption
                                                           .apply(
                                                               color: XelaColor
                                                                   .Gray8))),
                                               Text("12:34",
                                                   style: XelaTextStyle
-                                                          .XelaCaption
+                                                          .xelaCaption
                                                       .apply(
                                                           color:
                                                               XelaColor.Gray8))
@@ -570,7 +570,7 @@ class _UsersList1State extends State<UsersList1> {
                                                   child: Text(
                                                       "Charolette Hanlin",
                                                       style: XelaTextStyle
-                                                              .XelaButtonMedium
+                                                              .xelaButtonMedium
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -593,13 +593,13 @@ class _UsersList1State extends State<UsersList1> {
                                               Expanded(
                                                   child: Text("How are you?",
                                                       style: XelaTextStyle
-                                                              .XelaCaption
+                                                              .xelaCaption
                                                           .apply(
                                                               color: XelaColor
                                                                   .Gray8))),
                                               Text("08:00",
                                                   style: XelaTextStyle
-                                                          .XelaCaption
+                                                          .xelaCaption
                                                       .apply(
                                                           color:
                                                               XelaColor.Gray8))
@@ -640,7 +640,7 @@ class _UsersList1State extends State<UsersList1> {
                                               Expanded(
                                                   child: Text("Phyllis Godley",
                                                       style: XelaTextStyle
-                                                              .XelaButtonMedium
+                                                              .xelaButtonMedium
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -664,13 +664,13 @@ class _UsersList1State extends State<UsersList1> {
                                                   child: Text(
                                                       "I'll be there in 2 mins",
                                                       style: XelaTextStyle
-                                                              .XelaCaption
+                                                              .xelaCaption
                                                           .apply(
                                                               color: XelaColor
                                                                   .Gray8))),
                                               Text("5/27/15",
                                                   style: XelaTextStyle
-                                                          .XelaCaption
+                                                          .xelaCaption
                                                       .apply(
                                                           color:
                                                               XelaColor.Gray8))
@@ -701,7 +701,7 @@ class _UsersList1State extends State<UsersList1> {
                                               Expanded(
                                                   child: Text("Garry Rentty",
                                                       style: XelaTextStyle
-                                                              .XelaButtonMedium
+                                                              .xelaButtonMedium
                                                           .apply(
                                                               color: _isDark
                                                                   ? Colors.white
@@ -725,13 +725,13 @@ class _UsersList1State extends State<UsersList1> {
                                                   child: Text(
                                                       "just ideas for next time",
                                                       style: XelaTextStyle
-                                                              .XelaCaption
+                                                              .xelaCaption
                                                           .apply(
                                                               color: XelaColor
                                                                   .Gray8))),
                                               Text("07:12",
                                                   style: XelaTextStyle
-                                                          .XelaCaption
+                                                          .xelaCaption
                                                       .apply(
                                                           color:
                                                               XelaColor.Gray8))

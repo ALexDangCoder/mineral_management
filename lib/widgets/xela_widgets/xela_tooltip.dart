@@ -39,14 +39,14 @@ class XelaTooltip extends StatelessWidget {
 
   final double arrowHeight = 8;
 
-  Offset offset = const Offset(0, 0);
+  Offset offset = Offset.zero;
 
   @override
   Widget build(BuildContext context) {
     Offset? arrowOffset;
     AlignmentGeometry? alignment;
-    var rotatedArrowHalfHeight = getArrowHeight(arrowHeight) / 2;
-    var offset = arrowHeight / 2 + rotatedArrowHalfHeight;
+    final rotatedArrowHalfHeight = getArrowHeight(arrowHeight) / 2;
+    final offset = arrowHeight / 2 + rotatedArrowHalfHeight;
     switch (arrowDirection) {
       case XelaTooltipArrowDirection.TOP:
         arrowOffset = Offset(0.0, -offset + rotatedArrowHalfHeight);

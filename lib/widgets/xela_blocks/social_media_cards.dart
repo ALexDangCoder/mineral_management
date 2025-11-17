@@ -63,7 +63,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                     ),
                     Expanded(
                         child: Text("Social Media Cards",
-                            style: XelaTextStyle.XelaSubheadline.apply(
+                            style: XelaTextStyle.xelaSubheadline.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2))),
@@ -118,7 +118,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                         children: [
                                           Text("r/playstation",
                                               style: XelaTextStyle
-                                                      .XelaButtonMedium
+                                                      .xelaButtonMedium
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -135,7 +135,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                       ),
                                       Text("u/shadknight20 • 19 hours ago",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: XelaColor.Gray8))
                                     ],
                                   )),
@@ -149,7 +149,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                               ),
                               const SizedBox(height: 16),
                               Text("Playstation is partnering with Discord.",
-                                  style: XelaTextStyle.XelaButtonMedium.apply(
+                                  style: XelaTextStyle.xelaButtonMedium.apply(
                                       color: _isDark
                                           ? Colors.white
                                           : XelaColor.Gray2)),
@@ -198,7 +198,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                       const SizedBox(width: 8),
                                       Text("114",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: _isDark
                                                       ? Colors.white
                                                       : XelaColor.Gray2))
@@ -231,7 +231,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                         const SizedBox(width: 16),
                                         Text("1.4k",
                                             style:
-                                                XelaTextStyle.XelaButtonMedium
+                                                XelaTextStyle.xelaButtonMedium
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -283,14 +283,14 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                       children: [
                                         Text("Dianne Russell",
                                             style:
-                                                XelaTextStyle.XelaButtonMedium
+                                                XelaTextStyle.xelaButtonMedium
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
                                                             : XelaColor.Gray2)),
                                         Text("Oslo, Norway",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: XelaColor.Gray8))
                                       ],
                                     )),
@@ -360,18 +360,18 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                     children: [
                                       Text("5,486 views",
                                           style:
-                                              XelaTextStyle.XelaCaption.apply(
+                                              XelaTextStyle.xelaCaption.apply(
                                                   color: _isDark
                                                       ? Colors.white
                                                       : XelaColor.Gray2)),
                                       Row(
                                         children: [
                                           Text("Liked by ",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray8)),
                                           Text("Jenny Wilson and 159 others",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -386,7 +386,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                   child: Text(
                                       "The Parrot's Evolutionary Past... (More)",
                                       style:
-                                          XelaTextStyle.XelaButtonMedium.apply(
+                                          XelaTextStyle.xelaButtonMedium.apply(
                                               color: _isDark
                                                   ? Colors.white
                                                   : XelaColor.Gray2))),
@@ -394,7 +394,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                               Padding(
                                   padding: EdgeInsets.symmetric(horizontal: 8),
                                   child: Text("Dec 4, 2021 21:42",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray8))),
                               const SizedBox(height: 8),
                             ],
@@ -433,14 +433,14 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                       children: [
                                         Text("Darlene Robertson",
                                             style:
-                                                XelaTextStyle.XelaButtonMedium
+                                                XelaTextStyle.xelaButtonMedium
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
                                                             : XelaColor.Gray2)),
                                         Text("Naples, Italy",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: XelaColor.Gray8))
                                       ],
                                     )),
@@ -486,7 +486,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                               borderRadius:
                                                   BorderRadius.circular(12)),
                                           child: Text("2:56",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(color: Colors.white)),
                                         )
                                       ],
@@ -537,11 +537,11 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                       Row(
                                         children: [
                                           Text("Liked by ",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray8)),
                                           Text("Jenny Wilson and 852 others",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: _isDark
                                                           ? Colors.white
@@ -557,7 +557,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                   child: Text(
                                       "The Parrot's Evolutionary Past... (More)",
                                       style:
-                                          XelaTextStyle.XelaButtonMedium.apply(
+                                          XelaTextStyle.xelaButtonMedium.apply(
                                               color: _isDark
                                                   ? Colors.white
                                                   : XelaColor.Gray2))),
@@ -566,7 +566,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                   padding:
                                       const EdgeInsets.symmetric(horizontal: 8),
                                   child: Text("Nov 22, 2021 15:36",
-                                      style: XelaTextStyle.XelaCaption.apply(
+                                      style: XelaTextStyle.xelaCaption.apply(
                                           color: XelaColor.Gray8))),
                               const SizedBox(height: 8),
                             ],
@@ -605,14 +605,14 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                       children: [
                                         Text("Roberta Fox",
                                             style:
-                                                XelaTextStyle.XelaButtonMedium
+                                                XelaTextStyle.xelaButtonMedium
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
                                                             : XelaColor.Gray2)),
                                         Text("@userName",
                                             style:
-                                                XelaTextStyle.XelaCaption.apply(
+                                                XelaTextStyle.xelaCaption.apply(
                                                     color: XelaColor.Gray8))
                                       ],
                                     )),
@@ -644,7 +644,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                     const EdgeInsets.symmetric(horizontal: 12),
                                 child: Text(
                                     "The RTX 3080 Ti now has a rumoured   June 3 release date.",
-                                    style: XelaTextStyle.XelaBodyBold.apply(
+                                    style: XelaTextStyle.xelaBodyBold.apply(
                                         color: _isDark
                                             ? Colors.white
                                             : XelaColor.Gray2)),
@@ -655,7 +655,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                     const EdgeInsets.symmetric(horizontal: 12),
                                 child: Text(
                                     "Nvidia GeForce RTX 3080 Ti: When will it launch, how much will it cost, and how will it perform?",
-                                    style: XelaTextStyle.XelaSmallBody.apply(
+                                    style: XelaTextStyle.xelaSmallBody.apply(
                                         color: _isDark
                                             ? XelaColor.Gray10
                                             : XelaColor.Gray4)),
@@ -665,7 +665,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 12),
                                 child: Text("#NVIDIA #RTX3080 #GraphicsCard",
-                                    style: XelaTextStyle.XelaCaption.apply(
+                                    style: XelaTextStyle.xelaCaption.apply(
                                         color: _isDark
                                             ? XelaColor.Blue6
                                             : XelaColor.Blue3)),
@@ -681,7 +681,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                               size: 20, color: XelaColor.Gray6),
                                           const SizedBox(width: 8),
                                           Text("1.6k",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray6))
                                         ],
@@ -693,7 +693,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                               size: 20, color: XelaColor.Gray6),
                                           const SizedBox(width: 8),
                                           Text("2.3k",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray6))
                                         ],
@@ -747,7 +747,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                       children: [
                                         Text("r/technology",
                                             style:
-                                                XelaTextStyle.XelaButtonMedium
+                                                XelaTextStyle.xelaButtonMedium
                                                     .apply(
                                                         color: _isDark
                                                             ? Colors.white
@@ -769,7 +769,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                     const EdgeInsets.symmetric(horizontal: 12),
                                 child: Text(
                                     "PlayStation is partnering with Discord. \"Popular communication service will integrate with your social experience on PlayStation beginning early next year\"",
-                                    style: XelaTextStyle.XelaButtonMedium.apply(
+                                    style: XelaTextStyle.xelaButtonMedium.apply(
                                         color: _isDark
                                             ? Colors.white
                                             : XelaColor.Gray2)),
@@ -779,7 +779,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 12),
                                 child: Text("Posted by u/zzill6 • 12 hours ago",
-                                    style: XelaTextStyle.XelaCaption.apply(
+                                    style: XelaTextStyle.xelaCaption.apply(
                                         color: XelaColor.Gray8)),
                               ),
                               const SizedBox(height: 24),
@@ -798,7 +798,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                                   : XelaColor.Gray6),
                                           const SizedBox(width: 8),
                                           Text("1.6k",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: _isDark
                                                           ? XelaColor.Gray10
@@ -814,7 +814,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                                   : XelaColor.Gray6),
                                           const SizedBox(width: 8),
                                           Text("2.3k",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: _isDark
                                                           ? XelaColor.Gray10
@@ -830,7 +830,7 @@ class _SocialMediaCardsState extends State<SocialMediaCards> {
                                                   : XelaColor.Gray6),
                                           const SizedBox(width: 8),
                                           Text("Share",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: _isDark
                                                           ? XelaColor.Gray10

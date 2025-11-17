@@ -25,31 +25,31 @@ class _StepsComponentState extends State<StepsComponent> {
   List<XelaStepItem> steps = [
     XelaStepItem(
         id: 1,
-        title: "Step 1",
-        caption: "Basic information",
+        title: 'Step 1',
+        caption: 'Basic information',
         state: XelaStepsState.ACTIVE),
-    XelaStepItem(id: 2, title: "Step 2", caption: "User management"),
-    XelaStepItem(id: 3, title: "Step 3", caption: "Fleet settings"),
-    XelaStepItem(id: 4, title: "Step 4", caption: "Confirmation"),
+    XelaStepItem(id: 2, title: 'Step 2', caption: 'User management'),
+    XelaStepItem(id: 3, title: 'Step 3', caption: 'Fleet settings'),
+    XelaStepItem(id: 4, title: 'Step 4', caption: 'Confirmation'),
   ];
 
   List<XelaStepItem> stepsVars = [
     XelaStepItem(
         id: 1,
-        title: "Title",
-        caption: "Caption",
+        title: 'Title',
+        caption: 'Caption',
         state: XelaStepsState.DEFAULT),
     XelaStepItem(
         id: 2,
-        title: "Title",
-        caption: "Caption",
+        title: 'Title',
+        caption: 'Caption',
         state: XelaStepsState.COMPLETED),
     XelaStepItem(
-        id: 3, title: "Title", caption: "Caption", state: XelaStepsState.ERROR),
+        id: 3, title: 'Title', caption: 'Caption', state: XelaStepsState.ERROR),
     XelaStepItem(
         id: 4,
-        title: "Title",
-        caption: "Caption",
+        title: 'Title',
+        caption: 'Caption',
         state: XelaStepsState.ACTIVE),
   ];
 
@@ -87,8 +87,8 @@ class _StepsComponentState extends State<StepsComponent> {
                       ),
                       Expanded(
                           child: Text(
-                        "Steps",
-                        style: XelaTextStyle.XelaSubheadline.apply(
+                        'Steps',
+                        style: XelaTextStyle.xelaSubheadline.apply(
                             color:
                                 _isDark ? XelaColor.Gray11 : XelaColor.Gray2),
                       )),
@@ -119,8 +119,8 @@ class _StepsComponentState extends State<StepsComponent> {
                     padding: const EdgeInsets.symmetric(vertical: 12),
                     child: Center(
                       child: Text(
-                        "Usage Example",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        'Usage Example',
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),
@@ -143,15 +143,15 @@ class _StepsComponentState extends State<StepsComponent> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Getting Started",
-                            style: XelaTextStyle.XelaHeadline.apply(
+                            'Getting Started',
+                            style: XelaTextStyle.xelaHeadline.apply(
                                 color: _isDark
                                     ? XelaColor.Gray11
                                     : XelaColor.Gray2),
                           ),
                           Text(
-                            "Complete these steps and become a member",
-                            style: XelaTextStyle.XelaCaption.apply(
+                            'Complete these steps and become a member',
+                            style: XelaTextStyle.xelaCaption.apply(
                                 color: XelaColor.Gray6),
                           ),
                           Padding(
@@ -185,7 +185,7 @@ class _StepsComponentState extends State<StepsComponent> {
                                 XelaButton(
                                   size: XelaButtonSize.MEDIUM,
                                   onPressed: () {},
-                                  text: "Skip for now",
+                                  text: 'Skip for now',
                                   type: XelaButtonType.SECONDARY,
                                   background: Colors.transparent,
                                   foregroundColor: _isDark
@@ -201,17 +201,17 @@ class _StepsComponentState extends State<StepsComponent> {
                                         ? XelaColor.Green1
                                         : XelaColor.Green2,
                                     foregroundColor: Colors.white,
-                                    text: "Continue",
+                                    text: 'Continue',
                                     rightIcon: Icon(Icons.arrow_forward,
                                         size: 20, color: Colors.white),
                                     onPressed: () {
                                       setState(() {
-                                        var currentStep =
+                                        final currentStep =
                                             steps.firstWhereOrNull((element) =>
                                                 element.state ==
                                                 XelaStepsState.ACTIVE);
                                         if (currentStep != null) {
-                                          var currentStepIndex =
+                                          final currentStepIndex =
                                               steps.indexOf(currentStep);
                                           if (currentStepIndex == 2) {
                                             currentStep.state =
@@ -248,8 +248,8 @@ class _StepsComponentState extends State<StepsComponent> {
                     padding: const EdgeInsets.symmetric(vertical: 12),
                     child: Center(
                       child: Text(
-                        "Variants",
-                        style: XelaTextStyle.XelaCaption.apply(
+                        'Variants',
+                        style: XelaTextStyle.xelaCaption.apply(
                             color: _isDark ? XelaColor.Gray6 : XelaColor.Gray4),
                       ),
                     ),

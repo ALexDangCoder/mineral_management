@@ -95,7 +95,7 @@ class _UsersList3State extends State<UsersList3> {
                                 padding: const EdgeInsets.all(24),
                                 child: Row(children: [
                                   Text("Notifications",
-                                      style: XelaTextStyle.XelaHeadline.apply(
+                                      style: XelaTextStyle.xelaHeadline.apply(
                                           color: _isDark
                                               ? Colors.white
                                               : XelaColor.Gray2)),
@@ -107,7 +107,7 @@ class _UsersList3State extends State<UsersList3> {
                                   const Spacer(),
                                   Text("View all",
                                       style:
-                                          XelaTextStyle.XelaButtonSmall.apply(
+                                          XelaTextStyle.xelaButtonSmall.apply(
                                               color: _isDark
                                                   ? XelaColor.Blue5
                                                   : XelaColor.Blue3))
@@ -135,7 +135,7 @@ class _UsersList3State extends State<UsersList3> {
                                             children: [
                                               Text("Charolette ",
                                                   style: XelaTextStyle
-                                                          .XelaSmallBodyBold
+                                                          .xelaSmallBodyBold
                                                       .apply(
                                                           color: _isDark
                                                               ? Colors.white
@@ -143,7 +143,7 @@ class _UsersList3State extends State<UsersList3> {
                                                                   .Gray2)),
                                               Text("started following you.",
                                                   style: XelaTextStyle
-                                                          .XelaSmallBody
+                                                          .xelaSmallBody
                                                       .apply(
                                                           color: _isDark
                                                               ? Colors.white
@@ -152,7 +152,7 @@ class _UsersList3State extends State<UsersList3> {
                                             ],
                                           ),
                                           Text("2 minutes ago",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray8))
                                         ],
@@ -196,7 +196,7 @@ class _UsersList3State extends State<UsersList3> {
                                             children: [
                                               Text("Darrell ",
                                                   style: XelaTextStyle
-                                                          .XelaSmallBodyBold
+                                                          .xelaSmallBodyBold
                                                       .apply(
                                                           color: _isDark
                                                               ? Colors.white
@@ -204,7 +204,7 @@ class _UsersList3State extends State<UsersList3> {
                                                                   .Gray2)),
                                               Text("liked your photo.",
                                                   style: XelaTextStyle
-                                                          .XelaSmallBody
+                                                          .xelaSmallBody
                                                       .apply(
                                                           color: _isDark
                                                               ? Colors.white
@@ -213,7 +213,7 @@ class _UsersList3State extends State<UsersList3> {
                                             ],
                                           ),
                                           Text("15 minutes ago",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray8))
                                         ],
@@ -247,7 +247,7 @@ class _UsersList3State extends State<UsersList3> {
                                             children: [
                                               Text("Courtney ",
                                                   style: XelaTextStyle
-                                                          .XelaSmallBodyBold
+                                                          .xelaSmallBodyBold
                                                       .apply(
                                                           color: _isDark
                                                               ? Colors.white
@@ -255,7 +255,7 @@ class _UsersList3State extends State<UsersList3> {
                                                                   .Gray2)),
                                               Text("started following you.",
                                                   style: XelaTextStyle
-                                                          .XelaSmallBody
+                                                          .xelaSmallBody
                                                       .apply(
                                                           color: _isDark
                                                               ? Colors.white
@@ -264,7 +264,7 @@ class _UsersList3State extends State<UsersList3> {
                                             ],
                                           ),
                                           Text("5 months ago",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray8))
                                         ],
@@ -290,7 +290,7 @@ class _UsersList3State extends State<UsersList3> {
                                             children: [
                                               Text("Arlene ",
                                                   style: XelaTextStyle
-                                                          .XelaSmallBodyBold
+                                                          .xelaSmallBodyBold
                                                       .apply(
                                                           color: _isDark
                                                               ? Colors.white
@@ -298,7 +298,7 @@ class _UsersList3State extends State<UsersList3> {
                                                                   .Gray2)),
                                               Text("liked your photo.",
                                                   style: XelaTextStyle
-                                                          .XelaSmallBody
+                                                          .xelaSmallBody
                                                       .apply(
                                                           color: _isDark
                                                               ? Colors.white
@@ -307,7 +307,7 @@ class _UsersList3State extends State<UsersList3> {
                                             ],
                                           ),
                                           Text("1 month ago",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray8))
                                         ],
@@ -333,7 +333,7 @@ class _UsersList3State extends State<UsersList3> {
                                             children: [
                                               Text("Darlene ",
                                                   style: XelaTextStyle
-                                                          .XelaSmallBodyBold
+                                                          .xelaSmallBodyBold
                                                       .apply(
                                                           color: _isDark
                                                               ? Colors.white
@@ -341,7 +341,7 @@ class _UsersList3State extends State<UsersList3> {
                                                                   .Gray2)),
                                               Text("joined your campaign.",
                                                   style: XelaTextStyle
-                                                          .XelaSmallBody
+                                                          .xelaSmallBody
                                                       .apply(
                                                           color: _isDark
                                                               ? Colors.white
@@ -350,7 +350,7 @@ class _UsersList3State extends State<UsersList3> {
                                             ],
                                           ),
                                           Text("1 month ago",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray8))
                                         ],
@@ -376,7 +376,7 @@ class _UsersList3State extends State<UsersList3> {
                                             children: [
                                               Text("Dianne ",
                                                   style: XelaTextStyle
-                                                          .XelaSmallBodyBold
+                                                          .xelaSmallBodyBold
                                                       .apply(
                                                           color: _isDark
                                                               ? Colors.white
@@ -384,7 +384,7 @@ class _UsersList3State extends State<UsersList3> {
                                                                   .Gray2)),
                                               Text("liked your photo.",
                                                   style: XelaTextStyle
-                                                          .XelaSmallBody
+                                                          .xelaSmallBody
                                                       .apply(
                                                           color: _isDark
                                                               ? Colors.white
@@ -393,7 +393,7 @@ class _UsersList3State extends State<UsersList3> {
                                             ],
                                           ),
                                           Text("5 hours ago",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray8))
                                         ],
@@ -430,7 +430,7 @@ class _UsersList3State extends State<UsersList3> {
                                             children: [
                                               Text("Kristin ",
                                                   style: XelaTextStyle
-                                                          .XelaSmallBodyBold
+                                                          .xelaSmallBodyBold
                                                       .apply(
                                                           color: _isDark
                                                               ? Colors.white
@@ -438,7 +438,7 @@ class _UsersList3State extends State<UsersList3> {
                                                                   .Gray2)),
                                               Text("started following you.",
                                                   style: XelaTextStyle
-                                                          .XelaSmallBody
+                                                          .xelaSmallBody
                                                       .apply(
                                                           color: _isDark
                                                               ? Colors.white
@@ -447,7 +447,7 @@ class _UsersList3State extends State<UsersList3> {
                                             ],
                                           ),
                                           Text("15 days ago",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray8))
                                         ],
@@ -474,7 +474,7 @@ class _UsersList3State extends State<UsersList3> {
                                             children: [
                                               Text("Greg ",
                                                   style: XelaTextStyle
-                                                          .XelaSmallBodyBold
+                                                          .xelaSmallBodyBold
                                                       .apply(
                                                           color: _isDark
                                                               ? Colors.white
@@ -482,7 +482,7 @@ class _UsersList3State extends State<UsersList3> {
                                                                   .Gray2)),
                                               Text("started following you.",
                                                   style: XelaTextStyle
-                                                          .XelaSmallBody
+                                                          .xelaSmallBody
                                                       .apply(
                                                           color: _isDark
                                                               ? Colors.white
@@ -491,7 +491,7 @@ class _UsersList3State extends State<UsersList3> {
                                             ],
                                           ),
                                           Text("2 week ago",
-                                              style: XelaTextStyle.XelaCaption
+                                              style: XelaTextStyle.xelaCaption
                                                   .apply(
                                                       color: XelaColor.Gray8))
                                         ],

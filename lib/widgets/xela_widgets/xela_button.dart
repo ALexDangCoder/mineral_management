@@ -39,7 +39,7 @@ class XelaButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var children = <Widget>[];
+    final children = <Widget>[];
 
     if (leftIcon != null) {
       children.add(Padding(
@@ -64,10 +64,10 @@ class XelaButton extends StatelessWidget {
       children.add(Text(
         text!,
         style: (size == XelaButtonSize.SMALL
-                ? XelaTextStyle.XelaButtonMedium
+                ? XelaTextStyle.xelaButtonMedium
                 : size == XelaButtonSize.SMALL
-                    ? XelaTextStyle.XelaButtonSmall
-                    : XelaTextStyle.XelaButtonLarge)
+                    ? XelaTextStyle.xelaButtonSmall
+                    : XelaTextStyle.xelaButtonLarge)
             .apply(color: foregroundColor),
       ));
     }
