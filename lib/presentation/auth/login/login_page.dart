@@ -23,8 +23,9 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => LoginCubit(),
-      child: const AppScaffold(
-        body: _LoginPageListener(),
+      child: AppScaffold(
+        bgColor: AppTheme.getInstance().primaryColor(),
+        body: const _LoginPageListener(),
       ),
     );
   }
