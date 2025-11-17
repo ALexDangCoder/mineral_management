@@ -58,7 +58,7 @@ class _Body extends StatelessWidget {
               );
             }
             return SizedBox(
-              height: 110,
+              height: 112,
               child: ListView.builder(
                 itemCount: state.items.length,
                 scrollDirection: Axis.horizontal,
@@ -138,6 +138,7 @@ class _AlertCard extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(
           right: 16,
+          bottom: 2,
         ),
         decoration: BoxDecoration(
           color: XelaColor.Gray12,

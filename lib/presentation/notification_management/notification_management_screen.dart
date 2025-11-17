@@ -153,7 +153,7 @@ class NotificationManagementScreen extends StatelessWidget {
 
                   Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.all(0),
+                      padding: EdgeInsets.zero,
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [

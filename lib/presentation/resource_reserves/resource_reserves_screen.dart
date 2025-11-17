@@ -50,7 +50,7 @@ class _ResourceReservesScreenState extends State<ResourceReservesScreen> {
     return AppScaffold(
       title: 'Tra cứu trữ lượng',
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.zero,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
