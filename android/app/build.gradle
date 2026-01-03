@@ -20,7 +20,7 @@ if (keystorePropertiesFile.exists()) {
 
 def flutterRoot = localProperties.getProperty('flutter.sdk')
 if (flutterRoot == null) {
-    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+    throw new RuntimeException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
 }
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
@@ -102,18 +102,18 @@ android {
             dimension "default"
             signingConfig signingConfigs.debug
             applicationIdSuffix ".develop"
-            resValue "string", "app_name", "[DEV]BNV-OpenData"
+            resValue "string", "app_name", "QL Khoáng Sản (Dev)"
         }
         staging {
             dimension "default"
             signingConfig signingConfigs.debug
             applicationIdSuffix ".stg"
-            resValue "string", "app_name", "[STG]BNV-OpenData"
+            resValue "string", "app_name", "QL Khoáng Sản (Staging)"
         }
         product {
             signingConfig signingConfigs.release
             dimension "default"
-            resValue "string", "app_name", "BNV-OpenData"
+            resValue "string", "app_name", "QL Khoáng Sản"
         }
     }
 

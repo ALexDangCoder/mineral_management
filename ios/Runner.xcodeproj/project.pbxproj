@@ -386,6 +386,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				APP_DISPLAY_NAME = "QL Khoáng Sản (Dev)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.synodus.bnv.opendata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -469,6 +470,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				APP_DISPLAY_NAME = "QL Khoáng Sản";
 				PRODUCT_BUNDLE_IDENTIFIER = com.synodus.bnv.opendata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -552,6 +554,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				APP_DISPLAY_NAME = "QL Khoáng Sản (Staging)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.synodus.bnv.opendata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -632,6 +635,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				APP_DISPLAY_NAME = "QL Khoáng Sản (Dev)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.synodus.bnv.opendata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -711,6 +715,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				APP_DISPLAY_NAME = "QL Khoáng Sản (Staging)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.synodus.bnv.opendata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -790,6 +795,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				APP_DISPLAY_NAME = "QL Khoáng Sản";
 				PRODUCT_BUNDLE_IDENTIFIER = com.synodus.bnv.opendata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -867,6 +873,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				APP_DISPLAY_NAME = "QL Khoáng Sản";
 				PRODUCT_BUNDLE_IDENTIFIER = com.synodus.bnv.opendata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1001,6 +1008,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				APP_DISPLAY_NAME = "QL Khoáng Sản (Dev)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.synodus.bnv.opendata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1029,6 +1037,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				APP_DISPLAY_NAME = "QL Khoáng Sản (Dev)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.synodus.bnv.opendata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
