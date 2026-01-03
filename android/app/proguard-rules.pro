@@ -13,3 +13,10 @@
 -dontwarn androidx.window.sidecar.SidecarInterface
 -dontwarn androidx.window.sidecar.SidecarProvider
 -dontwarn androidx.window.sidecar.SidecarWindowLayoutInfo
+
+# Keep flutter_secure_storage native bridge and enum methods (avoid NoSuchMethodException: *.values)
+-keep class com.it_nomads.fluttersecurestorage.** { *; }
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}

@@ -73,7 +73,7 @@ android {
     buildTypes {
         debug {
             debuggable true
-            minifyEnabled true
+            minifyEnabled false
             zipAlignEnabled false
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -84,6 +84,7 @@ android {
         }
         release {
             debuggable false
+            // Required when shrinkResources is enabled
             minifyEnabled true
             zipAlignEnabled true
             shrinkResources true
