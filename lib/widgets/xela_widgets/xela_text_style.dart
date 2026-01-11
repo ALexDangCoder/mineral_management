@@ -82,4 +82,16 @@ class XelaTextStyle {
     fontWeight: FontWeight.w800,
     fontFamily: fontFamily,
   );
+
+  static const xelaTips = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+    fontFamily: fontFamily,
+  );
+
+  static const xelaTipsBold = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w800,
+    fontFamily: fontFamily,
+  );
 }

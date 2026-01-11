@@ -6,6 +6,7 @@ import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
 import 'package:bnv_opendata/utils/popup_loading/popup_loading_utils.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_button.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
+import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -64,12 +65,12 @@ class _ChangePasswordBody extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            XelaTextField(
-              placeholder: AppS.of(context).old_pass,
-              background: Colors.transparent,
-              secureField: true,
-            ),
-            const SizedBox(height: 16),
+            // XelaTextField(
+            //   placeholder: AppS.of(context).old_pass,
+            //   background: Colors.transparent,
+            //   secureField: true,
+            // ),
+            // const SizedBox(height: 16),
             XelaTextField(
               placeholder: AppS.of(context).new_pass,
               background: Colors.transparent,
@@ -81,7 +82,36 @@ class _ChangePasswordBody extends StatelessWidget {
               background: Colors.transparent,
               secureField: true,
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 24),
+            Text(
+              'Quy tắc đặt mật khẩu',
+              style: XelaTextStyle.xelaBodyBold.apply(
+                color: XelaColor.Gray2,
+              ),
+            ),
+            const SizedBox(height: 12),
+            RichText(text: TextSpan(
+              children: [
+                TextSpan(
+                  text:
+                    'Độ dài mật khẩu tối thiểu 8 ký tự\nMật khẩu phải có các ký tự '
+                        'sau: Chữ cái viết hoa, chữ cái viết thường, chữ số và các '
+                        'ký tự đặc biệt.\nMật khẩu không được bao gồm chuỗi 4 ký tự'
+                        ' liên tiếp trở lên, chuỗi 4 ký tự giống nhau trở lên'
+                        '.\nVí dụ mật khẩu hợp lệ: ',
+                    style: XelaTextStyle.xelaSmallBody.apply(
+                      color: XelaColor.Gray2,
+                    ),
+                ),
+                TextSpan(
+                  text: '1Qaz@123',
+                  style: XelaTextStyle.xelaSmallBodyBold.apply(
+                    color: AppTheme.getInstance().primaryColor(),
+                  )
+                ),
+              ]
+            ),),
+            const SizedBox(height: 24),
             XelaButton(
               onPressed: () async {
                 final validation = await context
@@ -89,7 +119,7 @@ class _ChangePasswordBody extends StatelessWidget {
                     .validateInput(
                         current: 'current',
                         newPass: 'newPass',
-                        confirmPass: 'confirmPass');
+                        confirmPass: 'confirmPass',);
                 if (validation) {
                   if (context.mounted) {
                     await context
