@@ -95,8 +95,9 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
             children: [
               const SizedBox(height: 24),
               Text(
-                AppS.of(context).mineral_management.toUpperCase(),
+                'Quản lý & khai thác dữ liệu địa chất TKV',
                 style: XelaTextStyle.xelaHeadline.apply(color: XelaColor.Gray2),
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 8),
               Text(
