@@ -18,11 +18,12 @@
   "change_password": "Đổi mật khẩu",
   "name": "Họ và tên",
   "position": "Chức vụ",
+  "department": "Đơn vị",
   "phone_number": "Số điện thoại",
   "save_change": "Lưu thay đổi",
   "old_pass": "Mật khẩu cũ",
   "new_pass": "Mật khẩu mới",
-  "confirm_pass": "Xác nhận mật khẩu mới",
+  "confirm_pass": "Xác nhận mật khẩu",
   "home_page": "Trang chủ",
   "map": "Bản đồ",
   "report": "Báo cáo",
@@ -38,5 +39,12 @@
   "reserves_report": "Báo cáo Trữ lượng",
   "reserves_total": "Tổng trữ lượng: ",
   "reporting_period": "Kỳ báo cáo",
-  "select_reporting_period": "Chọn kỳ báo cáo"
+  "select_reporting_period": "Chọn kỳ báo cáo",
+  "offical_app_name": "QUẢN LÝ VÀ KHAI THÁC DỮ LIỆU ĐỊA CHẤT TKV",
+  "confirm_code": "Mã xác nhận",
+  "confirm_code_sent_to": "Mã xác nhận đã được gửi đến:",
+  "input_confirm_code": "Nhập mã xác nhận",
+  "not_received_code": "Không nhận được mã?",
+  "resend": "Gửi lại",
+  "confirm": "Xác nhận"
 }

@@ -7,6 +7,7 @@ import 'package:bnv_opendata/presentation/auth/login/cubit/login_cubit.dart';
 import 'package:bnv_opendata/presentation/main_cubit/auth_cubit.dart';
 import 'package:bnv_opendata/presentation/screen_exports.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
+import 'package:bnv_opendata/resources/generated/assets.gen.dart';
 import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
 import 'package:bnv_opendata/utils/popup_loading/popup_loading_utils.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_button.dart';
@@ -95,7 +96,7 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
             children: [
               const SizedBox(height: 24),
               Text(
-                AppS.of(context).mineral_management.toUpperCase(),
+                AppS.of(context).offical_app_name.toUpperCase(),
                 style: XelaTextStyle.xelaHeadline.apply(color: XelaColor.Gray2),
               ),
               const SizedBox(height: 8),
@@ -120,18 +121,39 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
                 },
               ),
               const SizedBox(height: 24),
-              XelaTextField(
-                placeholder: AppS.of(context).password,
-                secureField: true,
-                rightIcon: const Icon(
-                  Icons.password,
-                  size: 20,
-                  color: XelaColor.Gray2,
-                ),
-                background: Colors.transparent,
-                textEditingController: _passController,
-                onChange: (string) {
-                  context.read<LoginCubit>().changePassword(string);
+              BlocBuilder<LoginCubit, LoginState>(
+                builder: (context, state) {
+                  return XelaTextField(
+                    placeholder: AppS.of(context).password,
+                    secureField: !state.isShowPass,
+                    // rightIcon: Icon(
+                    //   Icons.remove_red_eye_outlined,
+                    //   size: 20,
+                    //   color: AppTheme.getInstance().primaryColor(),
+                    // ),
+                    rightIcon: InkWell(
+                      onTap: () {
+                        context.read<LoginCubit>().toggleShowPass();
+                      },
+                      child: state.isShowPass
+                          ? Assets.icons.icEyeClose.svg(
+                              colorFilter: ColorFilter.mode(
+                                AppTheme.getInstance().primaryColor(),
+                                BlendMode.srcIn,
+                              ),
+                            )
+                          : Icon(
+                              Icons.remove_red_eye_outlined,
+                              color: AppTheme.getInstance().primaryColor(),
+                              size: 20,
+                            ),
+                    ),
+                    background: Colors.transparent,
+                    textEditingController: _passController,
+                    onChange: (string) {
+                      context.read<LoginCubit>().changePassword(string);
+                    },
+                  );
                 },
               ),
               const SizedBox(height: 28),
@@ -164,7 +186,7 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
                 onPressed: () {
                   Navigator.pushNamed(
                     context,
-                    Routers.changePassword,
+                    Routers.confirmOtpChangePass,
                   );
                 },
                 child: Text(AppS.of(context).forgot_password),

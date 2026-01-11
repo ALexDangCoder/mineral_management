@@ -33,4 +33,8 @@ class LoginCubit extends Cubit<LoginState> {
               (state.password?.length ?? 0) >= 8),
     );
   }
+
+  void toggleShowPass() {
+    emit(state.copyWith(isShowPass: !state.isShowPass));
+  }
 }

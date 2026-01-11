@@ -133,7 +133,7 @@ class _XelaTextFieldState extends State<XelaTextField> {
                     : null,
                 suffixIcon: widget.rightIcon != null
                     ? Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 18),
+                        padding: const EdgeInsets.symmetric(vertical: 16),
                         child: widget.rightIcon,
                       )
                     : null,
