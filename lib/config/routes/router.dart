@@ -12,6 +12,7 @@ import 'package:bnv_opendata/presentation/main_screen/main_screen.dart';
 import 'package:bnv_opendata/presentation/mine_3d/mine_3d_screen.dart';
 import 'package:bnv_opendata/presentation/mine_detail/mine_detail_screen.dart';
 import 'package:bnv_opendata/presentation/mine_list_screen/mine_list_screen.dart';
+import 'package:bnv_opendata/presentation/mining_area_screen/mining_area_screen.dart';
 import 'package:bnv_opendata/presentation/notification_management/notification_management_screen.dart';
 import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
 import 'package:bnv_opendata/presentation/project_detail/project_detail_screen.dart';
@@ -110,6 +111,7 @@ class Routers {
   static const constructionDetail = '/construction_detail';
   static const geologicalReportList = '/geological_report_list';
   static const resourceReserves = '/resource_reserves';
+  static const miningArea = '/mining_area';
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     // final args = settings.arguments;
@@ -236,6 +238,8 @@ class Routers {
         );
       case closurePlanDetail:
         return MaterialPageRoute(builder: (ctx) => ClosurePlanDetailScreen());
+      case miningArea:
+        return MaterialPageRoute(builder: (ctx) => const MiningAreaScreen());
     }
     return null;
   }
