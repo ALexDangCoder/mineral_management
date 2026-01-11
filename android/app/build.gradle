@@ -103,18 +103,18 @@ android {
             dimension "default"
             signingConfig signingConfigs.debug
             applicationIdSuffix ".develop"
-            resValue "string", "app_name", "QL Khoáng Sản (Dev)"
+            resValue "string", "app_name", "TKV GeoData Manager (Dev)"
         }
         staging {
             dimension "default"
             signingConfig signingConfigs.debug
             applicationIdSuffix ".stg"
-            resValue "string", "app_name", "QL Khoáng Sản (Staging)"
+            resValue "string", "app_name", "TKV GeoData Manager (Staging)"
         }
         product {
             signingConfig signingConfigs.release
             dimension "default"
-            resValue "string", "app_name", "QL Khoáng Sản"
+            resValue "string", "app_name", "TKV GeoData Manager"
         }
     }
 

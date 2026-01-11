@@ -98,6 +98,7 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
               Text(
                 AppS.of(context).offical_app_name.toUpperCase(),
                 style: XelaTextStyle.xelaHeadline.apply(color: XelaColor.Gray2),
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 8),
               Text(
