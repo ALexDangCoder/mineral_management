@@ -1,137 +1,319 @@
-import 'package:bnv_opendata/config/routes/router.dart';
-import 'package:bnv_opendata/config/themes/app_theme.dart';
-import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
-import 'package:bnv_opendata/widgets/xela_widgets/xela_button.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
-import 'package:bnv_opendata/widgets/xela_widgets/xela_divider.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:bnv_opendata/data/models/model_exports.dart';
+import 'package:bnv_opendata/presentation/closure_plan_detail/cubit/closure_plan_detail_cubit.dart';
+import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart';
 
 class ClosurePlanDetailScreen extends StatelessWidget {
-  final String title;
-  final String projectName;
-  final DateTime startDate;
-
-  ClosurePlanDetailScreen({
-    super.key,
-    String? title,
-    String? projectName,
-    DateTime? startDate,
-  })  : title = title ?? 'Chi tiết Đề án đóng cửa',
-        projectName = projectName ?? 'Đề án đóng cửa Nà Bó',
-        startDate = startDate ?? DateTime(2024, 1, 1);
-
-  String _formatDate(DateTime d) => DateFormat('dd/MM/yyyy').format(d);
+  const ClosurePlanDetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Nhận arguments từ các màn hình khác
-    final args = ModalRoute.of(context)?.settings.arguments;
-    String finalProjectName = projectName;
-    if (args is Map) {
-      finalProjectName = args['projectName'] ?? projectName;
-    }
+    return BlocProvider(
+      create: (_) => ClosurePlanDetailCubit()..fetchDetail(),
+      child: const _View(),
+    );
+  }
+}
 
-    return AppScaffold(
-      title: title,
-      bgColor: XelaColor.Gray12,
-      body: ListView(
-        children: [
-          const SizedBox(height: 4),
-          _InfoCard(
-            label: 'Tên dự án',
-            value: finalProjectName,
-            isExpired: false,
-          ),
-          const SizedBox(height: 14),
-          _InfoCard(
-            label: 'Ngày Phê Duyệt',
-            value: _formatDate(startDate),
-            isExpired: false,
-          ),
-          const SizedBox(height: 14),
-          _InfoCard(
-            label: 'Ngày hết hiệu lực',
-            value: _formatDate(startDate),
-            isExpired: true,
-          ),
-          const SizedBox(height: 24),
-          // Buttons navigation
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              children: [
-                XelaButton(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      Routers.projectDetail,
-                      arguments: {
-                        'projectName': finalProjectName,
-                        'fromClosurePlan': true,
-                      },
+class _View extends StatelessWidget {
+  const _View();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xFFF5F6FA),
+      body: SafeArea(
+        child: Column(
+          children: [
+            const _AppBar(),
+            Expanded(
+              child: BlocBuilder<
+                  ClosurePlanDetailCubit,
+                  ClosurePlanDetailState>(
+                builder: (context, state) {
+                  if (state.eventState is LoadingState) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
                     );
-                  },
-                  text: 'Xem chi tiết dự án',
-                  background: AppTheme.getInstance().primaryColor(),
-                ),
-                const SizedBox(height: 16),
-                XelaButton(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      Routers.mine3d,
-                      arguments: {
-                        'projectName': finalProjectName,
-                        'fromClosurePlan': true,
-                      },
+                  }
+
+                  if (state.eventState is ErrorState) {
+                    return const Center(
+                      child: Text('Có lỗi xảy ra'),
                     );
-                  },
-                  text: 'Xem mô hình 3D',
-                  background: AppTheme.getInstance().primaryColor(),
-                ),
-              ],
+                  }
+
+                  final data = state.data;
+                  if (data == null) return const SizedBox();
+
+                  return SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        _GeneralInfoCard(data),
+                        _TimelineCard(data),
+                        _StatusCard(data),
+                        _NoteCard(data),
+                        const _ActionButtons(),
+                      ],
+                    ),
+                  );
+                },
+              ),
             ),
-          ),
-          const SizedBox(height: 24),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
 
-class _InfoCard extends StatelessWidget {
-  final String label;
-  final String value;
-  final bool isExpired;
+class _AppBar extends StatelessWidget {
+  const _AppBar();
 
-  const _InfoCard({
-    required this.label,
-    required this.value,
-    required this.isExpired,
-  });
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        RawMaterialButton(
+          elevation: 0,
+          focusElevation: 2,
+          highlightElevation: 0,
+          fillColor: Colors.transparent,
+          hoverElevation: 0,
+          constraints: const BoxConstraints(),
+          onPressed: () => Navigator.pop(context),
+          child: const Padding(
+            padding: EdgeInsets.all(16),
+            child: Icon(
+              Icons.arrow_back_ios_new,
+              size: 20,
+              color: Colors.grey,
+            ),
+          ),
+        ),
+        const Expanded(
+          child: Text(
+            'Chi tiết đề án đóng cửa mỏ',
+            style: XelaTextStyle.xelaHeadline
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+
+class _Card extends StatelessWidget {
+  final Widget child;
+
+  const _Card(this.child);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: XelaColor.Gray11,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
       ),
-      child: Column(
+      child: child,
+    );
+  }
+}
+
+class _GeneralInfoCard extends StatelessWidget {
+  final ClosurePlanDetailModel d;
+
+  const _GeneralInfoCard(this.d);
+
+  @override
+  Widget build(BuildContext context) {
+    return _Card(
+      Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            label,
-            style: XelaTextStyle.xelaSubheadline,
-          ),
+          const _SectionTitle('Thông tin chung'),
           const SizedBox(height: 8),
+
+          const Text(
+            'Mã đề án',
+            style: TextStyle(color: Colors.grey),
+          ),
           Text(
-            value,
-            style: XelaTextStyle.xelaBodyBold.apply(
-              color: isExpired ? XelaColor.Red3 : XelaColor.Gray1,
+            d.code,
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.blue,
+            ),
+          ),
+
+          const SizedBox(height: 12),
+          _InfoRow('Tên đề án', d.name),
+          _InfoRow('Khu mỏ', d.mine),
+          _InfoRow('Khoáng sản', d.mineral),
+          _InfoRow('Đơn vị lập', d.owner),
+        ],
+      ),
+    );
+  }
+}
+
+
+class _TimelineCard extends StatelessWidget {
+  final ClosurePlanDetailModel d;
+
+  const _TimelineCard(this.d);
+
+  @override
+  Widget build(BuildContext context) {
+    return _Card(
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const _SectionTitle('Thời gian & Tiến độ'),
+          const SizedBox(height: 12),
+
+          _DateRow('Ngày lập đề án', d.createdDate),
+          _DateRow('Ngày phê duyệt', d.approvedDate),
+          _DateRow('Thời gian thực hiện', d.duration),
+
+          const SizedBox(height: 12),
+          Row(
+            children: [
+              Expanded(
+                child: LinearProgressIndicator(
+                  value: d.progress,
+                  minHeight: 8,
+                ),
+              ),
+              const SizedBox(width: 8),
+              Text(
+                '${(d.progress * 100).round()}%',
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue,
+                ),
+              ),
+            ],
+          ),
+
+          const SizedBox(height: 12),
+          _MoneyRow(
+            'Kinh phí dự tính (triệu đồng)',
+            d.estimateCost.toString(),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+class _StatusCard extends StatelessWidget {
+  final ClosurePlanDetailModel d;
+
+  const _StatusCard(this.d);
+
+  @override
+  Widget build(BuildContext context) {
+    return _Card(
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const _SectionTitle('Trạng thái & Đơn vị'),
+          const SizedBox(height: 12),
+
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 6,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.orange.withOpacity(0.15),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text(
+                  d.status,
+                  style: const TextStyle(
+                    color: Colors.orange,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  d.approvedBy,
+                  style: const TextStyle(fontWeight: FontWeight.w500),
+                ),
+              ),
+            ],
+          ),
+
+          const SizedBox(height: 12),
+          _MoneyRow(
+            'Kinh phí được duyệt (triệu đồng)',
+            d.approvedCost?.toString() ?? 'Đợi phê duyệt',
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _NoteCard extends StatelessWidget {
+  final ClosurePlanDetailModel d;
+
+  const _NoteCard(this.d);
+
+  @override
+  Widget build(BuildContext context) {
+    return _Card(
+      Container(
+        width: double.infinity,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const _SectionTitle('Ghi chú'),
+            const SizedBox(height: 8),
+            Text(d.note ?? ''),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ActionButtons extends StatelessWidget {
+  const _ActionButtons();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Row(
+        children: [
+          Expanded(
+            child: OutlinedButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Hủy'),
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: ElevatedButton(
+              onPressed: () {
+                // TODO: navigate edit
+              },
+              child: const Text('Chỉnh sửa'),
             ),
           ),
         ],
@@ -139,3 +321,111 @@ class _InfoCard extends StatelessWidget {
     );
   }
 }
+
+class _SectionTitle extends StatelessWidget {
+  final String text;
+  const _SectionTitle(this.text);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: XelaTextStyle.xelaSubheadline
+    );
+  }
+}
+
+class _InfoRow extends StatelessWidget {
+  final String label;
+  final String value;
+
+  const _InfoRow(this.label, this.value);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 120,
+            child: Text(
+              label,
+              style: XelaTextStyle.xelaCaption.apply(color: XelaColor.Gray7),
+            ),
+          ),
+          Expanded(
+            child: Text(
+              value,
+              style:  XelaTextStyle.xelaBody.apply(color: XelaColor.Gray1),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _DateRow extends StatelessWidget {
+  final String label;
+  final String value;
+
+  const _DateRow(this.label, this.value);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: Row(
+        children: [
+          Expanded(child: Text(label)),
+          Text(value),
+          const SizedBox(width: 6),
+          const Icon(Icons.calendar_today, size: 16),
+        ],
+      ),
+    );
+  }
+}
+
+class _MoneyRow extends StatelessWidget {
+  final String label;
+  final String value;
+
+  const _MoneyRow(this.label, this.value);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: const TextStyle(color: Colors.grey),
+        ),
+        const SizedBox(height: 4),
+        Row(
+          children: [
+            const Icon(Icons.stacked_bar_chart, size: 18),
+            const SizedBox(width: 4),
+            Text(
+              value,
+              style: XelaTextStyle.xelaBody,
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
