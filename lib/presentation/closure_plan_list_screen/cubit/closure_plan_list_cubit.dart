@@ -1,20 +1,20 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:bnv_opendata/data/models/drill_hole.dart';
+import 'package:bnv_opendata/data/models/closure_plan.dart';
 import 'package:bnv_opendata/data/repositories/fake_mine_module_repository.dart';
 import 'package:bnv_opendata/data/repositories/mine_module_repository.dart';
 import 'package:bnv_opendata/presentation/mine_shared/cubit_status.dart';
 import 'package:equatable/equatable.dart';
 
-part 'drill_hole_list_state.dart';
+part 'closure_plan_list_state.dart';
 
-class DrillHoleListCubit extends Cubit<DrillHoleListState> {
-  DrillHoleListCubit({
+class ClosurePlanListCubit extends Cubit<ClosurePlanListState> {
+  ClosurePlanListCubit({
     required this.siteId,
     MineModuleRepository? repository,
   })  : _repository = repository ?? FakeMineModuleRepository.instance,
-        super(const DrillHoleListState());
+        super(const ClosurePlanListState());
 
   final String siteId;
   final MineModuleRepository _repository;
@@ -25,15 +25,15 @@ class DrillHoleListCubit extends Cubit<DrillHoleListState> {
   Future<void> fetch() async {
     emit(state.copyWith(status: MineScreenStatus.loading, errorMessage: null));
     try {
-      final holes = await _repository.getDrillHolesBySite(siteId);
-      final filtered = _filterHoles(holes, state.query);
+      final plans = await _repository.getClosurePlansBySite(siteId);
+      final filtered = _filterPlans(plans, state.query);
       emit(
         state.copyWith(
           status: filtered.isEmpty
               ? MineScreenStatus.empty
               : MineScreenStatus.success,
-          holes: holes,
-          filteredHoles: filtered,
+          plans: plans,
+          filteredPlans: filtered,
           errorMessage: null,
         ),
       );
@@ -41,7 +41,7 @@ class DrillHoleListCubit extends Cubit<DrillHoleListState> {
       emit(
         state.copyWith(
           status: MineScreenStatus.failure,
-          errorMessage: 'Khong the tai danh sach lo khoan.',
+          errorMessage: 'Không thể tải danh sách đề án đóng cửa.',
         ),
       );
     }
@@ -51,13 +51,13 @@ class DrillHoleListCubit extends Cubit<DrillHoleListState> {
     emit(state.copyWith(query: value));
     _searchDebounce?.cancel();
     _searchDebounce = Timer(const Duration(milliseconds: 350), () {
-      final filtered = _filterHoles(state.holes, state.query);
+      final filtered = _filterPlans(state.plans, state.query);
       emit(
         state.copyWith(
           status: filtered.isEmpty
               ? MineScreenStatus.empty
               : MineScreenStatus.success,
-          filteredHoles: filtered,
+          filteredPlans: filtered,
           errorMessage: null,
         ),
       );
@@ -72,16 +72,16 @@ class DrillHoleListCubit extends Cubit<DrillHoleListState> {
     await fetch();
   }
 
-  List<DrillHole> _filterHoles(List<DrillHole> input, String query) {
+  List<ClosurePlan> _filterPlans(List<ClosurePlan> input, String query) {
     final normalized = query.trim().toLowerCase();
     if (normalized.isEmpty) {
       return input;
     }
     return input
         .where(
-          (hole) =>
-              hole.code.toLowerCase().contains(normalized) ||
-              hole.name.toLowerCase().contains(normalized),
+          (plan) =>
+              plan.code.toLowerCase().contains(normalized) ||
+              plan.name.toLowerCase().contains(normalized),
         )
         .toList();
   }

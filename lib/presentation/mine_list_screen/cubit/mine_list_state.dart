@@ -1,39 +1,37 @@
 part of 'mine_list_cubit.dart';
 
-class MineListState extends BaseState {
-  final BaseState? eventState;
-  final List<MineModel>? data;
-  final bool? isLoadingMore;
-  final int page;
-  final bool? hasMore;
-
+class MineListState extends Equatable {
   const MineListState({
-    this.isLoadingMore,
-    this.page = 1,
-    this.hasMore,
-    this.eventState,
-    this.data,
+    this.status = MineScreenStatus.initial,
+    this.query = '',
+    this.regions = const <MineRegion>[],
+    this.filteredRegions = const <MineRegion>[],
+    this.errorMessage,
   });
 
+  final MineScreenStatus status;
+  final String query;
+  final List<MineRegion> regions;
+  final List<MineRegion> filteredRegions;
+  final String? errorMessage;
+
   MineListState copyWith({
-    BaseState? eventState,
-    List<MineModel>? data,
-    bool? isLoadingMore,
-    int? page,
-    bool? hasMore,
+    MineScreenStatus? status,
+    String? query,
+    List<MineRegion>? regions,
+    List<MineRegion>? filteredRegions,
+    String? errorMessage,
   }) {
     return MineListState(
-      eventState: eventState ?? this.eventState,
-      data: data ?? this.data,
+      status: status ?? this.status,
+      query: query ?? this.query,
+      regions: regions ?? this.regions,
+      filteredRegions: filteredRegions ?? this.filteredRegions,
+      errorMessage: errorMessage,
     );
   }
 
   @override
-  List<Object?> get props => [
-        eventState,
-        data,
-        isLoadingMore,
-        page,
-        hasMore,
-      ];
+  List<Object?> get props =>
+      [status, query, regions, filteredRegions, errorMessage];
 }

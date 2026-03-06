@@ -1,36 +1,36 @@
-part of 'closure_plan_detail_cubit.dart';
+part of 'drill_hole_detail_cubit.dart';
 
-class ClosurePlanDetailState extends Equatable {
-  const ClosurePlanDetailState({
+class DrillHoleDetailState extends Equatable {
+  const DrillHoleDetailState({
     this.status = MineScreenStatus.initial,
     this.query = '',
-    this.plan,
+    this.drillHole,
     this.site,
     this.errorMessage,
   });
 
   final MineScreenStatus status;
   final String query;
-  final ClosurePlan? plan;
+  final DrillHole? drillHole;
   final MineSite? site;
   final String? errorMessage;
 
-  ClosurePlanDetailState copyWith({
+  DrillHoleDetailState copyWith({
     MineScreenStatus? status,
     String? query,
-    ClosurePlan? plan,
+    DrillHole? drillHole,
     MineSite? site,
     String? errorMessage,
   }) {
-    return ClosurePlanDetailState(
+    return DrillHoleDetailState(
       status: status ?? this.status,
       query: query ?? this.query,
-      plan: plan ?? this.plan,
+      drillHole: drillHole ?? this.drillHole,
       site: site ?? this.site,
       errorMessage: errorMessage,
     );
   }
 
   @override
-  List<Object?> get props => [status, query, plan, site, errorMessage];
+  List<Object?> get props => [status, query, drillHole, site, errorMessage];
 }

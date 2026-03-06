@@ -1,52 +1,87 @@
-import 'package:bnv_opendata/data/models/mine_model.dart';
-import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_cubit.dart';
-import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart';
-import 'package:bnv_opendata/utils/constants/enums/mine_status_enum.dart';
+import 'dart:async';
+
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bnv_opendata/data/models/mine_region.dart';
+import 'package:bnv_opendata/data/repositories/fake_mine_module_repository.dart';
+import 'package:bnv_opendata/data/repositories/mine_module_repository.dart';
+import 'package:bnv_opendata/presentation/mine_shared/cubit_status.dart';
+import 'package:equatable/equatable.dart';
 
 part 'mine_list_state.dart';
 
-class MineListCubit extends BaseCubit<MineListState> {
-  MineListCubit() : super(const MineListState());
+class MineListCubit extends Cubit<MineListState> {
+  MineListCubit({MineModuleRepository? repository})
+      : _repository = repository ?? FakeMineModuleRepository.instance,
+        super(const MineListState());
 
-  Future<void> fetchDataMineList({
-    bool isLoadMore = false,
-    bool isRefresh = false,
-  }) async {
-    if (state.isLoadingMore == true || (state.hasMore == false && isLoadMore)) {
-      return;
+  final MineModuleRepository _repository;
+  Timer? _searchDebounce;
+
+  Future<void> init() => fetch();
+
+  Future<void> fetch() async {
+    emit(state.copyWith(status: MineScreenStatus.loading, errorMessage: null));
+    try {
+      final regions = await _repository.getMineRegions();
+      final filtered = _filterRegions(regions, state.query);
+      emit(
+        state.copyWith(
+          status: filtered.isEmpty
+              ? MineScreenStatus.empty
+              : MineScreenStatus.success,
+          regions: regions,
+          filteredRegions: filtered,
+          errorMessage: null,
+        ),
+      );
+    } catch (_) {
+      emit(
+        state.copyWith(
+          status: MineScreenStatus.failure,
+          errorMessage: 'Khong the tai danh sach vung mo.',
+        ),
+      );
     }
-    emit(
-      state.copyWith(
-        eventState:
-            (isLoadMore || isRefresh) ? state.eventState : const LoadingState(),
-        isLoadingMore: isLoadMore ? true : false,
-      ),
-    );
-    // final result = xxx cal API
-    emit(
-      state.copyWith(
-        eventState: const LoadedState(),
-        data: [
-          const MineModel(
-              id: 0,
-              mineName: 'Khu mỏ Thạch Khê',
-              mineralType: 'Sắt',
-              status: MineStatusEnum.active),
-          const MineModel(
-              id: 1,
-              mineName: 'Mỏ Than Nà Pó',
-              mineralType: 'Than',
-              status: MineStatusEnum.active),
-          const MineModel(
-              id: 2,
-              mineName: 'Mỏ Apatit Lào Cai',
-              mineralType: 'Apatit',
-              status: MineStatusEnum.pause),
-        ],
-        // hasMore: data.content.length == max,
-        // page: data.current + 1,
-        isLoadingMore: false,
-      ),
-    );
+  }
+
+  void onSearchChanged(String value) {
+    emit(state.copyWith(query: value));
+    _searchDebounce?.cancel();
+    _searchDebounce = Timer(const Duration(milliseconds: 350), () {
+      final filtered = _filterRegions(state.regions, state.query);
+      emit(
+        state.copyWith(
+          status: filtered.isEmpty
+              ? MineScreenStatus.empty
+              : MineScreenStatus.success,
+          filteredRegions: filtered,
+          errorMessage: null,
+        ),
+      );
+    });
+  }
+
+  Future<void> refresh() async {
+    await fetch();
+  }
+
+  Future<void> retry() async {
+    await fetch();
+  }
+
+  List<MineRegion> _filterRegions(List<MineRegion> input, String query) {
+    final normalized = query.trim().toLowerCase();
+    if (normalized.isEmpty) {
+      return input;
+    }
+    return input
+        .where((region) => region.name.toLowerCase().contains(normalized))
+        .toList();
+  }
+
+  @override
+  Future<void> close() {
+    _searchDebounce?.cancel();
+    return super.close();
   }
 }

@@ -1,6 +1,5 @@
 import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/presentation/alert/alert_list_screen.dart';
-import 'package:bnv_opendata/presentation/closure_plan_detail/closure_plan_detail_screen.dart';
 import 'package:bnv_opendata/presentation/notification_management/notification_management_screen.dart';
 import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
 import 'package:bnv_opendata/presentation/project_detail/project_detail_screen.dart';
@@ -136,10 +135,10 @@ class TotalScreen extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => ClosurePlanDetailScreen(),
-                    ),
+                  Navigator.pushNamed(
+                    context,
+                    Routers.closurePlanDetail,
+                    arguments: {'planId': 'plan_mk_01_01'},
                   );
                 },
                 child: Container(
