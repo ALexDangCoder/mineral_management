@@ -2,9 +2,13 @@ import 'dart:developer';
 
 import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/config/themes/app_theme.dart';
+import 'package:bnv_opendata/core/enums/auth_status_enum.dart';
+import 'package:bnv_opendata/data/models/model_exports.dart';
+import 'package:bnv_opendata/dependencies/app_dependenies.dart';
 import 'package:bnv_opendata/domain/models/xela_button_models.dart';
 import 'package:bnv_opendata/presentation/auth/login/cubit/login_cubit.dart';
 import 'package:bnv_opendata/presentation/main_cubit/auth_cubit.dart';
+import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart';
 import 'package:bnv_opendata/presentation/screen_exports.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
 import 'package:bnv_opendata/resources/generated/assets.gen.dart';
@@ -23,10 +27,12 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginCubit(),
-      child: AppScaffold(
-        bgColor: AppTheme.getInstance().primaryColor(),
-        body: const _LoginPageListener(),
+      create: (context) => LoginCubit(
+        injector.get(),
+      ),
+      child: const AppScaffold(
+        bgColor: Colors.white,
+        body: _LoginPageListener(),
       ),
     );
   }
@@ -39,12 +45,20 @@ class _LoginPageListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocListener(
       listeners: [
-        BlocListener<AuthCubit, AuthState>(
+        BlocListener<LoginCubit, LoginState>(
           listener: (context, state) {
-            if (state is AuthLoading) {
-              PopupLoadingUtils.of(context).show();
-            } else if (state is Authenticated) {
-              PopupLoadingUtils.of(context).close();
+            state.eventState is LoadingState
+                ? PopupLoadingUtils.of(context).show()
+                : PopupLoadingUtils.of(context).close();
+            if (state.eventState is ErrorState) {
+              print('ERROR ${(state.eventState! as ErrorState).data}');
+            }
+            if (state.eventState is LoadedState) {
+              final user = (state.eventState! as LoadedState).data;
+              context.read<AuthCubit>().setAuthStatus(
+                    authStatus: AuthStatusEnum.authenticated,
+                    user: user,
+                  );
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
@@ -53,9 +67,6 @@ class _LoginPageListener extends StatelessWidget {
               );
             }
           },
-        ),
-        BlocListener<LoginCubit, LoginState>(
-          listener: (context, state) {},
         ),
       ],
       child: const _LoginPageBody(),
@@ -83,119 +94,130 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
 
   @override
   Widget build(BuildContext ctx) {
-    return Container(
-      alignment: Alignment.center,
-      child: Container(
-        padding: const EdgeInsets.all(24),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(32), color: Colors.white),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(
+            height: 24,
+          ),
+          Row(
             children: [
-              const SizedBox(height: 24),
-              Text(
-                AppS.of(context).offical_app_name.toUpperCase(),
-                style: XelaTextStyle.xelaHeadline.apply(color: XelaColor.Gray2),
-                textAlign: TextAlign.center,
+              Assets.images.logoVinacomin.image(width: 60, height: 60),
+              const SizedBox(
+                width: 8,
               ),
-              const SizedBox(height: 8),
-              Text(
-                AppS.of(context).login_to_use,
-                style: XelaTextStyle.xelaBody.apply(
-                  color: XelaColor.Gray2,
+              Expanded(
+                child: FittedBox(
+                  child: Text(
+                    'Vinacomin\nCông ty cổ phần địa chất và khoáng sản',
+                    style: XelaTextStyle.xelaSmallBodyBold
+                        .apply(color: Colors.blue),
+                    textAlign: TextAlign.left,
+                  ),
                 ),
               ),
-              const SizedBox(height: 24),
-              XelaTextField(
-                placeholder: AppS.of(context).username,
-                rightIcon: Icon(
-                  Icons.account_circle,
-                  size: 20,
-                  color: AppTheme.getInstance().primaryColor(),
-                ),
-                background: Colors.transparent,
-                textEditingController: _usernameController,
-                onChange: (string) {
-                  context.read<LoginCubit>().changeUsername(string);
-                },
-              ),
-              const SizedBox(height: 24),
-              BlocBuilder<LoginCubit, LoginState>(
-                builder: (context, state) {
-                  return XelaTextField(
-                    placeholder: AppS.of(context).password,
-                    secureField: !state.isShowPass,
-                    // rightIcon: Icon(
-                    //   Icons.remove_red_eye_outlined,
-                    //   size: 20,
-                    //   color: AppTheme.getInstance().primaryColor(),
-                    // ),
-                    rightIcon: InkWell(
-                      onTap: () {
-                        context.read<LoginCubit>().toggleShowPass();
-                      },
-                      child: state.isShowPass
-                          ? Assets.icons.icEyeClose.svg(
-                              colorFilter: ColorFilter.mode(
-                                AppTheme.getInstance().primaryColor(),
-                                BlendMode.srcIn,
-                              ),
-                            )
-                          : Icon(
-                              Icons.remove_red_eye_outlined,
-                              color: AppTheme.getInstance().primaryColor(),
-                              size: 20,
-                            ),
-                    ),
-                    background: Colors.transparent,
-                    textEditingController: _passController,
-                    onChange: (string) {
-                      context.read<LoginCubit>().changePassword(string);
-                    },
-                  );
-                },
-              ),
-              const SizedBox(height: 28),
-              BlocBuilder<LoginCubit, LoginState>(
-                builder: (context, state) {
-                  return XelaButton(
-                    onPressed: () async {
-                      await context.read<AuthCubit>().login(
-                            username: state.username!,
-                            password: state.password!,
-                          );
-                    },
-                    autoResize: false,
-                    text: AppS.of(context).login,
-                    rightIcon: const Icon(
-                      Icons.arrow_forward,
-                      size: 15,
-                      color: Colors.white,
-                    ),
-                    background: state.loginBtnIsEnable
-                        ? AppTheme.getInstance().dfBtnColor()
-                        : AppTheme.getInstance().disableColor(),
-                    state: state.loginBtnIsEnable
-                        ? XelaButtonState.DEFAULT
-                        : XelaButtonState.DISABLED,
-                  );
-                },
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(
-                    context,
-                    Routers.confirmOtpChangePass,
-                  );
-                },
-                child: Text(AppS.of(context).forgot_password),
-              ),
-              const SizedBox(height: 28),
             ],
           ),
-        ),
+          const SizedBox(height: 16),
+          Center(
+            child: Text(
+              AppS.of(context).login,
+              style: XelaTextStyle.xelaHeadlineNormal.apply(
+                color: XelaColor.Gray2,
+              ),
+            ),
+          ),
+          const SizedBox(height: 24),
+          XelaTextField(
+            placeholder: AppS.of(context).username,
+            rightIcon: Icon(
+              Icons.account_circle,
+              size: 20,
+              color: AppTheme.getInstance().primaryColor(),
+            ),
+            background: AppTheme.getInstance().lightBgColor(),
+            textEditingController: _usernameController,
+            onChange: (string) {
+              context.read<LoginCubit>().changeUsername(string);
+            },
+          ),
+          const SizedBox(height: 24),
+          BlocBuilder<LoginCubit, LoginState>(
+            builder: (context, state) {
+              return XelaTextField(
+                placeholder: AppS.of(context).password,
+                secureField: !state.isShowPass,
+                // rightIcon: Icon(
+                //   Icons.remove_red_eye_outlined,
+                //   size: 20,
+                //   color: AppTheme.getInstance().primaryColor(),
+                // ),
+                rightIcon: InkWell(
+                  onTap: () {
+                    context.read<LoginCubit>().toggleShowPass();
+                  },
+                  child: state.isShowPass
+                      ? Assets.icons.icEyeClose.svg(
+                          colorFilter: ColorFilter.mode(
+                            AppTheme.getInstance().primaryColor(),
+                            BlendMode.srcIn,
+                          ),
+                        )
+                      : Icon(
+                          Icons.remove_red_eye_outlined,
+                          color: AppTheme.getInstance().primaryColor(),
+                          size: 20,
+                        ),
+                ),
+                background: AppTheme.getInstance().lightBgColor(),
+                textEditingController: _passController,
+                onChange: (string) {
+                  context.read<LoginCubit>().changePassword(string);
+                },
+              );
+            },
+          ),
+          const SizedBox(height: 8),
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(
+                context,
+                Routers.confirmOtpChangePass,
+              );
+            },
+            child: Text(
+              AppS.of(context).forgot_password,
+              textAlign: TextAlign.left,
+            ),
+          ),
+          const SizedBox(height: 8),
+          BlocBuilder<LoginCubit, LoginState>(
+            builder: (context, state) {
+              return XelaButton(
+                onPressed: () async {
+                  await context.read<LoginCubit>().login(
+                        username: state.username!,
+                        password: state.password!,
+                      );
+                },
+                autoResize: false,
+                text: AppS.of(context).login,
+                rightIcon: const Icon(
+                  Icons.arrow_forward,
+                  size: 15,
+                  color: Colors.white,
+                ),
+                background: state.loginBtnIsEnable
+                    ? AppTheme.getInstance().dfBtnColor()
+                    : AppTheme.getInstance().disableColor(),
+                state: state.loginBtnIsEnable
+                    ? XelaButtonState.DEFAULT
+                    : XelaButtonState.DISABLED,
+              );
+            },
+          ),
+        ],
       ),
     );
   }

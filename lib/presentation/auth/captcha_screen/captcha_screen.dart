@@ -13,16 +13,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinput/pinput.dart';
 
-class ConfirmOtpChangePassScreen extends StatelessWidget {
-  const ConfirmOtpChangePassScreen({super.key});
+class CaptchaScreen extends StatelessWidget {
+  const CaptchaScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ConfirmOtpCubit()..requestOtp(),
       child: AppScaffold(
-        title: AppS.of(context).confirm_code,
-        body: const _ConfirmOTPListener(),
+        title: AppS.of(context).input_captcha,
+        body: const _CaptchaListener(),
         bgColor: XelaColor.Gray12,
         appBarColor: XelaColor.Gray12,
       ),
@@ -30,8 +30,8 @@ class ConfirmOtpChangePassScreen extends StatelessWidget {
   }
 }
 
-class _ConfirmOTPListener extends StatelessWidget {
-  const _ConfirmOTPListener();
+class _CaptchaListener extends StatelessWidget {
+  const _CaptchaListener();
 
   @override
   Widget build(BuildContext context) {
@@ -45,24 +45,24 @@ class _ConfirmOTPListener extends StatelessWidget {
         //   Navigator.of(context).pop();
         // }
       },
-      child: const _ConfirmOTPBody(),
+      child: const _CaptchaBody(),
     );
   }
 }
 
-class _ConfirmOTPBody extends StatefulWidget {
-  const _ConfirmOTPBody({super.key});
+class _CaptchaBody extends StatefulWidget {
+  const _CaptchaBody({super.key});
 
   @override
-  State<_ConfirmOTPBody> createState() => _ConfirmOTPBodyState();
+  State<_CaptchaBody> createState() => _CaptchaBodyState();
 }
 
-class _ConfirmOTPBodyState extends State<_ConfirmOTPBody> {
-  final _otpController = TextEditingController();
+class _CaptchaBodyState extends State<_CaptchaBody> {
+  final _captchaController = TextEditingController();
 
   @override
   void dispose() {
-    _otpController.dispose();
+    _captchaController.dispose();
     super.dispose();
   }
 
@@ -79,58 +79,19 @@ class _ConfirmOTPBodyState extends State<_ConfirmOTPBody> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            AppS.of(context).confirm_code_sent_to,
-            style: XelaTextStyle.xelaBody.apply(
-              color: XelaColor.Gray2,
+          XelaTextField(
+            placeholder: AppS.of(context).input_confirm_code,
+            rightIcon: Icon(
+              Icons.confirmation_num_outlined,
+              size: 20,
+              color: AppTheme.getInstance().primaryColor(),
             ),
-          ),
-          const SizedBox(
-            height: 12,
-          ),
-          Text(
-            AppS.of(context).confirm_code_sent_to,
-            style: XelaTextStyle.xelaBodyBold.apply(
-              color: XelaColor.Gray2,
-            ),
-          ),
-          const SizedBox(
-            height: 24,
-          ),
-          // XelaTextField(
-          //   placeholder: AppS.of(context).input_confirm_code,
-          //   rightIcon: Icon(
-          //     Icons.confirmation_num_outlined,
-          //     size: 20,
-          //     color: AppTheme.getInstance().primaryColor(),
-          //   ),
-          //   background: Colors.transparent,
-          //   textEditingController: _otpController,
-          //   onChange: (string) {
-          //     context.read<ConfirmOtpCubit>().onChangeOtp(otpCode: string);
-          //   },
-          // ),
-          Pinput(
-            length: 6,
-            controller: _otpController,
-            defaultPinTheme: PinTheme(
-              width: 55,
-              height: 55,
-              textStyle: XelaTextStyle.xelaButtonMedium,
-              decoration: BoxDecoration(
-                color: XelaColor.Gray12,
-                border: Border.all(color: Colors.grey),
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
-            onChanged: (string) {
+            background: Colors.transparent,
+            textEditingController: _captchaController,
+            onChange: (string) {
               context.read<ConfirmOtpCubit>().onChangeOtp(otpCode: string);
             },
-            onCompleted: (pin) async {
-              await context.read<ConfirmOtpCubit>().confirmOtp();
-            },
           ),
-          const SizedBox(height: 28),
           BlocBuilder<ConfirmOtpCubit, ConfirmOtpState>(
             builder: (ctx, state) {
               return XelaButton(

@@ -1,6 +1,7 @@
 import 'package:bnv_opendata/config/themes/app_theme.dart';
+import 'package:bnv_opendata/dependencies/app_dependenies.dart';
 import 'package:bnv_opendata/presentation/auth/change_password/cubit/change_password_cubit.dart';
-import 'package:bnv_opendata/presentation/main_cubit/auth_cubit.dart';
+import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
 import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
 import 'package:bnv_opendata/utils/popup_loading/popup_loading_utils.dart';
@@ -17,14 +18,16 @@ class ChangePasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-  create: (context) => ChangePasswordCubit(),
-  child: AppScaffold(
-      title: AppS.of(context).change_password,
-      body: const _ChangePasswordListener(),
-      bgColor: XelaColor.Gray12,
-      appBarColor: XelaColor.Gray12,
-    ),
-);
+      create: (context) => ChangePasswordCubit(
+        injector.get(),
+      ),
+      child: AppScaffold(
+        title: AppS.of(context).change_password,
+        body: const _ChangePasswordListener(),
+        bgColor: XelaColor.Gray12,
+        appBarColor: XelaColor.Gray12,
+      ),
+    );
   }
 }
 
@@ -33,13 +36,14 @@ class _ChangePasswordListener extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AuthCubit, AuthState>(
+    return BlocListener<ChangePasswordCubit, ChangePasswordState>(
       listener: (context, state) {
-        if (state is ChangingPassLoading) {
+        if (state.eventState is LoadingState) {
           PopupLoadingUtils.of(context).show();
-        }
-        if (state is ChangedPasswordSuccess) {
+        } else {
           PopupLoadingUtils.of(context).close();
+        }
+        if (state.eventState is LoadedState) {
           Navigator.of(context).pop();
         }
       },
@@ -90,40 +94,39 @@ class _ChangePasswordBody extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12),
-            RichText(text: TextSpan(
-              children: [
+            RichText(
+              text: TextSpan(children: [
                 TextSpan(
                   text:
-                    'Độ dài mật khẩu tối thiểu 8 ký tự\nMật khẩu phải có các ký tự '
-                        'sau: Chữ cái viết hoa, chữ cái viết thường, chữ số và các '
-                        'ký tự đặc biệt.\nMật khẩu không được bao gồm chuỗi 4 ký tự'
-                        ' liên tiếp trở lên, chuỗi 4 ký tự giống nhau trở lên'
-                        '.\nVí dụ mật khẩu hợp lệ: ',
-                    style: XelaTextStyle.xelaSmallBody.apply(
-                      color: XelaColor.Gray2,
-                    ),
+                      'Độ dài mật khẩu tối thiểu 8 ký tự\nMật khẩu phải có các ký tự '
+                      'sau: Chữ cái viết hoa, chữ cái viết thường, chữ số và các '
+                      'ký tự đặc biệt.\nMật khẩu không được bao gồm chuỗi 4 ký tự'
+                      ' liên tiếp trở lên, chuỗi 4 ký tự giống nhau trở lên'
+                      '.\nVí dụ mật khẩu hợp lệ: ',
+                  style: XelaTextStyle.xelaSmallBody.apply(
+                    color: XelaColor.Gray2,
+                  ),
                 ),
                 TextSpan(
-                  text: '1Qaz@123',
-                  style: XelaTextStyle.xelaSmallBodyBold.apply(
-                    color: AppTheme.getInstance().primaryColor(),
-                  )
-                ),
-              ]
-            ),),
+                    text: '1Qaz@123',
+                    style: XelaTextStyle.xelaSmallBodyBold.apply(
+                      color: AppTheme.getInstance().primaryColor(),
+                    )),
+              ]),
+            ),
             const SizedBox(height: 24),
             XelaButton(
               onPressed: () async {
-                final validation = await context
-                    .read<ChangePasswordCubit>()
-                    .validateInput(
-                        current: 'current',
-                        newPass: 'newPass',
-                        confirmPass: 'confirmPass',);
+                final validation =
+                    await context.read<ChangePasswordCubit>().validateInput(
+                          current: 'current',
+                          newPass: 'newPass',
+                          confirmPass: 'confirmPass',
+                        );
                 if (validation) {
                   if (context.mounted) {
                     await context
-                        .read<AuthCubit>()
+                        .read<ChangePasswordCubit>()
                         .changePassword(current: 'current', newPass: 'newPass');
                   }
                 }

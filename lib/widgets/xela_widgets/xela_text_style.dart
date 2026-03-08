@@ -29,6 +29,12 @@ class XelaTextStyle {
     fontFamily: fontFamily,
   );
 
+  static const xelaHeadlineNormal = TextStyle(
+    fontSize: 26,
+    fontWeight: FontWeight.w700,
+    fontFamily: fontFamily,
+  );
+
   static const xelaSubheadline = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w800,
