@@ -53,7 +53,7 @@ class ConfirmOtpCubit extends BaseCubit<ConfirmOtpState> {
   }
 
   Future<void> onChangeOtp({String? otpCode}) async {
-    emit(state.copyWith(confirmBtnIsEnable: otpCode?.length == 8));
+    emit(state.copyWith(confirmBtnIsEnable: otpCode?.length == 6));
   }
 
   @override

@@ -1,5 +1,6 @@
 import 'package:bnv_opendata/presentation/account_info/account_info_screen.dart';
 import 'package:bnv_opendata/presentation/alert/alert_list_screen.dart';
+import 'package:bnv_opendata/presentation/auth/captcha_screen/captcha_screen.dart';
 import 'package:bnv_opendata/presentation/auth/change_password/change_password_screen.dart';
 import 'package:bnv_opendata/presentation/auth/confirm_otp/confirm_otp_screen.dart';
 import 'package:bnv_opendata/presentation/auth/login/login_page.dart';
@@ -99,6 +100,7 @@ class Routers {
   static const logout = '/logout';
   static const changePassword = '/change_password';
   static const confirmOtpChangePass = '/confirm_otp_change_pass';
+  static const captchaScreen = '/captcha_screen';
 
   ///Account
   static const accountInfo = '/account_info';
@@ -197,6 +199,10 @@ class Routers {
       case confirmOtpChangePass:
         return MaterialPageRoute(
           builder: (ctx) => const ConfirmOtpChangePassScreen(),
+        );
+      case captchaScreen:
+        return MaterialPageRoute(
+          builder: (ctx) => const CaptchaScreen(),
         );
       case accountInfo:
         return MaterialPageRoute(builder: (ctx) => const AccountInfoScreen());

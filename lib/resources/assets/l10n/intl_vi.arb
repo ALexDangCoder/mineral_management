@@ -46,5 +46,6 @@
   "input_confirm_code": "Nhập mã xác nhận",
   "not_received_code": "Không nhận được mã?",
   "resend": "Gửi lại",
-  "confirm": "Xác nhận"
+  "confirm": "Xác nhận",
+  "input_captcha": "Nhập mã captcha"
 }

@@ -1,52 +1,76 @@
+import 'dart:async';
 import 'dart:developer';
 
+import 'package:bnv_opendata/core/enums/auth_status_enum.dart';
+import 'package:bnv_opendata/data/models/model_exports.dart';
 import 'package:bnv_opendata/domain/repositories/repository_exports.dart';
+import 'package:bnv_opendata/domain/usecases/usecase_export.dart';
+import 'package:bnv_opendata/presentation/main_cubit/auth_event.dart';
+import 'package:bnv_opendata/presentation/main_cubit/auth_event_bus.dart';
 import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_cubit.dart';
 import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart';
 
 part 'auth_state.dart';
 
 class AuthCubit extends BaseCubit<AuthState> {
-  AuthCubit(this.authRepository) : super(AuthInitial());
+  AuthCubit(
+    this.checkAuthStatusUseCase,
+    this.eventBus,
+  ) : super(
+          const AuthState(),
+        ) {
+    _sub = eventBus.stream.listen((event) {
+      if (event is SessionExpiredEvent) {
+        print('========= LISTEN EVENT BUS');
+        sessionExpired();
+      }
+    });
+  }
 
-  final AuthRepository authRepository;
+  final CheckAuthStatusUseCase checkAuthStatusUseCase;
+  final AuthEventBus eventBus;
+  StreamSubscription? _sub;
 
-  Future<void> checkAuthenticationStatus() async {
+  void sessionExpired() {
+    emit(state.copyWith(
+      authStatus: AuthStatusEnum.sessionExpired,
+    ));
+  }
+
+  @override
+  Future<void> close() {
+    _sub?.cancel();
+    return super.close();
+  }
+
+  Future<void> checkAuthStatus() async {
     emit(AuthLoading());
-    final token = await authRepository.getSavedAccessToken();
-    log('Saved Access Token: $token');
-    if (token != null && token.isNotEmpty) {
-      emit(Authenticated());
+    final token = await checkAuthStatusUseCase.call();
+    if (token) {
+      emit(state.copyWith(authStatus: AuthStatusEnum.authenticated));
     } else {
-      emit(Unauthenticated());
+      emit(state.copyWith(authStatus: AuthStatusEnum.unauthenticated));
     }
   }
 
-  Future<void> login({
-    required String username,
-    required String password,
+  Future<void> setAuthStatus({
+    AuthStatusEnum authStatus = AuthStatusEnum.unknown,
+    UserModel? user,
   }) async {
-    emit(AuthLoading());
-    Future.delayed(const Duration(milliseconds: 800), () async {
-      await authRepository.login(username, password);
-      emit(Authenticated());
-    });
-  }
-
-  Future<void> changePassword({
-    required String current,
-    required String newPass,
-  }) async {
-    emit(ChangingPassLoading());
-    Future.delayed(const Duration(milliseconds: 800), () {
-      authRepository.changePassword(current, newPass);
-      emit(ChangedPasswordSuccess());
-    });
+    emit(
+      state.copyWith(
+        authStatus: authStatus,
+        user: user,
+      ),
+    );
   }
 
   Future<void> logout() async {
-    await authRepository.logout();
-    emit(Unauthenticated());
+    // await authRepository.logout();
+    print('=====LOGOUT');
+    emit(state.copyWith(
+      authStatus: AuthStatusEnum.unauthenticated,
+    ));
   }
 
   Future<void> saveToken(String token) async {
