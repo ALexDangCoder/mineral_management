@@ -25,9 +25,9 @@ class AuthInterceptor extends Interceptor {
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
 
-    // if (err.response?.statusCode == 401) {
+    if (err.response?.statusCode == 401) {
       eventBus.emit(SessionExpiredEvent());
-    // }
+    }
 
     super.onError(err, handler);
   }
