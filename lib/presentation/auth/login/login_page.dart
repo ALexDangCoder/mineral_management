@@ -11,7 +11,6 @@ import 'package:bnv_opendata/presentation/main_cubit/auth_cubit.dart';
 import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart';
 import 'package:bnv_opendata/presentation/screen_exports.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
-import 'package:bnv_opendata/resources/generated/assets.gen.dart';
 import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
 import 'package:bnv_opendata/utils/popup_loading/popup_loading_utils.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_button.dart';
@@ -157,18 +156,13 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
                   onTap: () {
                     context.read<LoginCubit>().toggleShowPass();
                   },
-                  child: state.isShowPass
-                      ? Assets.icons.icEyeClose.svg(
-                          colorFilter: ColorFilter.mode(
-                            AppTheme.getInstance().primaryColor(),
-                            BlendMode.srcIn,
-                          ),
-                        )
-                      : Icon(
-                          Icons.remove_red_eye_outlined,
-                          color: AppTheme.getInstance().primaryColor(),
-                          size: 20,
-                        ),
+                  child: Icon(
+                    state.isShowPass
+                        ? Icons.visibility_off
+                        : Icons.remove_red_eye_outlined,
+                    color: AppTheme.getInstance().primaryColor(),
+                    size: 20,
+                  ),
                 ),
                 background: AppTheme.getInstance().lightBgColor(),
                 textEditingController: _passController,
