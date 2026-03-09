@@ -17,6 +17,8 @@ import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 Future<void> mainApp() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
@@ -53,66 +55,75 @@ class _MyAppState extends State<MyApp> {
         injector.get(),
         injector.get(),
       )..checkAuthStatus(),
-      child: BlocListener<AuthCubit, AuthState>(
-        listener: (context, state) {
-          if (state.authStatus == AuthStatusEnum.unauthenticated) {
-            print('=====UN AUTH');
-            Get.offAll(() => const SplashScreen());
-          }
-
-          if (state.authStatus == AuthStatusEnum.sessionExpired) {
-            print('=====SESSION EXPIRED');
-            showDialog(
-              context: context,
-              builder: (_) => AlertDialog(
-                title: Text("Session expired"),
-                content: Text("Vui lòng đăng nhập lại"),
-                actions: [
-                  TextButton(
-                    onPressed: () {
-                      context.read<AuthCubit>().logout();
-                    },
-                    child: Text("OK"),
-                  )
-                ],
-              ),
-            );
-          }
-
-        },
-        child: GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: Strings.app_name,
-          theme: ThemeData(
-            primaryColor: AppTheme.getInstance().primaryColor(),
-            cardColor: Colors.white,
-            textTheme: GoogleFonts.latoTextTheme(Theme.of(context).textTheme),
-            appBarTheme: const AppBarTheme(
-              color: Colors.white,
-              systemOverlayStyle: SystemUiOverlayStyle.dark,
-            ),
-            dividerColor: Colors.black,
-            scaffoldBackgroundColor: Colors.white,
-            textSelectionTheme: TextSelectionThemeData(
-              cursorColor: AppTheme.getInstance().primaryColor(),
-              selectionColor: AppTheme.getInstance().primaryColor(),
-              selectionHandleColor: AppTheme.getInstance().primaryColor(),
-            ),
-            colorScheme: ColorScheme.fromSwatch()
-                .copyWith(secondary: AppTheme.getInstance().accentColor()),
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        navigatorKey: navigatorKey,
+        title: Strings.app_name,
+        theme: ThemeData(
+          primaryColor: AppTheme.getInstance().primaryColor(),
+          cardColor: Colors.white,
+          textTheme: GoogleFonts.latoTextTheme(Theme.of(context).textTheme),
+          appBarTheme: const AppBarTheme(
+            color: Colors.white,
+            systemOverlayStyle: SystemUiOverlayStyle.dark,
           ),
-          supportedLocales: S.delegate.supportedLocales,
-          localizationsDelegates: const [
-            S.delegate,
-            AppS.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          locale: Locale.fromSubtags(languageCode: PrefsService.getLanguage()),
-          onGenerateRoute: Routers.generateRoute,
-          initialRoute: Routers.splash,
+          dividerColor: Colors.black,
+          scaffoldBackgroundColor: Colors.white,
+          textSelectionTheme: TextSelectionThemeData(
+            cursorColor: AppTheme.getInstance().primaryColor(),
+            selectionColor: AppTheme.getInstance().primaryColor(),
+            selectionHandleColor: AppTheme.getInstance().primaryColor(),
+          ),
+          colorScheme: ColorScheme.fromSwatch()
+              .copyWith(secondary: AppTheme.getInstance().accentColor()),
         ),
+        supportedLocales: S.delegate.supportedLocales,
+        localizationsDelegates: const [
+          S.delegate,
+          AppS.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        locale: Locale.fromSubtags(languageCode: PrefsService.getLanguage()),
+        onGenerateRoute: Routers.generateRoute,
+        initialRoute: Routers.splash,
+        builder: (context, widget) {
+          return BlocListener<AuthCubit, AuthState>(
+            listener: (context, state) {
+              if (state.authStatus == AuthStatusEnum.unauthenticated) {
+                print('=====UN AUTH');
+                // Get.offAll(() => const SplashScreen());
+                Get.offAllNamed(Routers.splash);
+              }
+
+              if (state.authStatus == AuthStatusEnum.sessionExpired) {
+                print('=====EXPIRED');
+                showDialog(
+                  context: navigatorKey.currentContext!,
+                  builder: (_) => AlertDialog(
+                    title: Text(
+                      AppS.of(context).session_expired,
+                    ),
+                    content: Text(
+                      AppS.of(context).please_to_login,
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          context.read<AuthCubit>().resetSessionExpired();
+                          context.read<AuthCubit>().logout();
+                        },
+                        child: const Text('OK'),
+                      )
+                    ],
+                  ),
+                );
+              }
+            },
+            child: widget!,
+          );
+        },
       ),
     );
   }

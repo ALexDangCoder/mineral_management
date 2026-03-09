@@ -17,4 +17,10 @@ abstract class ApiService {
   Future<dynamic> changePassword(
     @Body() dynamic request,
   );
+
+  @GET('/get-notifications')
+  Future<dynamic> getNotification(
+    @Query('page') int page,
+    @Query('limit') int limit,
+  );
 }
