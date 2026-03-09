@@ -38,7 +38,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void _autoDirection() {
     Future.delayed(const Duration(milliseconds: 800), () {
       if (mounted) {
-        final authenticated = context.read<AuthCubit>().state is Authenticated;
+        final authenticated =
+            context.read<AuthCubit>().state.authStatus is Authenticated;
         if (authenticated) {
           Navigator.pushReplacement(
             context,

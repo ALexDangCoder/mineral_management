@@ -1,12 +1,13 @@
+import 'package:bnv_opendata/dependencies/datasource_dependency.dart';
+import 'package:bnv_opendata/dependencies/usecase_dependency.dart';
 import 'package:get_it/get_it.dart';
-import 'datasource_dependency.dart' as datasource;
 
 final injector = GetIt.instance;
 
 Future<void> initDependencies() async {
-
   try {
-    await datasource.config(injector);
+    await registerDataSource(injector);
+    await registerUseCase(injector);
   } catch (e) {
     print(e);
   }

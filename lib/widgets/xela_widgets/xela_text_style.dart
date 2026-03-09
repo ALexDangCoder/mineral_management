@@ -29,6 +29,12 @@ class XelaTextStyle {
     fontFamily: fontFamily,
   );
 
+  static const xelaHeadlineNormal = TextStyle(
+    fontSize: 26,
+    fontWeight: FontWeight.w700,
+    fontFamily: fontFamily,
+  );
+
   static const xelaSubheadline = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w800,
@@ -78,6 +84,18 @@ class XelaTextStyle {
   );
 
   static const xelaButtonSmall = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w800,
+    fontFamily: fontFamily,
+  );
+
+  static const xelaTips = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+    fontFamily: fontFamily,
+  );
+
+  static const xelaTipsBold = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w800,
     fontFamily: fontFamily,

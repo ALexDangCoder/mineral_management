@@ -25,26 +25,31 @@ class AppScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // resizeToAvoidBottomInset: false,
-      backgroundColor: bgColor ?? XelaColor.Gray12,
-      appBar: title != null
-          ? AppBar(
-              title: Text(
-                title!,
-                style:
-                    XelaTextStyle.xelaSubheadline.apply(color: XelaColor.Gray2),
-              ),
-              automaticallyImplyLeading: showBackButton,
-              actions: actions,
-              backgroundColor: appBarColor ?? Colors.white,
-            )
-          : null,
-      floatingActionButton: floatingActionButton,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          child: body,
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Scaffold(
+        // resizeToAvoidBottomInset: false,
+        backgroundColor: bgColor ?? XelaColor.Gray12,
+        appBar: title != null
+            ? AppBar(
+                title: Text(
+                  title!,
+                  style:
+                      XelaTextStyle.xelaSubheadline.apply(color: XelaColor.Gray2),
+                ),
+                automaticallyImplyLeading: showBackButton,
+                actions: actions,
+                backgroundColor: appBarColor ?? Colors.white,
+              )
+            : null,
+        floatingActionButton: floatingActionButton,
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            child: body,
+          ),
         ),
       ),
     );

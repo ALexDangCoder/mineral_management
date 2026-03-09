@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 ///=========== Colors for default when didn't setup app theme ===============
 ///https://stackoverflow.com/a/17239853
-const colorPrimary = Color(0xff0ABAB5);
+// const colorPrimary = Color(0xff0ABAB5);
+const colorPrimary = Colors.blue;
 const colorPrimaryTransparent = Color(0x720ABAB5);
 const colorAccent = Color(0xffDCFFFE);
 const colorSelected = Color(0xFFE0F2F1);
@@ -37,6 +38,8 @@ abstract class AppColor {
   Color disableColor();
 
   Color errorColor();
+
+  Color lightBgColor();
 }
 
 class LightApp extends AppColor {
@@ -67,7 +70,8 @@ class LightApp extends AppColor {
 
   @override
   Color dfBtnColor() {
-    return const Color(0xFF324452);
+    return Colors.blue;
+    // return const Color(0xFF324452);
   }
 
   @override
@@ -103,6 +107,11 @@ class LightApp extends AppColor {
   @override
   Color errorColor() {
     return Colors.red;
+  }
+
+  @override
+  Color lightBgColor() {
+    return const Color(0xffF2FAFF);
   }
 
 }
@@ -172,6 +181,12 @@ class DarkApp extends AppColor {
   Color errorColor() {
     return Colors.red;
   }
+
+  @override
+  Color lightBgColor() {
+    return Colors.white;
+  }
+
 }
 
 ///============ End setup app theme ======================================

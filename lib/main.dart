@@ -1,6 +1,7 @@
 import 'package:bnv_opendata/config/resources/strings.dart';
 import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/config/themes/app_theme.dart';
+import 'package:bnv_opendata/core/enums/auth_status_enum.dart';
 import 'package:bnv_opendata/data/di/module.dart';
 import 'package:bnv_opendata/dependencies/app_dependenies.dart';
 import 'package:bnv_opendata/domain/locals/prefs_service.dart';
@@ -17,7 +18,6 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 Future<void> mainApp() async {
-
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await PrefsService.init();
@@ -49,13 +49,36 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-      AuthCubit(injector.get())..checkAuthenticationStatus(),
+      create: (context) => AuthCubit(
+        injector.get(),
+        injector.get(),
+      )..checkAuthStatus(),
       child: BlocListener<AuthCubit, AuthState>(
         listener: (context, state) {
-          if (state is Unauthenticated) {
+          if (state.authStatus == AuthStatusEnum.unauthenticated) {
+            print('=====UN AUTH');
             Get.offAll(() => const SplashScreen());
           }
+
+          if (state.authStatus == AuthStatusEnum.sessionExpired) {
+            print('=====SESSION EXPIRED');
+            showDialog(
+              context: context,
+              builder: (_) => AlertDialog(
+                title: Text("Session expired"),
+                content: Text("Vui lòng đăng nhập lại"),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      context.read<AuthCubit>().logout();
+                    },
+                    child: Text("OK"),
+                  )
+                ],
+              ),
+            );
+          }
+
         },
         child: GetMaterialApp(
           debugShowCheckedModeBanner: false,
@@ -63,9 +86,7 @@ class _MyAppState extends State<MyApp> {
           theme: ThemeData(
             primaryColor: AppTheme.getInstance().primaryColor(),
             cardColor: Colors.white,
-            textTheme: GoogleFonts.latoTextTheme(Theme
-                .of(context)
-                .textTheme),
+            textTheme: GoogleFonts.latoTextTheme(Theme.of(context).textTheme),
             appBarTheme: const AppBarTheme(
               color: Colors.white,
               systemOverlayStyle: SystemUiOverlayStyle.dark,
@@ -88,8 +109,7 @@ class _MyAppState extends State<MyApp> {
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
-          locale:
-          Locale.fromSubtags(languageCode: PrefsService.getLanguage()),
+          locale: Locale.fromSubtags(languageCode: PrefsService.getLanguage()),
           onGenerateRoute: Routers.generateRoute,
           initialRoute: Routers.splash,
         ),

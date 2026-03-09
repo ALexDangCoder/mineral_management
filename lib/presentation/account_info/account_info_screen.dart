@@ -50,14 +50,14 @@ class _AccountInfoBody extends StatefulWidget {
 
 class _AccountInfoBodyState extends State<_AccountInfoBody> {
   final TextEditingController _fullNameController = TextEditingController();
-  final TextEditingController _positionController = TextEditingController();
+  final TextEditingController _departmentController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
 
   @override
   void dispose() {
     _fullNameController.dispose();
     _phoneController.dispose();
-    _positionController.dispose();
+    _departmentController.dispose();
     super.dispose();
   }
 
@@ -67,7 +67,7 @@ class _AccountInfoBodyState extends State<_AccountInfoBody> {
       body: BlocConsumer<AccountInfoCubit, AccountInfoState>(
         listener: (context, state) {
           _fullNameController.text = state.userInfo?.fullName ?? '';
-          _positionController.text = state.userInfo?.position ?? '';
+          _departmentController.text = state.userInfo?.position ?? '';
           _phoneController.text =
               (state.userInfo?.phone ?? '').formatPhoneNumber;
         },
@@ -75,19 +75,50 @@ class _AccountInfoBodyState extends State<_AccountInfoBody> {
           return SingleChildScrollView(
             child: Column(
               children: [
-                ColoredBox(
-                  color: Colors.transparent,
-                  child: XelaUserAvatar(
-                    initials: "AB",
-                    background: XelaColor.Orange9,
-                    foreground: XelaColor.Orange3,
-                    size: XelaUserAvatarSize.LARGE,
-                    style: XelaUserAvatarStyle.CIRCLE,
+                InkWell(
+                  onTap: () => context.read<AccountInfoCubit>().pickAvatar(),
+                  child: ColoredBox(
+                    color: Colors.transparent,
+                    child: Stack(
+                      children: [
+                        XelaUserAvatar(
+                          initials: "AB",
+                          background: XelaColor.Orange9,
+                          foreground: XelaColor.Orange3,
+                          size: XelaUserAvatarSize.LARGE,
+                          style: XelaUserAvatarStyle.CIRCLE,
+                          image: state.avatar != null
+                              ? Container(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: FileImage(state.avatar!),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                )
+                              : null,
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: Container(
+                            width: 20,
+                            height: 20,
+                            decoration: BoxDecoration(
+                                color: XelaColor.Gray7,
+                                shape: BoxShape.circle,
+                                border:
+                                    Border.all(color: Colors.white, width: 1)),
+                            child: const Icon(Icons.camera_alt, size: 12),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(height: 28),
                 Text(
-                  'Cán bộ kỹ thuật',
+                  'username',
                   style: XelaTextStyle.xelaHeadline.apply(
                     color: XelaColor.Gray2,
                   ),
@@ -118,10 +149,10 @@ class _AccountInfoBodyState extends State<_AccountInfoBody> {
                       ),
                       const SizedBox(height: 16),
                       XelaTextField(
-                        placeholder: AppS.of(context).position,
+                        placeholder: AppS.of(context).department,
                         background: Colors.transparent,
                         // value: state.userInfo?.position ?? '',
-                        textEditingController: _positionController,
+                        textEditingController: _departmentController,
                         onChange: (string) {},
                       ),
                       const SizedBox(height: 16),

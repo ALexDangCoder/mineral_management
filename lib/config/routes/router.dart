@@ -1,6 +1,8 @@
 import 'package:bnv_opendata/presentation/account_info/account_info_screen.dart';
 import 'package:bnv_opendata/presentation/alert/alert_list_screen.dart';
+import 'package:bnv_opendata/presentation/auth/captcha_screen/captcha_screen.dart';
 import 'package:bnv_opendata/presentation/auth/change_password/change_password_screen.dart';
+import 'package:bnv_opendata/presentation/auth/confirm_otp/confirm_otp_screen.dart';
 import 'package:bnv_opendata/presentation/auth/login/login_page.dart';
 import 'package:bnv_opendata/presentation/closure_plan_detail/closure_plan_detail_screen.dart';
 import 'package:bnv_opendata/presentation/closure_plan_list_screen/closure_plan_list_screen.dart';
@@ -12,6 +14,7 @@ import 'package:bnv_opendata/presentation/main_screen/main_screen.dart';
 import 'package:bnv_opendata/presentation/mine_3d/mine_3d_screen.dart';
 import 'package:bnv_opendata/presentation/mine_detail/mine_detail_screen.dart';
 import 'package:bnv_opendata/presentation/mine_list_screen/mine_list_screen.dart';
+import 'package:bnv_opendata/presentation/mining_area_screen/mining_area_screen.dart';
 import 'package:bnv_opendata/presentation/notification_management/notification_management_screen.dart';
 import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
 import 'package:bnv_opendata/presentation/project_detail/project_detail_screen.dart';
@@ -95,6 +98,8 @@ class Routers {
   static const login = '/login';
   static const logout = '/logout';
   static const changePassword = '/change_password';
+  static const confirmOtpChangePass = '/confirm_otp_change_pass';
+  static const captchaScreen = '/captcha_screen';
 
   static const accountInfo = '/account_info';
 
@@ -106,6 +111,7 @@ class Routers {
   static const geologicalReportList = '/geological_report_list';
   static const proposalPlanList = '/proposal_plan_list';
   static const resourceReserves = '/resource_reserves';
+  static const miningArea = '/mining_area';
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     final args = settings.arguments;
@@ -175,6 +181,14 @@ class Routers {
         return MaterialPageRoute(builder: (_) => const ColorsComponent());
       case changePassword:
         return MaterialPageRoute(builder: (_) => const ChangePasswordScreen());
+      case confirmOtpChangePass:
+        return MaterialPageRoute(
+          builder: (ctx) => const ConfirmOtpChangePassScreen(),
+        );
+      case captchaScreen:
+        return MaterialPageRoute(
+          builder: (ctx) => const CaptchaScreen(),
+        );
       case accountInfo:
         return MaterialPageRoute(builder: (_) => const AccountInfoScreen());
       case mineList:
@@ -212,7 +226,9 @@ class Routers {
         return MaterialPageRoute(
             builder: (_) => const ResourceReservesScreen());
       case mine3d:
-        return MaterialPageRoute(builder: (_) => const Mine3DScreen());
+        return MaterialPageRoute(
+          builder: (_) => const Mine3DScreen()
+        );
       case alertList:
         return MaterialPageRoute(builder: (_) => const AlertListScreen());
       case progress:
@@ -225,6 +241,8 @@ class Routers {
       case notificationManagement:
         return MaterialPageRoute(
             builder: (_) => NotificationManagementScreen());
+      case miningArea:
+        return MaterialPageRoute(builder: (ctx) => const MiningAreaScreen());
     }
     return null;
   }

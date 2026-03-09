@@ -47,5 +47,7 @@
 	<false/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>Tải hình ảnh lên làm Avatar hoặc phục vụ nghiệp vụ</string>
 </dict>
 </plist>
