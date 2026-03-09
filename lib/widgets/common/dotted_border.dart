@@ -1,7 +1,6 @@
 library dotted_border;
 
 import 'package:flutter/material.dart';
-import 'package:path_drawing/path_drawing.dart';
 
 part 'dash_painter.dart';
 
