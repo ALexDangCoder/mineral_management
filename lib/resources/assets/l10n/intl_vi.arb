@@ -47,5 +47,7 @@
   "not_received_code": "Không nhận được mã?",
   "resend": "Gửi lại",
   "confirm": "Xác nhận",
-  "input_captcha": "Nhập mã captcha"
+  "input_captcha": "Nhập mã captcha",
+  "session_expired": "Phiên làm việc đã hết hạn",
+  "please_to_login": "Vui lòng đăng nhập lại"
 }

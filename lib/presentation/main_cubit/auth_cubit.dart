@@ -30,11 +30,19 @@ class AuthCubit extends BaseCubit<AuthState> {
   final CheckAuthStatusUseCase checkAuthStatusUseCase;
   final AuthEventBus eventBus;
   StreamSubscription? _sub;
+  bool _isSessionExpiredHandled = false;
 
-  void sessionExpired() {
+  Future<void> sessionExpired() async {
+    if (_isSessionExpiredHandled) return;
+    _isSessionExpiredHandled = true;
+    await Future.delayed(const Duration(milliseconds: 500));
     emit(state.copyWith(
       authStatus: AuthStatusEnum.sessionExpired,
     ));
+  }
+
+  void resetSessionExpired() {
+    _isSessionExpiredHandled = false;
   }
 
   @override
