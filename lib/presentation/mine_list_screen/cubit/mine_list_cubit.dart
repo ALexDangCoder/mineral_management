@@ -1,5 +1,4 @@
-import 'dart:async';
-
+import 'package:bnv_opendata/data/models/mine_site.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bnv_opendata/data/models/mine_region.dart';
 import 'package:bnv_opendata/data/repositories/fake_mine_module_repository.dart';
@@ -15,7 +14,6 @@ class MineListCubit extends Cubit<MineListState> {
         super(const MineListState());
 
   final MineModuleRepository _repository;
-  Timer? _searchDebounce;
 
   Future<void> init() => fetch();
 
@@ -23,14 +21,11 @@ class MineListCubit extends Cubit<MineListState> {
     emit(state.copyWith(status: MineScreenStatus.loading, errorMessage: null));
     try {
       final regions = await _repository.getMineRegions();
-      final filtered = _filterRegions(regions, state.query);
       emit(
         state.copyWith(
-          status: filtered.isEmpty
-              ? MineScreenStatus.empty
-              : MineScreenStatus.success,
+          status:
+              regions.isEmpty ? MineScreenStatus.empty : MineScreenStatus.success,
           regions: regions,
-          filteredRegions: filtered,
           errorMessage: null,
         ),
       );
@@ -44,21 +39,47 @@ class MineListCubit extends Cubit<MineListState> {
     }
   }
 
-  void onSearchChanged(String value) {
-    emit(state.copyWith(query: value));
-    _searchDebounce?.cancel();
-    _searchDebounce = Timer(const Duration(milliseconds: 350), () {
-      final filtered = _filterRegions(state.regions, state.query);
+  Future<void> toggleRegion(String regionId) async {
+    if (state.expandedRegionId == regionId) {
+      emit(state.copyWith(clearExpandedRegion: true));
+      return;
+    }
+
+    emit(state.copyWith(expandedRegionId: regionId));
+
+    if (state.sitesByRegion.containsKey(regionId)) {
+      return;
+    }
+
+    final nextLoading = Set<String>.from(state.loadingRegionIds)..add(regionId);
+    emit(state.copyWith(loadingRegionIds: nextLoading));
+
+    try {
+      final sites = await _repository.getMineSitesByRegion(regionId);
+      final nextSites = Map<String, List<MineSite>>.from(state.sitesByRegion)
+        ..[regionId] = sites;
+      final loadingAfter = Set<String>.from(state.loadingRegionIds)
+        ..remove(regionId);
       emit(
         state.copyWith(
-          status: filtered.isEmpty
-              ? MineScreenStatus.empty
-              : MineScreenStatus.success,
-          filteredRegions: filtered,
-          errorMessage: null,
+          sitesByRegion: nextSites,
+          loadingRegionIds: loadingAfter,
+          regionSiteErrors: Map<String, String?>.from(state.regionSiteErrors)
+            ..remove(regionId),
         ),
       );
-    });
+    } catch (_) {
+      final loadingAfter = Set<String>.from(state.loadingRegionIds)
+        ..remove(regionId);
+      final nextErrors = Map<String, String?>.from(state.regionSiteErrors)
+        ..[regionId] = 'Khong the tai danh sach khu mo.';
+      emit(
+        state.copyWith(
+          loadingRegionIds: loadingAfter,
+          regionSiteErrors: nextErrors,
+        ),
+      );
+    }
   }
 
   Future<void> refresh() async {
@@ -69,19 +90,8 @@ class MineListCubit extends Cubit<MineListState> {
     await fetch();
   }
 
-  List<MineRegion> _filterRegions(List<MineRegion> input, String query) {
-    final normalized = query.trim().toLowerCase();
-    if (normalized.isEmpty) {
-      return input;
-    }
-    return input
-        .where((region) => region.name.toLowerCase().contains(normalized))
-        .toList();
-  }
-
   @override
   Future<void> close() {
-    _searchDebounce?.cancel();
     return super.close();
   }
 }

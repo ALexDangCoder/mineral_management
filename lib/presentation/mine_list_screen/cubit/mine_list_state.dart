@@ -3,35 +3,52 @@ part of 'mine_list_cubit.dart';
 class MineListState extends Equatable {
   const MineListState({
     this.status = MineScreenStatus.initial,
-    this.query = '',
     this.regions = const <MineRegion>[],
-    this.filteredRegions = const <MineRegion>[],
+    this.expandedRegionId,
+    this.sitesByRegion = const <String, List<MineSite>>{},
+    this.loadingRegionIds = const <String>{},
+    this.regionSiteErrors = const <String, String?>{},
     this.errorMessage,
   });
 
   final MineScreenStatus status;
-  final String query;
   final List<MineRegion> regions;
-  final List<MineRegion> filteredRegions;
+  final String? expandedRegionId;
+  final Map<String, List<MineSite>> sitesByRegion;
+  final Set<String> loadingRegionIds;
+  final Map<String, String?> regionSiteErrors;
   final String? errorMessage;
 
   MineListState copyWith({
     MineScreenStatus? status,
-    String? query,
     List<MineRegion>? regions,
-    List<MineRegion>? filteredRegions,
+    String? expandedRegionId,
+    bool clearExpandedRegion = false,
+    Map<String, List<MineSite>>? sitesByRegion,
+    Set<String>? loadingRegionIds,
+    Map<String, String?>? regionSiteErrors,
     String? errorMessage,
   }) {
     return MineListState(
       status: status ?? this.status,
-      query: query ?? this.query,
       regions: regions ?? this.regions,
-      filteredRegions: filteredRegions ?? this.filteredRegions,
+      expandedRegionId:
+          clearExpandedRegion ? null : (expandedRegionId ?? this.expandedRegionId),
+      sitesByRegion: sitesByRegion ?? this.sitesByRegion,
+      loadingRegionIds: loadingRegionIds ?? this.loadingRegionIds,
+      regionSiteErrors: regionSiteErrors ?? this.regionSiteErrors,
       errorMessage: errorMessage,
     );
   }
 
   @override
-  List<Object?> get props =>
-      [status, query, regions, filteredRegions, errorMessage];
+  List<Object?> get props => [
+        status,
+        regions,
+        expandedRegionId,
+        sitesByRegion,
+        loadingRegionIds,
+        regionSiteErrors,
+        errorMessage,
+      ];
 }

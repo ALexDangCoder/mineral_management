@@ -32,7 +32,7 @@ class _MainScreenBodyState extends State<_MainScreenBody> {
   static final List<Widget> _pages = <Widget>[
     const HomeScreen(),
     const ShowConstructionMapScreen(),
-    const MineListScreen(),
+    const MineMenuScreen(),
     const AccountInfoScreen(),
   ];
 

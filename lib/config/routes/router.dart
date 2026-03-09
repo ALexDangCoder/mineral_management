@@ -12,10 +12,10 @@ import 'package:bnv_opendata/presentation/main_screen/main_screen.dart';
 import 'package:bnv_opendata/presentation/mine_3d/mine_3d_screen.dart';
 import 'package:bnv_opendata/presentation/mine_detail/mine_detail_screen.dart';
 import 'package:bnv_opendata/presentation/mine_list_screen/mine_list_screen.dart';
-import 'package:bnv_opendata/presentation/mine_sub_list_screen/mine_sub_list_screen.dart';
 import 'package:bnv_opendata/presentation/notification_management/notification_management_screen.dart';
 import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
 import 'package:bnv_opendata/presentation/project_detail/project_detail_screen.dart';
+import 'package:bnv_opendata/presentation/proposal_plan_list_screen/proposal_plan_list_screen.dart';
 import 'package:bnv_opendata/presentation/resource_reserves/resource_reserves_screen.dart';
 import 'package:bnv_opendata/presentation/show_construction_map/show_construction_Map_screen.dart';
 import 'package:bnv_opendata/presentation/splash/splash_screen.dart';
@@ -99,12 +99,12 @@ class Routers {
   static const accountInfo = '/account_info';
 
   static const mineList = '/mine_list';
-  static const mineSubList = '/mine_sub_list';
   static const mineDetail = '/mine_detail';
   static const drillHoleList = '/drill_hole_list';
   static const drillHoleDetail = '/drill_hole_detail';
   static const constructionDetail = '/construction_detail';
   static const geologicalReportList = '/geological_report_list';
+  static const proposalPlanList = '/proposal_plan_list';
   static const resourceReserves = '/resource_reserves';
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
@@ -179,10 +179,6 @@ class Routers {
         return MaterialPageRoute(builder: (_) => const AccountInfoScreen());
       case mineList:
         return MaterialPageRoute(builder: (_) => const MineListScreen());
-      case mineSubList:
-        final regionId = _stringArg(args, 'regionId');
-        return MaterialPageRoute(
-            builder: (_) => MineSubListScreen(regionId: regionId));
       case mineDetail:
         final siteId = _stringArg(args, 'siteId');
         return MaterialPageRoute(
@@ -209,6 +205,9 @@ class Routers {
       case geologicalReportList:
         return MaterialPageRoute(
             builder: (_) => const GeologicalReportListScreen());
+      case proposalPlanList:
+        return MaterialPageRoute(
+            builder: (_) => const ProposalPlanListScreen());
       case resourceReserves:
         return MaterialPageRoute(
             builder: (_) => const ResourceReservesScreen());

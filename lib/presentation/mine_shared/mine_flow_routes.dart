@@ -4,12 +4,16 @@ import 'package:flutter/material.dart';
 class MineFlowRoutes {
   const MineFlowRoutes._();
 
-  static Future<void> pushMineSubList(BuildContext context, String regionId) {
-    return Navigator.pushNamed(
-      context,
-      Routers.mineSubList,
-      arguments: {'regionId': regionId},
-    );
+  static Future<void> pushMineList(BuildContext context) {
+    return Navigator.pushNamed(context, Routers.mineList);
+  }
+
+  static Future<void> pushGeologicalReportList(BuildContext context) {
+    return Navigator.pushNamed(context, Routers.geologicalReportList);
+  }
+
+  static Future<void> pushProposalPlanList(BuildContext context) {
+    return Navigator.pushNamed(context, Routers.proposalPlanList);
   }
 
   static Future<void> pushMineSiteDetail(BuildContext context, String siteId) {

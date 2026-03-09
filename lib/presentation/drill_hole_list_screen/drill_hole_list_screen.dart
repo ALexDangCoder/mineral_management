@@ -40,7 +40,7 @@ class _DrillHoleListBody extends StatelessWidget {
         return Column(
           children: [
             XkSearchField(
-              placeholder: 'ìm theo mã/tên lỗ khoan',
+              placeholder: 'Tìm theo mã/tên lỗ khoan',
               onChanged: context.read<DrillHoleListCubit>().onSearchChanged,
             ),
             const SizedBox(height: 12),

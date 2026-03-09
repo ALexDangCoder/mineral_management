@@ -31,18 +31,7 @@ class _MineListBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MineListCubit, MineListState>(
-      builder: (context, state) {
-        return Column(
-          children: [
-            XkSearchField(
-              placeholder: 'Tìm theo tên vùng mỏ',
-              onChanged: context.read<MineListCubit>().onSearchChanged,
-            ),
-            const SizedBox(height: 12),
-            Expanded(child: _buildContent(context, state)),
-          ],
-        );
-      },
+      builder: (context, state) => _buildContent(context, state),
     );
   }
 
@@ -65,40 +54,160 @@ class _MineListBody extends StatelessWidget {
         return RefreshIndicator(
           onRefresh: context.read<MineListCubit>().refresh,
           child: ListView.separated(
-            itemCount: state.filteredRegions.length,
-            separatorBuilder: (_, __) => const SizedBox(height: 10),
+            itemCount: state.regions.length,
+            separatorBuilder: (_, __) => const SizedBox(height: 12),
             itemBuilder: (_, index) {
-              final region = state.filteredRegions[index];
-              return XkCard(
-                onTap: () => MineFlowRoutes.pushMineSubList(context, region.id),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      region.name,
-                      style: XelaTextStyle.xelaBodyBold
-                          .apply(color: XelaColor.Gray2),
+              final region = state.regions[index];
+              final isExpanded = state.expandedRegionId == region.id;
+
+              return _RegionAccordionCard(
+                regionName: region.name,
+                isExpanded: isExpanded,
+                onTapHeader: () => context.read<MineListCubit>().toggleRegion(
+                      region.id,
                     ),
-                    const SizedBox(height: 6),
-                    Text(
-                      region.location,
-                      style: XelaTextStyle.xelaSmallBody
-                          .apply(color: XelaColor.Gray6),
-                    ),
-                    const SizedBox(height: 10),
-                    const XkSectionDivider(),
-                    const SizedBox(height: 8),
-                    Text(
-                      'Số khu mỏ: ${region.siteCount}',
-                      style: XelaTextStyle.xelaCaption
-                          .apply(color: XelaColor.Blue6),
-                    ),
-                  ],
-                ),
+                child: _buildRegionContent(context, state, region.id),
               );
             },
           ),
         );
     }
+  }
+
+  Widget _buildRegionContent(
+    BuildContext context,
+    MineListState state,
+    String regionId,
+  ) {
+    if (state.loadingRegionIds.contains(regionId)) {
+      return const Padding(
+        padding: EdgeInsets.only(top: 12),
+        child: Center(
+          child: SizedBox(
+            width: 20,
+            height: 20,
+            child: CircularProgressIndicator(strokeWidth: 2),
+          ),
+        ),
+      );
+    }
+
+    final siteError = state.regionSiteErrors[regionId];
+    if (siteError != null) {
+      return Padding(
+        padding: const EdgeInsets.only(top: 12),
+        child: Text(
+          siteError,
+          style: XelaTextStyle.xelaSmallBody.apply(color: XelaColor.Red4),
+        ),
+      );
+    }
+
+    final sites = state.sitesByRegion[regionId] ?? const [];
+    if (sites.isEmpty) {
+      return Padding(
+        padding: const EdgeInsets.only(top: 12),
+        child: Text(
+          'Không có khu mỏ.',
+          style: XelaTextStyle.xelaSmallBody.apply(color: XelaColor.Gray6),
+        ),
+      );
+    }
+
+    return Padding(
+      padding: const EdgeInsets.only(top: 12),
+      child: Column(
+        children: [
+          const XkSectionDivider(),
+          const SizedBox(height: 10),
+          ...sites.map(
+            (site) => Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: InkWell(
+                onTap: () => MineFlowRoutes.pushMineSiteDetail(context, site.id),
+                borderRadius: BorderRadius.circular(12),
+                child: Container(
+                  width: double.infinity,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                  decoration: BoxDecoration(
+                    color: XelaColor.Gray12,
+                    border: Border.all(color: XelaColor.Gray11),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.map_outlined,
+                        size: 18,
+                        color: XelaColor.Gray5,
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          site.name,
+                          style: XelaTextStyle.xelaSmallBodyBold
+                              .apply(color: XelaColor.Gray2),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _RegionAccordionCard extends StatelessWidget {
+  const _RegionAccordionCard({
+    required this.regionName,
+    required this.isExpanded,
+    required this.onTapHeader,
+    required this.child,
+  });
+
+  final String regionName;
+  final bool isExpanded;
+  final VoidCallback onTapHeader;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return XkCard(
+      onTap: onTapHeader,
+      child: Column(
+        children: [
+          Row(
+            children: [
+              const Icon(Icons.map_outlined, size: 22, color: XelaColor.Gray3),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  regionName,
+                  style: XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Gray2),
+                ),
+              ),
+              Icon(
+                isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                size: 22,
+                color: XelaColor.Gray5,
+              ),
+            ],
+          ),
+          AnimatedCrossFade(
+            firstChild: const SizedBox.shrink(),
+            secondChild: child,
+            crossFadeState: isExpanded
+                ? CrossFadeState.showSecond
+                : CrossFadeState.showFirst,
+            duration: const Duration(milliseconds: 200),
+          ),
+        ],
+      ),
+    );
   }
 }
