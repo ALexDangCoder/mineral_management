@@ -4,6 +4,7 @@ import 'package:bnv_opendata/presentation/mine_3d/mine_3d_screen.dart';
 import 'package:bnv_opendata/presentation/mining_area_screen/mining_area_screen.dart';
 import 'package:bnv_opendata/presentation/notification_management/notification_management_screen.dart';
 import 'package:bnv_opendata/presentation/screen_exports.dart';
+import 'package:bnv_opendata/presentation/show_construction_map/show_construction_Map_screen.dart';
 import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +68,7 @@ class _MainScreenBodyState extends State<_MainScreenBody> {
               BottomNavigationBarItem(
                 backgroundColor: XelaColor.Gray12,
                 icon: Icon(
-                  Icons.list_alt,
+                  Icons.map,
                   size: 20,
                   color: state.indexPage == 1
                       ? AppTheme.getInstance().primaryColor()
@@ -78,9 +79,20 @@ class _MainScreenBodyState extends State<_MainScreenBody> {
               BottomNavigationBarItem(
                 backgroundColor: XelaColor.Gray12,
                 icon: Icon(
-                  Icons.account_circle_rounded,
+                  Icons.list_alt,
                   size: 20,
                   color: state.indexPage == 2
+                      ? AppTheme.getInstance().primaryColor()
+                      : XelaColor.Gray7,
+                ),
+                label: 'Vùng mỏ',
+              ),
+              BottomNavigationBarItem(
+                backgroundColor: XelaColor.Gray12,
+                icon: Icon(
+                  Icons.account_circle_rounded,
+                  size: 20,
+                  color: state.indexPage == 3
                       ? AppTheme.getInstance().primaryColor()
                       : XelaColor.Gray7,
                 ),
