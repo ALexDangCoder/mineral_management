@@ -5,9 +5,6 @@ import 'package:bnv_opendata/presentation/home/cubit/home_cubit.dart';
 import 'package:bnv_opendata/presentation/home/report_widget/report_widget.dart';
 import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
-import 'package:bnv_opendata/presentation/xelauikit_screens/components_screen.dart';
-import 'package:bnv_opendata/presentation/xelauikit_screens/templates_screen.dart';
-import 'package:bnv_opendata/widgets/xela_widgets/xela_button.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
 import 'package:flutter/material.dart';
@@ -133,12 +130,6 @@ class _HomeScreenBody extends StatelessWidget {
             ],
           ),
         ),
-        XelaButton(onPressed: () {Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => ComponentsScreen(),
-          ),
-        );}),
       ],
     );
   }
