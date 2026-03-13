@@ -1,10 +1,8 @@
-import 'package:bnv_opendata/config/routes/router.dart';
-import 'package:bnv_opendata/config/themes/app_theme.dart';
-import 'package:bnv_opendata/data/models/mine_model.dart';
 import 'package:bnv_opendata/presentation/mine_list_screen/cubit/mine_list_cubit.dart';
+import 'package:bnv_opendata/presentation/mine_shared/cubit_status.dart';
+import 'package:bnv_opendata/presentation/mine_shared/mine_flow_routes.dart';
+import 'package:bnv_opendata/presentation/mine_shared/widgets/xk_components.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
-import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
-import 'package:bnv_opendata/utils/constants/enums/mine_status_enum.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
 import 'package:flutter/material.dart';
@@ -16,12 +14,12 @@ class MineListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => MineListCubit()..fetchDataMineList(),
-      child: AppScaffold(
-        title: AppS.of(context).mine_list,
-        body: const _MineListBody(),
+      create: (_) => MineListCubit()..init(),
+      child: const AppScaffold(
+        title: 'Vùng mỏ',
         bgColor: XelaColor.Gray12,
         appBarColor: XelaColor.Gray12,
+        body: _MineListBody(),
       ),
     );
   }
@@ -33,198 +31,183 @@ class _MineListBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MineListCubit, MineListState>(
-      builder: (context, state) {
-        return ListView.separated(
-          padding: EdgeInsets.zero,
-          physics: const AlwaysScrollableScrollPhysics(),
-          shrinkWrap: true,
-          itemBuilder: (context, index) {
-            return _MineItemWidget(
-              mineModel: state.data?[index],
-            );
-          },
-          separatorBuilder: (ctx, ind) {
-            return const SizedBox(
-              height: 24,
-            );
-          },
-          itemCount: state.data?.length ?? 0,
-        );
-      },
+      builder: (context, state) => _buildContent(context, state),
     );
   }
-}
 
-class _MineItemWidget extends StatelessWidget {
-  const _MineItemWidget({this.mineModel});
-
-  final MineModel? mineModel;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        // Click vào item mỏ -> điều hướng đến Mine Detail
-        Navigator.pushNamed(
-          context,
-          Routers.mineDetail,
-          arguments: {
-            'mineModel': mineModel,
-            'location': 'Xã A, Huyện B, Tỉnh C',
-            'area': '500 ha',
-            'reserves': '1,250,000 tấn',
-            'initialReserves': '2,000,000 tấn',
-            'exploitedReserves': '750,000 tấn',
-            'remainingReserves': '1,250,000 tấn',
-            'coordinates': '21.0285°N, 105.8542°E',
-          },
+  Widget _buildContent(BuildContext context, MineListState state) {
+    switch (state.status) {
+      case MineScreenStatus.initial:
+      case MineScreenStatus.loading:
+        return const XkSkeletonList();
+      case MineScreenStatus.empty:
+        return XkEmptyState(
+          message: 'Không tìm thấy vùng mỏ phù hợp.',
+          onRetry: context.read<MineListCubit>().retry,
         );
-      },
-      borderRadius: BorderRadius.circular(16),
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(16)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+      case MineScreenStatus.failure:
+        return XkErrorState(
+          message: state.errorMessage ?? 'Đã xảy ra lỗi.',
+          onRetry: context.read<MineListCubit>().retry,
+        );
+      case MineScreenStatus.success:
+        return RefreshIndicator(
+          onRefresh: context.read<MineListCubit>().refresh,
+          child: ListView.separated(
+            itemCount: state.regions.length,
+            separatorBuilder: (_, __) => const SizedBox(height: 12),
+            itemBuilder: (_, index) {
+              final region = state.regions[index];
+              final isExpanded = state.expandedRegionId == region.id;
+
+              return _RegionAccordionCard(
+                regionName: region.name,
+                isExpanded: isExpanded,
+                onTapHeader: () => context.read<MineListCubit>().toggleRegion(
+                      region.id,
+                    ),
+                child: _buildRegionContent(context, state, region.id),
+              );
+            },
+          ),
+        );
+    }
+  }
+
+  Widget _buildRegionContent(
+    BuildContext context,
+    MineListState state,
+    String regionId,
+  ) {
+    if (state.loadingRegionIds.contains(regionId)) {
+      return const Padding(
+        padding: EdgeInsets.only(top: 12),
+        child: Center(
+          child: SizedBox(
+            width: 20,
+            height: 20,
+            child: CircularProgressIndicator(strokeWidth: 2),
+          ),
+        ),
+      );
+    }
+
+    final siteError = state.regionSiteErrors[regionId];
+    if (siteError != null) {
+      return Padding(
+        padding: const EdgeInsets.only(top: 12),
+        child: Text(
+          siteError,
+          style: XelaTextStyle.xelaSmallBody.apply(color: XelaColor.Red4),
+        ),
+      );
+    }
+
+    final sites = state.sitesByRegion[regionId] ?? const [];
+    if (sites.isEmpty) {
+      return Padding(
+        padding: const EdgeInsets.only(top: 12),
+        child: Text(
+          'Không có khu mỏ.',
+          style: XelaTextStyle.xelaSmallBody.apply(color: XelaColor.Gray6),
+        ),
+      );
+    }
+
+    return Padding(
+      padding: const EdgeInsets.only(top: 12),
+      child: Column(
+        children: [
+          const XkSectionDivider(),
+          const SizedBox(height: 10),
+          ...sites.map(
+            (site) => Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: InkWell(
+                onTap: () => MineFlowRoutes.pushMineSiteDetail(context, site.id),
+                borderRadius: BorderRadius.circular(12),
+                child: Container(
+                  width: double.infinity,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                  decoration: BoxDecoration(
+                    color: XelaColor.Gray12,
+                    border: Border.all(color: XelaColor.Gray11),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Row(
                     children: [
-                      Text(
-                        mineModel?.mineName ?? '',
-                        style: XelaTextStyle.xelaBodyBold.apply(
-                            color: XelaColor.Gray2),
+                      const Icon(
+                        Icons.map_outlined,
+                        size: 18,
+                        color: XelaColor.Gray5,
                       ),
-                      const SizedBox(height: 8),
-                      Text(
-                        '${AppS.of(context).mineral_type}: ${mineModel?.mineralType}',
-                        style: XelaTextStyle.xelaCaption
-                            .apply(color: XelaColor.Gray6),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        '${AppS.of(context).status}: ${mineModel?.status?.title}',
-                        style: XelaTextStyle.xelaSmallBodyBold.apply(
-                          color: _getStatusColor(mineModel?.status),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          site.name,
+                          style: XelaTextStyle.xelaSmallBodyBold
+                              .apply(color: XelaColor.Gray2),
                         ),
                       ),
                     ],
                   ),
                 ),
-                PopupMenuButton<String>(
-                  icon: const Icon(Icons.more_vert, color: XelaColor.Gray6),
-                  onSelected: (value) {
-                    switch (value) {
-                      case 'mine_detail':
-                        Navigator.pushNamed(
-                          context,
-                          Routers.mineDetail,
-                          arguments: {
-                            'mineModel': mineModel,
-                            'location': 'Xã A, Huyện B, Tỉnh C',
-                            'area': '500 ha',
-                            'reserves': '1,250,000 tấn',
-                            'initialReserves': '2,000,000 tấn',
-                            'exploitedReserves': '750,000 tấn',
-                            'remainingReserves': '1,250,000 tấn',
-                            'coordinates': '21.0285°N, 105.8542°E',
-                          },
-                        );
-                        break;
-                      case 'project_detail':
-                        Navigator.pushNamed(
-                          context,
-                          Routers.projectDetail,
-                          arguments: {
-                            'mineModel': mineModel,
-                            'projectName': mineModel?.mineName ?? 'Dự án mỏ',
-                          },
-                        );
-                        break;
-                      case 'drill_hole_list':
-                        Navigator.pushNamed(
-                          context,
-                          Routers.drillHoleList,
-                          arguments: mineModel,
-                        );
-                        break;
-                      case 'closure_plan':
-                        Navigator.pushNamed(
-                          context,
-                          Routers.closurePlanDetail,
-                          arguments: {
-                            'mineModel': mineModel,
-                            'projectName': 'Kế hoạch đóng cửa ${mineModel?.mineName ?? ''}',
-                          },
-                        );
-                        break;
-                    }
-                  },
-                  itemBuilder: (context) => [
-                    PopupMenuItem(
-                      value: 'mine_detail',
-                      child: Row(
-                        children: [
-                          const Icon(Icons.info_outline, size: 20, color: XelaColor.Gray2),
-                          const SizedBox(width: 8),
-                          Text('Chi tiết mỏ'),
-                        ],
-                      ),
-                    ),
-                    PopupMenuItem(
-                      value: 'project_detail',
-                      child: Row(
-                        children: [
-                          const Icon(Icons.info, size: 20, color: XelaColor.Gray2),
-                          const SizedBox(width: 8),
-                          Text('Chi tiết dự án'),
-                        ],
-                      ),
-                    ),
-                    PopupMenuItem(
-                      value: 'drill_hole_list',
-                      child: Row(
-                        children: [
-                          const Icon(Icons.engineering, size: 20, color: XelaColor.Gray2),
-                          const SizedBox(width: 8),
-                          Text('Xem lỗ khoan'),
-                        ],
-                      ),
-                    ),
-                    PopupMenuItem(
-                      value: 'closure_plan',
-                      child: Row(
-                        children: [
-                          const Icon(Icons.close_fullscreen, size: 20, color: XelaColor.Gray2),
-                          const SizedBox(width: 8),
-                          Text('Kế hoạch đóng cửa'),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
+}
 
-  Color _getStatusColor(MineStatusEnum? status) {
-    switch (status) {
-      case MineStatusEnum.active:
-        return AppTheme.getInstance().primaryColor();
-      case MineStatusEnum.pause:
-        return XelaColor.Orange6;
-      case MineStatusEnum.inactive:
-        return XelaColor.Gray7;
-      default:
-        return XelaColor.Gray7;
-    }
+class _RegionAccordionCard extends StatelessWidget {
+  const _RegionAccordionCard({
+    required this.regionName,
+    required this.isExpanded,
+    required this.onTapHeader,
+    required this.child,
+  });
+
+  final String regionName;
+  final bool isExpanded;
+  final VoidCallback onTapHeader;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return XkCard(
+      onTap: onTapHeader,
+      child: Column(
+        children: [
+          Row(
+            children: [
+              const Icon(Icons.map_outlined, size: 22, color: XelaColor.Gray3),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  regionName,
+                  style: XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Gray2),
+                ),
+              ),
+              Icon(
+                isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                size: 22,
+                color: XelaColor.Gray5,
+              ),
+            ],
+          ),
+          AnimatedCrossFade(
+            firstChild: const SizedBox.shrink(),
+            secondChild: child,
+            crossFadeState: isExpanded
+                ? CrossFadeState.showSecond
+                : CrossFadeState.showFirst,
+            duration: const Duration(milliseconds: 200),
+          ),
+        ],
+      ),
+    );
   }
 }

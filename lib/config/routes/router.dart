@@ -5,6 +5,7 @@ import 'package:bnv_opendata/presentation/auth/change_password/change_password_s
 import 'package:bnv_opendata/presentation/auth/confirm_otp/confirm_otp_screen.dart';
 import 'package:bnv_opendata/presentation/auth/login/login_page.dart';
 import 'package:bnv_opendata/presentation/closure_plan_detail/closure_plan_detail_screen.dart';
+import 'package:bnv_opendata/presentation/closure_plan_list_screen/closure_plan_list_screen.dart';
 import 'package:bnv_opendata/presentation/construction_detail/construction_detail_screen.dart';
 import 'package:bnv_opendata/presentation/drill_hole_detail/drill_hole_detail_screen.dart';
 import 'package:bnv_opendata/presentation/drill_hole_list_screen/drill_hole_list_screen.dart';
@@ -17,6 +18,7 @@ import 'package:bnv_opendata/presentation/mining_area_screen/mining_area_screen.
 import 'package:bnv_opendata/presentation/notification_management/notification_management_screen.dart';
 import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
 import 'package:bnv_opendata/presentation/project_detail/project_detail_screen.dart';
+import 'package:bnv_opendata/presentation/proposal_plan_list_screen/proposal_plan_list_screen.dart';
 import 'package:bnv_opendata/presentation/resource_reserves/resource_reserves_screen.dart';
 import 'package:bnv_opendata/presentation/show_construction_map/show_construction_Map_screen.dart';
 import 'package:bnv_opendata/presentation/splash/splash_screen.dart';
@@ -54,11 +56,9 @@ typedef AppWidgetBuilder = Widget Function(BuildContext, RouteSettings);
 class Routers {
   static const dfNamed = Navigator.defaultRouteName;
 
-  ///Main App
   static const splash = '/splash';
   static const mainXela = '/mainXela';
 
-  //Xela UI Screen
   static const typography = '/typography';
   static const colors = '/colors';
   static const accordion = '/accordion';
@@ -85,7 +85,6 @@ class Routers {
   static const toggle = '/toggle';
   static const tooltip = '/tooltip';
 
-  //App Screens
   static const main = '/main';
   static const mine3d = '/mine_3d';
   static const alertList = '/alert_list';
@@ -94,108 +93,94 @@ class Routers {
   static const projectDetail = '/project_detail';
   static const notificationManagement = '/notification_management';
   static const closurePlanDetail = '/closure_plan_detail';
+  static const closurePlanList = '/closure_plan_list';
 
-  ///Auth
   static const login = '/login';
   static const logout = '/logout';
   static const changePassword = '/change_password';
   static const confirmOtpChangePass = '/confirm_otp_change_pass';
   static const captchaScreen = '/captcha_screen';
 
-  ///Account
   static const accountInfo = '/account_info';
 
-  ///Main App
   static const mineList = '/mine_list';
   static const mineDetail = '/mine_detail';
   static const drillHoleList = '/drill_hole_list';
   static const drillHoleDetail = '/drill_hole_detail';
   static const constructionDetail = '/construction_detail';
   static const geologicalReportList = '/geological_report_list';
+  static const proposalPlanList = '/proposal_plan_list';
   static const resourceReserves = '/resource_reserves';
   static const miningArea = '/mining_area';
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
-    // final args = settings.arguments;
+    final args = settings.arguments;
 
     switch (settings.name) {
       case mainXela:
-        return MaterialPageRoute(builder: (ctx) => const MainScreenXela());
-      //Router screen ui xela kit
+        return MaterialPageRoute(builder: (_) => const MainScreenXela());
       case typography:
-        return MaterialPageRoute(builder: (ctx) => const TypographyComponent());
+        return MaterialPageRoute(builder: (_) => const TypographyComponent());
       case colors:
-        return MaterialPageRoute(builder: (ctx) => const ColorsComponent());
+        return MaterialPageRoute(builder: (_) => const ColorsComponent());
       case accordion:
-        return MaterialPageRoute(builder: (ctx) => const AccordionComponent());
+        return MaterialPageRoute(builder: (_) => const AccordionComponent());
       case alert:
-        return MaterialPageRoute(builder: (ctx) => const AlertComponent());
+        return MaterialPageRoute(builder: (_) => const AlertComponent());
       case avatar:
-        return MaterialPageRoute(builder: (ctx) => const UserAvatarComponent());
+        return MaterialPageRoute(builder: (_) => const UserAvatarComponent());
       case badge:
-        return MaterialPageRoute(builder: (ctx) => const BadgeComponent());
+        return MaterialPageRoute(builder: (_) => const BadgeComponent());
       case button:
-        return MaterialPageRoute(builder: (ctx) => const ButtonsComponent());
+        return MaterialPageRoute(builder: (_) => const ButtonsComponent());
       case chart:
-        return MaterialPageRoute(builder: (ctx) => const ChartsComponent());
+        return MaterialPageRoute(builder: (_) => const ChartsComponent());
       case chcheckboxart:
-        return MaterialPageRoute(builder: (ctx) => const CheckboxComponent());
+        return MaterialPageRoute(builder: (_) => const CheckboxComponent());
       case chips:
-        return MaterialPageRoute(builder: (ctx) => const ChipsComponent());
+        return MaterialPageRoute(builder: (_) => const ChipsComponent());
       case datepicker:
-        return MaterialPageRoute(builder: (ctx) => const DatePickerComponent());
+        return MaterialPageRoute(builder: (_) => const DatePickerComponent());
       case dialog:
-        return MaterialPageRoute(builder: (ctx) => const DialogsComponent());
+        return MaterialPageRoute(builder: (_) => const DialogsComponent());
       case divider:
-        return MaterialPageRoute(builder: (ctx) => const DividerComponent());
+        return MaterialPageRoute(builder: (_) => const DividerComponent());
       case numberInput:
-        return MaterialPageRoute(
-          builder: (ctx) => const NumberInputComponent(),
-        );
+        return MaterialPageRoute(builder: (_) => const NumberInputComponent());
       case rangeSliderInput:
         return MaterialPageRoute(
-          builder: (ctx) => const RangeSliderInputComponent(),
-        );
+            builder: (_) => const RangeSliderInputComponent());
       case radioButton:
-        return MaterialPageRoute(
-          builder: (ctx) => const RadioButtonComponent(),
-        );
+        return MaterialPageRoute(builder: (_) => const RadioButtonComponent());
       case segmentedControl:
         return MaterialPageRoute(
-          builder: (ctx) => const SegmentedControlComponent(),
-        );
+            builder: (_) => const SegmentedControlComponent());
       case sliderInput:
-        return MaterialPageRoute(
-          builder: (ctx) => const SliderInputComponent(),
-        );
+        return MaterialPageRoute(builder: (_) => const SliderInputComponent());
       case steps:
-        return MaterialPageRoute(builder: (ctx) => const StepsComponent());
+        return MaterialPageRoute(builder: (_) => const StepsComponent());
       case tab:
-        return MaterialPageRoute(builder: (ctx) => const TabsComponent());
+        return MaterialPageRoute(builder: (_) => const TabsComponent());
       case textarea:
-        return MaterialPageRoute(builder: (ctx) => const TextareaComponent());
+        return MaterialPageRoute(builder: (_) => const TextareaComponent());
       case textInput:
-        return MaterialPageRoute(builder: (ctx) => const TextInputComponent());
+        return MaterialPageRoute(builder: (_) => const TextInputComponent());
       case toast:
-        return MaterialPageRoute(builder: (ctx) => const ToastComponent());
+        return MaterialPageRoute(builder: (_) => const ToastComponent());
       case toggle:
-        return MaterialPageRoute(builder: (ctx) => const ToggleComponent());
+        return MaterialPageRoute(builder: (_) => const ToggleComponent());
       case tooltip:
-        return MaterialPageRoute(builder: (ctx) => const TooltipsComponent());
-
-      /// App Screens
+        return MaterialPageRoute(builder: (_) => const TooltipsComponent());
       case splash:
-        return MaterialPageRoute(builder: (ctx) => const SplashScreen());
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
       case main:
-        return MaterialPageRoute(builder: (ctx) => const MainScreen());
+        return MaterialPageRoute(builder: (_) => const MainScreen());
       case login:
-        return MaterialPageRoute(builder: (ctx) => const LoginPage());
+        return MaterialPageRoute(builder: (_) => const LoginPage());
       case logout:
-        return MaterialPageRoute(builder: (ctx) => const ColorsComponent());
+        return MaterialPageRoute(builder: (_) => const ColorsComponent());
       case changePassword:
-        return MaterialPageRoute(
-          builder: (ctx) => const ChangePasswordScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => const ChangePasswordScreen());
       case confirmOtpChangePass:
         return MaterialPageRoute(
           builder: (ctx) => const ConfirmOtpChangePassScreen(),
@@ -205,73 +190,88 @@ class Routers {
           builder: (ctx) => const CaptchaScreen(),
         );
       case accountInfo:
-        return MaterialPageRoute(builder: (ctx) => const AccountInfoScreen());
+        return MaterialPageRoute(builder: (_) => const AccountInfoScreen());
       case mineList:
-        return MaterialPageRoute(builder: (ctx) => const MineListScreen());
+        return MaterialPageRoute(builder: (_) => const MineListScreen());
       case mineDetail:
-        return MaterialPageRoute(builder: (ctx) => const MineDetailScreen());
-      case drillHoleList:
-        return MaterialPageRoute(builder: (ctx) => const DrillHoleListScreen());
-      case drillHoleDetail:
+        final siteId = _stringArg(args, 'siteId');
         return MaterialPageRoute(
-            builder: (ctx) => const DrillHoleDetailScreen());
+            builder: (_) => MineSiteDetailScreen(siteId: siteId));
+      case drillHoleList:
+        final siteId = _stringArg(args, 'siteId');
+        return MaterialPageRoute(
+            builder: (_) => DrillHoleListScreen(siteId: siteId));
+      case drillHoleDetail:
+        final drillHoleId = _stringArg(args, 'drillHoleId');
+        return MaterialPageRoute(
+            builder: (_) => DrillHoleDetailScreen(drillHoleId: drillHoleId));
+      case closurePlanList:
+        final siteId = _stringArg(args, 'siteId');
+        return MaterialPageRoute(
+            builder: (_) => ClosurePlanListScreen(siteId: siteId));
+      case closurePlanDetail:
+        final planId = _stringArg(args, 'planId');
+        return MaterialPageRoute(
+            builder: (_) => ClosurePlanDetailScreen(planId: planId));
       case constructionDetail:
         return MaterialPageRoute(
-            builder: (ctx) => const ConstructionDetailScreen());
+            builder: (_) => const ConstructionDetailScreen());
       case geologicalReportList:
         return MaterialPageRoute(
-            builder: (ctx) => const GeologicalReportListScreen());
+            builder: (_) => const GeologicalReportListScreen());
+      case proposalPlanList:
+        return MaterialPageRoute(
+            builder: (_) => const ProposalPlanListScreen());
       case resourceReserves:
         return MaterialPageRoute(
-            builder: (ctx) => const ResourceReservesScreen());
+            builder: (_) => const ResourceReservesScreen());
       case mine3d:
         return MaterialPageRoute(
-          builder: (ctx) => const Mine3DScreen(),
+          builder: (_) => const Mine3DScreen()
         );
       case alertList:
-        return MaterialPageRoute(builder: (ctx) => const AlertListScreen());
+        return MaterialPageRoute(builder: (_) => const AlertListScreen());
       case progress:
-        return MaterialPageRoute(builder: (ctx) => const ProgressScreen());
+        return MaterialPageRoute(builder: (_) => const ProgressScreen());
       case showConstructionMap:
         return MaterialPageRoute(
-          builder: (ctx) => const ShowConstructionMapScreen(),
-        );
+            builder: (_) => const ShowConstructionMapScreen());
       case projectDetail:
-        return MaterialPageRoute(builder: (ctx) => ProjectDetailScreen());
+        return MaterialPageRoute(builder: (_) => ProjectDetailScreen());
       case notificationManagement:
         return MaterialPageRoute(
-          builder: (ctx) => NotificationManagementScreen(),
-        );
-      case closurePlanDetail:
-        return MaterialPageRoute(builder: (ctx) => ClosurePlanDetailScreen());
+            builder: (_) => NotificationManagementScreen());
       case miningArea:
         return MaterialPageRoute(builder: (ctx) => const MiningAreaScreen());
     }
     return null;
   }
+
+  static String _stringArg(Object? args, String key) {
+    if (args is Map<String, dynamic>) {
+      final value = args[key];
+      if (value is String) {
+        return value;
+      }
+    }
+    if (args is Map) {
+      final value = args[key];
+      if (value is String) {
+        return value;
+      }
+    }
+    return '';
+  }
 }
 
 class PageTransition<T> extends PageRouteBuilder<T> {
-  /// Child for your next page
   final Widget child;
-
-  /// Transition types
-  ///  fade,rightToLeft,bottomToTop,rightToLeftWithFade
   final PageTransitionType type;
-
-  /// Duration for your transition default is 300 ms
   final Duration duration;
-
-  /// Duration for your pop transition default is 300 ms
   final Duration reverseDuration;
-
-  /// Context for inherit theme
   final BuildContext? ctx;
-
-  /// Optional inherit theme
   final bool inheritTheme;
 
-  /// Page transition constructor. We can pass the next page as a child,
   PageTransition({
     required this.child,
     this.type = PageTransitionType.RIGHT_TO_LEFT_WITH_FADE,
@@ -285,72 +285,48 @@ class PageTransition<T> extends PageRouteBuilder<T> {
           "'ctx' cannot be null when 'inheritTheme' is true",
         ),
         super(
-          pageBuilder: (
-            BuildContext context,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-          ) {
+          pageBuilder: (context, animation, secondaryAnimation) {
             return inheritTheme
-                ? InheritedTheme.captureAll(
-                    ctx!,
-                    child,
-                  )
+                ? InheritedTheme.captureAll(ctx!, child)
                 : child;
           },
           transitionDuration: duration,
           reverseTransitionDuration: reverseDuration,
           settings: settings,
           maintainState: true,
-          transitionsBuilder: (
-            BuildContext context,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-            Widget child,
-          ) {
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
             switch (type) {
               case PageTransitionType.FADE:
                 return FadeTransition(opacity: animation, child: child);
-                // ignore: dead_code
-                break;
               case PageTransitionType.RIGHT_TO_LEFT:
                 return SlideTransition(
-                  position: Tween<Offset>(
-                    begin: const Offset(1, 0),
-                    end: Offset.zero,
-                  ).animate(animation),
+                  position:
+                      Tween<Offset>(begin: const Offset(1, 0), end: Offset.zero)
+                          .animate(animation),
                   child: child,
                 );
-                // ignore: dead_code
-                break;
               case PageTransitionType.BOTTOM_TO_TOP:
                 return SlideTransition(
-                  position: Tween<Offset>(
-                    begin: const Offset(0, 1),
-                    end: Offset.zero,
-                  ).animate(animation),
+                  position:
+                      Tween<Offset>(begin: const Offset(0, 1), end: Offset.zero)
+                          .animate(animation),
                   child: child,
                 );
-                // ignore: dead_code
-                break;
               case PageTransitionType.RIGHT_TO_LEFT_WITH_FADE:
                 return SlideTransition(
                   position: Tween<Offset>(
-                    begin: const Offset(1.0, 0.0),
-                    end: Offset.zero,
-                  ).animate(animation),
+                          begin: const Offset(1.0, 0.0), end: Offset.zero)
+                      .animate(animation),
                   child: FadeTransition(
                     opacity: animation,
                     child: SlideTransition(
                       position: Tween<Offset>(
-                        begin: const Offset(1, 0),
-                        end: Offset.zero,
-                      ).animate(animation),
+                              begin: const Offset(1, 0), end: Offset.zero)
+                          .animate(animation),
                       child: child,
                     ),
                   ),
                 );
-                // ignore: dead_code
-                break;
             }
           },
         );

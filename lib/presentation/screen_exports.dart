@@ -5,4 +5,5 @@ export 'home/home_screen.dart';
 export 'main_screen/main_screen.dart';
 export 'mine_list_screen/mine_list_screen.dart';
 export 'mining_area_screen/mining_area_screen.dart';
+export 'mine_menu_screen/mine_menu_screen.dart';
 

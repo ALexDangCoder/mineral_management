@@ -1,141 +1,95 @@
-import 'package:bnv_opendata/config/routes/router.dart';
-import 'package:bnv_opendata/config/themes/app_theme.dart';
+import 'package:bnv_opendata/presentation/closure_plan_detail/cubit/closure_plan_detail_cubit.dart';
+import 'package:bnv_opendata/presentation/mine_shared/cubit_status.dart';
+import 'package:bnv_opendata/presentation/mine_shared/widgets/xk_components.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
-import 'package:bnv_opendata/widgets/xela_widgets/xela_button.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
-import 'package:bnv_opendata/widgets/xela_widgets/xela_divider.dart';
-import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ClosurePlanDetailScreen extends StatelessWidget {
-  final String title;
-  final String projectName;
-  final DateTime startDate;
-
-  ClosurePlanDetailScreen({
+  const ClosurePlanDetailScreen({
     super.key,
-    String? title,
-    String? projectName,
-    DateTime? startDate,
-  })  : title = title ?? 'Chi tiết Đề án đóng cửa',
-        projectName = projectName ?? 'Đề án đóng cửa Nà Bó',
-        startDate = startDate ?? DateTime(2024, 1, 1);
+    required this.planId,
+  });
 
-  String _formatDate(DateTime d) => DateFormat('dd/MM/yyyy').format(d);
+  final String planId;
 
   @override
   Widget build(BuildContext context) {
-    // Nhận arguments từ các màn hình khác
-    final args = ModalRoute.of(context)?.settings.arguments;
-    String finalProjectName = projectName;
-    if (args is Map) {
-      finalProjectName = args['projectName'] ?? projectName;
-    }
-
-    return AppScaffold(
-      title: title,
-      bgColor: XelaColor.Gray12,
-      body: ListView(
-        children: [
-          const SizedBox(height: 4),
-          _InfoCard(
-            label: 'Tên dự án',
-            value: finalProjectName,
-            isExpired: false,
-          ),
-          const SizedBox(height: 14),
-          _InfoCard(
-            label: 'Ngày Phê Duyệt',
-            value: _formatDate(startDate),
-            isExpired: false,
-          ),
-          const SizedBox(height: 14),
-          _InfoCard(
-            label: 'Ngày hết hiệu lực',
-            value: _formatDate(startDate),
-            isExpired: true,
-          ),
-          const SizedBox(height: 24),
-          // Buttons navigation
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              children: [
-                XelaButton(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      Routers.projectDetail,
-                      arguments: {
-                        'projectName': finalProjectName,
-                        'fromClosurePlan': true,
-                      },
-                    );
-                  },
-                  text: 'Xem chi tiết dự án',
-                  background: AppTheme.getInstance().primaryColor(),
-                ),
-                const SizedBox(height: 16),
-                XelaButton(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      Routers.mine3d,
-                      arguments: {
-                        'projectName': finalProjectName,
-                        'fromClosurePlan': true,
-                      },
-                    );
-                  },
-                  text: 'Xem mô hình 3D',
-                  background: AppTheme.getInstance().primaryColor(),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 24),
-        ],
+    return BlocProvider(
+      create: (_) => ClosurePlanDetailCubit(planId: planId)..init(),
+      child: const AppScaffold(
+        title: 'Chi tiết đề án đóng cửa',
+        bgColor: XelaColor.Gray12,
+        appBarColor: XelaColor.Gray12,
+        body: _ClosurePlanDetailBody(),
       ),
     );
   }
 }
 
-class _InfoCard extends StatelessWidget {
-  final String label;
-  final String value;
-  final bool isExpired;
-
-  const _InfoCard({
-    required this.label,
-    required this.value,
-    required this.isExpired,
-  });
+class _ClosurePlanDetailBody extends StatelessWidget {
+  const _ClosurePlanDetailBody();
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-      decoration: BoxDecoration(
-        color: XelaColor.Gray11,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            label,
-            style: XelaTextStyle.xelaSubheadline,
-          ),
-          const SizedBox(height: 8),
-          Text(
-            value,
-            style: XelaTextStyle.xelaBodyBold.apply(
-              color: isExpired ? XelaColor.Red3 : XelaColor.Gray1,
-            ),
-          ),
-        ],
-      ),
+    return BlocBuilder<ClosurePlanDetailCubit, ClosurePlanDetailState>(
+      builder: (context, state) {
+        switch (state.status) {
+          case MineScreenStatus.initial:
+          case MineScreenStatus.loading:
+            return const XkSkeletonList(itemCount: 2);
+          case MineScreenStatus.empty:
+            return XkEmptyState(
+              message: state.errorMessage ?? 'Dữ liệu trống.',
+              onRetry: context.read<ClosurePlanDetailCubit>().retry,
+            );
+          case MineScreenStatus.failure:
+            return XkErrorState(
+              message: state.errorMessage ?? 'Đã xảy ra lỗi.',
+              onRetry: context.read<ClosurePlanDetailCubit>().retry,
+            );
+          case MineScreenStatus.success:
+            final plan = state.plan!;
+            final siteName = state.site?.name ?? '—';
+            final firstDocument =
+                plan.documents.isEmpty ? '—' : plan.documents.first.name;
+            return RefreshIndicator(
+              onRefresh: context.read<ClosurePlanDetailCubit>().refresh,
+              child: ListView(
+                children: [
+                  XkCard(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const XkSectionHeader(title: 'Thông tin đề án'),
+                        const SizedBox(height: 10),
+                        const XkSectionDivider(),
+                        const SizedBox(height: 10),
+                        XkLabelValueRow(
+                            label: 'Tên công trình', value: plan.projectName),
+                        const SizedBox(height: 8),
+                        XkLabelValueRow(label: 'Tên đề án', value: plan.name),
+                        const SizedBox(height: 8),
+                        XkLabelValueRow(label: 'Khu mỏ', value: siteName),
+                        const SizedBox(height: 8),
+                        XkLabelValueRow(label: 'Giai đoạn', value: plan.stage),
+                        const SizedBox(height: 8),
+                        XkLabelValueRow(
+                            label: 'Trạng thái', value: plan.status),
+                        const SizedBox(height: 8),
+                        XkLabelValueRow(label: 'Ghi chú', value: plan.note),
+                        const SizedBox(height: 8),
+                        XkLabelValueRow(
+                            label: 'Tài liệu', value: firstDocument),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            );
+        }
+      },
     );
   }
 }
