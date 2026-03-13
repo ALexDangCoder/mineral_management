@@ -33,6 +33,7 @@ class _MainScreenBodyState extends State<_MainScreenBody> {
   static final List<Widget> _pages = <Widget>[
     const HomeScreen(),
     const ShowConstructionMapScreen(),
+    const ShowConstructionMapScreen(),
     const MineMenuScreen(),
     const AccountInfoScreen(),
   ];
@@ -75,6 +76,17 @@ class _MainScreenBodyState extends State<_MainScreenBody> {
                       : XelaColor.Gray7,
                 ),
                 label: 'Vùng mỏ',
+              ),
+              BottomNavigationBarItem(
+                backgroundColor: XelaColor.Gray12,
+                icon: Icon(
+                  Icons.map_outlined,
+                  size: 20,
+                  color: state.indexPage == 2
+                      ? AppTheme.getInstance().primaryColor()
+                      : XelaColor.Gray7,
+                ),
+                label: AppS.of(context).map,
               ),
               BottomNavigationBarItem(
                 backgroundColor: XelaColor.Gray12,

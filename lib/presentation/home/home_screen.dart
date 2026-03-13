@@ -1,6 +1,7 @@
 import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/config/themes/app_theme.dart';
 import 'package:bnv_opendata/presentation/alert/alert_list_screen.dart';
+import 'package:bnv_opendata/presentation/home/cubit/home_cubit.dart';
 import 'package:bnv_opendata/presentation/home/report_widget/report_widget.dart';
 import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
@@ -10,15 +11,19 @@ import 'package:bnv_opendata/widgets/xela_widgets/xela_button.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const AppScaffold(
-      body: _HomeScreenBody(),
-      bgColor: XelaColor.Gray12,
+    return BlocProvider(
+      create: (context) => HomeCubit(),
+      child: const AppScaffold(
+        body: _HomeScreenBody(),
+        bgColor: XelaColor.Gray12,
+      ),
     );
   }
 }
