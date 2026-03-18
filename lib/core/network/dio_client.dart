@@ -3,6 +3,7 @@ import 'package:dio/io.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:bnv_opendata/core/network/interceptors/auth_interceptor.dart';
 import 'package:bnv_opendata/presentation/main_cubit/auth_event_bus.dart';
+import 'package:bnv_opendata/domain/repositories/app_local_storate_repository.dart';
 import 'package:dio/dio.dart';
 
 class DioClient {
@@ -10,6 +11,7 @@ class DioClient {
 
   DioClient({
     required String baseUrl,
+    required AppLocalStorageRepository localStorage,
     required AuthEventBus eventBus,
   }) : dio = Dio(
     BaseOptions(
@@ -31,7 +33,7 @@ class DioClient {
     );
 
     dio.interceptors.addAll([
-      AuthInterceptor(eventBus),
+      AuthInterceptor(localStorage, eventBus),
       PrettyDioLogger(
         requestHeader: true,
         requestBody: true,

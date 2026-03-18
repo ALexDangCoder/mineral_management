@@ -1,21 +1,41 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
-import 'package:bnv_opendata/config/base/base_state.dart';
+import 'package:bnv_opendata/domain/repositories/auth_repository.dart';
 import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_cubit.dart';
+import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart';
 
 part 'confirm_otp_state.dart';
 
 class ConfirmOtpCubit extends BaseCubit<ConfirmOtpState> {
-  ConfirmOtpCubit() : super(const ConfirmOtpState());
+  final String email;
+  final AuthRepository authRepository;
+
+  ConfirmOtpCubit({
+    required this.email,
+    required this.authRepository,
+  }) : super(const ConfirmOtpState());
 
   Timer? _timer;
+  String _otpCode = '';
 
-  void requestOtp() {
+  void requestOtp() async {
     if (!state.canResend) return;
 
-    // otpRepository.sendOtp();
+    emit(state.copyWith(eventState: const LoadingState()));
+    final result = await authRepository.sendCode(email);
+    
+    result.when(
+      success: (data) {
+        emit(state.copyWith(eventState: LoadedState(data: data)));
+        _startTimer();
+      },
+      failure: (message) {
+        emit(state.copyWith(eventState: ErrorState(data: message)));
+      },
+    );
+  }
 
+  void startTimer() {
     _startTimer();
   }
 
@@ -48,12 +68,25 @@ class ConfirmOtpCubit extends BaseCubit<ConfirmOtpState> {
     });
   }
 
-  Future<void> confirmOtp() async {
-    // emit(state.copyWith(confirmBtnIsEnable: otpCode?.length == 8));
+  Future<bool> confirmOtp() async {
+    emit(state.copyWith(eventState: const LoadingState()));
+    final result = await authRepository.verifyCode(email, _otpCode);
+    
+    return result.when(
+      success: (data) {
+        emit(state.copyWith(eventState: LoadedState(data: data)));
+        return true;
+      },
+      failure: (message) {
+        emit(state.copyWith(eventState: ErrorState(data: message)));
+        return false;
+      },
+    );
   }
 
   Future<void> onChangeOtp({String? otpCode}) async {
-    emit(state.copyWith(confirmBtnIsEnable: otpCode?.length == 6));
+    _otpCode = otpCode ?? '';
+    emit(state.copyWith(confirmBtnIsEnable: _otpCode.length == 6));
   }
 
   @override

@@ -1,13 +1,10 @@
-import 'dart:developer';
 import 'dart:io';
 
-import 'package:bloc/bloc.dart';
 import 'package:bnv_opendata/data/models/model_exports.dart';
 import 'package:bnv_opendata/domain/repositories/repository_exports.dart';
 import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_cubit.dart';
 import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:meta/meta.dart';
 
 part 'account_info_state.dart';
 
@@ -19,14 +16,22 @@ class AccountInfoCubit extends BaseCubit<AccountInfoState> {
   final ImagePicker _picker = ImagePicker();
 
   Future<void> getUserInfo() async {
-    final userData = await _authRepository.getSavedUserInfo() ?? {};
-log('USER DATA ${userData}');
-    final userInfo = UserModel.fromJson(userData);
-    emit(
-      state.copyWith(
-        userInfo: userInfo,
-        eventState: const LoadedState(),
-      ),
+    emit(state.copyWith(eventState: const LoadingState()));
+
+    final result = await _authRepository.getUserProfile();
+    
+    result.when(
+      success: (data) {
+        emit(
+          state.copyWith(
+            userInfoResponse: data,
+            eventState: LoadedState(data: data),
+          ),
+        );
+      },
+      failure: (message) {
+        emit(state.copyWith(eventState: ErrorState(data: message)));
+      },
     );
   }
 

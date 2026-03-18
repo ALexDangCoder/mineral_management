@@ -1,9 +1,7 @@
-import 'dart:developer';
 
 import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/config/themes/app_theme.dart';
 import 'package:bnv_opendata/core/enums/auth_status_enum.dart';
-import 'package:bnv_opendata/data/models/model_exports.dart';
 import 'package:bnv_opendata/dependencies/app_dependenies.dart';
 import 'package:bnv_opendata/domain/models/xela_button_models.dart';
 import 'package:bnv_opendata/presentation/auth/login/cubit/login_cubit.dart';
@@ -29,6 +27,7 @@ class LoginPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => LoginCubit(
         injector.get(),
+        injector.get(),
       ),
       child: const AppScaffold(
         bgColor: Colors.white,
@@ -51,11 +50,14 @@ class _LoginPageListener extends StatelessWidget {
                 ? PopupLoadingUtils.of(context).show()
                 : PopupLoadingUtils.of(context).close();
             if (state.eventState is ErrorState) {
-              final errorMsg = (state.eventState! as ErrorState).data as String?;
+              final errorMsg =
+                  (state.eventState! as ErrorState).data as String?;
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(
-                    errorMsg?.isNotEmpty == true ? errorMsg! : 'Đăng nhập thất bại, vui lòng thử lại',
+                    errorMsg?.isNotEmpty == true
+                        ? errorMsg!
+                        : 'Đăng nhập thất bại, vui lòng thử lại',
                   ),
                   backgroundColor: Colors.red.shade700,
                   behavior: SnackBarBehavior.floating,
@@ -188,10 +190,7 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
           const SizedBox(height: 8),
           TextButton(
             onPressed: () {
-              Navigator.pushNamed(
-                context,
-                Routers.confirmOtpChangePass,
-              );
+              _showEmailInputDialog();
             },
             child: Text(
               AppS.of(context).forgot_password,
@@ -226,6 +225,57 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
           ),
         ],
       ),
+    );
+  }
+
+  void _showEmailInputDialog() {
+    String email = '';
+    showDialog(
+      context: context,
+      builder: (ctx) {
+        return AlertDialog(
+          title: const Text('Nhập Email'),
+          content: TextField(
+            onChanged: (val) => email = val,
+            decoration: const InputDecoration(
+              hintText: 'Nhập địa chỉ email của bạn',
+            ),
+            keyboardType: TextInputType.emailAddress,
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              child: const Text('Hủy'),
+            ),
+            TextButton(
+              onPressed: () async {
+                final currentEmail = email.trim();
+                if (currentEmail.isNotEmpty) {
+                  PopupLoadingUtils.of(context).show();
+                  final errorMsg = await context.read<LoginCubit>().sendCode(currentEmail);
+                  
+                  if (context.mounted) {
+                    PopupLoadingUtils.of(context).close();
+                    if (errorMsg == null) {
+                      Navigator.pop(ctx);
+                      Navigator.pushNamed(
+                        context,
+                        Routers.confirmOtpChangePass,
+                        arguments: {'email': currentEmail},
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(errorMsg)),
+                      );
+                    }
+                  }
+                }
+              },
+              child: const Text('Tiếp tục'),
+            ),
+          ],
+        );
+      },
     );
   }
 }

@@ -70,3 +70,4 @@ node_modules
 
 # FVM Version Cache
 .fvm/
+/lib/data/models/response/user_info_response.freezed.dart

@@ -1,28 +1,33 @@
 import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/config/themes/app_theme.dart';
+import 'package:bnv_opendata/dependencies/app_dependenies.dart';
 import 'package:bnv_opendata/domain/models/xela_button_models.dart';
 import 'package:bnv_opendata/presentation/auth/confirm_otp/cubit/confirm_otp_cubit.dart';
+import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
 import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
+import 'package:bnv_opendata/utils/popup_loading/popup_loading_utils.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_button.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
-import 'package:bnv_opendata/widgets/xela_widgets/xela_textfield.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinput/pinput.dart';
 
 class ConfirmOtpChangePassScreen extends StatelessWidget {
-  const ConfirmOtpChangePassScreen({super.key});
+  final String email;
+  const ConfirmOtpChangePassScreen({super.key, required this.email});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ConfirmOtpCubit()..requestOtp(),
+      create: (context) => ConfirmOtpCubit(
+        email: email,
+        authRepository: injector.get()
+      )..startTimer(),
       child: AppScaffold(
         title: AppS.of(context).confirm_code,
-        body: const _ConfirmOTPListener(),
+        body: _ConfirmOTPListener(email: email),
         bgColor: XelaColor.Gray12,
         appBarColor: XelaColor.Gray12,
       ),
@@ -31,27 +36,44 @@ class ConfirmOtpChangePassScreen extends StatelessWidget {
 }
 
 class _ConfirmOTPListener extends StatelessWidget {
-  const _ConfirmOTPListener();
+  final String email;
+  const _ConfirmOTPListener({required this.email});
 
   @override
   Widget build(BuildContext context) {
     return BlocListener<ConfirmOtpCubit, ConfirmOtpState>(
+      listenWhen: (previous, current) => previous.eventState != current.eventState,
       listener: (context, state) {
-        // if (state is ChangingPassLoading) {
-        //   PopupLoadingUtils.of(context).show();
-        // }
-        // if (state is ChangedPasswordSuccess) {
-        //   PopupLoadingUtils.of(context).close();
-        //   Navigator.of(context).pop();
-        // }
+        if (state.eventState is LoadingState) {
+          PopupLoadingUtils.of(context).show();
+        } else {
+          PopupLoadingUtils.of(context).close();
+          
+          if (state.eventState is ErrorState) {
+             final msg = (state.eventState as ErrorState).data as String?;
+             if (msg != null && msg.isNotEmpty) {
+               ScaffoldMessenger.of(context).showSnackBar(
+                 SnackBar(content: Text(msg)),
+               );
+             }
+          } else if (state.eventState is LoadedState) {
+             final msg = (state.eventState as LoadedState).data as String?;
+             if (msg != null && msg.isNotEmpty) {
+               ScaffoldMessenger.of(context).showSnackBar(
+                 SnackBar(content: Text(msg)),
+               );
+             }
+          }
+        }
       },
-      child: const _ConfirmOTPBody(),
+      child: _ConfirmOTPBody(email: email),
     );
   }
 }
 
 class _ConfirmOTPBody extends StatefulWidget {
-  const _ConfirmOTPBody({super.key});
+  final String email;
+  const _ConfirmOTPBody({required this.email});
 
   @override
   State<_ConfirmOTPBody> createState() => _ConfirmOTPBodyState();
@@ -89,7 +111,7 @@ class _ConfirmOTPBodyState extends State<_ConfirmOTPBody> {
             height: 12,
           ),
           Text(
-            AppS.of(context).confirm_code_sent_to,
+            widget.email,
             style: XelaTextStyle.xelaBodyBold.apply(
               color: XelaColor.Gray2,
             ),
@@ -127,7 +149,13 @@ class _ConfirmOTPBodyState extends State<_ConfirmOTPBody> {
               context.read<ConfirmOtpCubit>().onChangeOtp(otpCode: string);
             },
             onCompleted: (pin) async {
-              await context.read<ConfirmOtpCubit>().confirmOtp();
+              final success = await context.read<ConfirmOtpCubit>().confirmOtp();
+              if (success && context.mounted) {
+                await Navigator.pushReplacementNamed(
+                  context,
+                  Routers.changePassword,
+                );
+              }
             },
           ),
           const SizedBox(height: 28),
@@ -135,8 +163,8 @@ class _ConfirmOTPBodyState extends State<_ConfirmOTPBody> {
             builder: (ctx, state) {
               return XelaButton(
                 onPressed: () async {
-                  await context.read<ConfirmOtpCubit>().confirmOtp();
-                  if (context.mounted) {
+                  final success = await context.read<ConfirmOtpCubit>().confirmOtp();
+                  if (success && context.mounted) {
                     await Navigator.pushReplacementNamed(
                       context,
                       Routers.changePassword,

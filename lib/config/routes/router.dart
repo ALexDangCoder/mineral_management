@@ -182,8 +182,9 @@ class Routers {
       case changePassword:
         return MaterialPageRoute(builder: (_) => const ChangePasswordScreen());
       case confirmOtpChangePass:
+        final email = _stringArg(args, 'email');
         return MaterialPageRoute(
-          builder: (ctx) => const ConfirmOtpChangePassScreen(),
+          builder: (ctx) => ConfirmOtpChangePassScreen(email: email),
         );
       case captchaScreen:
         return MaterialPageRoute(

@@ -56,10 +56,9 @@ class AuthRepositoryImpl implements AuthRepository {
     String newPass,
   ) async {
     try {
-      final response =
-          await remoteDataSource.changePassword(currentPass, newPass);
+      await remoteDataSource.changePassword(currentPass, newPass);
       return const Success('');
-    } on Exception catch (e) {
+    } on Exception catch (_) {
       // TODO
       return const Failure('');
     }
@@ -67,8 +66,17 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<void> logout() async {
-    await localStorage.removeUserInfo();
-    await localStorage.removeToken();
+    try {
+      final token = await localStorage.getToken();
+      if (token != null && token.isNotEmpty) {
+        await remoteDataSource.logout(token);
+      }
+    } catch (e) {
+      log('Logout API error (ignored): $e');
+    } finally {
+      await localStorage.removeUserInfo();
+      await localStorage.removeToken();
+    }
   }
 
   @override
@@ -80,5 +88,68 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<Map<String, dynamic>?> getSavedUserInfo() async {
     return localStorage.getUserInfo();
+  }
+
+  @override
+  Future<Result<dynamic>> sendCode(String email) async {
+    try {
+      final response = await remoteDataSource.sendCode(email);
+      if (response.code == 0) {
+        return const Success('Gửi OTP thành công');
+      }
+      return Failure(response.message ?? 'Gửi OTP thất bại');
+    } on DioException catch (e) {
+      log('sendCode DioException: $e');
+      final data = e.response?.data;
+      if (data is Map<String, dynamic> && data['message'] != null) {
+        return Failure(data['message'].toString());
+      }
+      return const Failure('Lỗi kết nối, vui lòng thử lại');
+    } catch (e) {
+      log('sendCode Exception: $e');
+      return const Failure('Lỗi hệ thống khi tải');
+    }
+  }
+
+  @override
+  Future<Result<dynamic>> verifyCode(String email, String code) async {
+    try {
+      final response = await remoteDataSource.verifyCode(email, code);
+      if (response.code == 0) {
+        return const Success('Xác nhận OTP thành công');
+      }
+      return Failure(response.message ?? 'Mã OTP không đúng');
+    } on DioException catch (e) {
+      log('verifyCode DioException: $e');
+      final data = e.response?.data;
+      if (data is Map<String, dynamic> && data['message'] != null) {
+        return Failure(data['message'].toString());
+      }
+      return const Failure('Lỗi kết nối, vui lòng thử lại');
+    } catch (e) {
+      log('verifyCode Exception: $e');
+      return const Failure('Lỗi hệ thống khi tải');
+    }
+  }
+
+  @override
+  Future<Result<UserInfoResponse>> getUserProfile() async {
+    try {
+      final response = await remoteDataSource.getUserProfile();
+      if (response.code == 0 || response.code == 200 || response.data != null) {
+        return Success(response.data!);
+      }
+      return Failure(response.message ?? 'Lỗi tải dữ liệu người dùng');
+    } on DioException catch (e) {
+      log('getUserProfile DioException: $e');
+      final data = e.response?.data;
+      if (data is Map<String, dynamic> && data['message'] != null) {
+        return Failure(data['message'].toString());
+      }
+      return const Failure('Lỗi kết nối, vui lòng thử lại');
+    } catch (e) {
+      log('getUserProfile Exception: $e');
+      return const Failure('Lỗi hệ thống khi tải');
+    }
   }
 }

@@ -17,4 +17,6 @@ class AppConstants {
 
   factory AppConstants.fromJson(Map<String, dynamic> json) =>
       _$AppConstantsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AppConstantsToJson(this);
 }

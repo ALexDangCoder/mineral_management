@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:bnv_opendata/core/enums/auth_status_enum.dart';
 import 'package:bnv_opendata/data/models/model_exports.dart';
@@ -16,6 +15,7 @@ class AuthCubit extends BaseCubit<AuthState> {
   AuthCubit(
     this.checkAuthStatusUseCase,
     this.eventBus,
+    this.authRepository,
   ) : super(
           const AuthState(),
         ) {
@@ -29,6 +29,7 @@ class AuthCubit extends BaseCubit<AuthState> {
 
   final CheckAuthStatusUseCase checkAuthStatusUseCase;
   final AuthEventBus eventBus;
+  final AuthRepository authRepository;
   StreamSubscription? _sub;
   bool _isSessionExpiredHandled = false;
 
@@ -74,8 +75,9 @@ class AuthCubit extends BaseCubit<AuthState> {
   }
 
   Future<void> logout() async {
-    // await authRepository.logout();
-    print('=====LOGOUT');
+    try {
+      await authRepository.logout();
+    } catch (_) {}
     emit(state.copyWith(
       authStatus: AuthStatusEnum.unauthenticated,
     ));

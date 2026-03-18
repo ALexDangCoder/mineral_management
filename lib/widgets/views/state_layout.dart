@@ -36,7 +36,7 @@ class StateFullLayout extends StatelessWidget {
       return StateErrorView(_error.message, _retry);
     }
     if (_stateLayout == StateLayout.showEmpty) {
-      if (_textEmpty is Widget) return _textEmpty as Widget;
+      if (_textEmpty is Widget) return _textEmpty;
       return EmptyView(_textEmpty.toString());
     }
     return ModalProgressHUD(

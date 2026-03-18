@@ -6,7 +6,6 @@ import 'package:bnv_opendata/data/di/module.dart';
 import 'package:bnv_opendata/dependencies/app_dependenies.dart';
 import 'package:bnv_opendata/domain/locals/prefs_service.dart';
 import 'package:bnv_opendata/presentation/main_cubit/auth_cubit.dart';
-import 'package:bnv_opendata/presentation/splash/splash_screen.dart';
 import 'package:bnv_opendata/resources/generated/l10n.dart';
 import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
 import 'package:flutter/material.dart' hide Router;
@@ -14,7 +13,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -52,6 +50,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AuthCubit(
+        injector.get(),
         injector.get(),
         injector.get(),
       )..checkAuthStatus(),

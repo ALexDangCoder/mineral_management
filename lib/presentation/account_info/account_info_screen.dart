@@ -1,17 +1,12 @@
-import 'dart:developer';
 
 import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/config/themes/app_theme.dart';
 import 'package:bnv_opendata/dependencies/app_dependenies.dart';
-import 'package:bnv_opendata/domain/models/xela_textfield_models.dart';
 import 'package:bnv_opendata/domain/models/xela_user_avatar_models.dart';
 import 'package:bnv_opendata/presentation/account_info/cubit/account_info_cubit.dart';
 import 'package:bnv_opendata/presentation/main_cubit/auth_cubit.dart';
-import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart';
-import 'package:bnv_opendata/presentation/screen_exports.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
 import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
-import 'package:bnv_opendata/utils/extensions/string_extensions.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_button.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
@@ -66,10 +61,9 @@ class _AccountInfoBodyState extends State<_AccountInfoBody> {
     return AppScaffold(
       body: BlocConsumer<AccountInfoCubit, AccountInfoState>(
         listener: (context, state) {
-          _fullNameController.text = state.userInfo?.fullName ?? '';
-          _departmentController.text = state.userInfo?.position ?? '';
-          _phoneController.text =
-              (state.userInfo?.phone ?? '').formatPhoneNumber;
+          _fullNameController.text = state.userInfoResponse?.name ?? '';
+          _departmentController.text = state.userInfoResponse?.donVi?.tenDonVi ?? '';
+          _phoneController.text = ''; // API doesn't return phone currently
         },
         builder: (context, state) {
           return SingleChildScrollView(
@@ -118,14 +112,14 @@ class _AccountInfoBodyState extends State<_AccountInfoBody> {
                 ),
                 const SizedBox(height: 28),
                 Text(
-                  'username',
+                  state.userInfoResponse?.username ?? 'username',
                   style: XelaTextStyle.xelaHeadline.apply(
                     color: XelaColor.Gray2,
                   ),
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'Canbokythuat@gmail.com',
+                  state.userInfoResponse?.email ?? 'email@gmail.com',
                   style: XelaTextStyle.xelaBody.apply(
                     color: XelaColor.Gray2,
                   ),

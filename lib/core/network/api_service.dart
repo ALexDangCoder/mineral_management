@@ -16,6 +16,21 @@ abstract class ApiService {
     @Body() LoginRequest request,
   );
 
+  @DELETE('/api/auth/public/auth/token')
+  Future<dynamic> logout(
+    @Query('token') String token,
+  );
+
+  @POST('/api/auth/public/auth/send-code')
+  Future<BaseResponse<dynamic>> sendCode(
+    @Body() SendCodeRequest request,
+  );
+
+  @POST('/api/auth/public/auth/verify-code')
+  Future<BaseResponse<dynamic>> verifyCode(
+    @Body() VerifyCodeRequest request,
+  );
+
   @POST('/auth/change-password')
   Future<dynamic> changePassword(
     @Body() dynamic request,
@@ -26,4 +41,7 @@ abstract class ApiService {
     @Query('page') int page,
     @Query('limit') int limit,
   );
+
+  @GET('/api/auth/auth/user')
+  Future<BaseResponse<UserInfoResponse>> getUserProfile();
 }

@@ -8,10 +8,9 @@ import 'package:bnv_opendata/widgets/xela_widgets/xela_button.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_textfield.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pinput/pinput.dart';
+import 'package:bnv_opendata/dependencies/app_dependenies.dart';
 
 class CaptchaScreen extends StatelessWidget {
   const CaptchaScreen({super.key});
@@ -19,7 +18,10 @@ class CaptchaScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ConfirmOtpCubit()..requestOtp(),
+      create: (context) => ConfirmOtpCubit(
+        email: '',
+        authRepository: injector.get()
+      )..requestOtp(),
       child: AppScaffold(
         title: AppS.of(context).input_captcha,
         body: const _CaptchaListener(),
@@ -51,7 +53,7 @@ class _CaptchaListener extends StatelessWidget {
 }
 
 class _CaptchaBody extends StatefulWidget {
-  const _CaptchaBody({super.key});
+  const _CaptchaBody();
 
   @override
   State<_CaptchaBody> createState() => _CaptchaBodyState();

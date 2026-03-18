@@ -11,4 +11,10 @@ abstract class AuthRepository {
   Future<bool> isLoggedIn();
 
   Future<Map<String, dynamic>?> getSavedUserInfo();
+
+  Future<Result<dynamic>> sendCode(String email);
+
+  Future<Result<dynamic>> verifyCode(String email, String code);
+
+  Future<Result<UserInfoResponse>> getUserProfile();
 }

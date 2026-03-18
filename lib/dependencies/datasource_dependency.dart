@@ -23,7 +23,7 @@ Future<void> registerDataSource(GetIt injector) async {
           
       return DioClient(
               baseUrl: baseUrl,
-              // tokenStorage: getIt(),
+              localStorage: injector<AppLocalStorageRepository>(),
               eventBus: injector<AuthEventBus>())
           .dio;
     });
