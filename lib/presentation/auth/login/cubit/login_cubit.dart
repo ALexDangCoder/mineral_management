@@ -19,10 +19,7 @@ class LoginCubit extends Cubit<LoginState> {
   }) async {
     emit(state.copyWith(eventState: const LoadingState()));
 
-    final bytes = utf8.encode(password);
-    final hashedPassword = sha256.convert(bytes).toString();
-
-    final response = await loginUseCase.call(username, hashedPassword);
+    final response = await loginUseCase.call(username, password);
     response.when(
       success: (user) {
         emit(
@@ -31,8 +28,8 @@ class LoginCubit extends Cubit<LoginState> {
           ),
         );
       },
-      failure: (_) {
-        emit(state.copyWith(eventState: const ErrorState()));
+      failure: (message) {
+        emit(state.copyWith(eventState: ErrorState(data: message)));
       },
     );
   }

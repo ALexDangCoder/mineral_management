@@ -24,8 +24,10 @@ class AuthInterceptor extends Interceptor {
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
+    final path = err.requestOptions.path;
+    final isLoginEndpoint = path.contains('/auth/token');
 
-    if (err.response?.statusCode == 401) {
+    if (err.response?.statusCode == 401 && !isLoginEndpoint) {
       eventBus.emit(SessionExpiredEvent());
     }
 

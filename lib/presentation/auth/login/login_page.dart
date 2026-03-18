@@ -51,7 +51,19 @@ class _LoginPageListener extends StatelessWidget {
                 ? PopupLoadingUtils.of(context).show()
                 : PopupLoadingUtils.of(context).close();
             if (state.eventState is ErrorState) {
-              print('ERROR ${(state.eventState! as ErrorState).data}');
+              final errorMsg = (state.eventState! as ErrorState).data as String?;
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    errorMsg?.isNotEmpty == true ? errorMsg! : 'Đăng nhập thất bại, vui lòng thử lại',
+                  ),
+                  backgroundColor: Colors.red.shade700,
+                  behavior: SnackBarBehavior.floating,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              );
             }
             if (state.eventState is LoadedState) {
               final user = (state.eventState! as LoadedState).data;

@@ -5,6 +5,7 @@ import 'package:bnv_opendata/data/datasource/remote/auth_remote_datasource.dart'
 import 'package:bnv_opendata/data/models/model_exports.dart';
 import 'package:bnv_opendata/domain/repositories/app_local_storate_repository.dart';
 import 'package:bnv_opendata/domain/repositories/auth_repository.dart';
+import 'package:dio/dio.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final AppLocalStorageRepository localStorage;
@@ -35,6 +36,14 @@ class AuthRepositoryImpl implements AuthRepository {
       } else {
         return Failure(response.message ?? 'Đăng nhập thất bại');
       }
+    } on DioException catch (e) {
+      log('Login DioException: $e');
+      // Đọc message từ body response của API khi API trả về lỗi HTTP!=200
+      final data = e.response?.data;
+      if (data is Map<String, dynamic> && data['message'] != null) {
+        return Failure(data['message'].toString());
+      }
+      return const Failure('Lỗi kết nối, vui lòng thử lại');
     } on Exception catch (e) {
       log('Login Exception: $e');
       return const Failure('Lỗi hệ thống khi đăng nhập');
