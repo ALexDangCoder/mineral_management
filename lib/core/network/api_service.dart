@@ -1,6 +1,9 @@
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 
+import 'package:bnv_opendata/data/models/model_exports.dart';
+import 'package:bnv_opendata/data/models/response/base_response.dart';
+
 part 'api_service.g.dart';
 
 @RestApi()
@@ -8,9 +11,9 @@ abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
   // ================= AUTH =================
-  @POST('/auth/login')
-  Future<dynamic> login(
-    @Body() dynamic request,
+  @POST('/api/auth/public/auth/token')
+  Future<BaseResponse<AuthResponse>> login(
+    @Body() LoginRequest request,
   );
 
   @POST('/auth/change-password')

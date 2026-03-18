@@ -99,6 +99,13 @@ class XelaButton extends StatelessWidget {
       hoverElevation: 0,
       fillColor: background,
       constraints: const BoxConstraints(),
+      onPressed: state == XelaButtonState.DEFAULT ? onPressed : null,
+      shape: RoundedRectangleBorder(
+          side: type == XelaButtonType.PRIMARY
+              ? BorderSide.none
+              : BorderSide(color: defaultBorderColor, width: borderLineWidth),
+          borderRadius: BorderRadius.all(
+              Radius.circular(size == XelaButtonSize.SMALL ? 12 : 16))),
       child: Padding(
         padding: EdgeInsets.fromLTRB(
             removePaddings
@@ -132,17 +139,9 @@ class XelaButton extends StatelessWidget {
         child: Row(
           mainAxisSize: autoResize ? MainAxisSize.min : MainAxisSize.max,
           mainAxisAlignment: horizontalAlignment,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: children,
         ),
       ),
-      onPressed: state == XelaButtonState.DEFAULT ? onPressed : null,
-      shape: RoundedRectangleBorder(
-          side: type == XelaButtonType.PRIMARY
-              ? BorderSide.none
-              : BorderSide(color: defaultBorderColor, width: borderLineWidth),
-          borderRadius: BorderRadius.all(
-              Radius.circular(size == XelaButtonSize.SMALL ? 12 : 16))),
     );
   }
 }

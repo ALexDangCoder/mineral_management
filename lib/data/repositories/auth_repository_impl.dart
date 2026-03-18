@@ -17,29 +17,28 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<Result<UserModel>> login(String username, String password) async {
-    final user = UserModel(
-      username: username,
-      fullName: 'Nguyen Van A',
-      phone: '0961125389',
-      position: 'Kỹ thuật hiện trường',
-    );
     try {
-      //TODO
-      // final response = await remoteDataSource.login(username + password);
-      log('Send API Login with Username: $username & password');
-      const token = 'abc123_token_fake';
-      await localStorage.saveToken(token);
-      await localStorage.saveUserInfo(
-        user.toJson(),
-      );
-      return Success(user);
+      log('Send API Login with Username: $username');
+      final request = LoginRequest(username: username, password: password);
+      final response = await remoteDataSource.login(request);
+      
+      if (response.code == 0 && response.data != null) {
+        final token = response.data!.accessToken ?? '';
+        await localStorage.saveToken(token);
+        
+        final user = UserModel(
+          username: username,
+          fullName: 'Đăng nhập thành công',
+        );
+        await localStorage.saveUserInfo(user.toJson());
+        return Success(user);
+      } else {
+        return Failure(response.message ?? 'Đăng nhập thất bại');
+      }
     } on Exception catch (e) {
-      // TODO
-      return const Failure('');
+      log('Login Exception: $e');
+      return const Failure('Lỗi hệ thống khi đăng nhập');
     }
-
-    // 🔹 Trả về User entity
-    // return User(username: username, token: token);
   }
 
   @override

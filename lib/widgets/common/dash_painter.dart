@@ -16,7 +16,7 @@ class _DashPainter extends CustomPainter {
     this.dashPattern = const <double>[3, 1],
     this.color = Colors.black,
     this.borderType = BorderType.Rect,
-    this.radius = const Radius.circular(0),
+    this.radius = Radius.zero,
     this.strokeCap = StrokeCap.butt,
     this.customPath,
   }) {

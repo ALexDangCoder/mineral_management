@@ -8,6 +8,6 @@ part of 'product.dart';
 
 const _$configProductEnvJsonLiteral = {
   'type': 'product',
-  'base_url': 'https://www.google.com/',
-  'base_image_url': 'https://www.google.com/'
+  'base_url': 'https://222.252.98.48:9292/',
+  'base_image_url': 'https://222.252.98.48:9292/'
 };

@@ -1,8 +1,9 @@
-import 'dart:developer';
+import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:bnv_opendata/domain/usecases/usecase_export.dart';
 import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart';
+import 'package:crypto/crypto.dart';
 
 part 'login_state.dart';
 
@@ -17,19 +18,23 @@ class LoginCubit extends Cubit<LoginState> {
     required String password,
   }) async {
     emit(state.copyWith(eventState: const LoadingState()));
-    Future.delayed(const Duration(milliseconds: 800), () async {
-      final response = await loginUseCase.call(username, password);
-      response.when(
-        success: (user) {
-          emit(state.copyWith(
+
+    final bytes = utf8.encode(password);
+    final hashedPassword = sha256.convert(bytes).toString();
+
+    final response = await loginUseCase.call(username, hashedPassword);
+    response.when(
+      success: (user) {
+        emit(
+          state.copyWith(
             eventState: LoadedState(data: user),
-          ));
-        },
-        failure: (_) {
-          emit(state.copyWith(eventState: const ErrorState()));
-        },
-      );
-    });
+          ),
+        );
+      },
+      failure: (_) {
+        emit(state.copyWith(eventState: const ErrorState()));
+      },
+    );
   }
 
   void changeUsername(String input) {
@@ -53,8 +58,9 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> validateInput() async {
     emit(
       state.copyWith(
-          loginBtnIsEnable: (state.username?.length ?? 0) >= 6 &&
-              (state.password?.length ?? 0) >= 8),
+        loginBtnIsEnable: (state.username?.isNotEmpty == true) &&
+            (state.password?.length ?? 0) >= 8,
+      ),
     );
   }
 

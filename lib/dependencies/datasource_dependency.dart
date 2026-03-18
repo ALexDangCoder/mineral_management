@@ -8,6 +8,8 @@ import 'package:bnv_opendata/domain/repositories/repository_exports.dart';
 import 'package:bnv_opendata/presentation/main_cubit/auth_event_bus.dart';
 import 'package:get_it/get_it.dart';
 import 'package:dio/dio.dart';
+import 'package:get/get.dart';
+import 'package:bnv_opendata/domain/env/model/app_constants.dart';
 
 Future<void> registerDataSource(GetIt injector) async {
   try {
@@ -15,8 +17,12 @@ Future<void> registerDataSource(GetIt injector) async {
     injector.registerLazySingleton<AuthEventBus>(() => AuthEventBus());
 
     injector.registerLazySingleton<Dio>(() {
+      final baseUrl = Get.isRegistered<AppConstants>() 
+          ? Get.find<AppConstants>().baseUrl
+          : "https://222.252.98.48:9292/";
+          
       return DioClient(
-              baseUrl: "https://api.example.com",
+              baseUrl: baseUrl,
               // tokenStorage: getIt(),
               eventBus: injector<AuthEventBus>())
           .dio;
