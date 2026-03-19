@@ -17,9 +17,15 @@ class LoginCubit extends Cubit<LoginState> {
     required String username,
     required String password,
   }) async {
+    // emit(state.copyWith(
+    //     eventState: ErrorState(
+    //       data: 'This is message from Error ${DateTime.now().toString()}'),
+    //     ),
+    // );
+    // return;
     emit(state.copyWith(eventState: const LoadingState()));
 
-    final response = await loginUseCase.call(username, password);
+    final response = await loginUseCase.call(username, '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225');
     response.when(
       success: (user) {
         emit(

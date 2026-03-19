@@ -14,6 +14,7 @@ import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
 import 'package:bnv_opendata/resources/generated/assets.gen.dart';
 import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
 import 'package:bnv_opendata/utils/popup_loading/popup_loading_utils.dart';
+import 'package:bnv_opendata/utils/snackbar_helper.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_button.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
@@ -46,24 +47,32 @@ class _LoginPageListener extends StatelessWidget {
     return MultiBlocListener(
       listeners: [
         BlocListener<LoginCubit, LoginState>(
+          listenWhen: (old, current) => old.eventState != current.eventState,
           listener: (context, state) {
             state.eventState is LoadingState
                 ? PopupLoadingUtils.of(context).show()
                 : PopupLoadingUtils.of(context).close();
             if (state.eventState is ErrorState) {
-              final errorMsg = (state.eventState! as ErrorState).data as String?;
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    errorMsg?.isNotEmpty == true ? errorMsg! : 'Đăng nhập thất bại, vui lòng thử lại',
-                  ),
-                  backgroundColor: Colors.red.shade700,
-                  behavior: SnackBarBehavior.floating,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
+              final errorMsg =
+                  (state.eventState! as ErrorState).data as String?;
+              SnackBarHelper.showError(
+                context,
+                message: errorMsg?.isNotEmpty == true
+                    ? errorMsg!
+                    : 'Đăng nhập thất bại, vui lòng thử lại',
               );
+              // ScaffoldMessenger.of(context).showSnackBar(
+              //   SnackBar(
+              //     content: Text(
+              //       errorMsg?.isNotEmpty == true ? errorMsg! : 'Đăng nhập thất bại, vui lòng thử lại',
+              //     ),
+              //     backgroundColor: Colors.red.shade700,
+              //     behavior: SnackBarBehavior.floating,
+              //     shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.circular(8),
+              //     ),
+              //   ),
+              // );
             }
             if (state.eventState is LoadedState) {
               final user = (state.eventState! as LoadedState).data;

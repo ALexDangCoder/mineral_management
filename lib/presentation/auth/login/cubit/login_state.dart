@@ -22,7 +22,7 @@ class LoginState extends BaseState {
     bool? isShowPass,
   }) {
     return LoginState(
-      eventState: eventState ?? this.eventState,
+      eventState: eventState,
       username: username ?? this.username,
       password: password ?? this.password,
       loginBtnIsEnable: loginBtnIsEnable ?? this.loginBtnIsEnable,
