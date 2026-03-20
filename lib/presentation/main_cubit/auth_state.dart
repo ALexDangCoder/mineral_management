@@ -2,25 +2,32 @@ part of 'auth_cubit.dart';
 
 class AuthState extends BaseState {
   final AuthStatusEnum authStatus;
-  final UserModel? user;
+  final AuthEntity? authEntity;
+  final bool isDidCheckAuth;
 
-  const AuthState({this.authStatus = AuthStatusEnum.unknown, this.user});
+  const AuthState({
+    this.authStatus = AuthStatusEnum.unknown,
+    this.authEntity,
+    this.isDidCheckAuth = false,
+  });
 
   AuthState copyWith({
     AuthStatusEnum? authStatus,
-    UserModel? user,
+    AuthEntity? authEntity,
+    bool? isDidCheckAuth,
   }) {
     return AuthState(
       authStatus: authStatus ?? this.authStatus,
-      user: user ?? this.user,
+      authEntity: authEntity ?? this.authEntity,
+      isDidCheckAuth: isDidCheckAuth ?? this.isDidCheckAuth,
     );
   }
 
   @override
-  // TODO: implement props
   List<Object?> get props => [
         authStatus,
-        user,
+        authEntity,
+        isDidCheckAuth,
       ];
 }
 

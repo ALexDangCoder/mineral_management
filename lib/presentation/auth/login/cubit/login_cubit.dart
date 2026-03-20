@@ -14,6 +14,15 @@ class LoginCubit extends Cubit<LoginState> {
   final LoginUseCase loginUseCase;
   final AuthRepository authRepository;
 
+  Future<void> preLogin() async {
+    final username = await authRepository.getCachedUsername();
+    print('======USERNAME $username');
+    if(username != null && username.isNotEmpty) {
+      emit(state.copyWith(username: username));
+      await validateInput();
+    }
+  }
+
   Future<String?> sendCode(String email) async {
     emit(state.copyWith(eventState: const LoadingState()));
     final result = await authRepository.sendCode(email);

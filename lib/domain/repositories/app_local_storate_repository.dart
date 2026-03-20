@@ -1,9 +1,15 @@
+import 'package:bnv_opendata/domain/entities/auth_entity.dart';
+
 abstract class AppLocalStorageRepository {
-  Future<void> saveToken(String token);
+  Future<void> saveSession(AuthEntity authEntity);
 
-  Future<String?> getToken();
+  Future<void> saveUsername(String username);
 
-  Future<void> removeToken();
+  Future<String?> getUsername();
+
+  Future<AuthEntity?> getSession();
+
+  Future<void> removeSession();
 
   Future<void> saveUserInfo(Map<String, dynamic> user);
 

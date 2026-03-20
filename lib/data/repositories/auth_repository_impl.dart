@@ -1,8 +1,11 @@
 import 'dart:developer';
 
+import 'package:bnv_opendata/core/enums/auth_status_enum.dart';
 import 'package:bnv_opendata/core/result/result.dart';
 import 'package:bnv_opendata/data/datasource/remote/auth_remote_datasource.dart';
 import 'package:bnv_opendata/data/models/model_exports.dart';
+import 'package:bnv_opendata/domain/entities/auth_entity.dart';
+import 'package:bnv_opendata/domain/entities/auth_status_entity.dart';
 import 'package:bnv_opendata/domain/repositories/app_local_storate_repository.dart';
 import 'package:bnv_opendata/domain/repositories/auth_repository.dart';
 import 'package:dio/dio.dart';
@@ -17,22 +20,32 @@ class AuthRepositoryImpl implements AuthRepository {
   );
 
   @override
-  Future<Result<UserModel>> login(String username, String password) async {
+  Future<Result<AuthEntity>> login(String username, String password) async {
     try {
       log('Send API Login with Username: $username');
       final request = LoginRequest(username: username, password: password);
       final response = await remoteDataSource.login(request);
-      
+
       if (response.code == 0 && response.data != null) {
-        final token = response.data!.accessToken ?? '';
-        await localStorage.saveToken(token);
-        
-        final user = UserModel(
-          username: username,
-          fullName: 'Đăng nhập thành công',
+        final authResponse = response.data;
+        final now = DateTime.now();
+        final authEntity = AuthEntity(
+          accessToken: authResponse?.accessToken ?? '',
+          refreshToken: authResponse?.refreshToken ?? '',
+          accessExpireAt: now.add(
+            Duration(seconds: authResponse?.accessExpireIn ?? 0),
+          ),
+          refreshExpireAt: now.add(
+            Duration(seconds: authResponse?.refreshExpireIn ?? 0),
+          ),
+          isFirstLogin: (authResponse?.isFirstLogin ?? 0) == 1,
         );
-        await localStorage.saveUserInfo(user.toJson());
-        return Success(user);
+        // final token = response.data!.accessToken ?? '';
+        await localStorage.saveSession(authEntity);
+        await localStorage.saveUsername(username);
+
+        // await localStorage.saveUserInfo(user.toJson());
+        return Success(authEntity);
       } else {
         return Failure(response.message ?? 'Đăng nhập thất bại');
       }
@@ -67,22 +80,42 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<void> logout() async {
     try {
-      final token = await localStorage.getToken();
-      if (token != null && token.isNotEmpty) {
-        await remoteDataSource.logout(token);
+      final authEntity = await localStorage.getSession();
+      if (authEntity != null && authEntity.accessToken.isNotEmpty) {
+        await remoteDataSource.logout(authEntity.accessToken);
       }
     } catch (e) {
       log('Logout API error (ignored): $e');
     } finally {
       await localStorage.removeUserInfo();
-      await localStorage.removeToken();
+      await localStorage.removeSession();
     }
   }
 
   @override
-  Future<bool> isLoggedIn() async {
-    final token = await localStorage.getToken();
-    return token != null && token.isNotEmpty;
+  Future<AuthStatusEntity> getAuthStatus() async {
+    final session = await localStorage.getSession();
+    if (session == null) {
+      return AuthStatusEntity(authStatus: AuthStatusEnum.unauthenticated);
+    }
+
+    if (_isAccessTokenValid(session)) {
+      return AuthStatusEntity(
+        authStatus: AuthStatusEnum.authenticated,
+        authEntity: session,
+      );
+    } else {
+      return AuthStatusEntity(authStatus: AuthStatusEnum.sessionExpired);
+    }
+  }
+
+  bool _isAccessTokenValid(AuthEntity s) {
+    return DateTime.now().isBefore(s.accessExpireAt);
+  }
+
+  @override
+  Future<String?> getCachedUsername() async {
+    return localStorage.getUsername();
   }
 
   @override

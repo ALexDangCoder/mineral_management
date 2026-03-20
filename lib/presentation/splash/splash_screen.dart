@@ -1,3 +1,4 @@
+import 'package:bnv_opendata/core/enums/auth_status_enum.dart';
 import 'package:bnv_opendata/presentation/main_cubit/auth_cubit.dart';
 import 'package:bnv_opendata/presentation/screen_exports.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
@@ -39,8 +40,8 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(milliseconds: 800), () {
       if (mounted) {
         final authenticated =
-            context.read<AuthCubit>().state.authStatus is Authenticated;
-        if (authenticated) {
+            context.read<AuthCubit>().state.authStatus;
+        if (authenticated == AuthStatusEnum.authenticated) {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(

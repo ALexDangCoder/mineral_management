@@ -1,4 +1,3 @@
-
 import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/config/themes/app_theme.dart';
 import 'package:bnv_opendata/core/enums/auth_status_enum.dart';
@@ -28,7 +27,7 @@ class LoginPage extends StatelessWidget {
       create: (context) => LoginCubit(
         injector.get(),
         injector.get(),
-      ),
+      )..preLogin(),
       child: const AppScaffold(
         bgColor: Colors.white,
         body: _LoginPageListener(),
@@ -71,7 +70,7 @@ class _LoginPageListener extends StatelessWidget {
               final user = (state.eventState! as LoadedState).data;
               context.read<AuthCubit>().setAuthStatus(
                     authStatus: AuthStatusEnum.authenticated,
-                    user: user,
+                    // user: user,
                   );
               Navigator.pushReplacement(
                 context,
@@ -104,6 +103,20 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
     _usernameController.dispose();
     _passController.dispose();
     super.dispose();
+  }
+
+  @override
+  void initState() {
+    context.read<LoginCubit>().changePassword(
+        '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225');
+    super.initState();
+    Future.delayed(const Duration(milliseconds: 500), () {
+      if(context.mounted) {
+        final state = context.read<LoginCubit>().state;
+          _usernameController.text = state.username ?? '';
+          _passController.text = state.password ?? '';
+      }
+    });
   }
 
   @override
@@ -252,8 +265,9 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
                 final currentEmail = email.trim();
                 if (currentEmail.isNotEmpty) {
                   PopupLoadingUtils.of(context).show();
-                  final errorMsg = await context.read<LoginCubit>().sendCode(currentEmail);
-                  
+                  final errorMsg =
+                      await context.read<LoginCubit>().sendCode(currentEmail);
+
                   if (context.mounted) {
                     PopupLoadingUtils.of(context).close();
                     if (errorMsg == null) {

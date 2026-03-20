@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:bnv_opendata/data/datasource/local/secure_storage_service.dart';
+import 'package:bnv_opendata/domain/entities/auth_entity.dart';
 import 'package:bnv_opendata/domain/repositories/app_local_storate_repository.dart';
 import 'package:bnv_opendata/utils/constants/app_constants.dart';
 
@@ -10,23 +11,45 @@ class AppLocalStorageRepositoryImpl implements AppLocalStorageRepository {
   AppLocalStorageRepositoryImpl({required this.dataSource});
 
   @override
-  Future<void> saveToken(String token) async {
-    await dataSource.write(StorageKeys.accessToken, token);
+  Future<void> saveSession(AuthEntity authEntity) async {
+    await dataSource.write(
+      key: StorageKeys.authSession,
+      value: authEntity.toRawJson(),
+    );
   }
 
   @override
-  Future<String?> getToken() async {
-    return dataSource.read(StorageKeys.accessToken);
+  Future<void> saveUsername(String username) async {
+    await dataSource.write(
+      key: StorageKeys.username,
+      value: username,
+    );
   }
 
   @override
-  Future<void> removeToken() async {
-    await dataSource.delete(StorageKeys.accessToken);
+  Future<String?> getUsername() async {
+    return dataSource.read(StorageKeys.username);
+  }
+
+  @override
+  Future<AuthEntity?> getSession() async {
+    final raw = await dataSource.read(StorageKeys.authSession);
+    if (raw == null) return null;
+    try {
+      return AuthEntity.fromRawJson(raw);
+    } catch (_) {
+      return null; // tránh crash khi data corrupt
+    }
+  }
+
+  @override
+  Future<void> removeSession() async {
+    await dataSource.delete(StorageKeys.authSession);
   }
 
   @override
   Future<void> saveUserInfo(Map<String, dynamic> user) async {
-    await dataSource.write(StorageKeys.userInfo, jsonEncode(user));
+    await dataSource.write(key: StorageKeys.userInfo, value: jsonEncode(user));
   }
 
   @override

@@ -90,14 +90,13 @@ class _MyAppState extends State<MyApp> {
         builder: (context, widget) {
           return BlocListener<AuthCubit, AuthState>(
             listener: (context, state) {
-              if (state.authStatus == AuthStatusEnum.unauthenticated) {
-                print('=====UN AUTH');
+              if (state.authStatus == AuthStatusEnum.unauthenticated && state
+                  .isDidCheckAuth == true) {
                 // Get.offAll(() => const SplashScreen());
                 Get.offAllNamed(Routers.splash);
               }
 
               if (state.authStatus == AuthStatusEnum.sessionExpired) {
-                print('=====EXPIRED');
                 showDialog(
                   context: navigatorKey.currentContext!,
                   builder: (_) => AlertDialog(

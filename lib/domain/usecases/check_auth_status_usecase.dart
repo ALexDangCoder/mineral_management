@@ -1,3 +1,4 @@
+import 'package:bnv_opendata/domain/entities/auth_status_entity.dart';
 import 'package:bnv_opendata/domain/repositories/repository_exports.dart';
 
 class CheckAuthStatusUseCase {
@@ -5,7 +6,7 @@ class CheckAuthStatusUseCase {
 
   CheckAuthStatusUseCase(this.repository);
 
-  Future<bool> call() {
-    return repository.isLoggedIn();
+  Future<AuthStatusEntity> call() {
+    return repository.getAuthStatus();
   }
 }

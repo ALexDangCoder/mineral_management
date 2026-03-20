@@ -14,11 +14,12 @@ class AuthInterceptor extends Interceptor {
       RequestOptions options,
       RequestInterceptorHandler handler,
       ) async {
-    final token = await localStorage.getToken();
+    final authEntity = await localStorage.getSession();
     final isLogin = options.path.contains('/auth/token') && options.method == 'POST';
 
-    if (token != null && token.isNotEmpty && !isLogin) {
-      options.headers['Authorization'] = 'Bearer $token'; // Chèn token vào tất cả Request trừ Login
+    if (authEntity != null && authEntity.accessToken.isNotEmpty && !isLogin) {
+      options.headers['Authorization'] = 'Bearer ${authEntity.accessToken}'; // Chèn
+    // token vào tất cả Request trừ Login
     }
 
     super.onRequest(options, handler);

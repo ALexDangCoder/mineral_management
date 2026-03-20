@@ -12,7 +12,7 @@ class SecureStorageServiceImpl implements SecureStorageService {
   );
 
   @override
-  Future<void> write(String key, String value) async {
+  Future<void> write({required String key, required String value}) async {
     await _storage.write(key: key, value: value);
   }
 

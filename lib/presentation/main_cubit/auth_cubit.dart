@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bnv_opendata/core/enums/auth_status_enum.dart';
-import 'package:bnv_opendata/data/models/model_exports.dart';
+import 'package:bnv_opendata/domain/entities/auth_entity.dart';
 import 'package:bnv_opendata/domain/repositories/repository_exports.dart';
 import 'package:bnv_opendata/domain/usecases/usecase_export.dart';
 import 'package:bnv_opendata/presentation/main_cubit/auth_event.dart';
@@ -53,23 +53,25 @@ class AuthCubit extends BaseCubit<AuthState> {
   }
 
   Future<void> checkAuthStatus() async {
-    emit(AuthLoading());
-    final token = await checkAuthStatusUseCase.call();
-    if (token) {
-      emit(state.copyWith(authStatus: AuthStatusEnum.authenticated));
-    } else {
-      emit(state.copyWith(authStatus: AuthStatusEnum.unauthenticated));
-    }
+    final authStatus = await checkAuthStatusUseCase.call();
+    emit(
+      state.copyWith(
+        authStatus: authStatus.authStatus,
+      ),
+    );
+    Future.delayed(const Duration(milliseconds: 500), () {
+      emit(state.copyWith(isDidCheckAuth: true));
+    });
   }
 
   Future<void> setAuthStatus({
     AuthStatusEnum authStatus = AuthStatusEnum.unknown,
-    UserModel? user,
+    // UserModel? user,
   }) async {
     emit(
       state.copyWith(
         authStatus: authStatus,
-        user: user,
+        // user: user,
       ),
     );
   }
@@ -78,9 +80,11 @@ class AuthCubit extends BaseCubit<AuthState> {
     try {
       await authRepository.logout();
     } catch (_) {}
-    emit(state.copyWith(
-      authStatus: AuthStatusEnum.unauthenticated,
-    ));
+    emit(
+      state.copyWith(
+        authStatus: AuthStatusEnum.unauthenticated,
+      ),
+    );
   }
 
   Future<void> saveToken(String token) async {

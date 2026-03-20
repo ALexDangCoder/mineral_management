@@ -48,5 +48,7 @@ class DateTimeFormat {
 
 class StorageKeys {
   static const accessToken = 'ACCESS_TOKEN';
+  static const authSession = 'AUTH_SESSION';
+  static const username = 'USER_NAME';
   static const userInfo = 'USER_INFO';
 }
