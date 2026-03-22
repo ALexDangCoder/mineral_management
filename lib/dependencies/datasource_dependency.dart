@@ -3,6 +3,7 @@ import 'package:bnv_opendata/core/network/dio_client.dart';
 import 'package:bnv_opendata/data/datasource/local/secure_storage_service.dart';
 import 'package:bnv_opendata/data/datasource/local/secure_storate_service_impl.dart';
 import 'package:bnv_opendata/data/datasource/remote/auth_remote_datasource.dart';
+import 'package:bnv_opendata/data/datasource/remote/main_mine_remote_datasource.dart';
 import 'package:bnv_opendata/data/repositories/repository_exports.dart';
 import 'package:bnv_opendata/domain/repositories/repository_exports.dart';
 import 'package:bnv_opendata/presentation/main_cubit/auth_event_bus.dart';
@@ -17,10 +18,10 @@ Future<void> registerDataSource(GetIt injector) async {
     injector.registerLazySingleton<AuthEventBus>(() => AuthEventBus());
 
     injector.registerLazySingleton<Dio>(() {
-      final baseUrl = Get.isRegistered<AppConstants>() 
+      final baseUrl = Get.isRegistered<AppConstants>()
           ? Get.find<AppConstants>().baseUrl
           : "https://222.252.98.48:9292/";
-          
+
       return DioClient(
               baseUrl: baseUrl,
               localStorage: injector<AppLocalStorageRepository>(),
@@ -48,6 +49,16 @@ Future<void> registerDataSource(GetIt injector) async {
     injector.registerLazySingleton<AuthRepository>(
       () => AuthRepositoryImpl(
         injector(),
+        injector(),
+      ),
+    );
+    injector.registerLazySingleton<MainMineRemoteDataSource>(
+      () => MainMineRemoteDataSourceImpl(
+        injector(),
+      ),
+    );
+    injector.registerLazySingleton<MainMineRepository>(
+      () => MainMineRepositoryImpl(
         injector(),
       ),
     );

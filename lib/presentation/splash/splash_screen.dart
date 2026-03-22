@@ -1,6 +1,6 @@
+import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/core/enums/auth_status_enum.dart';
 import 'package:bnv_opendata/presentation/main_cubit/auth_cubit.dart';
-import 'package:bnv_opendata/presentation/screen_exports.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,18 +42,14 @@ class _SplashScreenState extends State<SplashScreen> {
         final authenticated =
             context.read<AuthCubit>().state.authStatus;
         if (authenticated == AuthStatusEnum.authenticated) {
-          Navigator.pushReplacement(
+          Navigator.pushReplacementNamed(
             context,
-            MaterialPageRoute(
-              builder: (context) => const MainScreen(),
-            ),
+            Routers.main,
           );
         } else {
-          Navigator.pushReplacement(
+          Navigator.pushReplacementNamed(
             context,
-            MaterialPageRoute(
-              builder: (context) => const LoginPage(),
-            ),
+            Routers.login,
           );
         }
       }

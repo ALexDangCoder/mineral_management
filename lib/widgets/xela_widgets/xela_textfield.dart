@@ -30,6 +30,8 @@ class XelaTextField extends StatefulWidget {
   final Color successHelperTextColor;
   final TextInputType keyboardType;
   Function(String)? onChange;
+  final TextInputAction? textInputAction;
+  final Function(String)? onSubmitted;
 
   XelaTextField({
     this.placeholder,
@@ -57,6 +59,8 @@ class XelaTextField extends StatefulWidget {
     this.successHelperTextColor = XelaColor.Green1,
     this.keyboardType = TextInputType.text,
     this.onChange,
+    this.textInputAction,
+    this.onSubmitted,
   });
 
   @override
@@ -140,6 +144,8 @@ class _XelaTextFieldState extends State<XelaTextField> {
               ),
               autocorrect: !widget.disableAutoCorrection,
               obscureText: widget.secureField,
+              textInputAction: widget.textInputAction,
+              onFieldSubmitted: widget.onSubmitted,
             ),
             onFocusChange: (hasFocus) {
               setState(() {

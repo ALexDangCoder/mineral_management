@@ -23,11 +23,24 @@ class MineMenuCubit extends Cubit<MineMenuState> {
           id: MineMenuItemId.planOrProposal,
           label: 'Đề án/phương án',
         ),
+        MineMenuItem(
+          id: MineMenuItemId.planOrProposal,
+          label: 'Quản trị tài nguyên',
+        ),
+        MineMenuItem(
+          id: MineMenuItemId.planOrProposal,
+          label: 'Dự án khai thác',
+        ),
+        MineMenuItem(
+          id: MineMenuItemId.planOrProposal,
+          label: 'Đề án đóng cửa mỏ',
+        ),
       ];
 
       emit(
         state.copyWith(
-          status: items.isEmpty ? MineScreenStatus.empty : MineScreenStatus.success,
+          status:
+              items.isEmpty ? MineScreenStatus.empty : MineScreenStatus.success,
           items: items,
           errorMessage: null,
         ),
@@ -51,6 +64,9 @@ enum MineMenuItemId {
   originalDocument,
   geologicalReport,
   planOrProposal,
+  resourceManagement,
+  miningProject,
+  mineClosurePlan,
 }
 
 class MineMenuItem extends Equatable {

@@ -2,11 +2,11 @@ import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/config/themes/app_theme.dart';
 import 'package:bnv_opendata/core/enums/auth_status_enum.dart';
 import 'package:bnv_opendata/dependencies/app_dependenies.dart';
+import 'package:bnv_opendata/domain/entities/auth_entity.dart';
 import 'package:bnv_opendata/domain/models/xela_button_models.dart';
 import 'package:bnv_opendata/presentation/auth/login/cubit/login_cubit.dart';
 import 'package:bnv_opendata/presentation/main_cubit/auth_cubit.dart';
 import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart';
-import 'package:bnv_opendata/presentation/screen_exports.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
 import 'package:bnv_opendata/resources/generated/assets.gen.dart';
 import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
@@ -60,17 +60,24 @@ class _LoginPageListener extends StatelessWidget {
               );
             }
             if (state.eventState is LoadedState) {
-              final user = (state.eventState! as LoadedState).data;
+              final authEntity =
+                  (state.eventState! as LoadedState).data as AuthEntity;
               context.read<AuthCubit>().setAuthStatus(
                     authStatus: AuthStatusEnum.authenticated,
                     // user: user,
                   );
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const MainScreen(),
-                ),
-              );
+              if (authEntity.isFirstLogin) {
+                //Must change password at first login
+                Navigator.pushNamed(
+                  context,
+                  Routers.changePassword,
+                );
+              } else {
+                Navigator.pushReplacementNamed(
+                  context,
+                  Routers.main,
+                );
+              }
             }
           },
         ),
@@ -104,10 +111,10 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
         '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225');
     super.initState();
     Future.delayed(const Duration(milliseconds: 500), () {
-      if(context.mounted) {
+      if (context.mounted) {
         final state = context.read<LoginCubit>().state;
-          _usernameController.text = state.username ?? '';
-          _passController.text = state.password ?? '';
+        _usernameController.text = state.username ?? '';
+        _passController.text = state.password ?? '';
       }
     });
   }

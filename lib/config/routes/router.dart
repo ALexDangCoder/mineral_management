@@ -1,25 +1,18 @@
-import 'package:bnv_opendata/presentation/account_info/account_info_screen.dart';
+import 'package:bnv_opendata/data/models/model_exports.dart';
 import 'package:bnv_opendata/presentation/alert/alert_list_screen.dart';
-import 'package:bnv_opendata/presentation/auth/captcha_screen/captcha_screen.dart';
-import 'package:bnv_opendata/presentation/auth/change_password/change_password_screen.dart';
-import 'package:bnv_opendata/presentation/auth/confirm_otp/confirm_otp_screen.dart';
-import 'package:bnv_opendata/presentation/auth/login/login_page.dart';
 import 'package:bnv_opendata/presentation/closure_plan_detail/closure_plan_detail_screen.dart';
 import 'package:bnv_opendata/presentation/closure_plan_list_screen/closure_plan_list_screen.dart';
 import 'package:bnv_opendata/presentation/construction_detail/construction_detail_screen.dart';
 import 'package:bnv_opendata/presentation/drill_hole_detail/drill_hole_detail_screen.dart';
-import 'package:bnv_opendata/presentation/drill_hole_list_screen/drill_hole_list_screen.dart';
 import 'package:bnv_opendata/presentation/geological_report_list/geological_report_list_screen.dart';
-import 'package:bnv_opendata/presentation/main_screen/main_screen.dart';
 import 'package:bnv_opendata/presentation/mine_3d/mine_3d_screen.dart';
 import 'package:bnv_opendata/presentation/mine_detail/mine_detail_screen.dart';
-import 'package:bnv_opendata/presentation/mine_list_screen/mine_list_screen.dart';
-import 'package:bnv_opendata/presentation/mining_area_screen/mining_area_screen.dart';
 import 'package:bnv_opendata/presentation/notification_management/notification_management_screen.dart';
 import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
 import 'package:bnv_opendata/presentation/project_detail/project_detail_screen.dart';
 import 'package:bnv_opendata/presentation/proposal_plan_list_screen/proposal_plan_list_screen.dart';
 import 'package:bnv_opendata/presentation/resource_reserves/resource_reserves_screen.dart';
+import 'package:bnv_opendata/presentation/screen_exports.dart';
 import 'package:bnv_opendata/presentation/show_construction_map/show_construction_Map_screen.dart';
 import 'package:bnv_opendata/presentation/splash/splash_screen.dart';
 import 'package:bnv_opendata/presentation/xelauikit_screens/main_screen.dart';
@@ -111,7 +104,7 @@ class Routers {
   static const geologicalReportList = '/geological_report_list';
   static const proposalPlanList = '/proposal_plan_list';
   static const resourceReserves = '/resource_reserves';
-  static const miningArea = '/mining_area';
+  static const mineAreaList = '/mining_area';
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     final args = settings.arguments;
@@ -227,9 +220,7 @@ class Routers {
         return MaterialPageRoute(
             builder: (_) => const ResourceReservesScreen());
       case mine3d:
-        return MaterialPageRoute(
-          builder: (_) => const Mine3DScreen()
-        );
+        return MaterialPageRoute(builder: (_) => const Mine3DScreen());
       case alertList:
         return MaterialPageRoute(builder: (_) => const AlertListScreen());
       case progress:
@@ -242,8 +233,16 @@ class Routers {
       case notificationManagement:
         return MaterialPageRoute(
             builder: (_) => NotificationManagementScreen());
-      case miningArea:
-        return MaterialPageRoute(builder: (ctx) => const MiningAreaScreen());
+      case mineAreaList:
+        late MineRegionModel? region;
+        if (args != null && args is MineRegionModel) {
+          region = args;
+        }
+        return MaterialPageRoute(
+          builder: (ctx) => MineAreaListScreen(
+            region: region,
+          ),
+        );
     }
     return null;
   }

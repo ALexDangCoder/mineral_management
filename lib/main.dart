@@ -96,7 +96,8 @@ class _MyAppState extends State<MyApp> {
                 Get.offAllNamed(Routers.splash);
               }
 
-              if (state.authStatus == AuthStatusEnum.sessionExpired) {
+              if (state.authStatus == AuthStatusEnum.sessionExpired && state
+                  .isDidCheckAuth == true) {
                 showDialog(
                   context: navigatorKey.currentContext!,
                   builder: (_) => AlertDialog(

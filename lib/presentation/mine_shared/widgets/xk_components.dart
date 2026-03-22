@@ -1,4 +1,5 @@
 import 'package:bnv_opendata/domain/models/xela_button_models.dart';
+import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_button.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_divider.dart';
@@ -252,7 +253,7 @@ class XkEmptyState extends StatelessWidget {
               style: XelaTextStyle.xelaBody.apply(color: XelaColor.Gray6),
             ),
             const SizedBox(height: 12),
-            XkPrimaryButton(text: 'Thu lai', onTap: onRetry),
+            XkPrimaryButton(text: AppS.of(context).retry, onTap: onRetry),
           ],
         ),
       ),
@@ -285,7 +286,7 @@ class XkErrorState extends StatelessWidget {
               style: XelaTextStyle.xelaBody.apply(color: XelaColor.Gray2),
             ),
             const SizedBox(height: 12),
-            XkPrimaryButton(text: 'Thu lai', onTap: onRetry),
+            XkPrimaryButton(text: AppS.of(context).retry, onTap: onRetry),
           ],
         ),
       ),

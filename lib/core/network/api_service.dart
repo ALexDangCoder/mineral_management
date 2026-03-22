@@ -36,6 +36,9 @@ abstract class ApiService {
     @Body() dynamic request,
   );
 
+  // @POST('/api/auth/public/auth/captcha')
+  // Future<dynamic> getCaptcha();
+
   @GET('/get-notifications')
   Future<dynamic> getNotification(
     @Query('page') int page,
@@ -44,4 +47,24 @@ abstract class ApiService {
 
   @GET('/api/auth/auth/user')
   Future<BaseResponse<UserInfoResponse>> getUserProfile();
+
+  @POST('/api/sys/vung-mo/filter')
+  Future<BaseResponse<ListMineRegionsResponse>> getListMineRegions(
+    @Body() Map<String, dynamic> body,
+  );
+
+  @POST('/api/sys/khu-mo/filter')
+  Future<BaseResponse<ListMineAreasResponse>> getListMineAreas(
+    @Body() Map<String, dynamic> body,
+  );
+
+  @GET('/api/sys/vung-mo/get-by-id')
+  Future<BaseResponse<MineRegionModel>> getDetailMineRegion(
+    @Queries() Map<String, dynamic> queries,
+  );
+
+  @GET('/api/sys/khu-mo/get-by-id')
+  Future<BaseResponse<MineAreaModel>> getDetailMineArea(
+    @Queries() Map<String, dynamic> queries,
+  );
 }
