@@ -1,7 +1,8 @@
-part of 'proposal_plan_list_cubit.dart';
+part of 'mine_area_list_cubit.dart';
 
-class ProposalPlanListState extends BaseListState<ProposalPlanModel> {
-  const ProposalPlanListState({
+
+class MineAreaListState extends BaseListState<MineAreaModel> {
+  const MineAreaListState({
     super.status,
     super.items = const [],
     super.isLoadingMore = false,
@@ -12,16 +13,16 @@ class ProposalPlanListState extends BaseListState<ProposalPlanModel> {
   });
 
   @override
-  ProposalPlanListState copyWith({
+  MineAreaListState copyWith({
     MineScreenStatus? status,
-    List<ProposalPlanModel>? items,
+    List<MineAreaModel>? items,
     bool? isLoadingMore,
     bool? hasMore,
     String? errorMessage,
     String? searchKey,
     int? page,
   }) {
-    return ProposalPlanListState(
+    return MineAreaListState(
       status: status ?? this.status,
       items: items ?? this.items,
       isLoadingMore: isLoadingMore ?? this.isLoadingMore,

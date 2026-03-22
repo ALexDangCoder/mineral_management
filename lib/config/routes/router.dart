@@ -8,7 +8,7 @@ import 'package:bnv_opendata/presentation/geological_report_list/geological_repo
 import 'package:bnv_opendata/presentation/mine_3d/mine_3d_screen.dart';
 import 'package:bnv_opendata/presentation/mine_area_detail/mine_detail_screen'
     '.dart';
-import 'package:bnv_opendata/presentation/mine_region_list_screen/update_region_list/update_region_list.dart';
+import 'package:bnv_opendata/presentation/mine_region_list_screen/mine_region_list_screen.dart';
 import 'package:bnv_opendata/presentation/notification_management/notification_management_screen.dart';
 import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
 import 'package:bnv_opendata/presentation/project_detail/project_detail_screen.dart';
@@ -188,7 +188,7 @@ class Routers {
       case accountInfo:
         return MaterialPageRoute(builder: (_) => const AccountInfoScreen());
       case mineList:
-        return MaterialPageRoute(builder: (_) =>  UpdateMineRegionListScreen());
+        return MaterialPageRoute(builder: (_) =>  MineRegionListScreen());
       case mineDetail:
         final siteId = _stringArg(args, 'areaId');
         return MaterialPageRoute(
@@ -217,7 +217,7 @@ class Routers {
             builder: (_) => const GeologicalReportListScreen());
       case proposalPlanList:
         return MaterialPageRoute(
-            builder: (_) => const ProposalPlanListScreen());
+            builder: (_) => ProposalPlanListScreen());
       case resourceReserves:
         return MaterialPageRoute(
             builder: (_) => const ResourceReservesScreen());

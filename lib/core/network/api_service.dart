@@ -1,8 +1,7 @@
-import 'package:retrofit/retrofit.dart';
-import 'package:dio/dio.dart';
-
 import 'package:bnv_opendata/data/models/model_exports.dart';
 import 'package:bnv_opendata/data/models/response/base_response.dart';
+import 'package:dio/dio.dart';
+import 'package:retrofit/retrofit.dart';
 
 part 'api_service.g.dart';
 
@@ -54,7 +53,7 @@ abstract class ApiService {
   );
 
   @POST('/api/sys/khu-mo/filter')
-  Future<BaseResponse<ListMineAreasResponse>> getListMineAreas(
+  Future<BaseResponse<ResultPage<MineAreaModel>>> getListMineAreas(
     @Body() Map<String, dynamic> body,
   );
 
@@ -69,12 +68,12 @@ abstract class ApiService {
   );
 
   @POST('/api/geological/bao-cao-dia-chat-master/filter')
-  Future<BaseResponse<ListGeologicalReportsResponse>> getListGeologicalReports(
+  Future<BaseResponse<ResultPage<GeologicalReportModel>>> getListGeologicalReports(
     @Body() Map<String, dynamic> body,
   );
 
   @POST('/api/exploration/de-an-phuong-an/filter')
-  Future<BaseResponse<ListProposalPlanResponse>> getListProposalPlans(
+  Future<BaseResponse<ResultPage<ProposalPlanModel>>> getListProposalPlans(
     @Body() Map<String, dynamic> body,
   );
 }

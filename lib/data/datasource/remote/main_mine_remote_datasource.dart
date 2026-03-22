@@ -8,7 +8,7 @@ abstract class MainMineRemoteDataSource {
     JSONObject param,
   );
 
-  Future<BaseResponse<ListMineAreasResponse>> getListMineAreas(
+  Future<BaseResponse<ResultPage<MineAreaModel>>> getListMineAreas(
     JSONObject param,
   );
 
@@ -16,11 +16,12 @@ abstract class MainMineRemoteDataSource {
 
   Future<BaseResponse<MineAreaModel>> getDetailMineArea(JSONObject param);
 
-  Future<BaseResponse<ListGeologicalReportsResponse>> getListGeologicalReports(
+  Future<BaseResponse<ResultPage<GeologicalReportModel>>>
+      getListGeologicalReports(
     JSONObject param,
   );
 
-  Future<BaseResponse<ListProposalPlanResponse>> getListProposalPlans(
+  Future<BaseResponse<ResultPage<ProposalPlanModel>>> getListProposalPlans(
     JSONObject param,
   );
 }
@@ -41,7 +42,7 @@ class MainMineRemoteDataSourceImpl implements MainMineRemoteDataSource {
   }
 
   @override
-  Future<BaseResponse<ListMineAreasResponse>> getListMineAreas(
+  Future<BaseResponse<ResultPage<MineAreaModel>>> getListMineAreas(
       JSONObject param) {
     return apiService.getListMineAreas(param);
   }
@@ -53,13 +54,13 @@ class MainMineRemoteDataSourceImpl implements MainMineRemoteDataSource {
   }
 
   @override
-  Future<BaseResponse<ListGeologicalReportsResponse>> getListGeologicalReports(
-      JSONObject param) {
+  Future<BaseResponse<ResultPage<GeologicalReportModel>>>
+      getListGeologicalReports(JSONObject param) {
     return apiService.getListGeologicalReports(param);
   }
 
   @override
-  Future<BaseResponse<ListProposalPlanResponse>> getListProposalPlans(
+  Future<BaseResponse<ResultPage<ProposalPlanModel>>> getListProposalPlans(
       JSONObject param) {
     return apiService.getListProposalPlans(param);
   }

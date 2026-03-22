@@ -5,5 +5,4 @@ export 'home/home_screen.dart';
 export 'main_screen/main_screen.dart';
 export 'mine_area_list_screen/mine_area_list_screen.dart';
 export 'mine_menu_screen/mine_menu_screen.dart';
-export 'mine_region_list_screen/mine_list_screen.dart';
-
+export 'mine_region_list_screen/mine_region_list_screen.dart';

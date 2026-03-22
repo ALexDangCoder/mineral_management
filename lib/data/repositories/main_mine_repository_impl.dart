@@ -38,7 +38,7 @@ class MainMineRepositoryImpl implements MainMineRepository {
   }
 
   @override
-  Future<Result<ListMineAreasResponse>> getListMineAreas(
+  Future<Result<ResultPage<MineAreaModel>>> getListMineAreas(
       JSONObject param) async {
     try {
       final response = await remoteDataSource.getListMineAreas(param);
@@ -57,22 +57,19 @@ class MainMineRepositoryImpl implements MainMineRepository {
       JSONObject param) async {
     try {
       final response = await remoteDataSource.getListMineRegions(param);
-      print('===== RESPONSE ${response}');
       if (response.code == 200 && response.data != null) {
-        print('====== YYYYYYY');
         final resultPage = response.data as ResultPage<MineRegionModel>;
         return Success(resultPage);
       } else {
         return const Failure('Lỗi hệ thống khi tải');
       }
     } catch (e) {
-      print('======= ERROR: ${e.toString()}');
       return const Failure('Lỗi hệ thống khi tải');
     }
   }
 
   @override
-  Future<Result<ListGeologicalReportsResponse>> getListGeologicalReports(
+  Future<Result<ResultPage<GeologicalReportModel>>> getListGeologicalReports(
       JSONObject param) async {
     try {
       final response = await remoteDataSource.getListGeologicalReports(param);
@@ -87,7 +84,7 @@ class MainMineRepositoryImpl implements MainMineRepository {
   }
 
   @override
-  Future<Result<ListProposalPlanResponse>> getListProposalPlans(
+  Future<Result<ResultPage<ProposalPlanModel>>> getListProposalPlans(
       JSONObject param) async {
     try {
       final response = await remoteDataSource.getListProposalPlans(param);

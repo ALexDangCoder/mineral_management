@@ -108,10 +108,10 @@ class _BaseListBodyState<T, C extends BaseListCubit<T>>
               switch (state.status) {
                 case MineScreenStatus.initial:
                 case MineScreenStatus.loading:
-                  return const Expanded(child: XkSkeletonList());
+                  return const XkSkeletonList();
                 case MineScreenStatus.empty:
                   return XkEmptyState(
-                    message: 'Không tìm thấy vùng mỏ phù hợp.',
+                    message: 'Không tìm dữ liệu phù hợp.',
                     onRetry: context.read<C>().getList,
                   );
 

@@ -8,7 +8,6 @@ part 'base_list_state.dart';
 abstract class BaseListCubit<T> extends Cubit<BaseListState<T>> {
   BaseListCubit() : super(BaseListState());
 
-  /// Hàm này bạn override để gọi API và trả về danh sách
   Future<ResultPage<T>> fetchData({int? page, String? searchKey});
 
   Future<void> init() async => getList();
@@ -35,7 +34,6 @@ abstract class BaseListCubit<T> extends Cubit<BaseListState<T>> {
         ),
       );
     } catch (e) {
-      print('======== ${e.toString()}');
       emit(state.copyWith(
           status: MineScreenStatus.failure, errorMessage: e.toString()));
     }
@@ -49,9 +47,11 @@ abstract class BaseListCubit<T> extends Cubit<BaseListState<T>> {
     await getList(page: state.page);
   }
 
-  Future<void> searchWithKey(String key) async {
-    emit(state.copyWith(searchKey: key));
-    if (key.isEmpty) return;
+  Future<void> searchWithKey(String searchKey) async {
+    emit(state.copyWith(searchKey: searchKey));
+    if (searchKey.isEmpty || state.status == MineScreenStatus.loading) {
+      return;
+    }
     await getList();
   }
 }
