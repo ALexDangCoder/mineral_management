@@ -1,9 +1,11 @@
+import 'package:bnv_opendata/dependencies/app_dependenies.dart';
 import 'package:bnv_opendata/presentation/geological_report_list/cubit/geological_report_list_cubit.dart';
 import 'package:bnv_opendata/presentation/mine_shared/cubit_status.dart';
 import 'package:bnv_opendata/presentation/mine_shared/widgets/xk_components.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
+import 'package:bnv_opendata/widgets/xela_widgets/xela_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,7 +15,9 @@ class GeologicalReportListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => GeologicalReportListCubit()..init(),
+      create: (_) => GeologicalReportListCubit(
+        injector.get(),
+      )..init(),
       child: const AppScaffold(
         title: 'Danh sách báo cáo địa chất',
         bgColor: XelaColor.Gray12,
@@ -24,8 +28,38 @@ class GeologicalReportListScreen extends StatelessWidget {
   }
 }
 
-class _GeologicalReportListBody extends StatelessWidget {
+class _GeologicalReportListBody extends StatefulWidget {
   const _GeologicalReportListBody();
+
+  @override
+  State<_GeologicalReportListBody> createState() =>
+      _GeologicalReportListBodyState();
+}
+
+class _GeologicalReportListBodyState extends State<_GeologicalReportListBody> {
+  final _scrollController = ScrollController();
+  final TextEditingController _searchController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    final cubit = context.read<GeologicalReportListCubit>();
+
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels >=
+          _scrollController.position.maxScrollExtent - 200) {
+        cubit.loadMore();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    _searchController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +67,37 @@ class _GeologicalReportListBody extends StatelessWidget {
       builder: (context, state) {
         return Column(
           children: [
-            XkSearchField(
-              placeholder: 'Tìm kiếm theo mã hoặc tên báo cáo địa chất',
-              onChanged:
-                  context.read<GeologicalReportListCubit>().onSearchChanged,
+            XelaTextField(
+              placeholder: 'Tìm kiếm báo cáo địa chất',
+              leftIcon: const Icon(
+                Icons.search,
+                size: 20,
+                color: XelaColor.Gray6,
+              ),
+              rightIcon: _searchController.text.isNotEmpty
+                  ? InkWell(
+                      onTap: () {
+                        _searchController.clear();
+                        context
+                            .read<GeologicalReportListCubit>()
+                            .onSearchChanged('');
+                      },
+                      child: const Icon(
+                        Icons.clear,
+                      ),
+                    )
+                  : null,
+              onChange: (value) {
+                context
+                    .read<GeologicalReportListCubit>()
+                    .onSearchChanged(value);
+              },
+              textInputAction: TextInputAction.search,
+              onSubmitted: (value) {
+                context.read<GeologicalReportListCubit>().onSearchChanged(
+                      value,
+                    );
+              },
             ),
             const SizedBox(height: 12),
             Expanded(child: _buildContent(context, state)),
@@ -68,66 +129,78 @@ class _GeologicalReportListBody extends StatelessWidget {
         return RefreshIndicator(
           onRefresh: context.read<GeologicalReportListCubit>().refresh,
           child: ListView.separated(
-            itemCount: state.filteredReports.length,
+            itemCount: state.reports.length + 1,
+            controller: _scrollController,
             separatorBuilder: (_, __) => const SizedBox(height: 10),
             itemBuilder: (_, index) {
-              final report = state.filteredReports[index];
-              return XkCard(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.description_outlined,
-                          size: 20,
-                          color: XelaColor.Gray6,
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: Text(
-                            report.code,
-                            style: XelaTextStyle.xelaBodyBold
-                                .apply(color: XelaColor.Gray2),
+              if (index < state.reports.length) {
+                final report = state.reports[index];
+                return XkCard(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.description_outlined,
+                            size: 20,
+                            color: XelaColor.Gray6,
                           ),
-                        ),
-                        Text(
-                          report.status,
-                          style: XelaTextStyle.xelaBody
-                              .apply(color: XelaColor.Gray4),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      report.name,
-                      style:
-                          XelaTextStyle.xelaBody.apply(color: XelaColor.Gray2),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      report.mineSite,
-                      style:
-                          XelaTextStyle.xelaBody.apply(color: XelaColor.Gray2),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      report.mineral,
-                      style:
-                          XelaTextStyle.xelaBody.apply(color: XelaColor.Gray2),
-                    ),
-                    const SizedBox(height: 8),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        'Xem hồ sơ',
-                        style: XelaTextStyle.xelaBodyBold
-                            .apply(color: XelaColor.Blue6),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              report.reportId ?? '',
+                              style: XelaTextStyle.xelaBodyBold
+                                  .apply(color: XelaColor.Gray2),
+                            ),
+                          ),
+                          Text(
+                            report.reviewStatus.toString(),
+                            style: XelaTextStyle.xelaBody
+                                .apply(color: XelaColor.Gray4),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
-                ),
-              );
+                      const SizedBox(height: 8),
+                      Text(
+                        report.reportName ?? '',
+                        style: XelaTextStyle.xelaBody
+                            .apply(color: XelaColor.Gray2),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        report.reportingUnit ?? 'N/A',
+                        style: XelaTextStyle.xelaBody
+                            .apply(color: XelaColor.Gray2),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        report.approvalUnit ?? 'N?A',
+                        style: XelaTextStyle.xelaBody
+                            .apply(color: XelaColor.Gray2),
+                      ),
+                      const SizedBox(height: 8),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          'Xem hồ sơ',
+                          style: XelaTextStyle.xelaBodyBold
+                              .apply(color: XelaColor.Blue6),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              } else {
+                if (state.isLoadingMore == true) {
+                  return const Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Center(child: CircularProgressIndicator()),
+                  );
+                } else {
+                  return const SizedBox();
+                }
+              }
             },
           ),
         );

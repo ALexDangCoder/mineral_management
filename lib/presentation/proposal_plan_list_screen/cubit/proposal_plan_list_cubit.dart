@@ -1,5 +1,8 @@
 import 'dart:async';
 
+import 'package:bnv_opendata/data/models/model_exports.dart';
+import 'package:bnv_opendata/domain/params/param_exports.dart';
+import 'package:bnv_opendata/domain/repositories/repository_exports.dart';
 import 'package:bnv_opendata/presentation/mine_shared/cubit_status.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,80 +10,97 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'proposal_plan_list_state.dart';
 
 class ProposalPlanListCubit extends Cubit<ProposalPlanListState> {
-  ProposalPlanListCubit() : super(const ProposalPlanListState());
+  ProposalPlanListCubit(this._mainMineRepository)
+      : super(const ProposalPlanListState());
 
   Timer? _searchDebounce;
+  final MainMineRepository _mainMineRepository;
 
-  Future<void> init() => fetch();
+  Future<void> init() => getProposalPlansList();
 
-  Future<void> fetch() async {
-    emit(state.copyWith(status: MineScreenStatus.loading, errorMessage: null));
+  Future<void> getProposalPlansList({int? page = 1}) async {
+    if (page == 1) {
+      emit(state.copyWith(status: MineScreenStatus.loading));
+    }
     try {
-      const plans = <ProposalPlanItem>[
-        ProposalPlanItem(
-          id: '1',
-          code: 'DAPA0111',
-          name: 'Đề án thăm dò mỏ Mạo Khê',
-          mineSite: 'Khu mỏ Mạo Khê',
-          mineral: 'Than',
-          status: 'Đang thi công',
-        ),
-        ProposalPlanItem(
-          id: '2',
-          code: 'DAPA01101',
-          name: 'Đề án thăm dò mỏ Bành Long',
-          mineSite: 'Khu mỏ Mạo Khê',
-          mineral: 'Than',
-          status: 'Đang thi công',
-        ),
-      ];
-      final filtered = _filterPlans(plans, state.query);
-      emit(
-        state.copyWith(
-          status: filtered.isEmpty
-              ? MineScreenStatus.empty
-              : MineScreenStatus.success,
-          plans: plans,
-          filteredPlans: filtered,
-          errorMessage: null,
+      final params = BasePageParam<ListProposalPlanFilter>(
+        pageSize: 10,
+        pageNow: page,
+        filter: ListProposalPlanFilter(projectName: state.searchKey
+            // regionId: state.regionIdList,
+            // areaName: state.searchKey,
+            ),
+      );
+      final result = await _mainMineRepository.getListProposalPlans(
+        params.toJson(
+          (filter) => filter.toJson(),
         ),
       );
+      result.when(
+        success: (data) {
+          final List<ProposalPlanModel>? arrivalList = data.items;
+          final List<ProposalPlanModel>? newList;
+          if (data.pageNow == 1) {
+            newList = arrivalList;
+          } else {
+            newList = [...state.plans, ...?arrivalList];
+          }
+          emit(
+            state.copyWith(
+              status: (newList?.isEmpty ?? false)
+                  ? MineScreenStatus.empty
+                  : MineScreenStatus.success,
+              plans: newList,
+              hasMore: (data.pageNow ?? 0) < (data.pageTotal ?? 0),
+              page: (data.pageNow ?? 0) + 1,
+              isLoadingMore: false,
+            ),
+          );
+        },
+        failure: (failure) {
+          emit(
+            state.copyWith(
+              status: MineScreenStatus.failure,
+              errorMessage: failure,
+            ),
+          );
+        },
+      );
     } catch (_) {
+      if (isClosed) return;
       emit(
         state.copyWith(
           status: MineScreenStatus.failure,
-          errorMessage: 'Không thể tải danh sách đề án.',
+          errorMessage: 'Không thể tải danh sách báo cáo địa chất.',
         ),
       );
     }
   }
 
   void onSearchChanged(String value) {
-    emit(state.copyWith(query: value));
+    emit(state.copyWith(searchKey: value));
     _searchDebounce?.cancel();
-    _searchDebounce = Timer(const Duration(milliseconds: 350), () {
-      final filtered = _filterPlans(state.plans, state.query);
-      emit(
-        state.copyWith(
-          status: filtered.isEmpty
-              ? MineScreenStatus.empty
-              : MineScreenStatus.success,
-          filteredPlans: filtered,
-          errorMessage: null,
-        ),
-      );
+    _searchDebounce = Timer(const Duration(milliseconds: 500), () async {
+      await getProposalPlansList();
     });
   }
 
   Future<void> refresh() async {
-    await fetch();
+    await getProposalPlansList();
   }
 
   Future<void> retry() async {
-    await fetch();
+    await getProposalPlansList();
   }
 
-  List<ProposalPlanItem> _filterPlans(List<ProposalPlanItem> input, String query) {
+  Future<void> loadMore() async {
+    if (state.isLoadingMore == true || state.hasMore == false) return;
+    emit(state.copyWith(isLoadingMore: true));
+    await getProposalPlansList(page: state.page);
+  }
+
+  List<ProposalPlanItem> _filterPlans(
+      List<ProposalPlanItem> input, String query) {
     final normalized = query.trim().toLowerCase();
     if (normalized.isEmpty) {
       return input;

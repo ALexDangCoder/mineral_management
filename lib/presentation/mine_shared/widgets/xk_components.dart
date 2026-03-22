@@ -299,7 +299,7 @@ class XkSectionDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return XelaDivider(color: XelaColor.Gray11);
+    return const XelaDivider();
   }
 }
 

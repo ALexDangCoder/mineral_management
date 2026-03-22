@@ -1,0 +1,154 @@
+import 'package:bnv_opendata/presentation/mine_base_list_screen/cubit/base_list_cubit.dart';
+import 'package:bnv_opendata/presentation/mine_shared/cubit_status.dart';
+import 'package:bnv_opendata/presentation/mine_shared/widgets/xk_components.dart';
+import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
+import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
+import 'package:bnv_opendata/widgets/xela_widgets/xela_textfield.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class MineBaseListScreen<T, C extends BaseListCubit<T>>
+    extends StatelessWidget {
+  const MineBaseListScreen({
+    super.key,
+    required this.title,
+    required this.searchPlaceholder,
+    required this.buildItem,
+    required this.createCubit,
+  });
+
+  final String title;
+  final String searchPlaceholder;
+  final Widget Function(BuildContext context, T item) buildItem;
+  final C Function(BuildContext context) createCubit;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider<C>(
+      create: (_) => createCubit(context)..init(),
+      child: AppScaffold(
+        title: title,
+        bgColor: XelaColor.Gray12,
+        appBarColor: XelaColor.Gray12,
+        body: _BaseListBody<T, C>(
+          searchPlaceholder: searchPlaceholder,
+          buildItem: buildItem,
+        ),
+      ),
+    );
+  }
+}
+
+class _BaseListBody<T, C extends BaseListCubit<T>> extends StatefulWidget {
+  const _BaseListBody(
+      {super.key, required this.searchPlaceholder, required this.buildItem});
+
+  final String searchPlaceholder;
+  final Widget Function(BuildContext context, T item) buildItem;
+
+  @override
+  State<_BaseListBody<T, C>> createState() => _BaseListBodyState<T, C>();
+}
+
+class _BaseListBodyState<T, C extends BaseListCubit<T>>
+    extends State<_BaseListBody<T, C>> {
+  final _scrollController = ScrollController();
+  final _searchController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels >=
+          _scrollController.position.maxScrollExtent - 200) {
+        context.read<C>().loadMore();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        XelaTextField(
+          textEditingController: _searchController,
+          placeholder: widget.searchPlaceholder,
+          leftIcon: const Icon(
+            Icons.search,
+            size: 20,
+            color: XelaColor.Gray6,
+          ),
+          rightIcon: _searchController.text.isNotEmpty
+              ? InkWell(
+                  onTap: () {
+                    _searchController.clear();
+                    context.read<C>().searchWithKey('');
+                  },
+                  child: const Icon(
+                    Icons.clear,
+                  ),
+                )
+              : null,
+          textInputAction: TextInputAction.search,
+          onSubmitted: (value) {
+            context.read<C>().searchWithKey(value);
+          },
+        ),
+        const SizedBox(height: 12),
+        Expanded(
+          child: BlocBuilder<C, BaseListState<T>>(
+            builder: (context, state) {
+              switch (state.status) {
+                case MineScreenStatus.initial:
+                case MineScreenStatus.loading:
+                  return const Expanded(child: XkSkeletonList());
+                case MineScreenStatus.empty:
+                  return XkEmptyState(
+                    message: 'Không tìm thấy vùng mỏ phù hợp.',
+                    onRetry: context.read<C>().getList,
+                  );
+
+                case MineScreenStatus.failure:
+                  return XkErrorState(
+                    message: state.errorMessage ?? 'Đã xảy ra lỗi.',
+                    onRetry: context.read<C>().getList,
+                  );
+
+                case MineScreenStatus.success:
+                  final items = state.items ?? []; // luôn là List<T>
+                  return RefreshIndicator(
+                    onRefresh: context.read<C>().refresh,
+                    child: ListView.separated(
+                      controller: _scrollController,
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      itemCount: items.length + (state.isLoadingMore ? 1 : 0),
+                      separatorBuilder: (_, __) => const Divider(height: 12),
+                      itemBuilder: (_, index) {
+                        if (index < items.length) {
+                          return widget.buildItem(context, items[index]);
+                        } else {
+                          return const Padding(
+                            padding: EdgeInsets.all(16),
+                            child: Center(
+                              child: CircularProgressIndicator(),
+                            ),
+                          );
+                        }
+                      },
+                    ),
+                  );
+              }
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}

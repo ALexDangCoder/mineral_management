@@ -49,7 +49,7 @@ abstract class ApiService {
   Future<BaseResponse<UserInfoResponse>> getUserProfile();
 
   @POST('/api/sys/vung-mo/filter')
-  Future<BaseResponse<ListMineRegionsResponse>> getListMineRegions(
+  Future<BaseResponse<ResultPage<MineRegionModel>>> getListMineRegions(
     @Body() Map<String, dynamic> body,
   );
 
@@ -66,5 +66,15 @@ abstract class ApiService {
   @GET('/api/sys/khu-mo/get-by-id')
   Future<BaseResponse<MineAreaModel>> getDetailMineArea(
     @Queries() Map<String, dynamic> queries,
+  );
+
+  @POST('/api/geological/bao-cao-dia-chat-master/filter')
+  Future<BaseResponse<ListGeologicalReportsResponse>> getListGeologicalReports(
+    @Body() Map<String, dynamic> body,
+  );
+
+  @POST('/api/exploration/de-an-phuong-an/filter')
+  Future<BaseResponse<ListProposalPlanResponse>> getListProposalPlans(
+    @Body() Map<String, dynamic> body,
   );
 }

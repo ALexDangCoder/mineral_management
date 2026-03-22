@@ -1,3 +1,4 @@
+import 'package:bnv_opendata/data/models/mining_area_model.dart';
 import 'package:bnv_opendata/data/models/model_exports.dart';
 import 'package:bnv_opendata/domain/params/param_exports.dart';
 import 'package:bnv_opendata/domain/repositories/repository_exports.dart';
@@ -81,15 +82,15 @@ class MiningAreaCubit extends BaseCubit<MiningAreaState> {
   Future<void> loadMore() async {
     if (state.isLoadingMore == true || state.hasMore == false) return;
     emit(state.copyWith(isLoadingMore: true));
-    await Future.delayed(const Duration(milliseconds: 1200));
     await getListMineAreas(page: state.page);
   }
 
   Future<void> searchMiningAreas(String query) async {
     emit(state.copyWith(searchKey: query));
-    if (query.isEmpty) {
+    if (query.isEmpty || state.screenStatus == MineScreenStatus.loading) {
       return;
     }
+
     await getListMineAreas();
   }
 }

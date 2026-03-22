@@ -1,5 +1,8 @@
 import 'dart:async';
 
+import 'package:bnv_opendata/data/models/model_exports.dart';
+import 'package:bnv_opendata/domain/params/param_exports.dart';
+import 'package:bnv_opendata/domain/repositories/repository_exports.dart';
 import 'package:bnv_opendata/presentation/mine_shared/cubit_status.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,46 +10,64 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'geological_report_list_state.dart';
 
 class GeologicalReportListCubit extends Cubit<GeologicalReportListState> {
-  GeologicalReportListCubit() : super(const GeologicalReportListState());
+  GeologicalReportListCubit(this._mainMineRepository)
+      : super(const GeologicalReportListState());
 
   Timer? _searchDebounce;
+  final MainMineRepository _mainMineRepository;
 
-  Future<void> init() => fetch();
+  Future<void> init() => getReportList();
 
-  Future<void> fetch() async {
-    emit(state.copyWith(status: MineScreenStatus.loading, errorMessage: null));
+  Future<void> getReportList({int? page = 1}) async {
+    if (page == 1) {
+      emit(state.copyWith(status: MineScreenStatus.loading));
+    }
     try {
-      const reports = <GeologicalReportItem>[
-        GeologicalReportItem(
-          id: '1',
-          code: 'BCDC0111',
-          name: 'Báo cáo địa chất mỏ Mạo Khê',
-          mineSite: 'Khu mỏ Mạo Khê',
-          mineral: 'Than',
-          status: 'Đang thực hiện',
-        ),
-        GeologicalReportItem(
-          id: '2',
-          code: 'BCDC01101',
-          name: 'Báo cáo địa chất mỏ Bành Long',
-          mineSite: 'Khu mỏ Mạo Khê',
-          mineral: 'Than',
-          status: 'Đang thực hiện',
-        ),
-      ];
-
-      final filtered = _filterReports(reports, state.query);
-      emit(
-        state.copyWith(
-          status: filtered.isEmpty
-              ? MineScreenStatus.empty
-              : MineScreenStatus.success,
-          reports: reports,
-          filteredReports: filtered,
-          errorMessage: null,
+      final params = BasePageParam<ListGeologicalReportFilter>(
+        pageSize: 10,
+        pageNow: page,
+        filter: ListGeologicalReportFilter(reportName: state.searchKey
+            // regionId: state.regionIdList,
+            // areaName: state.searchKey,
+            ),
+      );
+      final result = await _mainMineRepository.getListGeologicalReports(
+        params.toJson(
+          (filter) => filter.toJson(),
         ),
       );
+      result.when(
+        success: (data) {
+          final List<GeologicalReportModel>? arrivalList = data.items;
+          final List<GeologicalReportModel>? newList;
+          if (data.pageNow == 1) {
+            newList = arrivalList;
+          } else {
+            newList = [...state.reports, ...?arrivalList];
+          }
+          emit(
+            state.copyWith(
+              status: (newList?.isEmpty ?? false)
+                  ? MineScreenStatus.empty
+                  : MineScreenStatus.success,
+              reports: newList,
+              hasMore: (data.pageNow ?? 0) < (data.pageTotal ?? 0),
+              page: (data.pageNow ?? 0) + 1,
+              isLoadingMore: false,
+            ),
+          );
+        },
+        failure: (failure) {
+          emit(
+            state.copyWith(
+              status: MineScreenStatus.failure,
+              errorMessage: failure,
+            ),
+          );
+        },
+      );
     } catch (_) {
+      if (isClosed) return;
       emit(
         state.copyWith(
           status: MineScreenStatus.failure,
@@ -57,28 +78,29 @@ class GeologicalReportListCubit extends Cubit<GeologicalReportListState> {
   }
 
   void onSearchChanged(String value) {
-    emit(state.copyWith(query: value));
+    emit(state.copyWith(searchKey: value));
+    if (value.isEmpty || state.status == MineScreenStatus.loading) {
+      return;
+    }
     _searchDebounce?.cancel();
-    _searchDebounce = Timer(const Duration(milliseconds: 350), () {
-      final filtered = _filterReports(state.reports, state.query);
-      emit(
-        state.copyWith(
-          status: filtered.isEmpty
-              ? MineScreenStatus.empty
-              : MineScreenStatus.success,
-          filteredReports: filtered,
-          errorMessage: null,
-        ),
-      );
+    _searchDebounce = Timer(const Duration(milliseconds: 500), () async {
+      // final filtered = _filterReports(state.reports, state.query);
+      await getReportList();
     });
   }
 
   Future<void> refresh() async {
-    await fetch();
+    await getReportList();
   }
 
   Future<void> retry() async {
-    await fetch();
+    await getReportList();
+  }
+
+  Future<void> loadMore() async {
+    if (state.isLoadingMore == true || state.hasMore == false) return;
+    emit(state.copyWith(isLoadingMore: true));
+    await getReportList(page: state.page);
   }
 
   List<GeologicalReportItem> _filterReports(

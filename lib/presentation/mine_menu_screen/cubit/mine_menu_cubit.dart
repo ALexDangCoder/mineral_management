@@ -24,15 +24,15 @@ class MineMenuCubit extends Cubit<MineMenuState> {
           label: 'Đề án/phương án',
         ),
         MineMenuItem(
-          id: MineMenuItemId.planOrProposal,
+          id: MineMenuItemId.resourceManagement,
           label: 'Quản trị tài nguyên',
         ),
         MineMenuItem(
-          id: MineMenuItemId.planOrProposal,
+          id: MineMenuItemId.miningProject,
           label: 'Dự án khai thác',
         ),
         MineMenuItem(
-          id: MineMenuItemId.planOrProposal,
+          id: MineMenuItemId.mineClosurePlan,
           label: 'Đề án đóng cửa mỏ',
         ),
       ];

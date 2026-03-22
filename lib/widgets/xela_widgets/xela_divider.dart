@@ -10,12 +10,12 @@ class XelaDivider extends StatefulWidget {
   final XelaDividerOrientation orientation;
   final Color color;
 
-  XelaDivider({
-    Key? key,
+  const XelaDivider({
+    super.key,
     this.style = XelaDividerStyle.SOLID,
     this.orientation = XelaDividerOrientation.HORIZONTAL,
     this.color = XelaColor.Gray11,
-  }) : super(key: key);
+  });
 
   @override
   _XelaDividerState createState() => _XelaDividerState();

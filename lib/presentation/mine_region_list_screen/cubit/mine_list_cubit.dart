@@ -1,8 +1,4 @@
-import 'package:bnv_opendata/data/models/mine_region.dart';
-import 'package:bnv_opendata/data/models/mine_site.dart';
 import 'package:bnv_opendata/data/models/model_exports.dart';
-import 'package:bnv_opendata/data/repositories/fake_mine_module_repository.dart';
-import 'package:bnv_opendata/data/repositories/mine_module_repository.dart';
 import 'package:bnv_opendata/domain/params/param_exports.dart';
 import 'package:bnv_opendata/domain/repositories/repository_exports.dart';
 import 'package:bnv_opendata/presentation/mine_shared/cubit_status.dart';
@@ -70,7 +66,7 @@ class MineListCubit extends Cubit<MineListState> {
 
   Future<void> searchMineRegions(String searchKey) async {
     emit(state.copyWith(searchKey: searchKey));
-    if (searchKey.isEmpty) {
+    if (searchKey.isEmpty || state.status == MineScreenStatus.loading) {
       return;
     }
     await getListMineRegions();
@@ -87,7 +83,6 @@ class MineListCubit extends Cubit<MineListState> {
   Future<void> loadMore() async {
     if (state.isLoadingMore == true || state.hasMore == false) return;
     emit(state.copyWith(isLoadingMore: true));
-    await Future.delayed(const Duration(milliseconds: 1200));
     await getListMineRegions(page: state.page);
   }
 }

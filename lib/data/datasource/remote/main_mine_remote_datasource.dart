@@ -4,7 +4,7 @@ import 'package:bnv_opendata/data/models/response/base_response.dart';
 import 'package:bnv_opendata/domain/models/json_object.dart';
 
 abstract class MainMineRemoteDataSource {
-  Future<BaseResponse<ListMineRegionsResponse>> getListMineRegions(
+  Future<BaseResponse<ResultPage<MineRegionModel>>> getListMineRegions(
     JSONObject param,
   );
 
@@ -15,6 +15,14 @@ abstract class MainMineRemoteDataSource {
   Future<BaseResponse<MineRegionModel>> getDetailMineRegion(JSONObject param);
 
   Future<BaseResponse<MineAreaModel>> getDetailMineArea(JSONObject param);
+
+  Future<BaseResponse<ListGeologicalReportsResponse>> getListGeologicalReports(
+    JSONObject param,
+  );
+
+  Future<BaseResponse<ListProposalPlanResponse>> getListProposalPlans(
+    JSONObject param,
+  );
 }
 
 class MainMineRemoteDataSourceImpl implements MainMineRemoteDataSource {
@@ -39,8 +47,20 @@ class MainMineRemoteDataSourceImpl implements MainMineRemoteDataSource {
   }
 
   @override
-  Future<BaseResponse<ListMineRegionsResponse>> getListMineRegions(
+  Future<BaseResponse<ResultPage<MineRegionModel>>> getListMineRegions(
       JSONObject param) {
     return apiService.getListMineRegions(param);
+  }
+
+  @override
+  Future<BaseResponse<ListGeologicalReportsResponse>> getListGeologicalReports(
+      JSONObject param) {
+    return apiService.getListGeologicalReports(param);
+  }
+
+  @override
+  Future<BaseResponse<ListProposalPlanResponse>> getListProposalPlans(
+      JSONObject param) {
+    return apiService.getListProposalPlans(param);
   }
 }

@@ -3,30 +3,35 @@ part of 'mine_site_detail_cubit.dart';
 class MineSiteDetailState extends Equatable {
   const MineSiteDetailState({
     this.status = MineScreenStatus.initial,
-    this.query = '',
-    this.site,
+    this.areaId = '',
+    this.mineAreaModel,
     this.errorMessage,
   });
 
   final MineScreenStatus status;
-  final String query;
-  final MineSite? site;
+  final String areaId;
+  final MineAreaModel? mineAreaModel;
   final String? errorMessage;
 
   MineSiteDetailState copyWith({
     MineScreenStatus? status,
-    String? query,
-    MineSite? site,
+    String? areaId,
+    MineAreaModel? mineAreaModel,
     String? errorMessage,
   }) {
     return MineSiteDetailState(
       status: status ?? this.status,
-      query: query ?? this.query,
-      site: site ?? this.site,
+      areaId: areaId ?? this.areaId,
+      mineAreaModel: mineAreaModel ?? this.mineAreaModel,
       errorMessage: errorMessage,
     );
   }
 
   @override
-  List<Object?> get props => [status, query, site, errorMessage];
+  List<Object?> get props => [
+        status,
+        areaId,
+        mineAreaModel,
+        errorMessage,
+      ];
 }

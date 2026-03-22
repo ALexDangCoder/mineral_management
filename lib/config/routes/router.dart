@@ -6,7 +6,9 @@ import 'package:bnv_opendata/presentation/construction_detail/construction_detai
 import 'package:bnv_opendata/presentation/drill_hole_detail/drill_hole_detail_screen.dart';
 import 'package:bnv_opendata/presentation/geological_report_list/geological_report_list_screen.dart';
 import 'package:bnv_opendata/presentation/mine_3d/mine_3d_screen.dart';
-import 'package:bnv_opendata/presentation/mine_detail/mine_detail_screen.dart';
+import 'package:bnv_opendata/presentation/mine_area_detail/mine_detail_screen'
+    '.dart';
+import 'package:bnv_opendata/presentation/mine_region_list_screen/update_region_list/update_region_list.dart';
 import 'package:bnv_opendata/presentation/notification_management/notification_management_screen.dart';
 import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
 import 'package:bnv_opendata/presentation/project_detail/project_detail_screen.dart';
@@ -186,11 +188,11 @@ class Routers {
       case accountInfo:
         return MaterialPageRoute(builder: (_) => const AccountInfoScreen());
       case mineList:
-        return MaterialPageRoute(builder: (_) => const MineListScreen());
+        return MaterialPageRoute(builder: (_) =>  UpdateMineRegionListScreen());
       case mineDetail:
-        final siteId = _stringArg(args, 'siteId');
+        final siteId = _stringArg(args, 'areaId');
         return MaterialPageRoute(
-            builder: (_) => MineSiteDetailScreen(siteId: siteId));
+            builder: (_) => MineSiteDetailScreen(areaId: siteId));
       case drillHoleList:
         final siteId = _stringArg(args, 'siteId');
         return MaterialPageRoute(

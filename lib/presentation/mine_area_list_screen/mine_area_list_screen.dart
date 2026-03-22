@@ -122,7 +122,6 @@ class _MineAreaBodyState extends State<_MineAreaBody> {
           child: RefreshIndicator(
             onRefresh: context.read<MiningAreaCubit>().refresh,
             child: ListView.separated(
-              shrinkWrap: true,
               physics: const AlwaysScrollableScrollPhysics(),
               controller: _scrollController,
               itemCount: (state.mineAreaList?.length ?? 0) + 1,
@@ -135,7 +134,7 @@ class _MineAreaBodyState extends State<_MineAreaBody> {
                       Navigator.pushNamed(
                         context,
                         Routers.mineDetail,
-                        arguments: {'siteId': 'site_mk_01'},
+                        arguments: {'areaId': mineArea?.areaId},
                       );
                     },
                     child: Row(
