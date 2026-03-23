@@ -1,4 +1,3 @@
-
 import 'package:bloc/bloc.dart';
 import 'package:bnv_opendata/domain/repositories/auth_repository.dart';
 import 'package:bnv_opendata/domain/usecases/usecase_export.dart';
@@ -17,8 +16,13 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> preLogin() async {
     final username = await authRepository.getCachedUsername();
     print('======USERNAME $username');
-    if(username != null && username.isNotEmpty) {
-      emit(state.copyWith(username: username));
+    if (username != null && username.isNotEmpty) {
+      emit(
+        state.copyWith(
+          username: username,
+          cachedUsername: username,
+        ),
+      );
       await validateInput();
     }
   }
@@ -26,15 +30,15 @@ class LoginCubit extends Cubit<LoginState> {
   Future<String?> sendCode(String email) async {
     emit(state.copyWith(eventState: const LoadingState()));
     final result = await authRepository.sendCode(email);
-    
+
     return result.when(
       success: (data) {
         emit(state.copyWith(eventState: LoadedState(data: data)));
         return null;
       },
-      failure: (message) {
-        emit(state.copyWith(eventState: ErrorState(data: message)));
-        return message;
+      failure: (error) {
+        emit(state.copyWith(eventState: ErrorState(data: error.message)));
+        return error.message;
       },
     );
   }
@@ -54,8 +58,8 @@ class LoginCubit extends Cubit<LoginState> {
           ),
         );
       },
-      failure: (message) {
-        emit(state.copyWith(eventState: ErrorState(data: message)));
+      failure: (failure) {
+        emit(state.copyWith(eventState: ErrorState(data: failure.message)));
       },
     );
   }

@@ -108,13 +108,13 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
 
   @override
   void initState() {
+    ///TODO: Draft for dev
     context.read<LoginCubit>().changePassword(
         '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225');
     super.initState();
     Future.delayed(const Duration(milliseconds: 500), () {
       if (context.mounted) {
         final state = context.read<LoginCubit>().state;
-        _usernameController.text = state.username ?? '';
         _passController.text = state.password ?? '';
       }
     });
@@ -157,18 +157,28 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
             ),
           ),
           const SizedBox(height: 24),
-          XelaTextField(
-            placeholder: AppS.of(context).username,
-            rightIcon: Icon(
-              Icons.account_circle,
-              size: 20,
-              color: AppTheme.getInstance().primaryColor(),
-            ),
-            background: AppTheme.getInstance().lightBgColor(),
-            textEditingController: _usernameController,
-            onChange: (string) {
-              context.read<LoginCubit>().changeUsername(string);
+          BlocListener<LoginCubit, LoginState>(
+            listenWhen: (current, next) =>
+                current.cachedUsername != next.cachedUsername,
+            listener: (context, state) {
+              // TODO: implement listener
+              if (state.cachedUsername != null) {
+                _usernameController.text = state.cachedUsername!;
+              }
             },
+            child: XelaTextField(
+              placeholder: AppS.of(context).username,
+              rightIcon: Icon(
+                Icons.account_circle,
+                size: 20,
+                color: AppTheme.getInstance().primaryColor(),
+              ),
+              background: AppTheme.getInstance().lightBgColor(),
+              textEditingController: _usernameController,
+              onChange: (string) {
+                context.read<LoginCubit>().changeUsername(string);
+              },
+            ),
           ),
           const SizedBox(height: 24),
           BlocBuilder<LoginCubit, LoginState>(
@@ -288,9 +298,8 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
 
                     PopupLoadingUtils.of(context).show();
 
-                    final errorMsg = await context
-                        .read<LoginCubit>()
-                        .sendCode(currentEmail);
+                    final errorMsg =
+                        await context.read<LoginCubit>().sendCode(currentEmail);
 
                     if (context.mounted) {
                       PopupLoadingUtils.of(context).close();

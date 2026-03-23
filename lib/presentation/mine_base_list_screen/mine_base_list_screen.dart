@@ -136,7 +136,7 @@ class _BaseListBodyState<T, C extends BaseListCubit<T>>
                       controller: _scrollController,
                       physics: const AlwaysScrollableScrollPhysics(),
                       itemCount: items.length + (state.isLoadingMore ? 1 : 0),
-                      separatorBuilder: (_, __) => const Divider(height: 12),
+                      separatorBuilder: (_, __) => const SizedBox(height: 12),
                       itemBuilder: (_, index) {
                         if (index < items.length) {
                           return widget.buildItem(context, items[index]);

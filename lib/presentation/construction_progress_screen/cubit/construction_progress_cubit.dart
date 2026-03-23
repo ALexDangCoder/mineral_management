@@ -29,7 +29,7 @@ class ConstructionProgressCubit extends BaseListCubit<PlannedBoreholeModel> {
         pageNow: data.pageNow,
         pageTotal: data.pageTotal,
       ),
-      failure: (failure) => throw Exception(failure),
+      failure: (failure) => throw Exception(failure.message),
     );
   }
 }

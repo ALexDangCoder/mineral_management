@@ -61,7 +61,7 @@ class GeologicalReportListCubit extends Cubit<GeologicalReportListState> {
           emit(
             state.copyWith(
               status: MineScreenStatus.failure,
-              errorMessage: failure,
+              errorMessage: failure.message,
             ),
           );
         },

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:bnv_opendata/core/network/interceptors/api_interceptor.dart';
 import 'package:dio/io.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:bnv_opendata/core/network/interceptors/auth_interceptor.dart';
@@ -34,6 +35,7 @@ class DioClient {
 
     dio.interceptors.addAll([
       AuthInterceptor(localStorage, eventBus),
+      ApiInterceptor(),
       PrettyDioLogger(
         requestHeader: true,
         requestBody: true,

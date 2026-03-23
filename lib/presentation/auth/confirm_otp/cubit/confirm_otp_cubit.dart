@@ -29,8 +29,8 @@ class ConfirmOtpCubit extends BaseCubit<ConfirmOtpState> {
         emit(state.copyWith(eventState: LoadedState(data: data)));
         _startTimer();
       },
-      failure: (message) {
-        emit(state.copyWith(eventState: ErrorState(data: message)));
+      failure: (failure) {
+        emit(state.copyWith(eventState: ErrorState(data: failure.message)));
       },
     );
   }
@@ -77,8 +77,8 @@ class ConfirmOtpCubit extends BaseCubit<ConfirmOtpState> {
         emit(state.copyWith(eventState: LoadedState(data: data)));
         return true;
       },
-      failure: (message) {
-        emit(state.copyWith(eventState: ErrorState(data: message)));
+      failure: (failure) {
+        emit(state.copyWith(eventState: ErrorState(data: failure.message)));
         return false;
       },
     );

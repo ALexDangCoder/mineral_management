@@ -6,27 +6,31 @@ class LoginState extends BaseState {
   final String? password;
   final bool loginBtnIsEnable;
   final bool isShowPass;
+  final String? cachedUsername;
 
-  const LoginState(
-      {this.eventState,
-      this.username,
-      this.password,
-      this.loginBtnIsEnable = false,
-      this.isShowPass = false,});
+  const LoginState({
+    this.eventState,
+    this.username,
+    this.password,
+    this.loginBtnIsEnable = false,
+    this.isShowPass = false,
+    this.cachedUsername,
+  });
 
-  LoginState copyWith({
-    BaseState? eventState,
-    String? username,
-    String? password,
-    bool? loginBtnIsEnable,
-    bool? isShowPass,
-  }) {
+  LoginState copyWith(
+      {BaseState? eventState,
+      String? username,
+      String? password,
+      bool? loginBtnIsEnable,
+      bool? isShowPass,
+      String? cachedUsername}) {
     return LoginState(
       eventState: eventState,
       username: username ?? this.username,
       password: password ?? this.password,
       loginBtnIsEnable: loginBtnIsEnable ?? this.loginBtnIsEnable,
       isShowPass: isShowPass ?? this.isShowPass,
+      cachedUsername: cachedUsername,
     );
   }
 
@@ -37,5 +41,6 @@ class LoginState extends BaseState {
         password,
         loginBtnIsEnable,
         isShowPass,
+        cachedUsername,
       ];
 }

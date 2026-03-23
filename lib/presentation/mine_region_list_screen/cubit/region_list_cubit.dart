@@ -18,7 +18,7 @@ class RegionListCubit extends BaseListCubit<MineRegionModel> {
   Future<ResultPage<MineRegionModel>> fetchData({int? page, String? searchKey})
   async {
     final params = BasePageParam<ListMineRegionFilter>(
-      pageSize: 8,
+      pageSize: 10,
       pageNow: page,
       filter: ListMineRegionFilter(
         regionName: searchKey,

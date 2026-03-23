@@ -45,21 +45,33 @@ class AuthRepositoryImpl implements AuthRepository {
         await localStorage.saveUsername(username);
 
         // await localStorage.saveUserInfo(user.toJson());
-        return Success(authEntity);
+        return Result.success(authEntity);
       } else {
-        return Failure(response.message ?? 'Đăng nhập thất bại');
+        return Result.failure(
+          ApiError(
+            message: response.message ?? 'Unknown error',
+            code: response.code,
+            data: response.data,
+            type: ApiErrorType.server,
+          ),
+        );
       }
     } on DioException catch (e) {
       log('Login DioException: $e');
-      // Đọc message từ body response của API khi API trả về lỗi HTTP!=200
-      final data = e.response?.data;
-      if (data is Map<String, dynamic> && data['message'] != null) {
-        return Failure(data['message'].toString());
+      if (e.error is ApiError) {
+        return Result.failure(e.error! as ApiError);
       }
-      return const Failure('Lỗi kết nối, vui lòng thử lại');
+      return Result.failure(
+        ApiError(
+          message: e.message ?? 'Unknown Dio error',
+        ),
+      );
     } on Exception catch (e) {
-      log('Login Exception: $e');
-      return const Failure('Lỗi hệ thống khi đăng nhập');
+      return Result.failure(
+        ApiError(
+          message: e.toString(),
+        ),
+      );
     }
   }
 
@@ -71,9 +83,12 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       await remoteDataSource.changePassword(currentPass, newPass);
       return const Success('');
-    } on Exception catch (_) {
-      // TODO
-      return const Failure('');
+    } on Exception catch (e) {
+      return Result.failure(
+        ApiError(
+          message: e.toString(),
+        ),
+      );
     }
   }
 
@@ -128,19 +143,28 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final response = await remoteDataSource.sendCode(email);
       if (response.code == 0) {
-        return const Success('Gửi OTP thành công');
+        return Result.success('Gửi OTP thành công');
       }
-      return Failure(response.message ?? 'Gửi OTP thất bại');
+      return Result.failure(
+        ApiError(
+          message: response.message ?? 'Gửi OTP thất bại',
+        ),
+      );
     } on DioException catch (e) {
-      log('sendCode DioException: $e');
-      final data = e.response?.data;
-      if (data is Map<String, dynamic> && data['message'] != null) {
-        return Failure(data['message'].toString());
+      if (e.error is ApiError) {
+        return Result.failure(e.error! as ApiError);
       }
-      return const Failure('Lỗi kết nối, vui lòng thử lại');
+      return Result.failure(
+        ApiError(
+          message: e.message ?? 'Unknown Dio error',
+        ),
+      );
     } catch (e) {
-      log('sendCode Exception: $e');
-      return const Failure('Lỗi hệ thống khi tải');
+      return Result.failure(
+        ApiError(
+          message: e.toString(),
+        ),
+      );
     }
   }
 
@@ -149,19 +173,19 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final response = await remoteDataSource.verifyCode(email, code);
       if (response.code == 0) {
-        return const Success('Xác nhận OTP thành công');
+        return Result.success('Xác nhận OTP thành công');
       }
-      return Failure(response.message ?? 'Mã OTP không đúng');
-    } on DioException catch (e) {
-      log('verifyCode DioException: $e');
-      final data = e.response?.data;
-      if (data is Map<String, dynamic> && data['message'] != null) {
-        return Failure(data['message'].toString());
-      }
-      return const Failure('Lỗi kết nối, vui lòng thử lại');
+      return Result.failure(
+        ApiError(
+          message: response.message ?? 'Mã OTP không đúng',
+        ),
+      );
     } catch (e) {
-      log('verifyCode Exception: $e');
-      return const Failure('Lỗi hệ thống khi tải');
+      return Result.failure(
+        ApiError(
+          message: e.toString(),
+        ),
+      );
     }
   }
 
@@ -170,19 +194,21 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final response = await remoteDataSource.getUserProfile();
       if (response.code == 0 || response.code == 200 || response.data != null) {
-        return Success(response.data!);
+        return Result.success(response.data!);
       }
-      return Failure(response.message ?? 'Lỗi tải dữ liệu người dùng');
-    } on DioException catch (e) {
-      log('getUserProfile DioException: $e');
-      final data = e.response?.data;
-      if (data is Map<String, dynamic> && data['message'] != null) {
-        return Failure(data['message'].toString());
-      }
-      return const Failure('Lỗi kết nối, vui lòng thử lại');
+      return Result.failure(
+        ApiError(
+            message: response.message ??
+                'Lỗi tải dữ liệu '
+                    'người dùng'),
+      );
     } catch (e) {
       log('getUserProfile Exception: $e');
-      return const Failure('Lỗi hệ thống khi tải');
+      return Result.failure(
+        ApiError(
+          message: e.toString(),
+        ),
+      );
     }
   }
 }
