@@ -1,4 +1,5 @@
 import 'package:bnv_opendata/config/routes/router.dart';
+import 'package:bnv_opendata/dependencies/app_dependenies.dart';
 import 'package:bnv_opendata/config/themes/app_theme.dart';
 import 'package:bnv_opendata/presentation/alert/alert_list_screen.dart';
 import 'package:bnv_opendata/presentation/home/cubit/home_cubit.dart';
@@ -16,7 +17,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit(),
+      create: (context) => HomeCubit(injector.get())..getUserInfo(),
       child: const AppScaffold(
         body: _HomeScreenBody(),
         bgColor: XelaColor.Gray12,
@@ -30,107 +31,113 @@ class _HomeScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return BlocBuilder<HomeCubit, HomeState>(
+      builder: (context, state) {
+        final userName = state.userInfoResponse?.name ?? '';
+
+        return Column(
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  'Xin chào,',
-                  style: XelaTextStyle.xelaBody.apply(
-                    color: XelaColor.Gray7,
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Xin chào,',
+                      style: XelaTextStyle.xelaBody.apply(
+                        color: XelaColor.Gray7,
+                      ),
+                    ),
+                    Text(
+                      userName,
+                      style: XelaTextStyle.xelaSubheadline.apply(
+                        color: XelaColor.Gray1,
+                        fontWeightDelta: 2,
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  'Nguyen Van A',
-                  style: XelaTextStyle.xelaSubheadline.apply(
-                    color: XelaColor.Gray1,
-                    fontWeightDelta: 2,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      Routers.notificationManagement,
+                    );
+                  },
+                  child: const Icon(
+                    Icons.notifications,
+                    size: 20,
+                    color: XelaColor.Gray7,
                   ),
                 ),
               ],
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(
-                  context,
-                  Routers.notificationManagement,
-                );
-              },
-              child: const Icon(
-                Icons.notifications,
-                size: 20,
-                color: XelaColor.Gray7,
-              ),
-            ),
-          ],
-        ),
-        Expanded(
-          child: ListView(
-            children: [
-              const ReportWidget(),
-              const SizedBox(
-                height: 16,
-              ),
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: const AlertListScreen(),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: const ProgressScreen(),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              // Quick access buttons
-              Row(
+            Expanded(
+              child: ListView(
                 children: [
-                  Expanded(
-                    child: _QuickAccessCard(
-                      icon: Icons.description,
-                      title: 'Báo cáo địa chất',
-                      onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          Routers.geologicalReportList,
-                        );
-                      },
-                    ),
+                  const ReportWidget(),
+                  const SizedBox(
+                    height: 16,
                   ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: _QuickAccessCard(
-                      icon: Icons.inventory_2,
-                      title: 'Tra cứu trữ lượng',
-                      onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          Routers.resourceReserves,
-                        );
-                      },
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
                     ),
+                    child: const AlertListScreen(),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: const ProgressScreen(),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  // Quick access buttons
+                  Row(
+                    children: [
+                      Expanded(
+                        child: _QuickAccessCard(
+                          icon: Icons.description,
+                          title: 'Báo cáo địa chất',
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              Routers.geologicalReportList,
+                            );
+                          },
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: _QuickAccessCard(
+                          icon: Icons.inventory_2,
+                          title: 'Tra cứu trữ lượng',
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              Routers.resourceReserves,
+                            );
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
-          ),
-        ),
-      ],
+            ),
+          ],
+        );
+      },
     );
   }
 }

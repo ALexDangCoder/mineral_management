@@ -7,3 +7,8 @@ export 'main_screen/main_screen.dart';
 export 'mine_area_list_screen/mine_area_list_screen.dart';
 export 'mine_menu_screen/mine_menu_screen.dart';
 export 'mine_region_list_screen/mine_region_list_screen.dart';
+export 'resource_management/resource_management_screen.dart';
+export 'mine_closure_plan/mine_closure_plan_list_screen.dart';
+export 'mine_mining_project/mine_mining_project_list_screen.dart';
+export 'mine_mining_project/mining_construction_progress_screen.dart';
+export 'mine_mining_project/mining_payment_progress_screen.dart';

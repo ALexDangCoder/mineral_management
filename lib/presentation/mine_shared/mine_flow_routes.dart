@@ -59,4 +59,34 @@ class MineFlowRoutes {
       arguments: {'planId': planId},
     );
   }
+
+  static Future<void> pushResourceManagement(BuildContext context) {
+    return Navigator.pushNamed(context, Routers.resourceManagement);
+  }
+
+  static Future<void> pushMineClosurePlanList(BuildContext context) {
+    return Navigator.pushNamed(context, Routers.mineClosurePlanList);
+  }
+
+  static Future<void> pushMiningProjectList(BuildContext context) {
+    return Navigator.pushNamed(context, Routers.miningProjectList);
+  }
+
+  static Future<void> pushMiningConstructionProgress(
+      BuildContext context, String projectId) {
+    return Navigator.pushNamed(
+      context,
+      Routers.constructionProgress,
+      arguments: {'projectId': projectId},
+    );
+  }
+
+  static Future<void> pushMiningPaymentProgress(
+      BuildContext context, String projectId) {
+    return Navigator.pushNamed(
+      context,
+      Routers.paymentProgress,
+      arguments: {'projectId': projectId},
+    );
+  }
 }
