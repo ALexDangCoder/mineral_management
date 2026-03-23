@@ -60,16 +60,13 @@ class MineMenuScreen extends StatelessWidget {
                 onTap = () => MineFlowRoutes.pushProposalPlanList(context);
                 break;
               case MineMenuItemId.resourceManagement:
-                //TODO
-                // onTap = () => MineFlowRoutes.pushProposalPlanList(context);
+                onTap = () => MineFlowRoutes.pushResourceManagement(context);
                 break;
               case MineMenuItemId.miningProject:
-              //TODO
-                // onTap = () => MineFlowRoutes.pushProposalPlanList(context);
+                onTap = () => MineFlowRoutes.pushMiningProjectList(context);
                 break;
               case MineMenuItemId.mineClosurePlan:
-              //TODO
-                // onTap = () => MineFlowRoutes.pushProposalPlanList(context);
+                onTap = () => MineFlowRoutes.pushMineClosurePlanList(context);
                 break;
             }
             return _MenuItem(

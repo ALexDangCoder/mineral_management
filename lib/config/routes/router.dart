@@ -108,6 +108,10 @@ class Routers {
   static const resourceReserves = '/resource_reserves';
   static const mineAreaList = '/mining_area';
   static const constructionProgress = '/construction_progress';
+  static const paymentProgress = '/payment_progress';
+  static const resourceManagement = '/resource_management';
+  static const mineClosurePlanList = '/mine_closure_plan_list';
+  static const miningProjectList = '/mining_project_list';
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     final args = settings.arguments;
@@ -218,6 +222,13 @@ class Routers {
             builder: (_) => const GeologicalReportListScreen());
       case proposalPlanList:
         return MaterialPageRoute(builder: (_) => ProposalPlanListScreen());
+      case resourceManagement:
+        return MaterialPageRoute(
+            builder: (_) => const ResourceManagementScreen());
+      case mineClosurePlanList:
+        return MaterialPageRoute(builder: (_) => MineClosurePlanListScreen());
+      case miningProjectList:
+        return MaterialPageRoute(builder: (_) => MineMiningProjectListScreen());
       case resourceReserves:
         return MaterialPageRoute(
             builder: (_) => const ResourceReservesScreen());
@@ -246,10 +257,15 @@ class Routers {
           ),
         );
       case constructionProgress:
-        final projectId = _stringArg(args, 'projectId');
         return MaterialPageRoute(
-          builder: (ctx) => ConstructionProgressScreen(projectId),
-        );
+            builder: (_) => MiningConstructionProgressScreen(
+                  projectId: _stringArg(args, 'projectId'),
+                ));
+      case paymentProgress:
+        return MaterialPageRoute(
+            builder: (_) => MiningPaymentProgressScreen(
+                  projectId: _stringArg(args, 'projectId'),
+                ));
     }
     return null;
   }
