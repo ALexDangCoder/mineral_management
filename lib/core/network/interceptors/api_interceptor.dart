@@ -5,22 +5,22 @@ class ApiInterceptor extends Interceptor {
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
     ApiError apiError;
-
+    final Map<String, dynamic> json = err.response?.data is Map<String, dynamic>
+        ? err.response?.data as Map<String, dynamic>
+        : {};
     switch (err.type) {
       case DioExceptionType.connectionTimeout:
       case DioExceptionType.sendTimeout:
       case DioExceptionType.receiveTimeout:
-        apiError = ApiError.timeout(err.message ?? 'Request timeout');
+        apiError = ApiError.timeoutFromJson(json);
         break;
 
       case DioExceptionType.badResponse:
-        final statusCode = err.response?.statusCode;
-        apiError = ApiError(
-          message: err.response?.data?['message'] ?? 'Server error',
-          code: statusCode,
-          data: err.response?.data,
-          type: ApiErrorType.server,
-        );
+        if (err.response?.statusCode == 401) {
+          apiError = ApiError.unauthorizedFromJson(json);
+        } else {
+          apiError = ApiError.fromJson(json);
+        }
         break;
 
       case DioExceptionType.cancel:
@@ -30,18 +30,21 @@ class ApiInterceptor extends Interceptor {
         break;
 
       case DioExceptionType.connectionError:
-        apiError = ApiError.network(err.message ?? 'Network error');
+        apiError = ApiError.networkFromJson(json);
         break;
 
       default:
         apiError = ApiError(
           message: err.message ?? 'Unknown error',
+          code: err.response?.statusCode,
+          data: err.response?.data,
         );
     }
 
-    // Trả về lỗi đã chuẩn hoá
     handler.next(DioException(
       requestOptions: err.requestOptions,
+      response: err.response,
+      type: err.type,
       error: apiError,
     ));
   }

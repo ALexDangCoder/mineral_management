@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:bnv_opendata/domain/entities/auth_entity.dart';
 import 'package:bnv_opendata/domain/repositories/auth_repository.dart';
 import 'package:bnv_opendata/domain/usecases/usecase_export.dart';
 import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart';
@@ -59,6 +60,16 @@ class LoginCubit extends Cubit<LoginState> {
         );
       },
       failure: (failure) {
+        if (failure.data != null && failure.data is Map<String, dynamic>) {
+          final Map<String, dynamic> data =
+              failure.data as Map<String, dynamic>;
+          if (data.containsKey('requireCaptcha')) {
+            emit(
+              state.copyWith(isRequireCaptcha: data['requireCaptcha'] as bool),
+            );
+          }
+        }
+
         emit(state.copyWith(eventState: ErrorState(data: failure.message)));
       },
     );

@@ -59,16 +59,34 @@ class ApiError {
       message: json['message'] ?? 'Unknown error',
       code: json['code'] as int?,
       data: json['data'],
-      type: ApiErrorType.server,
+      type: ApiErrorType.unknown,
     );
   }
 
-  factory ApiError.network([String? message]) =>
-      ApiError(message: message ?? 'Network error', type: ApiErrorType.network);
+  factory ApiError.networkFromJson(Map<String, dynamic> json) {
+    return ApiError(
+      message: json['message'] ?? 'Network error',
+      code: json['code'] as int?,
+      data: json['data'],
+      type: ApiErrorType.network,
+    );
+  }
 
-  factory ApiError.timeout([String? message]) =>
-      ApiError(message: message ?? 'Request timeout', type: ApiErrorType.timeout);
+  factory ApiError.timeoutFromJson(Map<String, dynamic> json) {
+    return ApiError(
+      message: json['message'] ?? 'Request timeout',
+      code: json['code'] as int?,
+      data: json['data'],
+      type: ApiErrorType.timeout,
+    );
+  }
 
-  factory ApiError.unauthorized([String? message]) =>
-      ApiError(message: message ?? 'Unauthorized', type: ApiErrorType.unauthorized);
+  factory ApiError.unauthorizedFromJson(Map<String, dynamic> json) {
+    return ApiError(
+      message: json['message'] ?? 'Unauthorized',
+      code: json['code'] as int?,
+      data: json['data'],
+      type: ApiErrorType.unauthorized,
+    );
+  }
 }

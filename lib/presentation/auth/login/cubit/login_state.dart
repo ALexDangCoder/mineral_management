@@ -6,6 +6,7 @@ class LoginState extends BaseState {
   final String? password;
   final bool loginBtnIsEnable;
   final bool isShowPass;
+  final bool isRequireCaptcha;
   final String? cachedUsername;
 
   const LoginState({
@@ -15,6 +16,7 @@ class LoginState extends BaseState {
     this.loginBtnIsEnable = false,
     this.isShowPass = false,
     this.cachedUsername,
+    this.isRequireCaptcha = false,
   });
 
   LoginState copyWith(
@@ -23,6 +25,7 @@ class LoginState extends BaseState {
       String? password,
       bool? loginBtnIsEnable,
       bool? isShowPass,
+      bool? isRequireCaptcha,
       String? cachedUsername}) {
     return LoginState(
       eventState: eventState,
@@ -31,6 +34,7 @@ class LoginState extends BaseState {
       loginBtnIsEnable: loginBtnIsEnable ?? this.loginBtnIsEnable,
       isShowPass: isShowPass ?? this.isShowPass,
       cachedUsername: cachedUsername,
+      isRequireCaptcha: isRequireCaptcha ?? this.isRequireCaptcha,
     );
   }
 
@@ -42,5 +46,6 @@ class LoginState extends BaseState {
         loginBtnIsEnable,
         isShowPass,
         cachedUsername,
+        isRequireCaptcha,
       ];
 }

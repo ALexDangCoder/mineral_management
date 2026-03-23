@@ -108,16 +108,7 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
 
   @override
   void initState() {
-    ///TODO: Draft for dev
-    context.read<LoginCubit>().changePassword(
-        '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225');
     super.initState();
-    Future.delayed(const Duration(milliseconds: 500), () {
-      if (context.mounted) {
-        final state = context.read<LoginCubit>().state;
-        _passController.text = state.password ?? '';
-      }
-    });
   }
 
   @override
