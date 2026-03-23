@@ -68,12 +68,24 @@ abstract class ApiService {
   );
 
   @POST('/api/geological/bao-cao-dia-chat-master/filter')
-  Future<BaseResponse<ResultPage<GeologicalReportModel>>> getListGeologicalReports(
+  Future<BaseResponse<ResultPage<GeologicalReportModel>>>
+      getListGeologicalReports(
     @Body() Map<String, dynamic> body,
   );
 
   @POST('/api/exploration/de-an-phuong-an/filter')
   Future<BaseResponse<ResultPage<ProposalPlanModel>>> getListProposalPlans(
+    @Body() Map<String, dynamic> body,
+  );
+
+  @POST('/api/exploration/lo-khoan-du-kien/filter')
+  Future<BaseResponse<ResultPage<PlannedBoreholeModel>>>
+      getListPlannedBoreholes(
+    @Body() Map<String, dynamic> body,
+  );
+
+  @POST('/api/exploration/ke-hoach-thanh-toan/filter')
+  Future<BaseResponse<dynamic>> getPaymentPlan(
     @Body() Map<String, dynamic> body,
   );
 }

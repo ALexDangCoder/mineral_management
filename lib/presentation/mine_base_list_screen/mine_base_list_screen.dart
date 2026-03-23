@@ -12,13 +12,15 @@ class MineBaseListScreen<T, C extends BaseListCubit<T>>
   const MineBaseListScreen({
     super.key,
     required this.title,
-    required this.searchPlaceholder,
+    this.searchPlaceholder,
+    this.isShowSearchTField = true,
     required this.buildItem,
     required this.createCubit,
   });
 
   final String title;
-  final String searchPlaceholder;
+  final String? searchPlaceholder;
+  final bool? isShowSearchTField;
   final Widget Function(BuildContext context, T item) buildItem;
   final C Function(BuildContext context) createCubit;
 
@@ -31,8 +33,9 @@ class MineBaseListScreen<T, C extends BaseListCubit<T>>
         bgColor: XelaColor.Gray12,
         appBarColor: XelaColor.Gray12,
         body: _BaseListBody<T, C>(
-          searchPlaceholder: searchPlaceholder,
+          searchPlaceholder: searchPlaceholder ?? 'Tìm kiếm',
           buildItem: buildItem,
+          isShowSearchTField: isShowSearchTField ?? true
         ),
       ),
     );
@@ -41,9 +44,11 @@ class MineBaseListScreen<T, C extends BaseListCubit<T>>
 
 class _BaseListBody<T, C extends BaseListCubit<T>> extends StatefulWidget {
   const _BaseListBody(
-      {super.key, required this.searchPlaceholder, required this.buildItem});
+      {super.key, required this.searchPlaceholder, required this.buildItem,
+      required this.isShowSearchTField,});
 
   final String searchPlaceholder;
+  final bool isShowSearchTField;
   final Widget Function(BuildContext context, T item) buildItem;
 
   @override
@@ -77,31 +82,33 @@ class _BaseListBodyState<T, C extends BaseListCubit<T>>
   Widget build(BuildContext context) {
     return Column(
       children: [
-        XelaTextField(
-          textEditingController: _searchController,
-          placeholder: widget.searchPlaceholder,
-          leftIcon: const Icon(
-            Icons.search,
-            size: 20,
-            color: XelaColor.Gray6,
+        if (widget.isShowSearchTField) ... [
+          XelaTextField(
+            textEditingController: _searchController,
+            placeholder: widget.searchPlaceholder,
+            leftIcon: const Icon(
+              Icons.search,
+              size: 20,
+              color: XelaColor.Gray6,
+            ),
+            rightIcon: _searchController.text.isNotEmpty
+                ? InkWell(
+              onTap: () {
+                _searchController.clear();
+                context.read<C>().searchWithKey('');
+              },
+              child: const Icon(
+                Icons.clear,
+              ),
+            )
+                : null,
+            textInputAction: TextInputAction.search,
+            onSubmitted: (value) {
+              context.read<C>().searchWithKey(value);
+            },
           ),
-          rightIcon: _searchController.text.isNotEmpty
-              ? InkWell(
-                  onTap: () {
-                    _searchController.clear();
-                    context.read<C>().searchWithKey('');
-                  },
-                  child: const Icon(
-                    Icons.clear,
-                  ),
-                )
-              : null,
-          textInputAction: TextInputAction.search,
-          onSubmitted: (value) {
-            context.read<C>().searchWithKey(value);
-          },
-        ),
-        const SizedBox(height: 12),
+          const SizedBox(height: 12),
+        ],
         Expanded(
           child: BlocBuilder<C, BaseListState<T>>(
             builder: (context, state) {

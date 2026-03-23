@@ -3,7 +3,8 @@ import 'package:bnv_opendata/data/models/model_exports.dart';
 import 'package:bnv_opendata/domain/models/json_object.dart';
 
 abstract class MainMineRepository {
-  Future<Result<ResultPage<MineRegionModel>>> getListMineRegions(JSONObject param);
+  Future<Result<ResultPage<MineRegionModel>>> getListMineRegions(
+      JSONObject param);
 
   Future<Result<ResultPage<MineAreaModel>>> getListMineAreas(JSONObject param);
 
@@ -16,4 +17,9 @@ abstract class MainMineRepository {
 
   Future<Result<ResultPage<ProposalPlanModel>>> getListProposalPlans(
       JSONObject param);
+
+  Future<Result<ResultPage<PlannedBoreholeModel>>> getListPlannedBoreholes(
+      JSONObject param);
+
+  Future<Result<dynamic>> getPaymentPlan(JSONObject param);
 }

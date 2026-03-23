@@ -1,6 +1,7 @@
 import 'package:bnv_opendata/domain/usecases/usecase_export.dart';
 import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_cubit.dart';
 import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart';
+import 'package:bnv_opendata/utils/validator_util.dart';
 
 part 'change_password_state.dart';
 

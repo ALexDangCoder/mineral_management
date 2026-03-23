@@ -107,6 +107,7 @@ class Routers {
   static const proposalPlanList = '/proposal_plan_list';
   static const resourceReserves = '/resource_reserves';
   static const mineAreaList = '/mining_area';
+  static const constructionProgress = '/construction_progress';
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     final args = settings.arguments;
@@ -188,7 +189,7 @@ class Routers {
       case accountInfo:
         return MaterialPageRoute(builder: (_) => const AccountInfoScreen());
       case mineList:
-        return MaterialPageRoute(builder: (_) =>  MineRegionListScreen());
+        return MaterialPageRoute(builder: (_) => MineRegionListScreen());
       case mineDetail:
         final siteId = _stringArg(args, 'areaId');
         return MaterialPageRoute(
@@ -216,8 +217,7 @@ class Routers {
         return MaterialPageRoute(
             builder: (_) => const GeologicalReportListScreen());
       case proposalPlanList:
-        return MaterialPageRoute(
-            builder: (_) => ProposalPlanListScreen());
+        return MaterialPageRoute(builder: (_) => ProposalPlanListScreen());
       case resourceReserves:
         return MaterialPageRoute(
             builder: (_) => const ResourceReservesScreen());
@@ -244,6 +244,11 @@ class Routers {
           builder: (ctx) => MineAreaListScreen(
             region: region,
           ),
+        );
+      case constructionProgress:
+        final projectId = _stringArg(args, 'projectId');
+        return MaterialPageRoute(
+          builder: (ctx) => ConstructionProgressScreen(projectId),
         );
     }
     return null;

@@ -97,4 +97,33 @@ class MainMineRepositoryImpl implements MainMineRepository {
       return const Failure('Lỗi hệ thống khi tải');
     }
   }
+
+  @override
+  Future<Result<ResultPage<PlannedBoreholeModel>>> getListPlannedBoreholes(
+      JSONObject param) async {
+    try {
+      final response = await remoteDataSource.getListPlannedBoreholes(param);
+      if (response.code == 200 && response.data != null) {
+        return Success(response.data!);
+      } else {
+        return Failure(response.message ?? '');
+      }
+    } catch (e) {
+      return const Failure('Lỗi hệ thống khi tải');
+    }
+  }
+
+  @override
+  Future<Result<dynamic>> getPaymentPlan(JSONObject param) async {
+    try {
+      final response = await remoteDataSource.getPaymentPlan(param);
+      if (response.code == 200 && response.data != null) {
+        return Success(response.data);
+      } else {
+        return Failure(response.message ?? '');
+      }
+    } catch (e) {
+      return const Failure('Lỗi hệ thống khi tải');
+    }
+  }
 }

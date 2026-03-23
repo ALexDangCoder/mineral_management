@@ -10,6 +10,7 @@ import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart'
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
 import 'package:bnv_opendata/resources/generated/assets.gen.dart';
 import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
+import 'package:bnv_opendata/utils/app_utils.dart';
 import 'package:bnv_opendata/utils/popup_loading/popup_loading_utils.dart';
 import 'package:bnv_opendata/utils/snackbar_helper.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_button.dart';
@@ -246,48 +247,74 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
     showDialog(
       context: context,
       builder: (ctx) {
-        return AlertDialog(
-          title: const Text('Nhập Email'),
-          content: TextField(
-            onChanged: (val) => email = val,
-            decoration: const InputDecoration(
-              hintText: 'Nhập địa chỉ email của bạn',
-            ),
-            keyboardType: TextInputType.emailAddress,
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(ctx),
-              child: const Text('Hủy'),
-            ),
-            TextButton(
-              onPressed: () async {
-                final currentEmail = email.trim();
-                if (currentEmail.isNotEmpty) {
-                  PopupLoadingUtils.of(context).show();
-                  final errorMsg =
-                      await context.read<LoginCubit>().sendCode(currentEmail);
+        String email = '';
+        String? errorText;
 
-                  if (context.mounted) {
-                    PopupLoadingUtils.of(context).close();
-                    if (errorMsg == null) {
-                      Navigator.pop(ctx);
-                      Navigator.pushNamed(
-                        context,
-                        Routers.confirmOtpChangePass,
-                        arguments: {'email': currentEmail},
-                      );
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(errorMsg)),
-                      );
-                    }
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return AlertDialog(
+              title: const Text('Nhập Email'),
+              content: TextField(
+                onChanged: (val) {
+                  email = val;
+
+                  // reset lỗi khi user nhập lại
+                  if (errorText != null) {
+                    setState(() => errorText = null);
                   }
-                }
-              },
-              child: const Text('Tiếp tục'),
-            ),
-          ],
+                },
+                decoration: InputDecoration(
+                  hintText: 'Nhập địa chỉ email của bạn',
+                  errorText: errorText,
+                ),
+                keyboardType: TextInputType.emailAddress,
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(ctx),
+                  child: const Text('Hủy'),
+                ),
+                TextButton(
+                  onPressed: () async {
+                    final currentEmail = email.trim();
+
+                    // ❗ validate tại chỗ
+                    if (!isEmail(currentEmail)) {
+                      setState(() {
+                        errorText = 'Địa chỉ email không hợp lệ';
+                      });
+                      return;
+                    }
+
+                    PopupLoadingUtils.of(context).show();
+
+                    final errorMsg = await context
+                        .read<LoginCubit>()
+                        .sendCode(currentEmail);
+
+                    if (context.mounted) {
+                      PopupLoadingUtils.of(context).close();
+
+                      if (errorMsg == null) {
+                        Navigator.pop(ctx);
+                        Navigator.pushNamed(
+                          context,
+                          Routers.confirmOtpChangePass,
+                          arguments: {'email': currentEmail},
+                        );
+                      } else {
+                        // ❗ show lỗi server ngay dưới field luôn
+                        setState(() {
+                          errorText = errorMsg;
+                        });
+                      }
+                    }
+                  },
+                  child: const Text('Tiếp tục'),
+                ),
+              ],
+            );
+          },
         );
       },
     );

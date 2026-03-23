@@ -1,3 +1,4 @@
+import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/data/models/model_exports.dart';
 import 'package:bnv_opendata/dependencies/app_dependenies.dart';
 import 'package:bnv_opendata/presentation/mine_base_list_screen/mine_base_list_screen.dart';
@@ -61,9 +62,16 @@ class ProposalPlanListScreen
             style: XelaTextStyle.xelaBody.apply(color: XelaColor.Gray2),
           ),
           const SizedBox(height: 8),
-          Text(
-            'Tiến độ thi công',
-            style: XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Blue6),
+          InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, Routers.constructionProgress,
+                  arguments: {'projectId': proposalPlan.projectId});
+            },
+            child: Text(
+              'Tiến độ thi công',
+              textAlign: TextAlign.left,
+              style: XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Blue6),
+            ),
           ),
           const SizedBox(height: 8),
           Text(
