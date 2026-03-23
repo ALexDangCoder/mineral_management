@@ -161,7 +161,6 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
             listenWhen: (current, next) =>
                 current.cachedUsername != next.cachedUsername,
             listener: (context, state) {
-              // TODO: implement listener
               if (state.cachedUsername != null) {
                 _usernameController.text = state.cachedUsername!;
               }
