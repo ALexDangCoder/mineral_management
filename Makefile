@@ -10,7 +10,7 @@ get:
 
 # Run build_runner to generate files (JSON serialization, Freezed, etc.)
 gen:
-	fvm flutter run build_runner build --delete-conflicting-outputs
+	fvm dart run build_runner build --delete-conflicting-outputs
 
 # --- Run Commands ---
 run-dev:
