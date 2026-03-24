@@ -2,11 +2,13 @@ import 'package:bnv_opendata/config/routes/router.dart';
 import 'package:bnv_opendata/config/themes/app_theme.dart';
 import 'package:bnv_opendata/dependencies/app_dependenies.dart';
 import 'package:bnv_opendata/domain/models/xela_button_models.dart';
+import 'package:bnv_opendata/main.dart';
 import 'package:bnv_opendata/presentation/auth/confirm_otp/cubit/confirm_otp_cubit.dart';
 import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
 import 'package:bnv_opendata/resources/generated/l10n/App_localizations.dart';
 import 'package:bnv_opendata/utils/popup_loading/popup_loading_utils.dart';
+import 'package:bnv_opendata/utils/snackbar_helper.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_button.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
@@ -16,6 +18,7 @@ import 'package:pinput/pinput.dart';
 
 class ConfirmOtpChangePassScreen extends StatelessWidget {
   final String email;
+
   const ConfirmOtpChangePassScreen({super.key, required this.email});
 
   @override
@@ -23,8 +26,8 @@ class ConfirmOtpChangePassScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => ConfirmOtpCubit(
         email: email,
-        authRepository: injector.get()
-      )..startTimer(),
+        authRepository: injector.get(),
+      )..requestOtp(),
       child: AppScaffold(
         title: AppS.of(context).confirm_code,
         body: _ConfirmOTPListener(email: email),
@@ -37,32 +40,51 @@ class ConfirmOtpChangePassScreen extends StatelessWidget {
 
 class _ConfirmOTPListener extends StatelessWidget {
   final String email;
+
   const _ConfirmOTPListener({required this.email});
 
   @override
   Widget build(BuildContext context) {
     return BlocListener<ConfirmOtpCubit, ConfirmOtpState>(
-      listenWhen: (previous, current) => previous.eventState != current.eventState,
+      listenWhen: (previous, current) =>
+          previous.eventState != current.eventState,
       listener: (context, state) {
         if (state.eventState is LoadingState) {
           PopupLoadingUtils.of(context).show();
         } else {
           PopupLoadingUtils.of(context).close();
-          
+
           if (state.eventState is ErrorState) {
-             final msg = (state.eventState as ErrorState).data as String?;
-             if (msg != null && msg.isNotEmpty) {
-               ScaffoldMessenger.of(context).showSnackBar(
-                 SnackBar(content: Text(msg)),
-               );
-             }
-          } else if (state.eventState is LoadedState) {
-             final msg = (state.eventState as LoadedState).data as String?;
-             if (msg != null && msg.isNotEmpty) {
-               ScaffoldMessenger.of(context).showSnackBar(
-                 SnackBar(content: Text(msg)),
-               );
-             }
+            final msg = (state.eventState! as ErrorState).data as String?;
+            if (msg != null && msg.isNotEmpty) {
+              SnackBarHelper.showError(context, message: msg);
+            }
+          } else if (state.eventState is ConfirmCodeSuccess) {
+            showDialog(
+              context: navigatorKey.currentContext!,
+              barrierDismissible: false,
+              builder: (_) => AlertDialog(
+                title: const Text(
+                  'Thông báo',
+                ),
+                content: const Text(
+                  'Vui lòng đăng nhập với mật khẩu mới được gửi tới email của'
+                  ' bạn',
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context, true);
+                    },
+                    child: const Text('OK'),
+                  )
+                ],
+              ),
+            ).then((value) {
+              if (value == true && context.mounted) {
+                Navigator.pop(context);
+              }
+            });
           }
         }
       },
@@ -73,6 +95,7 @@ class _ConfirmOTPListener extends StatelessWidget {
 
 class _ConfirmOTPBody extends StatefulWidget {
   final String email;
+
   const _ConfirmOTPBody({required this.email});
 
   @override
@@ -119,19 +142,6 @@ class _ConfirmOTPBodyState extends State<_ConfirmOTPBody> {
           const SizedBox(
             height: 24,
           ),
-          // XelaTextField(
-          //   placeholder: AppS.of(context).input_confirm_code,
-          //   rightIcon: Icon(
-          //     Icons.confirmation_num_outlined,
-          //     size: 20,
-          //     color: AppTheme.getInstance().primaryColor(),
-          //   ),
-          //   background: Colors.transparent,
-          //   textEditingController: _otpController,
-          //   onChange: (string) {
-          //     context.read<ConfirmOtpCubit>().onChangeOtp(otpCode: string);
-          //   },
-          // ),
           Pinput(
             length: 6,
             controller: _otpController,
@@ -148,28 +158,22 @@ class _ConfirmOTPBodyState extends State<_ConfirmOTPBody> {
             onChanged: (string) {
               context.read<ConfirmOtpCubit>().onChangeOtp(otpCode: string);
             },
-            onCompleted: (pin) async {
-              final success = await context.read<ConfirmOtpCubit>().confirmOtp();
-              if (success && context.mounted) {
-                await Navigator.pushReplacementNamed(
-                  context,
-                  Routers.changePassword,
-                );
-              }
+            onCompleted: (pin) {
+              context.read<ConfirmOtpCubit>().confirmOtp();
+              // if (success && context.mounted) {
+              //   await Navigator.pushReplacementNamed(
+              //     context,
+              //     Routers.changePassword,
+              //   );
+              // }
             },
           ),
           const SizedBox(height: 28),
           BlocBuilder<ConfirmOtpCubit, ConfirmOtpState>(
             builder: (ctx, state) {
               return XelaButton(
-                onPressed: () async {
-                  final success = await context.read<ConfirmOtpCubit>().confirmOtp();
-                  if (success && context.mounted) {
-                    await Navigator.pushReplacementNamed(
-                      context,
-                      Routers.changePassword,
-                    );
-                  }
+                onPressed: () {
+                  context.read<ConfirmOtpCubit>().confirmOtp();
                 },
                 autoResize: false,
                 text: AppS.of(context).confirm,

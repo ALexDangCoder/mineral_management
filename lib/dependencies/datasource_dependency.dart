@@ -20,7 +20,7 @@ Future<void> registerDataSource(GetIt injector) async {
     injector.registerLazySingleton<Dio>(() {
       final baseUrl = Get.isRegistered<AppConstants>()
           ? Get.find<AppConstants>().baseUrl
-          : "https://222.252.98.48:9292/";
+          : 'https://gateway-srv-dev.aequitas.dev/';
 
       return DioClient(
               baseUrl: baseUrl,

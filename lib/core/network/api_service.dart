@@ -35,8 +35,8 @@ abstract class ApiService {
     @Body() dynamic request,
   );
 
-  // @POST('/api/auth/public/auth/captcha')
-  // Future<dynamic> getCaptcha();
+  @POST('/api/auth/public/auth/captcha')
+  Future<dynamic> getCaptcha();
 
   @GET('/get-notifications')
   Future<dynamic> getNotification(

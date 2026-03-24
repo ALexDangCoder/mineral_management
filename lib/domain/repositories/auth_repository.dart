@@ -21,4 +21,6 @@ abstract class AuthRepository {
   Future<Result<dynamic>> verifyCode(String email, String code);
 
   Future<Result<UserInfoResponse>> getUserProfile();
+
+  Future<Result<String>> getCaptcha();
 }

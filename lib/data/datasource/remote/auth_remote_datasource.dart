@@ -9,6 +9,7 @@ abstract class AuthRemoteDataSource {
   Future<BaseResponse<dynamic>> sendCode(String email);
   Future<BaseResponse<dynamic>> verifyCode(String email, String code);
   Future<BaseResponse<UserInfoResponse>> getUserProfile();
+  Future<dynamic> getCaptcha();
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -45,4 +46,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   Future<BaseResponse<UserInfoResponse>> getUserProfile() {
     return apiService.getUserProfile();
   }
+
+  @override
+  Future<dynamic> getCaptcha() {
+    return apiService.getCaptcha();
+  }
+
 }

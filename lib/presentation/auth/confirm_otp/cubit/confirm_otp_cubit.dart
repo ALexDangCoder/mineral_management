@@ -17,20 +17,26 @@ class ConfirmOtpCubit extends BaseCubit<ConfirmOtpState> {
 
   Timer? _timer;
   String _otpCode = '';
+  final int _seconds = 60;
 
-  void requestOtp() async {
+  Future<void> requestOtp() async {
     if (!state.canResend) return;
-
-    emit(state.copyWith(eventState: const LoadingState()));
+    startTimer();
+    // emit(state.copyWith(eventState: const LoadingState()));
     final result = await authRepository.sendCode(email);
-    
     result.when(
       success: (data) {
         emit(state.copyWith(eventState: LoadedState(data: data)));
-        _startTimer();
       },
       failure: (failure) {
-        emit(state.copyWith(eventState: ErrorState(data: failure.message)));
+        _timer?.cancel();
+        emit(
+          state.copyWith(
+            eventState: ErrorState(data: failure.message),
+            canResend: true,
+            second: _seconds,
+          ),
+        );
       },
     );
   }
@@ -44,7 +50,7 @@ class ConfirmOtpCubit extends BaseCubit<ConfirmOtpState> {
 
     emit(
       state.copyWith(
-        second: 60,
+        second: _seconds,
         canResend: false,
       ),
     );
@@ -68,18 +74,16 @@ class ConfirmOtpCubit extends BaseCubit<ConfirmOtpState> {
     });
   }
 
-  Future<bool> confirmOtp() async {
+  Future<void> confirmOtp() async {
     emit(state.copyWith(eventState: const LoadingState()));
     final result = await authRepository.verifyCode(email, _otpCode);
-    
+
     return result.when(
       success: (data) {
-        emit(state.copyWith(eventState: LoadedState(data: data)));
-        return true;
+        emit(state.copyWith(eventState: ConfirmCodeSuccess()));
       },
       failure: (failure) {
         emit(state.copyWith(eventState: ErrorState(data: failure.message)));
-        return false;
       },
     );
   }

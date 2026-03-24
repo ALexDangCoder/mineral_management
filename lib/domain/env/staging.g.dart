@@ -8,6 +8,6 @@ part of 'staging.dart';
 
 const _$configStagEnvironmentJsonLiteral = {
   'type': 'staging',
-  'base_url': 'https://222.252.98.48:9292/',
-  'base_image_url': 'https://222.252.98.48:9292/'
+  'base_url': 'https://gateway-srv-dev.aequitas.dev/',
+  'base_image_url': 'https://gateway-srv-dev.aequitas.dev/'
 };

@@ -32,6 +32,7 @@ class XelaTextField extends StatefulWidget {
   Function(String)? onChange;
   final TextInputAction? textInputAction;
   final Function(String)? onSubmitted;
+  Function(bool)? onFocusChange;
 
   XelaTextField({
     this.placeholder,
@@ -61,6 +62,7 @@ class XelaTextField extends StatefulWidget {
     this.onChange,
     this.textInputAction,
     this.onSubmitted,
+    this.onFocusChange,
   });
 
   @override
@@ -148,6 +150,9 @@ class _XelaTextFieldState extends State<XelaTextField> {
               onFieldSubmitted: widget.onSubmitted,
             ),
             onFocusChange: (hasFocus) {
+              if (widget.onFocusChange != null) {
+                widget.onFocusChange!(hasFocus);
+              }
               setState(() {
                 if (hasFocus) {
                   widget.state = XelaTextFieldState.FOCUS;

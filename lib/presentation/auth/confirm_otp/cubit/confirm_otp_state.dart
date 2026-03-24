@@ -35,3 +35,6 @@ final class ConfirmOtpState extends BaseState {
         eventState,
       ];
 }
+
+class ConfirmCodeSuccess extends BaseState {}
+// class ConfirmCodeF extends BaseState {}

@@ -180,6 +180,15 @@ class AuthRepositoryImpl implements AuthRepository {
           message: response.message ?? 'Mã OTP không đúng',
         ),
       );
+    } on DioException catch (e) {
+      if (e.error is ApiError) {
+        return Result.failure(e.error! as ApiError);
+      }
+      return Result.failure(
+        ApiError(
+          message: e.message ?? 'Unknown Dio error',
+        ),
+      );
     } catch (e) {
       return Result.failure(
         ApiError(
@@ -210,5 +219,30 @@ class AuthRepositoryImpl implements AuthRepository {
         ),
       );
     }
+  }
+
+  @override
+  Future<Result<String>> getCaptcha() async {
+    try {
+      final response = await remoteDataSource.getCaptcha();
+      if (response is Map<String, dynamic>) {
+        if (response.containsKey('imageBase64')) {
+          return Result.success(response['imageBase64'] as String);
+        } else {
+          return Result.failure(
+            const ApiError(message: 'Lỗi khi tải mã Captcha'),
+          );
+        }
+      } else {
+        return Result.failure(
+          const ApiError(message: 'Lỗi khi tải mã Captcha'),
+        );
+      }
+    } on Exception catch (e) {
+      return Result.failure(
+        ApiError(message: e.toString() ?? 'Lỗi khi tải mã Captcha'),
+      );
+    }
+    // print('====== CAPTCHA $response');
   }
 }

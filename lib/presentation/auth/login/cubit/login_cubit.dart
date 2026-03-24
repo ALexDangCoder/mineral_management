@@ -93,11 +93,21 @@ class LoginCubit extends Cubit<LoginState> {
     validateInput();
   }
 
+  void changeCaptcha(String input) {
+    emit(
+      state.copyWith(
+        captcha: input.trim(),
+      ),
+    );
+    validateInput();
+  }
+
   Future<void> validateInput() async {
     emit(
       state.copyWith(
         loginBtnIsEnable: (state.username?.isNotEmpty == true) &&
-            (state.password?.length ?? 0) >= 8,
+            (state.password?.length ?? 0) >= 8 &&
+            state.isValidWithCaptcha,
       ),
     );
   }

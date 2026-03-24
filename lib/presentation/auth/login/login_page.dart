@@ -5,6 +5,7 @@ import 'package:bnv_opendata/dependencies/app_dependenies.dart';
 import 'package:bnv_opendata/domain/entities/auth_entity.dart';
 import 'package:bnv_opendata/domain/models/xela_button_models.dart';
 import 'package:bnv_opendata/presentation/auth/login/cubit/login_cubit.dart';
+import 'package:bnv_opendata/presentation/auth/widgets/captcha_widget/captcha_widget.dart';
 import 'package:bnv_opendata/presentation/main_cubit/auth_cubit.dart';
 import 'package:bnv_opendata/presentation/main_cubit/base_cubit/base_state.dart';
 import 'package:bnv_opendata/presentation/widgets/app_scaffold.dart';
@@ -98,11 +99,13 @@ class _LoginPageBody extends StatefulWidget {
 class _LoginPageBodyState extends State<_LoginPageBody> {
   final _usernameController = TextEditingController();
   final _passController = TextEditingController();
+  final _captchaController = TextEditingController();
 
   @override
   void dispose() {
     _usernameController.dispose();
     _passController.dispose();
+    _captchaController.dispose();
     super.dispose();
   }
 
@@ -202,6 +205,25 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
             },
           ),
           const SizedBox(height: 8),
+          BlocBuilder<LoginCubit, LoginState>(
+            // buildWhen: (oldState, newState) =>
+            //     oldState.isRequireCaptcha != newState.isRequireCaptcha,
+            builder: (context, state) {
+              return Visibility(
+                visible: state.isRequireCaptcha,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 12.0),
+                  child: _CaptchaInput(
+                    textEditingController: _captchaController,
+                    onChange: (captcha) {
+                      context.read<LoginCubit>().changeCaptcha(captcha);
+                    },
+                  ),
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: 8),
           TextButton(
             onPressed: () {
               _showEmailInputDialog();
@@ -243,22 +265,19 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
   }
 
   void _showEmailInputDialog() {
-    String email = '';
     showDialog(
       context: context,
       builder: (ctx) {
         String email = '';
         String? errorText;
-
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
               title: const Text('Nhập Email'),
               content: TextField(
+                autofocus: true,
                 onChanged: (val) {
                   email = val;
-
-                  // reset lỗi khi user nhập lại
                   if (errorText != null) {
                     setState(() => errorText = null);
                   }
@@ -277,37 +296,13 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
                 TextButton(
                   onPressed: () async {
                     final currentEmail = email.trim();
-
-                    // ❗ validate tại chỗ
                     if (!isEmail(currentEmail)) {
                       setState(() {
                         errorText = 'Địa chỉ email không hợp lệ';
                       });
                       return;
                     }
-
-                    PopupLoadingUtils.of(context).show();
-
-                    final errorMsg =
-                        await context.read<LoginCubit>().sendCode(currentEmail);
-
-                    if (context.mounted) {
-                      PopupLoadingUtils.of(context).close();
-
-                      if (errorMsg == null) {
-                        Navigator.pop(ctx);
-                        Navigator.pushNamed(
-                          context,
-                          Routers.confirmOtpChangePass,
-                          arguments: {'email': currentEmail},
-                        );
-                      } else {
-                        // ❗ show lỗi server ngay dưới field luôn
-                        setState(() {
-                          errorText = errorMsg;
-                        });
-                      }
-                    }
+                    Navigator.pop(context, currentEmail);
                   },
                   child: const Text('Tiếp tục'),
                 ),
@@ -316,6 +311,88 @@ class _LoginPageBodyState extends State<_LoginPageBody> {
           },
         );
       },
+    ).then((value) {
+      if (value is String && context.mounted) {
+        Navigator.pushNamed(
+          context,
+          Routers.confirmOtpChangePass,
+          arguments: {'email': value},
+        );
+      }
+    });
+  }
+}
+
+class _CaptchaInput extends StatefulWidget {
+  _CaptchaInput({required this.textEditingController, this.onChange});
+
+  final TextEditingController textEditingController;
+  Function(String)? onChange;
+
+  @override
+  State<_CaptchaInput> createState() => _CaptchaInputState();
+}
+
+class _CaptchaInputState extends State<_CaptchaInput> {
+  late FocusNode _focusNode;
+  bool _isFocused = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _focusNode = FocusNode();
+    _focusNode.addListener(_onFocusChange); // Add a listener
+  }
+
+  @override
+  void dispose() {
+    _focusNode.removeListener(_onFocusChange);
+    _focusNode.dispose(); // Clean up the focus node
+    super.dispose();
+  }
+
+  void _onFocusChange() {
+    setState(() {
+      _isFocused = _focusNode.hasFocus; // Update state on focus change
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: AppTheme.getInstance().lightBgColor(),
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(
+          color: _isFocused ? XelaColor.Blue5 : XelaColor.Gray11,
+        ),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: XelaTextField(
+              placeholder: 'Nhập mã Captcha',
+              borderDefaultColor: Colors.transparent,
+              borderFocusColor: Colors.transparent,
+              background: Colors.transparent,
+              textEditingController: widget.textEditingController,
+              onFocusChange: (hasFocus) {
+                setState(() {
+                  _isFocused = hasFocus;
+                });
+              },
+              onChange: widget.onChange,
+            ),
+          ),
+          const SizedBox(
+            width: 4,
+          ),
+          const CaptchaWidget(
+            width: 100,
+            height: 50,
+          ),
+        ],
+      ),
     );
   }
 }
