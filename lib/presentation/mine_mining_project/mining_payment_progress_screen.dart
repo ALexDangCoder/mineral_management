@@ -23,10 +23,19 @@ class MiningPaymentProgressScreen
 
   static Widget _buildItem(BuildContext context, dynamic item) {
     // Attempting to map generic fields from PaymentPlan dynamic response
-    final String name = item['paymentName'] ?? item['name'] ?? 'N/A';
-    final double amount = (item['amount'] ?? 0).toDouble();
-    final String date = item['paymentDate'] ?? item['date'] ?? 'N/A';
-    final String status = item['status'] ?? (item['isPaid'] == true ? 'Đã thanh toán' : 'Chưa thanh toán');
+    final Map<String, dynamic> data = item as Map<String, dynamic>;
+    final String name = data['paymentName'] ?? data['name'] ?? 'N/A';
+    final double amount = (data['amount'] ?? 0).toDouble();
+    final String date = data['paymentDate'] ?? data['date'] ?? 'N/A';
+    final bool isPaid = data['isPaid'] == true;
+    final String status = data['status'] ?? (isPaid ? 'Đã thanh toán' : 'Chưa thanh toán');
+
+    String currencyFormat(double val) {
+      return '${val.toStringAsFixed(0).replaceAllMapped(
+            RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
+            (Match m) => '${m[1]}.',
+          )} VNĐ';
+    }
 
     return XkCard(
       child: Column(
@@ -34,42 +43,53 @@ class MiningPaymentProgressScreen
         children: [
           Row(
             children: [
-              const Icon(Icons.payment_outlined,
-                  size: 20, color: XelaColor.Gray6),
-              const SizedBox(width: 8),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: isPaid ? XelaColor.Green11 : XelaColor.Orange11,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Icon(
+                  isPaid
+                      ? Icons.check_circle_outline_rounded
+                      : Icons.account_balance_wallet_outlined,
+                  size: 20,
+                  color: isPaid ? XelaColor.Green3 : XelaColor.Orange3,
+                ),
+              ),
+              const SizedBox(width: 12),
               Expanded(
-                child: Text(
-                  name,
-                  style:
-                      XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Gray2),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      name,
+                      style: XelaTextStyle.xelaBodyBold
+                          .apply(color: XelaColor.Gray2),
+                    ),
+                    Text(
+                      date,
+                      style: XelaTextStyle.xelaCaption
+                          .apply(color: XelaColor.Gray6),
+                    ),
+                  ],
                 ),
               ),
               XkStatusChip(
                 text: status,
-                color: status == 'Đã thanh toán'
-                    ? XelaColor.Green1
-                    : XelaColor.Orange6,
+                color: isPaid ? XelaColor.Green1 : XelaColor.Orange6,
               ),
             ],
           ),
-          const SizedBox(height: 12),
-          _buildRow('Giá trị:', '${amount.toStringAsFixed(0)} VNĐ'),
-          const SizedBox(height: 8),
-          _buildRow('Ngày thanh toán:', date),
+          const SizedBox(height: 16),
+          const Divider(height: 1),
+          const SizedBox(height: 16),
+          XkLabelValueRow(
+            label: 'Giá trị thanh toán',
+            value: currencyFormat(amount),
+          ),
         ],
       ),
-    );
-  }
-
-  static Widget _buildRow(String label, String value) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(label,
-            style: XelaTextStyle.xelaSmallBody.apply(color: XelaColor.Gray6)),
-        Text(value,
-            style: XelaTextStyle.xelaSmallBodyBold.apply(color: XelaColor.Gray2)),
-      ],
     );
   }
 }

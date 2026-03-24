@@ -35,12 +35,14 @@ class XkCard extends StatelessWidget {
     super.key,
     required this.child,
     this.onTap,
-    this.padding = const EdgeInsets.all(16),
+    this.padding = const EdgeInsets.all(20),
+    this.color = Colors.white,
   });
 
   final Widget child;
   final VoidCallback? onTap;
   final EdgeInsetsGeometry padding;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -48,9 +50,16 @@ class XkCard extends StatelessWidget {
       width: double.infinity,
       padding: padding,
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: XelaColor.Gray11),
+        color: color,
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.04),
+            blurRadius: 12,
+            offset: const Offset(0, 6),
+          ),
+        ],
+        border: Border.all(color: XelaColor.Gray11.withOpacity(0.3)),
       ),
       child: child,
     );
@@ -61,8 +70,49 @@ class XkCard extends StatelessWidget {
 
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(24),
       child: content,
+    );
+  }
+}
+
+class XkHeroCard extends StatelessWidget {
+  const XkHeroCard({
+    super.key,
+    required this.child,
+    this.padding = const EdgeInsets.all(24),
+  });
+
+  final Widget child;
+  final EdgeInsetsGeometry padding;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: padding,
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [
+            XelaColor.Blue5,
+            XelaColor.Blue3,
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(28),
+        boxShadow: [
+          BoxShadow(
+            color: XelaColor.Blue5.withOpacity(0.3),
+            blurRadius: 20,
+            offset: const Offset(0, 10),
+          ),
+        ],
+      ),
+      child: DefaultTextStyle.merge(
+        style: const TextStyle(color: Colors.white),
+        child: child,
+      ),
     );
   }
 }
@@ -94,10 +144,10 @@ class XkLabelValueRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       decoration: BoxDecoration(
         color: XelaColor.Gray12,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(14),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,7 +159,7 @@ class XkLabelValueRow extends StatelessWidget {
               style: XelaTextStyle.xelaCaption.apply(color: XelaColor.Gray6),
             ),
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: 12),
           Expanded(
             flex: 3,
             child: Text(
@@ -138,14 +188,17 @@ class XkStatusChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.12),
-        borderRadius: BorderRadius.circular(999),
+        color: color.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Text(
         text,
-        style: XelaTextStyle.xelaCaption.apply(color: color),
+        style: XelaTextStyle.xelaCaption.apply(
+          color: color,
+          fontWeightDelta: 2,
+        ),
       ),
     );
   }

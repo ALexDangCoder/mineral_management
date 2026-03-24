@@ -1,4 +1,3 @@
-import 'package:bnv_opendata/data/models/mine_document.dart';
 import 'package:bnv_opendata/dependencies/app_dependenies.dart';
 import 'package:bnv_opendata/presentation/mine_area_detail/cubit'
     '/mine_site_detail_cubit.dart';
@@ -62,42 +61,44 @@ class _MineSiteDetailBody extends StatelessWidget {
               onRefresh: context.read<MineSiteDetailCubit>().refresh,
               child: ListView(
                 children: [
-                  XkCard(
+                  XkHeroCard(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const XkSectionHeader(title: 'Chi tiết mỏ'),
-                        const SizedBox(height: 10),
-                        const XkSectionDivider(),
-                        const SizedBox(height: 10),
-                        XkLabelValueRow(
-                          label: 'Mã khu mỏ',
-                          value: mineArea.areaId ?? 'N/A',
+                        Text(
+                          'Chi tiết mỏ',
+                          style: XelaTextStyle.xelaSubheadline.apply(
+                            color: Colors.white.withOpacity(0.9),
+                            fontWeightDelta: 1,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          mineArea.areaName ?? 'N/A',
+                          style: XelaTextStyle.xelaHeadline.apply(
+                            color: Colors.white,
+                            fontWeightDelta: 2,
+                          ),
                         ),
                         const SizedBox(height: 8),
-                        XkLabelValueRow(
-                          label: 'Tên khu mỏ',
-                          value: mineArea.areaName ?? 'N/A',
+                        Text(
+                          'Mã: ${mineArea.areaId ?? 'N/A'}',
+                          style: XelaTextStyle.xelaSmallBody.apply(
+                            color: Colors.white.withOpacity(0.8),
+                          ),
                         ),
-                        const SizedBox(height: 8),
-                        const XkLabelValueRow(
-                          label: 'Khoáng sản',
-                          value: 'N/A',
+                        const SizedBox(height: 20),
+                        Row(
+                          children: [
+                            _buildHeroStat('Trạng thái', mineArea.status.toString()),
+                            const SizedBox(width: 24),
+                            _buildHeroStat('Diện tích', 'N/A'),
+                          ],
                         ),
-                        const SizedBox(height: 8),
-                        const XkLabelValueRow(label: 'Địa điểm', value: 'N/A'),
-                        const SizedBox(height: 8),
-                        const XkLabelValueRow(label: 'Đơn vị', value: 'N/A'),
-                        const SizedBox(height: 8),
-                        const XkLabelValueRow(label: 'Diện tích', value: 'N/A'),
-                        const SizedBox(height: 8),
-                        XkLabelValueRow(
-                            label: 'Trạng thái',
-                            value: mineArea.status.toString()),
                       ],
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 20),
                   XkCard(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -178,55 +179,23 @@ class _MineSiteDetailBody extends StatelessWidget {
       },
     );
   }
-}
 
-class _DocumentItem extends StatelessWidget {
-  const _DocumentItem({required this.document});
-
-  final MineDocument document;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
-      child: XkCard(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(document.name,
-                style: XelaTextStyle.xelaSmallBodyBold
-                    .apply(color: XelaColor.Gray2)),
-            const SizedBox(height: 2),
-            Text(
-              '${document.fileType} • ${document.size} • ${document.updatedAt}',
-              style: XelaTextStyle.xelaCaption.apply(color: XelaColor.Gray7),
-            ),
-            const SizedBox(height: 8),
-            Row(
-              children: [
-                XkActionButton(
-                  text: 'Xem',
-                  onTap: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Xem tài liệu: ${document.name}')),
-                    );
-                  },
-                ),
-                const SizedBox(width: 8),
-                XkActionButton(
-                  text: 'Tai',
-                  onTap: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Tải tài liệu: ${document.name}')),
-                    );
-                  },
-                ),
-              ],
-            ),
-          ],
+  Widget _buildHeroStat(String label, String value) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label.toUpperCase(),
+          style: XelaTextStyle.xelaCaption.apply(
+            color: Colors.white.withOpacity(0.6),
+          ),
         ),
-      ),
+        const SizedBox(height: 4),
+        Text(
+          value,
+          style: XelaTextStyle.xelaSmallBodyBold.apply(color: Colors.white),
+        ),
+      ],
     );
   }
 }

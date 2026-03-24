@@ -37,20 +37,42 @@ class MiningConstructionProgressScreen
       statusColor = XelaColor.Gray6;
     }
 
+    double progress = (item.plannedDepth ?? 0) > 0
+        ? (item.constructedDepth ?? 0) / (item.plannedDepth ?? 0)
+        : 0.0;
+    if (progress > 1.0) progress = 1.0;
+
     return XkCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              const Icon(Icons.location_on_outlined,
-                  size: 20, color: XelaColor.Gray6),
-              const SizedBox(width: 8),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: XelaColor.Blue11,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Icon(Icons.architecture_rounded,
+                    size: 20, color: XelaColor.Blue5),
+              ),
+              const SizedBox(width: 12),
               Expanded(
-                child: Text(
-                  item.boreholeId ?? 'Không có mã',
-                  style:
-                      XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Gray2),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      item.boreholeName ?? 'N/A',
+                      style: XelaTextStyle.xelaBodyBold
+                          .apply(color: XelaColor.Gray2),
+                    ),
+                    Text(
+                      'Mã: ${item.boreholeId ?? 'N/A'}',
+                      style: XelaTextStyle.xelaCaption
+                          .apply(color: XelaColor.Gray6),
+                    ),
+                  ],
                 ),
               ),
               XkStatusChip(
@@ -59,33 +81,64 @@ class MiningConstructionProgressScreen
               ),
             ],
           ),
-          const SizedBox(height: 12),
-          _buildRow('Tên lỗ khoan:', item.boreholeName ?? 'N/A'),
-          const SizedBox(height: 8),
-          _buildRow('Độ sâu thực hiện:', '${item.constructedDepth ?? 0}m / ${item.plannedDepth ?? 0}m'),
-          const SizedBox(height: 12),
-          const Divider(height: 1),
-          const SizedBox(height: 12),
+          const SizedBox(height: 20),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Tiến độ thi công',
+                    style: XelaTextStyle.xelaSmallBody
+                        .apply(color: XelaColor.Gray5),
+                  ),
+                  Text(
+                    '${(progress * 100).toInt()}%',
+                    style: XelaTextStyle.xelaSmallBodyBold
+                        .apply(color: XelaColor.Blue5),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: LinearProgressIndicator(
+                  value: progress,
+                  backgroundColor: XelaColor.Gray11,
+                  color: XelaColor.Blue5,
+                  minHeight: 6,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          Row(
+            children: [
+              Expanded(
+                child: XkLabelValueRow(
+                  label: 'Kế hoạch',
+                  value: '${item.plannedDepth ?? 0}m',
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: XkLabelValueRow(
+                  label: 'Thực hiện',
+                  value: '${item.constructedDepth ?? 0}m',
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
           XkActionButton(
-            text: 'Mẫu vật',
+            text: 'Mẫu vật địa chất',
             onTap: () {
               // TODO: View samples
             },
           ),
         ],
       ),
-    );
-  }
-
-  static Widget _buildRow(String label, String value) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(label,
-            style: XelaTextStyle.xelaSmallBody.apply(color: XelaColor.Gray6)),
-        Text(value,
-            style: XelaTextStyle.xelaSmallBodyBold.apply(color: XelaColor.Gray2)),
-      ],
     );
   }
 }

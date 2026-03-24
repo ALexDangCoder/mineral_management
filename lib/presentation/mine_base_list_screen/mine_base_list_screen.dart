@@ -82,32 +82,47 @@ class _BaseListBodyState<T, C extends BaseListCubit<T>>
   Widget build(BuildContext context) {
     return Column(
       children: [
-        if (widget.isShowSearchTField) ... [
-          XelaTextField(
-            textEditingController: _searchController,
-            placeholder: widget.searchPlaceholder,
-            leftIcon: const Icon(
-              Icons.search,
-              size: 20,
-              color: XelaColor.Gray6,
+        if (widget.isShowSearchTField) ...[
+          Container(
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.04),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                ),
+              ],
             ),
-            rightIcon: _searchController.text.isNotEmpty
-                ? InkWell(
-              onTap: () {
-                _searchController.clear();
-                context.read<C>().searchWithKey('');
-              },
-              child: const Icon(
-                Icons.clear,
+            child: XelaTextField(
+              textEditingController: _searchController,
+              placeholder: widget.searchPlaceholder,
+              background: Colors.white,
+              leftIcon: const Icon(
+                Icons.search,
+                size: 20,
+                color: XelaColor.Gray6,
               ),
-            )
-                : null,
-            textInputAction: TextInputAction.search,
-            onSubmitted: (value) {
-              context.read<C>().searchWithKey(value);
-            },
+              rightIcon: _searchController.text.isNotEmpty
+                  ? InkWell(
+                      onTap: () {
+                        _searchController.clear();
+                        context.read<C>().searchWithKey('');
+                        setState(() {});
+                      },
+                      child: const Icon(
+                        Icons.clear,
+                        size: 18,
+                        color: XelaColor.Gray7,
+                      ),
+                    )
+                  : null,
+              textInputAction: TextInputAction.search,
+              onSubmitted: (value) {
+                context.read<C>().searchWithKey(value);
+              },
+            ),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 20),
         ],
         Expanded(
           child: BlocBuilder<C, BaseListState<T>>(
@@ -136,18 +151,9 @@ class _BaseListBodyState<T, C extends BaseListCubit<T>>
                       controller: _scrollController,
                       physics: const AlwaysScrollableScrollPhysics(),
                       itemCount: items.length + (state.isLoadingMore ? 1 : 0),
-                      separatorBuilder: (_, __) => const SizedBox(height: 12),
+                      separatorBuilder: (_, __) => const SizedBox(height: 16),
                       itemBuilder: (_, index) {
-                        if (index < items.length) {
-                          return widget.buildItem(context, items[index]);
-                        } else {
-                          return const Padding(
-                            padding: EdgeInsets.all(16),
-                            child: Center(
-                              child: CircularProgressIndicator(),
-                            ),
-                          );
-                        }
+                        return widget.buildItem(context, items[index]);
                       },
                     ),
                   );
