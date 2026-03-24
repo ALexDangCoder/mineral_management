@@ -21,5 +21,8 @@ abstract class MainMineRepository {
   Future<Result<ResultPage<PlannedBoreholeModel>>> getListPlannedBoreholes(
       JSONObject param);
 
+  Future<Result<ResultPage<MiningProjectModel>>> filterMiningProjects(
+      MiningProjectRequest request);
+
   Future<Result<dynamic>> getPaymentPlan(JSONObject param);
 }

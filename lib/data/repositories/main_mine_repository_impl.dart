@@ -51,6 +51,12 @@ class MainMineRepositoryImpl implements MainMineRepository {
   }
 
   @override
+  Future<Result<ResultPage<MiningProjectModel>>> filterMiningProjects(
+      MiningProjectRequest request) async {
+    return remoteDataSource.filterMiningProjects(request).asResult();
+  }
+
+  @override
   Future<Result<dynamic>> getPaymentPlan(JSONObject param) async {
     return remoteDataSource.getPaymentPlan(param).asResult();
   }

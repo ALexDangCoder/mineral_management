@@ -92,4 +92,9 @@ abstract class ApiService {
   Future<NotificationResponse<ResultPage<SystemAlert>>> filterSystemAlerts(
     @Body() SystemAlertFilterRequest request,
   );
+
+  @POST('/api/mining-project/du-an-khai-thac/filter')
+  Future<BaseResponse<ResultPage<MiningProjectModel>>> filterMiningProjects(
+    @Body() MiningProjectRequest request,
+  );
 }

@@ -1,35 +1,28 @@
 import 'package:bnv_opendata/data/models/model_exports.dart';
-import 'package:bnv_opendata/domain/params/param_exports.dart';
 import 'package:bnv_opendata/domain/repositories/repository_exports.dart';
 import 'package:bnv_opendata/presentation/mine_base_list_screen/cubit/base_list_cubit.dart';
 
-class MineMiningProjectListCubit extends BaseListCubit<ProposalPlanModel> {
+class MineMiningProjectListCubit extends BaseListCubit<MiningProjectModel> {
   final MainMineRepository _repository;
 
   MineMiningProjectListCubit(this._repository);
 
   @override
-  Future<ResultPage<ProposalPlanModel>> fetchData(
+  Future<ResultPage<MiningProjectModel>> fetchData(
       {int? page, String? searchKey}) async {
-    final params = BasePageParam<ListProposalPlanFilter>(
+    final request = MiningProjectRequest(
       pageSize: 10,
       pageNow: page,
-      filter: ListProposalPlanFilter(
-        projectName: searchKey,
-        status: 3, // Assuming status 3 is for Mining Project
+      filter: MiningProjectFilter(
+        miningName: searchKey,
+        status: 1, // Correct status as per user request
       ),
     );
 
-    final result = await _repository.getListProposalPlans(
-      params.toJson((filter) => filter.toJson()),
-    );
+    final result = await _repository.filterMiningProjects(request);
 
     return result.when(
-      success: (data) => ResultPage<ProposalPlanModel>(
-        items: data.items,
-        pageNow: data.pageNow,
-        pageTotal: data.pageTotal,
-      ),
+      success: (data) => data,
       failure: (failure) => throw Exception(failure),
     );
   }

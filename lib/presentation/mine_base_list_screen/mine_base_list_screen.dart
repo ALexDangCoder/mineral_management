@@ -33,19 +33,21 @@ class MineBaseListScreen<T, C extends BaseListCubit<T>>
         bgColor: XelaColor.Gray12,
         appBarColor: XelaColor.Gray12,
         body: _BaseListBody<T, C>(
-          searchPlaceholder: searchPlaceholder ?? 'Tìm kiếm',
-          buildItem: buildItem,
-          isShowSearchTField: isShowSearchTField ?? true
-        ),
+            searchPlaceholder: searchPlaceholder ?? 'Tìm kiếm',
+            buildItem: buildItem,
+            isShowSearchTField: isShowSearchTField ?? true),
       ),
     );
   }
 }
 
 class _BaseListBody<T, C extends BaseListCubit<T>> extends StatefulWidget {
-  const _BaseListBody(
-      {super.key, required this.searchPlaceholder, required this.buildItem,
-      required this.isShowSearchTField,});
+  const _BaseListBody({
+    super.key,
+    required this.searchPlaceholder,
+    required this.buildItem,
+    required this.isShowSearchTField,
+  });
 
   final String searchPlaceholder;
   final bool isShowSearchTField;
@@ -83,7 +85,7 @@ class _BaseListBodyState<T, C extends BaseListCubit<T>>
     return Column(
       children: [
         if (widget.isShowSearchTField) ...[
-          Container(
+          DecoratedBox(
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -96,7 +98,6 @@ class _BaseListBodyState<T, C extends BaseListCubit<T>>
             child: XelaTextField(
               textEditingController: _searchController,
               placeholder: widget.searchPlaceholder,
-              background: Colors.white,
               leftIcon: const Icon(
                 Icons.search,
                 size: 20,

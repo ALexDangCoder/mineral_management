@@ -23,9 +23,6 @@ class XkSearchField extends StatelessWidget {
       placeholder: placeholder,
       leftIcon: const Icon(Icons.search, size: 20, color: XelaColor.Gray6),
       onChange: onChanged,
-      background: Colors.white,
-      borderDefaultColor: XelaColor.Gray11,
-      borderFocusColor: XelaColor.Blue5,
     );
   }
 }
@@ -143,12 +140,8 @@ class XkLabelValueRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-      decoration: BoxDecoration(
-        color: XelaColor.Gray12,
-        borderRadius: BorderRadius.circular(14),
-      ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -244,7 +237,6 @@ class XkPrimaryButton extends StatelessWidget {
       text: text,
       onPressed: onTap,
       background: XelaColor.Blue5,
-      foregroundColor: Colors.white,
       autoResize: false,
     );
   }

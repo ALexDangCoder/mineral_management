@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:bnv_opendata/config/routes/router.dart';
 
 class MineMiningProjectListScreen
-    extends MineBaseListScreen<ProposalPlanModel, MineMiningProjectListCubit> {
+    extends MineBaseListScreen<MiningProjectModel, MineMiningProjectListCubit> {
   MineMiningProjectListScreen({
     super.key,
   }) : super(
@@ -19,8 +19,7 @@ class MineMiningProjectListScreen
           createCubit: (context) => MineMiningProjectListCubit(injector.get()),
         );
 
-  static Widget _buildItem(
-      BuildContext context, ProposalPlanModel proposalPlan) {
+  static Widget _buildItem(BuildContext context, MiningProjectModel project) {
     return XkCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,53 +34,105 @@ class MineMiningProjectListScreen
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
-                  proposalPlan.projectId ?? 'N/A',
+                  project.miningId ?? 'N/A',
                   style:
                       XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Gray2),
                 ),
               ),
               Text(
-                proposalPlan.status.toString(),
+                project.status == 1 ? "Đang thực hiện" : "Khác",
                 style: XelaTextStyle.xelaBody.apply(color: XelaColor.Gray4),
               ),
             ],
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 12),
           Text(
-            proposalPlan.projectName ?? 'N/A',
-            style: XelaTextStyle.xelaBody.apply(color: XelaColor.Gray2),
+            project.miningName ?? 'N/A',
+            style: XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Gray2),
           ),
           const SizedBox(height: 8),
-          Text(
-            proposalPlan.mineName ?? 'N/A',
-            style: XelaTextStyle.xelaBody.apply(color: XelaColor.Gray2),
+          XkLabelValueRow(
+            label: 'Loại khoáng sản:',
+            value: project.mineralName ?? 'N/A',
           ),
-          const SizedBox(height: 8),
-          Text(
-            proposalPlan.areaName ?? 'N/A',
-            style: XelaTextStyle.xelaBody.apply(color: XelaColor.Gray2),
+          const SizedBox(height: 4),
+          XkLabelValueRow(
+            label: 'Công suất thiết kế:',
+            value: project.designedCapacity?.toString() ?? '0',
           ),
-          const SizedBox(height: 8),
-          InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, Routers.constructionProgress,
-                  arguments: {'projectId': proposalPlan.projectId});
-            },
-            child: Text(
-              'Tiến độ thi công',
-              textAlign: TextAlign.left,
-              style: XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Blue6),
-            ),
+          const SizedBox(height: 4),
+          XkLabelValueRow(
+            label: 'Trữ lượng dự kiến:',
+            value: project.expectedReserve?.toString() ?? '0',
           ),
-          InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, Routers.paymentProgress,
-                  arguments: {'projectId': proposalPlan.projectId});
-            },
-            child: Text(
-              'Tiến độ thanh toán',
-              style: XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Blue6),
-            ),
+          const SizedBox(height: 4),
+          XkLabelValueRow(
+            label: 'Tổng mức đầu tư:',
+            value: project.totalInvestment?.toString() ?? '0',
+          ),
+          const SizedBox(height: 12),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Tỷ lệ hoàn thành',
+                    style:
+                        XelaTextStyle.xelaCaption.apply(color: XelaColor.Gray6),
+                  ),
+                  Text(
+                    '${project.completionRate?.toString() ?? '0'}%',
+                    style: XelaTextStyle.xelaSmallBodyBold
+                        .apply(color: XelaColor.Blue5),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: LinearProgressIndicator(
+                  value: (project.completionRate ?? 0) / 100,
+                  backgroundColor: XelaColor.Gray11,
+                  color: XelaColor.Blue5,
+                  minHeight: 6,
+                ),
+              ),
+            ],
+          ),
+          const Divider(height: 24),
+          Row(
+            children: [
+              Expanded(
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, Routers.constructionProgress,
+                        arguments: {'projectId': project.miningId});
+                  },
+                  child: Text(
+                    'Tiến độ thi công',
+                    textAlign: TextAlign.left,
+                    style: XelaTextStyle.xelaBodyBold
+                        .apply(color: XelaColor.Blue6),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, Routers.paymentProgress,
+                        arguments: {'projectId': project.miningId});
+                  },
+                  child: Text(
+                    'Tiến độ thanh toán',
+                    textAlign: TextAlign.right,
+                    style: XelaTextStyle.xelaBodyBold
+                        .apply(color: XelaColor.Blue6),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),

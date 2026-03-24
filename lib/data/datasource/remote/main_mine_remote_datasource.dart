@@ -30,6 +30,10 @@ abstract class MainMineRemoteDataSource {
     JSONObject param,
   );
 
+  Future<BaseResponse<ResultPage<MiningProjectModel>>> filterMiningProjects(
+    MiningProjectRequest request,
+  );
+
   Future<BaseResponse<dynamic>> getPaymentPlan(JSONObject param);
 }
 
@@ -76,6 +80,12 @@ class MainMineRemoteDataSourceImpl implements MainMineRemoteDataSource {
   Future<BaseResponse<ResultPage<PlannedBoreholeModel>>>
       getListPlannedBoreholes(JSONObject param) async {
     return apiService.getListPlannedBoreholes(param);
+  }
+
+  @override
+  Future<BaseResponse<ResultPage<MiningProjectModel>>> filterMiningProjects(
+      MiningProjectRequest request) {
+    return apiService.filterMiningProjects(request);
   }
 
   @override
