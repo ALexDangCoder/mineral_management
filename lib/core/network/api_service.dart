@@ -88,4 +88,8 @@ abstract class ApiService {
   Future<BaseResponse<dynamic>> getPaymentPlan(
     @Body() Map<String, dynamic> body,
   );
+  @POST('/api/notification/he-thong-canh-bao/filter')
+  Future<NotificationResponse<ResultPage<SystemAlert>>> filterSystemAlerts(
+    @Body() SystemAlertFilterRequest request,
+  );
 }

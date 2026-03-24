@@ -10,6 +10,8 @@ sealed class ResultPage<T> with _$ResultPage<T> {
     int? pageNow,
     int? pageTotal,
     int? pageSize,
+    int? recordTotal,
+    Map<String, dynamic>? filter,
   }) = _ResultPage<T>;
 
   factory ResultPage.fromJson(

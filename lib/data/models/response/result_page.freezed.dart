@@ -18,6 +18,8 @@ mixin _$ResultPage<T> {
   int? get pageNow;
   int? get pageTotal;
   int? get pageSize;
+  int? get recordTotal;
+  Map<String, dynamic>? get filter;
 
   /// Create a copy of ResultPage
   /// with the given fields replaced by the non-null parameter values.
@@ -40,17 +42,26 @@ mixin _$ResultPage<T> {
             (identical(other.pageTotal, pageTotal) ||
                 other.pageTotal == pageTotal) &&
             (identical(other.pageSize, pageSize) ||
-                other.pageSize == pageSize));
+                other.pageSize == pageSize) &&
+            (identical(other.recordTotal, recordTotal) ||
+                other.recordTotal == recordTotal) &&
+            const DeepCollectionEquality().equals(other.filter, filter));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(items), pageNow, pageTotal, pageSize);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(items),
+      pageNow,
+      pageTotal,
+      pageSize,
+      recordTotal,
+      const DeepCollectionEquality().hash(filter));
 
   @override
   String toString() {
-    return 'ResultPage<$T>(items: $items, pageNow: $pageNow, pageTotal: $pageTotal, pageSize: $pageSize)';
+    return 'ResultPage<$T>(items: $items, pageNow: $pageNow, pageTotal: $pageTotal, pageSize: $pageSize, recordTotal: $recordTotal, filter: $filter)';
   }
 }
 
@@ -60,7 +71,13 @@ abstract mixin class $ResultPageCopyWith<T, $Res> {
           ResultPage<T> value, $Res Function(ResultPage<T>) _then) =
       _$ResultPageCopyWithImpl;
   @useResult
-  $Res call({List<T>? items, int? pageNow, int? pageTotal, int? pageSize});
+  $Res call(
+      {List<T>? items,
+      int? pageNow,
+      int? pageTotal,
+      int? pageSize,
+      int? recordTotal,
+      Map<String, dynamic>? filter});
 }
 
 /// @nodoc
@@ -80,6 +97,8 @@ class _$ResultPageCopyWithImpl<T, $Res>
     Object? pageNow = freezed,
     Object? pageTotal = freezed,
     Object? pageSize = freezed,
+    Object? recordTotal = freezed,
+    Object? filter = freezed,
   }) {
     return _then(_self.copyWith(
       items: freezed == items
@@ -98,6 +117,14 @@ class _$ResultPageCopyWithImpl<T, $Res>
           ? _self.pageSize
           : pageSize // ignore: cast_nullable_to_non_nullable
               as int?,
+      recordTotal: freezed == recordTotal
+          ? _self.recordTotal
+          : recordTotal // ignore: cast_nullable_to_non_nullable
+              as int?,
+      filter: freezed == filter
+          ? _self.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -193,16 +220,16 @@ extension ResultPagePatterns<T> on ResultPage<T> {
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            List<T>? items, int? pageNow, int? pageTotal, int? pageSize)?
+    TResult Function(List<T>? items, int? pageNow, int? pageTotal,
+            int? pageSize, int? recordTotal, Map<String, dynamic>? filter)?
         $default, {
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
       case _ResultPage() when $default != null:
-        return $default(
-            _that.items, _that.pageNow, _that.pageTotal, _that.pageSize);
+        return $default(_that.items, _that.pageNow, _that.pageTotal,
+            _that.pageSize, _that.recordTotal, _that.filter);
       case _:
         return orElse();
     }
@@ -223,15 +250,15 @@ extension ResultPagePatterns<T> on ResultPage<T> {
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(
-            List<T>? items, int? pageNow, int? pageTotal, int? pageSize)
+    TResult Function(List<T>? items, int? pageNow, int? pageTotal,
+            int? pageSize, int? recordTotal, Map<String, dynamic>? filter)
         $default,
   ) {
     final _that = this;
     switch (_that) {
       case _ResultPage():
-        return $default(
-            _that.items, _that.pageNow, _that.pageTotal, _that.pageSize);
+        return $default(_that.items, _that.pageNow, _that.pageTotal,
+            _that.pageSize, _that.recordTotal, _that.filter);
     }
   }
 
@@ -249,15 +276,15 @@ extension ResultPagePatterns<T> on ResultPage<T> {
 
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            List<T>? items, int? pageNow, int? pageTotal, int? pageSize)?
+    TResult? Function(List<T>? items, int? pageNow, int? pageTotal,
+            int? pageSize, int? recordTotal, Map<String, dynamic>? filter)?
         $default,
   ) {
     final _that = this;
     switch (_that) {
       case _ResultPage() when $default != null:
-        return $default(
-            _that.items, _that.pageNow, _that.pageTotal, _that.pageSize);
+        return $default(_that.items, _that.pageNow, _that.pageTotal,
+            _that.pageSize, _that.recordTotal, _that.filter);
       case _:
         return null;
     }
@@ -268,8 +295,14 @@ extension ResultPagePatterns<T> on ResultPage<T> {
 @JsonSerializable(genericArgumentFactories: true)
 class _ResultPage<T> implements ResultPage<T> {
   const _ResultPage(
-      {final List<T>? items, this.pageNow, this.pageTotal, this.pageSize})
-      : _items = items;
+      {final List<T>? items,
+      this.pageNow,
+      this.pageTotal,
+      this.pageSize,
+      this.recordTotal,
+      final Map<String, dynamic>? filter})
+      : _items = items,
+        _filter = filter;
   factory _ResultPage.fromJson(
           Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
       _$ResultPageFromJson(json, fromJsonT);
@@ -290,6 +323,17 @@ class _ResultPage<T> implements ResultPage<T> {
   final int? pageTotal;
   @override
   final int? pageSize;
+  @override
+  final int? recordTotal;
+  final Map<String, dynamic>? _filter;
+  @override
+  Map<String, dynamic>? get filter {
+    final value = _filter;
+    if (value == null) return null;
+    if (_filter is EqualUnmodifiableMapView) return _filter;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   /// Create a copy of ResultPage
   /// with the given fields replaced by the non-null parameter values.
@@ -314,7 +358,10 @@ class _ResultPage<T> implements ResultPage<T> {
             (identical(other.pageTotal, pageTotal) ||
                 other.pageTotal == pageTotal) &&
             (identical(other.pageSize, pageSize) ||
-                other.pageSize == pageSize));
+                other.pageSize == pageSize) &&
+            (identical(other.recordTotal, recordTotal) ||
+                other.recordTotal == recordTotal) &&
+            const DeepCollectionEquality().equals(other._filter, _filter));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -324,11 +371,13 @@ class _ResultPage<T> implements ResultPage<T> {
       const DeepCollectionEquality().hash(_items),
       pageNow,
       pageTotal,
-      pageSize);
+      pageSize,
+      recordTotal,
+      const DeepCollectionEquality().hash(_filter));
 
   @override
   String toString() {
-    return 'ResultPage<$T>(items: $items, pageNow: $pageNow, pageTotal: $pageTotal, pageSize: $pageSize)';
+    return 'ResultPage<$T>(items: $items, pageNow: $pageNow, pageTotal: $pageTotal, pageSize: $pageSize, recordTotal: $recordTotal, filter: $filter)';
   }
 }
 
@@ -340,7 +389,13 @@ abstract mixin class _$ResultPageCopyWith<T, $Res>
       __$ResultPageCopyWithImpl;
   @override
   @useResult
-  $Res call({List<T>? items, int? pageNow, int? pageTotal, int? pageSize});
+  $Res call(
+      {List<T>? items,
+      int? pageNow,
+      int? pageTotal,
+      int? pageSize,
+      int? recordTotal,
+      Map<String, dynamic>? filter});
 }
 
 /// @nodoc
@@ -360,6 +415,8 @@ class __$ResultPageCopyWithImpl<T, $Res>
     Object? pageNow = freezed,
     Object? pageTotal = freezed,
     Object? pageSize = freezed,
+    Object? recordTotal = freezed,
+    Object? filter = freezed,
   }) {
     return _then(_ResultPage<T>(
       items: freezed == items
@@ -378,6 +435,14 @@ class __$ResultPageCopyWithImpl<T, $Res>
           ? _self.pageSize
           : pageSize // ignore: cast_nullable_to_non_nullable
               as int?,
+      recordTotal: freezed == recordTotal
+          ? _self.recordTotal
+          : recordTotal // ignore: cast_nullable_to_non_nullable
+              as int?,
+      filter: freezed == filter
+          ? _self._filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }

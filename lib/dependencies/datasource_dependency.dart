@@ -4,6 +4,7 @@ import 'package:bnv_opendata/data/datasource/local/secure_storage_service.dart';
 import 'package:bnv_opendata/data/datasource/local/secure_storate_service_impl.dart';
 import 'package:bnv_opendata/data/datasource/remote/auth_remote_datasource.dart';
 import 'package:bnv_opendata/data/datasource/remote/main_mine_remote_datasource.dart';
+import 'package:bnv_opendata/data/datasource/remote/notification_remote_datasource.dart';
 import 'package:bnv_opendata/data/repositories/repository_exports.dart';
 import 'package:bnv_opendata/domain/repositories/repository_exports.dart';
 import 'package:bnv_opendata/presentation/main_cubit/auth_event_bus.dart';
@@ -61,6 +62,12 @@ Future<void> registerDataSource(GetIt injector) async {
       () => MainMineRepositoryImpl(
         injector(),
       ),
+    );
+    injector.registerLazySingleton<NotificationRemoteDataSource>(
+      () => NotificationRemoteDataSourceImpl(injector()),
+    );
+    injector.registerLazySingleton<NotificationRepository>(
+      () => NotificationRepositoryImpl(injector()),
     );
   } catch (e) {}
 }

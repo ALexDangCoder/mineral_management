@@ -1,3 +1,4 @@
 export 'app_local_storate_repository.dart';
 export 'auth_repository.dart';
 export 'main_mine_repository.dart';
+export 'notification_repository.dart';
