@@ -89,4 +89,13 @@ class MineFlowRoutes {
       arguments: {'projectId': projectId},
     );
   }
+
+  static Future<void> pushMiningProjectDetail(
+      BuildContext context, String id) {
+    return Navigator.pushNamed(
+      context,
+      Routers.miningProjectDetail,
+      arguments: {'id': id},
+    );
+  }
 }

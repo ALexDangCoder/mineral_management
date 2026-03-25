@@ -7,6 +7,7 @@ import 'package:bnv_opendata/widgets/xela_widgets/xela_color.dart';
 import 'package:bnv_opendata/widgets/xela_widgets/xela_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:bnv_opendata/config/routes/router.dart';
+import 'package:bnv_opendata/presentation/mine_shared/mine_flow_routes.dart';
 
 class MineMiningProjectListScreen
     extends MineBaseListScreen<MiningProjectModel, MineMiningProjectListCubit> {
@@ -21,6 +22,9 @@ class MineMiningProjectListScreen
 
   static Widget _buildItem(BuildContext context, MiningProjectModel project) {
     return XkCard(
+      onTap: () {
+        MineFlowRoutes.pushMiningProjectDetail(context, project.objectId?.toString() ?? '');
+      },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

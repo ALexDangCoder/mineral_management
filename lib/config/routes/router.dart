@@ -14,6 +14,7 @@ import 'package:bnv_opendata/presentation/progress/progress_screen.dart';
 import 'package:bnv_opendata/presentation/project_detail/project_detail_screen.dart';
 import 'package:bnv_opendata/presentation/proposal_plan_list_screen/proposal_plan_list_screen.dart';
 import 'package:bnv_opendata/presentation/resource_reserves/resource_reserves_screen.dart';
+import 'package:bnv_opendata/presentation/mine_mining_project/mine_mining_project_detail_screen.dart';
 import 'package:bnv_opendata/presentation/screen_exports.dart';
 import 'package:bnv_opendata/presentation/show_construction_map/show_construction_Map_screen.dart';
 import 'package:bnv_opendata/presentation/splash/splash_screen.dart';
@@ -112,6 +113,7 @@ class Routers {
   static const resourceManagement = '/resource_management';
   static const mineClosurePlanList = '/mine_closure_plan_list';
   static const miningProjectList = '/mining_project_list';
+  static const miningProjectDetail = '/mining_project_detail';
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     final args = settings.arguments;
@@ -260,6 +262,11 @@ class Routers {
         return MaterialPageRoute(
             builder: (_) => MiningConstructionProgressScreen(
                   projectId: _stringArg(args, 'projectId'),
+                ));
+    case miningProjectDetail:
+        return MaterialPageRoute(
+            builder: (_) => MineMiningProjectDetailScreen(
+                  id: _stringArg(args, 'id'),
                 ));
       case paymentProgress:
         return MaterialPageRoute(

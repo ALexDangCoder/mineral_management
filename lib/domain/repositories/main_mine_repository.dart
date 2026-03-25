@@ -30,5 +30,7 @@ abstract class MainMineRepository {
   Future<Result<MineClosurePlanModel>> getMineClosurePlanDetail(
       JSONObject param);
 
+  Future<Result<MiningProjectModel>> getMiningProjectDetail(JSONObject param);
+
   Future<Result<dynamic>> getPaymentPlan(JSONObject param);
 }

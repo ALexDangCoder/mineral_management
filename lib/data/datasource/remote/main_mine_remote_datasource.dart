@@ -41,6 +41,9 @@ abstract class MainMineRemoteDataSource {
   Future<BaseResponse<MineClosurePlanModel>> getMineClosurePlanDetail(
       JSONObject param);
 
+  Future<BaseResponse<MiningProjectModel>> getMiningProjectDetail(
+      JSONObject param);
+
   Future<BaseResponse<dynamic>> getPaymentPlan(JSONObject param);
 }
 
@@ -105,6 +108,12 @@ class MainMineRemoteDataSourceImpl implements MainMineRemoteDataSource {
   Future<BaseResponse<MineClosurePlanModel>> getMineClosurePlanDetail(
       JSONObject param) {
     return apiService.getMineClosurePlanDetail(param);
+  }
+
+  @override
+  Future<BaseResponse<MiningProjectModel>> getMiningProjectDetail(
+      JSONObject param) {
+    return apiService.getMiningProjectDetail(param);
   }
 
   @override

@@ -69,6 +69,12 @@ class MainMineRepositoryImpl implements MainMineRepository {
   }
 
   @override
+  Future<Result<MiningProjectModel>> getMiningProjectDetail(
+      JSONObject param) async {
+    return remoteDataSource.getMiningProjectDetail(param).asResult();
+  }
+
+  @override
   Future<Result<dynamic>> getPaymentPlan(JSONObject param) async {
     return remoteDataSource.getPaymentPlan(param).asResult();
   }
