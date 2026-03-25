@@ -57,6 +57,12 @@ class MainMineRepositoryImpl implements MainMineRepository {
   }
 
   @override
+  Future<Result<ResultPage<MineClosurePlanModel>>> filterMineClosurePlans(
+      MineClosurePlanRequest request) async {
+    return remoteDataSource.filterMineClosurePlans(request).asResult();
+  }
+
+  @override
   Future<Result<dynamic>> getPaymentPlan(JSONObject param) async {
     return remoteDataSource.getPaymentPlan(param).asResult();
   }

@@ -97,4 +97,9 @@ abstract class ApiService {
   Future<BaseResponse<ResultPage<MiningProjectModel>>> filterMiningProjects(
     @Body() MiningProjectRequest request,
   );
+
+  @POST('/api/mine-closure/de-an-dong-cua-mo/filter')
+  Future<BaseResponse<ResultPage<MineClosurePlanModel>>> filterMineClosurePlans(
+    @Body() MineClosurePlanRequest request,
+  );
 }

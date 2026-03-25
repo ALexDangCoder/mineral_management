@@ -34,6 +34,10 @@ abstract class MainMineRemoteDataSource {
     MiningProjectRequest request,
   );
 
+  Future<BaseResponse<ResultPage<MineClosurePlanModel>>> filterMineClosurePlans(
+    MineClosurePlanRequest request,
+  );
+
   Future<BaseResponse<dynamic>> getPaymentPlan(JSONObject param);
 }
 
@@ -86,6 +90,12 @@ class MainMineRemoteDataSourceImpl implements MainMineRemoteDataSource {
   Future<BaseResponse<ResultPage<MiningProjectModel>>> filterMiningProjects(
       MiningProjectRequest request) {
     return apiService.filterMiningProjects(request);
+  }
+
+  @override
+  Future<BaseResponse<ResultPage<MineClosurePlanModel>>> filterMineClosurePlans(
+      MineClosurePlanRequest request) {
+    return apiService.filterMineClosurePlans(request);
   }
 
   @override

@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:bnv_opendata/config/routes/router.dart';
 
 class MineClosurePlanListScreen
-    extends MineBaseListScreen<ProposalPlanModel, MineClosurePlanListCubit> {
+    extends MineBaseListScreen<MineClosurePlanModel, MineClosurePlanListCubit> {
   MineClosurePlanListScreen({
     super.key,
   }) : super(
@@ -20,7 +20,7 @@ class MineClosurePlanListScreen
         );
 
   static Widget _buildItem(
-      BuildContext context, ProposalPlanModel proposalPlan) {
+      BuildContext context, MineClosurePlanModel closurePlan) {
     return XkCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,48 +35,69 @@ class MineClosurePlanListScreen
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
-                  proposalPlan.projectId ?? 'N/A',
+                  closurePlan.closurePlanId ?? 'N/A',
                   style:
                       XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Gray2),
                 ),
               ),
               Text(
-                proposalPlan.status.toString(),
-                style: XelaTextStyle.xelaBody.apply(color: XelaColor.Gray4),
+                closurePlan.status == 1 ? 'Đang thực hiện' : 'Hoàn thành',
+                style: XelaTextStyle.xelaBody.apply(
+                  color: closurePlan.status == 1
+                      ? XelaColor.Blue6
+                      : XelaColor.Green6,
+                ),
               ),
             ],
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 12),
           Text(
-            proposalPlan.projectName ?? 'N/A',
-            style: XelaTextStyle.xelaBody.apply(color: XelaColor.Gray2),
+            closurePlan.closurePlanName ?? 'N/A',
+            style: XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Gray2),
           ),
           const SizedBox(height: 8),
-          Text(
-            proposalPlan.mineName ?? 'N/A',
-            style: XelaTextStyle.xelaBody.apply(color: XelaColor.Gray2),
+          XkLabelValueRow(
+            label: 'Khoáng sản:',
+            value: closurePlan.mineralName ?? 'N/A',
           ),
-          const SizedBox(height: 8),
-          Text(
-            proposalPlan.areaName ?? 'N/A',
-            style: XelaTextStyle.xelaBody.apply(color: XelaColor.Gray2),
+          XkLabelValueRow(
+            label: 'Ngày phê duyệt:',
+            value: closurePlan.approvalDateDCM != null
+                ? closurePlan.approvalDateDCM!.toLocal().toString().split(' ')[0]
+                : 'N/A',
           ),
-          const SizedBox(height: 8),
-          InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, Routers.constructionProgress,
-                  arguments: {'projectId': proposalPlan.projectId});
-            },
-            child: Text(
-              'Tiến độ thi công',
-              textAlign: TextAlign.left,
-              style: XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Blue6),
-            ),
+          XkLabelValueRow(
+            label: 'Ngày hết hạn:',
+            value: closurePlan.expirationDate != null
+                ? closurePlan.expirationDate!.toLocal().toString().split(' ')[0]
+                : 'N/A',
           ),
-          const SizedBox(height: 8),
-          Text(
-            'Tiến độ thanh toán',
-            style: XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Blue6),
+          const SizedBox(height: 12),
+          Row(
+            children: [
+              Expanded(
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, Routers.constructionProgress,
+                        arguments: {'projectId': closurePlan.closurePlanId});
+                  },
+                  child: Text(
+                    'Tiến độ thi công',
+                    textAlign: TextAlign.left,
+                    style:
+                        XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Blue6),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Text(
+                  'Tiến độ thanh toán',
+                  textAlign: TextAlign.right,
+                  style:
+                      XelaTextStyle.xelaBodyBold.apply(color: XelaColor.Blue6),
+                ),
+              ),
+            ],
           ),
         ],
       ),

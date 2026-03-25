@@ -24,5 +24,8 @@ abstract class MainMineRepository {
   Future<Result<ResultPage<MiningProjectModel>>> filterMiningProjects(
       MiningProjectRequest request);
 
+  Future<Result<ResultPage<MineClosurePlanModel>>> filterMineClosurePlans(
+      MineClosurePlanRequest request);
+
   Future<Result<dynamic>> getPaymentPlan(JSONObject param);
 }

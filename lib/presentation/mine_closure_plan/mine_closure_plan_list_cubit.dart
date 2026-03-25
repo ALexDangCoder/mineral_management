@@ -1,35 +1,28 @@
 import 'package:bnv_opendata/data/models/model_exports.dart';
-import 'package:bnv_opendata/domain/params/param_exports.dart';
 import 'package:bnv_opendata/domain/repositories/repository_exports.dart';
 import 'package:bnv_opendata/presentation/mine_base_list_screen/cubit/base_list_cubit.dart';
 
-class MineClosurePlanListCubit extends BaseListCubit<ProposalPlanModel> {
+class MineClosurePlanListCubit extends BaseListCubit<MineClosurePlanModel> {
   final MainMineRepository _repository;
 
   MineClosurePlanListCubit(this._repository);
 
   @override
-  Future<ResultPage<ProposalPlanModel>> fetchData(
+  Future<ResultPage<MineClosurePlanModel>> fetchData(
       {int? page, String? searchKey}) async {
-    final params = BasePageParam<ListProposalPlanFilter>(
+    final request = MineClosurePlanRequest(
       pageSize: 10,
       pageNow: page,
-      filter: ListProposalPlanFilter(
-        projectName: searchKey,
-        status: 2, // Assuming status 2 is for Closure Plan as requested
+      filter: MineClosurePlanFilter(
+        closurePlanName: searchKey,
+        status: 1, // As per user request: "status": 1
       ),
     );
 
-    final result = await _repository.getListProposalPlans(
-      params.toJson((filter) => filter.toJson()),
-    );
+    final result = await _repository.filterMineClosurePlans(request);
 
     return result.when(
-      success: (data) => ResultPage<ProposalPlanModel>(
-        items: data.items,
-        pageNow: data.pageNow,
-        pageTotal: data.pageTotal,
-      ),
+      success: (data) => data,
       failure: (failure) => throw Exception(failure),
     );
   }
