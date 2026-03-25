@@ -16,6 +16,8 @@ sealed class MineClosurePlanModel with _$MineClosurePlanModel {
     int? executionYear,
     DateTime? approvalDateDA,
     DateTime? approvalDateDCM,
+    String? approvalDecisionDCM,
+    String? approvalDecisionDA,
     String? approvalUnitDA,
     DateTime? expirationDate,
     int? status,

@@ -273,15 +273,11 @@ class Routers {
   static String _stringArg(Object? args, String key) {
     if (args is Map<String, dynamic>) {
       final value = args[key];
-      if (value is String) {
-        return value;
-      }
+      return value?.toString() ?? '';
     }
     if (args is Map) {
       final value = args[key];
-      if (value is String) {
-        return value;
-      }
+      return value?.toString() ?? '';
     }
     return '';
   }

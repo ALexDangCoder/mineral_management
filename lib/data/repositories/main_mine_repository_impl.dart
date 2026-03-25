@@ -63,6 +63,12 @@ class MainMineRepositoryImpl implements MainMineRepository {
   }
 
   @override
+  Future<Result<MineClosurePlanModel>> getMineClosurePlanDetail(
+      JSONObject param) async {
+    return remoteDataSource.getMineClosurePlanDetail(param).asResult();
+  }
+
+  @override
   Future<Result<dynamic>> getPaymentPlan(JSONObject param) async {
     return remoteDataSource.getPaymentPlan(param).asResult();
   }

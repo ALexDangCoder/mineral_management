@@ -102,4 +102,9 @@ abstract class ApiService {
   Future<BaseResponse<ResultPage<MineClosurePlanModel>>> filterMineClosurePlans(
     @Body() MineClosurePlanRequest request,
   );
+
+  @GET('/api/mine-closure/de-an-dong-cua-mo/get-by-id')
+  Future<BaseResponse<MineClosurePlanModel>> getMineClosurePlanDetail(
+    @Queries() Map<String, dynamic> queries,
+  );
 }

@@ -5,32 +5,32 @@ class ClosurePlanDetailState extends Equatable {
     this.status = MineScreenStatus.initial,
     this.query = '',
     this.plan,
-    this.site,
+    this.area,
     this.errorMessage,
   });
 
   final MineScreenStatus status;
   final String query;
-  final ClosurePlan? plan;
-  final MineSite? site;
+  final MineClosurePlanModel? plan;
+  final MineAreaModel? area;
   final String? errorMessage;
 
   ClosurePlanDetailState copyWith({
     MineScreenStatus? status,
     String? query,
-    ClosurePlan? plan,
-    MineSite? site,
+    MineClosurePlanModel? plan,
+    MineAreaModel? area,
     String? errorMessage,
   }) {
     return ClosurePlanDetailState(
       status: status ?? this.status,
       query: query ?? this.query,
       plan: plan ?? this.plan,
-      site: site ?? this.site,
-      errorMessage: errorMessage,
+      area: area ?? this.area,
+      errorMessage: errorMessage ?? this.errorMessage,
     );
   }
 
   @override
-  List<Object?> get props => [status, query, plan, site, errorMessage];
+  List<Object?> get props => [status, query, plan, area, errorMessage];
 }

@@ -22,6 +22,13 @@ class MineClosurePlanListScreen
   static Widget _buildItem(
       BuildContext context, MineClosurePlanModel closurePlan) {
     return XkCard(
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          Routers.closurePlanDetail,
+          arguments: {'planId': closurePlan.objectId},
+        );
+      },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

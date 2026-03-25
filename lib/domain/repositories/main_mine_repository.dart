@@ -27,5 +27,8 @@ abstract class MainMineRepository {
   Future<Result<ResultPage<MineClosurePlanModel>>> filterMineClosurePlans(
       MineClosurePlanRequest request);
 
+  Future<Result<MineClosurePlanModel>> getMineClosurePlanDetail(
+      JSONObject param);
+
   Future<Result<dynamic>> getPaymentPlan(JSONObject param);
 }
